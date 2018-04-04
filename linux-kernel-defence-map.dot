@@ -1,0 +1,275 @@
+//
+// Linux Kernel Defence Map shows the relations between:
+//  - vulnerability classes / exploitation techniques,
+//  - kernel defences,
+//  - bug detection means.
+//
+// N.B. The node connections don't mean "full mitigation". These connections
+// represent some kind of relation. So ideally, this map should help to navigate
+// in documentation and Linux kernel sources.
+//
+// It is written in DOT language.
+// How to generate png:
+//    dot -Tpng linux-kernel-defence-map.dot -o linux-kernel-defence-map.png
+//
+// TODO:
+//    - Attack surface reduction (like seccomp, LSM)
+//
+// References:
+//
+//  - The State of Kernel Self Protection by Kees Cook
+//     https://outflux.net/slides/2018/lca/kspp.pdf
+//
+//  - grsecurity features
+//     https://grsecurity.net/features.php
+//
+//  - Linux kernel security documentation:
+//     https://www.kernel.org/doc/html/latest/security/self-protection.html
+//
+//  - Linux kernel mitigation checklist by Shawn C
+//     https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
+//
+
+digraph {
+  labelloc=top;
+  fontsize=30;
+  label="Linux Kernel Defence Map";
+
+  rankdir=LR;
+  node [style=filled];
+
+  subgraph cluster_legend {
+    fontsize=25;
+    label="Legend:";
+
+    "Mainline Defences" [shape=oval, color=palegreen3];
+    "Out-of-tree Defences" [shape=oval, color=cornflowerblue];
+    "Non-free Defences" [shape=oval, color=lightgrey];
+    "HW Defences" [shape=oval, color=aquamarine];
+    "Bug Detection" [shape=octagon, color=mediumpurple];
+    "Vulnerabilities" [shape=box, color=pink];
+    "Exploitation Techniques" [shape=box, color=gold];
+  }
+
+  // For pretty legend layout:
+  edge [arrowhead=none, style=invis];
+  "Mainline Defences" -> "Out-of-tree Defences" -> "Non-free Defences" -> "HW Defences";
+  "Bug Detection" -> "Vulnerabilities" -> "Exploitation Techniques";
+
+
+  // Defences
+  {
+    rank=same;
+
+    // Mainline Defences
+    node [shape=oval, color=palegreen3];
+    "-fstack-protector-";
+    "FORTIFY_SOURCE";
+    "DEBUG_LIST";
+    "slub-debug";
+    "SLAB_FREELIST_HARDENED";
+    "KPTI";
+    "SLAB_FREELIST_RANDOM";
+    "Pointer Obfuscation";
+    "KASLR";
+    "__ro_after_init";
+    "STRICT_*_RWX";
+    "DEBUG_WX";
+    "BUG_ON_DATA_CORRUPTION";
+    "MODULE_SIG*";
+    "STATIC_USERMODEHELPER";
+    "SECURITY_DMESG_RESTRICT";
+    "SECURITY_LOADPIN";
+
+    // Out-of-tree Defences
+    node [shape=oval, color=cornflowerblue];
+    "XPFO";
+    "PROTECTABLE_MEMORY";
+    "request_module_cap()";
+
+    // Non-free Defences
+    node [shape=oval, color=lightgrey];
+    "GRKERNSEC_KSTACKOVERFLOW";
+    "PAX_REFCOUNT";
+    "PAX_SIZE_OVERFLOW";
+    "PAX_USERCOPY";
+    "PAX_MEMORY_SANITIZE";
+    "PAX_UDEREF";
+    "PAX_KERNEXEC";
+    "GRKERNSEC_HIDESYM";
+    "GRKERNSEC_RANDSTRUCT";
+    "PAX_CONSTIFY_PLUGIN";
+    "PAX_RAP";
+    "PAX_RANDKSTACK";
+    "GRKERNSEC_JIT_HARDEN";
+    "PAX_MEMORY_STRUCTLEAK";
+    "PAX_MEMORY_STACKLEAK";
+    "GRKERNSEC_MODHARDEN";
+
+    // HW Defences
+    node [shape=oval, color=aquamarine];
+    "SMAP/PAN";
+    "SMEP/PXN";
+  }
+
+  // Defences: child nodes and relations
+  {
+    rank=same;
+    node [shape=oval, color=palegreen3];
+    "refcount_t";
+    "HARDENED_USERCOPY";
+    "PAGE_POISONING*";
+    "VMAP_STACK";
+    "THREAD_INFO_IN_TASK";
+    "RANDSTRUCT";
+    "STRUCTLEAK";
+
+    node [shape=oval, color=cornflowerblue];
+    "STACKLEAK";
+  }
+
+  edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
+  "refcount_t" -> "PAX_REFCOUNT";
+  "HARDENED_USERCOPY" -> "PAX_USERCOPY";
+  "PAGE_POISONING*" -> "PAX_MEMORY_SANITIZE";
+  "VMAP_STACK" -> "GRKERNSEC_KSTACKOVERFLOW";
+  "THREAD_INFO_IN_TASK" -> "GRKERNSEC_KSTACKOVERFLOW";
+  "RANDSTRUCT" -> "GRKERNSEC_RANDSTRUCT";
+  "STRUCTLEAK" -> "PAX_MEMORY_STRUCTLEAK";
+  "STACKLEAK" -> "PAX_MEMORY_STACKLEAK";
+
+
+  // Vulnerabilities and Exploitation Techniques
+  {
+    rank=same;
+
+    // Vulnerabilities
+    node [shape=box, color=pink];
+    "Stack Depth Overflow";
+    "General Buffer Overflow";
+    "Stack Buffer Overflow";
+    "Int Overflow/Underflow";
+    "Uninitialized Vars";
+    "Use-After-Free";
+    "Double Free";
+    "Info Exposure";
+    "Race Condition";
+    "Undefined Behaviour";
+    "Type Confusion";
+
+    // Exploitation Techniques
+    node [shape=box, color=gold];
+    "Metadata Corruption";
+    "Function Pointer Overwrite";
+    "Heap Spray";
+    "Code Reuse";
+    "ret2usr";
+    "ret2usr+ROP";
+    "ret2dir+ROP";
+    "Finding Kernel Objects";
+    "JIT Abuse";
+    "WX Area Abuse";
+    "Bad Module Loading";
+  }
+
+  edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
+  "General Buffer Overflow" -> "Stack Buffer Overflow";
+  "General Buffer Overflow" -> "Int Overflow/Underflow";
+  "Int Overflow/Underflow" -> "Double Free";
+  "Info Exposure" -> "Finding Kernel Objects";
+  "Metadata Corruption" -> "Function Pointer Overwrite";
+  "Code Reuse" -> "ret2usr+ROP";
+  "Code Reuse" -> "ret2dir+ROP";
+
+
+  // Bug Detection Means
+  {
+    rank=same;
+    node [shape=octagon, color=mediumpurple];
+
+    "KASAN";
+    "UBSAN";
+    "KMSAN";
+    "KTSAN";
+  }
+
+
+  // Relations: Bug Detection Means vs Vulnerabilities
+  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
+  "General Buffer Overflow" -> "KASAN";
+  "Stack Buffer Overflow" -> "KASAN";
+  "Use-After-Free" -> "KASAN";
+  "Double Free" -> "KASAN";
+  "Undefined Behaviour" -> "UBSAN";
+  "Uninitialized Vars" -> "KMSAN";
+  "Race Condition" -> "KTSAN";
+
+
+  // Relations: Defences vs Vulnerabilities and Exploitation Techniques
+  edge [style=solid, arrowhead=normal, dir=forward, headport=_, tailport=_];
+  "GRKERNSEC_KSTACKOVERFLOW" -> "Stack Depth Overflow";
+  "PAX_MEMORY_STACKLEAK" -> "Stack Depth Overflow";
+
+  "PAX_USERCOPY" -> "General Buffer Overflow";
+  "FORTIFY_SOURCE" -> "General Buffer Overflow";
+
+  "-fstack-protector-" -> "Stack Buffer Overflow";
+
+  "PAX_REFCOUNT" -> "Int Overflow/Underflow";
+  "PAX_SIZE_OVERFLOW" -> "Int Overflow/Underflow";
+
+  "PAX_MEMORY_STACKLEAK" -> "Uninitialized Vars";
+  "PAX_MEMORY_STRUCTLEAK" -> "Uninitialized Vars";
+  "PAX_MEMORY_SANITIZE" -> "Uninitialized Vars";
+
+  "PAX_MEMORY_SANITIZE" -> "Use-After-Free";
+
+  "slub-debug" -> "Double Free";
+  "SLAB_FREELIST_HARDENED" -> "Double Free";
+
+  "PAX_MEMORY_STACKLEAK" -> "Info Exposure";
+  "GRKERNSEC_HIDESYM" -> "Info Exposure";
+  "Pointer Obfuscation" -> "Info Exposure";
+  "PAX_MEMORY_SANITIZE" -> "Info Exposure";
+  "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure";
+  "SECURITY_DMESG_RESTRICT" -> "Info Exposure";
+
+  "DEBUG_LIST" -> "Metadata Corruption";
+  "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
+  "slub-debug" -> "Metadata Corruption";
+  "SLAB_FREELIST_RANDOM" -> "Metadata Corruption";
+  "SLAB_FREELIST_HARDENED" -> "Metadata Corruption";
+  "PROTECTABLE_MEMORY" -> "Metadata Corruption";
+  "STATIC_USERMODEHELPER" -> "Metadata Corruption";
+
+  "PAX_CONSTIFY_PLUGIN" -> "Function Pointer Overwrite";
+  "__ro_after_init" -> "Function Pointer Overwrite";
+
+  "SLAB_FREELIST_RANDOM" -> "Heap Spray";
+
+  "PAX_RAP" -> "Code Reuse";
+
+  "PAX_KERNEXEC" -> "ret2usr";
+  "KPTI" -> "ret2usr";
+  "SMEP/PXN" -> "ret2usr";
+
+  "PAX_UDEREF" -> "ret2usr+ROP";
+  "SMAP/PAN" -> "ret2usr+ROP";
+
+  "XPFO" -> "ret2dir+ROP";
+
+  "KASLR" -> "Finding Kernel Objects";
+  "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
+  "PAX_RANDKSTACK" -> "Finding Kernel Objects";
+
+  "GRKERNSEC_JIT_HARDEN" -> "JIT Abuse";
+
+  "PAX_KERNEXEC" -> "WX Area Abuse";
+  "STRICT_*_RWX" -> "WX Area Abuse";
+  "DEBUG_WX" -> "WX Area Abuse";
+
+  "GRKERNSEC_MODHARDEN" -> "Bad Module Loading";
+  "MODULE_SIG*" -> "Bad Module Loading";
+  "SECURITY_LOADPIN" -> "Bad Module Loading";
+  "request_module_cap()" -> "Bad Module Loading";
+}
