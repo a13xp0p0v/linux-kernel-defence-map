@@ -1,5 +1,5 @@
 //
-// Linux Kernel Defence Map shows the relations between:
+// Linux Kernel Defence Map (for v4.15) shows the relations between:
 //  - vulnerability classes / exploitation techniques,
 //  - kernel defences,
 //  - bug detection means.
