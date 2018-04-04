@@ -44,7 +44,7 @@ digraph {
 
     "Mainline Defences" [shape=oval, color=palegreen3];
     "Out-of-tree Defences" [shape=oval, color=cornflowerblue];
-    "Non-free Defences" [shape=oval, color=lightgrey];
+    "Commercial Defences" [shape=oval, color=lightgrey];
     "HW Defences" [shape=oval, color=aquamarine];
     "Bug Detection" [shape=octagon, color=mediumpurple];
     "Vulnerabilities" [shape=box, color=pink];
@@ -53,7 +53,7 @@ digraph {
 
   // For pretty legend layout:
   edge [arrowhead=none, style=invis];
-  "Mainline Defences" -> "Out-of-tree Defences" -> "Non-free Defences" -> "HW Defences";
+  "Mainline Defences" -> "Out-of-tree Defences" -> "Commercial Defences" -> "HW Defences";
   "Bug Detection" -> "Vulnerabilities" -> "Exploitation Techniques";
 
 
@@ -87,7 +87,7 @@ digraph {
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
 
-    // Non-free Defences
+    // Commercial Defences
     node [shape=oval, color=lightgrey];
     "GRKERNSEC_KSTACKOVERFLOW";
     "PAX_REFCOUNT";
