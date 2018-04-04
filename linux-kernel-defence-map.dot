@@ -77,7 +77,6 @@ digraph {
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
     "STATIC_USERMODEHELPER";
-    "SECURITY_DMESG_RESTRICT";
     "SECURITY_LOADPIN";
 
     // Out-of-tree Defences
@@ -105,6 +104,7 @@ digraph {
     "PAX_MEMORY_STACKLEAK";
     "GRKERNSEC_MODHARDEN";
     "__read_only";
+    "GRKERNSEC_DMESG";
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -124,6 +124,7 @@ digraph {
     "RANDSTRUCT";
     "STRUCTLEAK";
     "__ro_after_init";
+    "SECURITY_DMESG_RESTRICT";
 
     node [shape=oval, color=cornflowerblue];
     "STACKLEAK";
@@ -138,6 +139,7 @@ digraph {
   "RANDSTRUCT" -> "GRKERNSEC_RANDSTRUCT";
   "STRUCTLEAK" -> "PAX_MEMORY_STRUCTLEAK";
   "__ro_after_init" -> "__read_only";
+  "SECURITY_DMESG_RESTRICT" -> "GRKERNSEC_DMESG";
   "STACKLEAK" -> "PAX_MEMORY_STACKLEAK";
 
 
@@ -234,7 +236,7 @@ digraph {
   "Pointer Obfuscation" -> "Info Exposure";
   "PAX_MEMORY_SANITIZE" -> "Info Exposure";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure";
-  "SECURITY_DMESG_RESTRICT" -> "Info Exposure";
+  "GRKERNSEC_DMESG" -> "Info Exposure";
 
   "DEBUG_LIST" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
