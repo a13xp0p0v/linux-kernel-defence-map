@@ -179,6 +179,7 @@ digraph {
     "Heap Spray";
     "Code Reuse";
     "ret2usr";
+    "ret2usr + type confusion";
     "ret2usr + ROP";
     "ret2dir";
     "ret2dir + ROP";
@@ -272,6 +273,8 @@ digraph {
   "KPTI" -> "ret2usr";
   "SMEP/PXN" -> "ret2usr";
 
+  "PAX_UDEREF" -> "ret2usr + type confusion";
+  "SMAP/PAN" -> "ret2usr + type confusion";
 
   "PAX_UDEREF" -> "ret2usr + ROP";
   "SMAP/PAN" -> "ret2usr + ROP";
