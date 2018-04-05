@@ -115,19 +115,21 @@ digraph {
 
   subgraph cluster_smap_pan_uderef {
     label="";
-    "SMAP/PAN" [shape=oval, color=aquamarine];
-    "PAX_UDEREF" [shape=oval, color=lightgrey];
+    "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
+    "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   subgraph cluster_cfi {
     label="";
-    "PAX_RAP" [shape=oval, color=lightgrey];
-    "Clang CFI" [shape=oval, color=cornflowerblue];
+    "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
+    "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
 
   // Defences: child nodes and relations
   {
     rank=same;
+
+    // Mainline Defences
     node [shape=oval, color=palegreen3];
     "refcount_t";
     "HARDENED_USERCOPY";
@@ -142,6 +144,7 @@ digraph {
     "ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
 
+    // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
     "STACKLEAK";
   }
