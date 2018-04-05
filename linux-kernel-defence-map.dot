@@ -105,6 +105,7 @@ digraph {
     "GRKERNSEC_MODHARDEN";
     "__read_only";
     "GRKERNSEC_DMESG";
+    grsecurity_hardened_freelist [label="by default in grsecurity"];
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -141,6 +142,7 @@ digraph {
   "__ro_after_init" -> "__read_only";
   "SECURITY_DMESG_RESTRICT" -> "GRKERNSEC_DMESG";
   "STACKLEAK" -> "PAX_MEMORY_STACKLEAK";
+  "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -245,6 +247,7 @@ digraph {
   "SLAB_FREELIST_HARDENED" -> "Metadata Corruption";
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
   "STATIC_USERMODEHELPER" -> "Metadata Corruption";
+  grsecurity_hardened_freelist -> "Metadata Corruption";
 
   "PAX_CONSTIFY_PLUGIN" -> "Function Pointer Overwrite";
   "__read_only" -> "Function Pointer Overwrite";
