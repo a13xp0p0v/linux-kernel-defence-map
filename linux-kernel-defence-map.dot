@@ -179,8 +179,8 @@ digraph {
     "Heap Spray";
     "Code Reuse";
     "ret2usr";
-    "ret2usr+ROP";
-    "ret2dir+ROP";
+    "ret2usr + ROP";
+    "ret2dir + ROP";
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
@@ -272,10 +272,11 @@ digraph {
   "KPTI" -> "ret2usr";
   "SMEP/PXN" -> "ret2usr";
 
-  "PAX_UDEREF" -> "ret2usr+ROP";
-  "SMAP/PAN" -> "ret2usr+ROP";
 
-  "XPFO" -> "ret2dir+ROP";
+  "PAX_UDEREF" -> "ret2usr + ROP";
+  "SMAP/PAN" -> "ret2usr + ROP";
+
+  "XPFO" -> "ret2dir + ROP";
 
   "KASLR" -> "Finding Kernel Objects";
   "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
