@@ -193,8 +193,6 @@ digraph {
   "Int Overflow/Underflow" -> "Double Free";
   "Info Exposure" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
-  "Code Reuse" -> "ret2usr+ROP";
-  "Code Reuse" -> "ret2dir+ROP";
 
 
   // Bug Detection Means
@@ -275,8 +273,10 @@ digraph {
 
   "PAX_UDEREF" -> "ret2usr + ROP";
   "SMAP/PAN" -> "ret2usr + ROP";
+  "PAX_RAP" -> "ret2usr + ROP";
 
   "XPFO" -> "ret2dir + ROP";
+  "PAX_RAP" -> "ret2dir + ROP";
 
   "KASLR" -> "Finding Kernel Objects";
   "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
