@@ -278,7 +278,7 @@ digraph {
 
   "PAX_RAP" -> "Code Reuse" [ltail=cluster_cfi];
 
-  "PAX_KERNEXEC" -> "ret2usr";
+  "PAX_KERNEXEC":e -> "ret2usr";
   "KPTI" -> "ret2usr";
   "SMEP/PXN" -> "ret2usr";
   "SMAP/PAN":se -> "ret2usr" [ltail=cluster_smap_pan_uderef];
@@ -288,7 +288,7 @@ digraph {
   "PAX_UDEREF":ne -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef, weight=4];
   "PAX_RAP" -> "ret2usr + ROP" [ltail=cluster_cfi];
 
-  "PAX_KERNEXEC" -> "ret2dir";
+  "PAX_KERNEXEC":e -> "ret2dir";
   "XPFO" -> "ret2dir";
 
   "XPFO" -> "ret2dir + ROP";
@@ -301,7 +301,7 @@ digraph {
   "GRKERNSEC_JIT_HARDEN" -> "JIT Abuse";
   "bpf_jit_harden" -> "JIT Abuse";
 
-  "PAX_KERNEXEC" -> "WX Area Abuse";
+  "PAX_KERNEXEC":e -> "WX Area Abuse";
   "STRICT_*_RWX" -> "WX Area Abuse";
   "DEBUG_WX" -> "WX Area Abuse";
 
