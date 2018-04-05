@@ -281,6 +281,7 @@ digraph {
   "PAX_RAP" -> "ret2usr + ROP";
 
   "PAX_KERNEXEC" -> "ret2dir";
+  "XPFO" -> "ret2dir";
 
   "XPFO" -> "ret2dir + ROP";
   "PAX_RAP" -> "ret2dir + ROP";
