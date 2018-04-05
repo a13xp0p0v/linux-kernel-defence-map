@@ -34,6 +34,7 @@ digraph {
   labelloc=top;
   fontsize=30;
   label="Linux Kernel Defence Map";
+  compound=true;
 
   rankdir=LR;
   node [style=filled];
@@ -93,7 +94,6 @@ digraph {
     "PAX_SIZE_OVERFLOW";
     "PAX_USERCOPY";
     "PAX_MEMORY_SANITIZE";
-    "PAX_UDEREF";
     "PAX_KERNEXEC";
     "GRKERNSEC_HIDESYM";
     "GRKERNSEC_RANDSTRUCT";
@@ -111,8 +111,13 @@ digraph {
 
     // HW Defences
     node [shape=oval, color=aquamarine];
-    "SMAP/PAN";
     "SMEP/PXN";
+  }
+
+  subgraph cluster_smap_pan_uderef {
+    label="";
+    "SMAP/PAN" [shape=oval, color=aquamarine];
+    "PAX_UDEREF" [shape=oval, color=lightgrey];
   }
 
   // Defences: child nodes and relations
@@ -269,15 +274,13 @@ digraph {
   "PAX_RAP" -> "Code Reuse";
 
   "PAX_KERNEXEC" -> "ret2usr";
-  "PAX_UDEREF" -> "ret2usr";
   "KPTI" -> "ret2usr";
   "SMEP/PXN" -> "ret2usr";
+  "SMAP/PAN":se -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF" -> "userspace data access";
-  "SMAP/PAN" -> "userspace data access";
+  "PAX_UDEREF":ne -> "userspace data access" [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF" -> "ret2usr + ROP";
-  "SMAP/PAN" -> "ret2usr + ROP";
+  "PAX_UDEREF":ne -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef, weight=4];
   "PAX_RAP" -> "ret2usr + ROP";
 
   "PAX_KERNEXEC" -> "ret2dir";
