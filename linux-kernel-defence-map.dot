@@ -78,6 +78,7 @@ digraph {
     "MODULE_SIG*";
     "SECURITY_LOADPIN";
     "RETPOLINE";
+    "bpf_jit_harden";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -277,6 +278,7 @@ digraph {
   "PAX_RANDKSTACK" -> "Finding Kernel Objects";
 
   "GRKERNSEC_JIT_HARDEN" -> "JIT Abuse";
+  "bpf_jit_harden" -> "JIT Abuse";
 
   "PAX_KERNEXEC" -> "WX Area Abuse";
   "STRICT_*_RWX" -> "WX Area Abuse";
