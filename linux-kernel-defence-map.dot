@@ -77,6 +77,7 @@ digraph {
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
     "SECURITY_LOADPIN";
+    "RETPOLINE";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -164,6 +165,7 @@ digraph {
     "Race Condition";
     "Undefined Behaviour";
     "Type Confusion";
+    "Side Channels";
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -241,6 +243,9 @@ digraph {
   "PAX_MEMORY_SANITIZE" -> "Info Exposure";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure";
   "GRKERNSEC_DMESG" -> "Info Exposure";
+
+  "KPTI" -> "Side Channels";
+  "RETPOLINE" -> "Side Channels";
 
   "DEBUG_LIST" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
