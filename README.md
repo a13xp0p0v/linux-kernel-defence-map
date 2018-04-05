@@ -21,11 +21,7 @@ So it is very pleasant to maintain this map with git.
 
 If you see any mistakes, feel free to create an Issue or ping me via alex.popov@linux.com
 
-## The Map for v4.15
-
-![Linux Kernel Defence Map](./linux-kernel-defence-map.png)
-
-## References
+## Documentation
 
 - Grsecurity features:
 https://grsecurity.net/features.php
@@ -38,4 +34,8 @@ https://www.kernel.org/doc/html/latest/security/self-protection.html
 
 - Linux kernel mitigation checklist by Shawn C:
 https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
+
+## The Map for v4.15
+
+![Linux Kernel Defence Map](./linux-kernel-defence-map.png)
 
