@@ -180,6 +180,7 @@ digraph {
     "Code Reuse";
     "ret2usr";
     "ret2usr + ROP";
+    "ret2dir";
     "ret2dir + ROP";
     "Finding Kernel Objects";
     "JIT Abuse";
@@ -274,6 +275,8 @@ digraph {
   "PAX_UDEREF" -> "ret2usr + ROP";
   "SMAP/PAN" -> "ret2usr + ROP";
   "PAX_RAP" -> "ret2usr + ROP";
+
+  "PAX_KERNEXEC" -> "ret2dir";
 
   "XPFO" -> "ret2dir + ROP";
   "PAX_RAP" -> "ret2dir + ROP";
