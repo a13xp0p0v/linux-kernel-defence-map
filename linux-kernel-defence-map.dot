@@ -131,7 +131,7 @@ digraph {
 
     // Mainline Defences
     node [shape=oval, color=palegreen3];
-    "refcount_t";
+    "REFCOUNT_FULL";
     "HARDENED_USERCOPY";
     "PAGE_POISONING*";
     "VMAP_STACK";
@@ -150,7 +150,7 @@ digraph {
   }
 
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
-  "refcount_t" -> "PAX_REFCOUNT";
+  "REFCOUNT_FULL" -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY" -> "PAX_USERCOPY";
   "PAGE_POISONING*" -> "PAX_MEMORY_SANITIZE";
   "VMAP_STACK" -> "GRKERNSEC_KSTACKOVERFLOW";
