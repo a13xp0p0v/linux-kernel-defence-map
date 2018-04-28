@@ -76,7 +76,7 @@ digraph {
     "SLAB_FREELIST_HARDENED";
     "KPTI";
     "SLAB_FREELIST_RANDOM";
-    "Pointer Obfuscation";
+    "Printed Pointer Hashing";
     "KASLR";
     "STRICT_*_RWX";
     "DEBUG_WX";
@@ -269,7 +269,7 @@ digraph {
 
   "PAX_MEMORY_STACKLEAK" -> "Info Exposure";
   "GRKERNSEC_HIDESYM" -> "Info Exposure";
-  "Pointer Obfuscation" -> "Info Exposure";
+  "Printed Pointer Hashing" -> "Info Exposure";
   "Heap free() Poisoning" -> "Info Exposure";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure";
   "GRKERNSEC_DMESG" -> "Info Exposure";
