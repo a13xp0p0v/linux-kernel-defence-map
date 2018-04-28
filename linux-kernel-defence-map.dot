@@ -47,6 +47,7 @@ digraph {
     "Out-of-tree Defences" [shape=oval, color=cornflowerblue];
     "Commercial Defences" [shape=oval, color=lightgrey];
     "HW Defences" [shape=oval, color=aquamarine];
+    "Defence Techniques" [shape=octagon, color=black, style=solid];
     "Bug Detection" [shape=octagon, color=mediumpurple];
     "Vulnerabilities" [shape=box, color=pink];
     "Exploitation Techniques" [shape=box, color=gold];
@@ -55,15 +56,19 @@ digraph {
   // For pretty legend layout:
   edge [arrowhead=none, style=invis];
   "Mainline Defences" -> "Out-of-tree Defences" -> "Commercial Defences" -> "HW Defences";
-  "Bug Detection" -> "Vulnerabilities" -> "Exploitation Techniques";
+  "Defence Techniques" -> "Bug Detection" -> "Vulnerabilities" -> "Exploitation Techniques";
 
 
   // Defences
   {
     rank=same;
 
+    // Defence Techniques
+    node [shape=octagon, color=black, style=solid];
+    "Heap free() Poisoning";
+
     // Mainline Defences
-    node [shape=oval, color=palegreen3];
+    node [shape=oval, color=palegreen3, style=filled];
     "-fstack-protector-";
     "FORTIFY_SOURCE";
     "DEBUG_LIST";
@@ -93,7 +98,6 @@ digraph {
     "PAX_REFCOUNT";
     "PAX_SIZE_OVERFLOW";
     "PAX_USERCOPY";
-    "PAX_MEMORY_SANITIZE";
     "PAX_KERNEXEC";
     "GRKERNSEC_HIDESYM";
     "GRKERNSEC_RANDSTRUCT";
@@ -143,6 +147,11 @@ digraph {
     "CPU_SW_DOMAIN_PAN";
     "ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
+    "slub_debug=P";
+
+    // Commercial Defences
+    node [shape=oval, color=lightgrey];
+    "PAX_MEMORY_SANITIZE";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -164,6 +173,9 @@ digraph {
   "ARM64_SW_TTBR0_PAN" -> "SMAP/PAN";
   "STATIC_USERMODEHELPER" -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
+  "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w;
+  "slub_debug=P" -> "Heap free() Poisoning":w;
+  "slub_debug=P" -> "SLUB_DEBUG_ON";
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -248,9 +260,9 @@ digraph {
 
   "PAX_MEMORY_STACKLEAK" -> "Uninitialized Vars";
   "PAX_MEMORY_STRUCTLEAK" -> "Uninitialized Vars";
-  "PAX_MEMORY_SANITIZE" -> "Uninitialized Vars";
+  "Heap free() Poisoning":e -> "Uninitialized Vars";
 
-  "PAX_MEMORY_SANITIZE" -> "Use-After-Free";
+  "Heap free() Poisoning":e -> "Use-After-Free";
 
   "SLUB_DEBUG_ON" -> "Double Free";
   "SLAB_FREELIST_HARDENED" -> "Double Free";
@@ -258,7 +270,7 @@ digraph {
   "PAX_MEMORY_STACKLEAK" -> "Info Exposure";
   "GRKERNSEC_HIDESYM" -> "Info Exposure";
   "Pointer Obfuscation" -> "Info Exposure";
-  "PAX_MEMORY_SANITIZE" -> "Info Exposure";
+  "Heap free() Poisoning" -> "Info Exposure";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure";
   "GRKERNSEC_DMESG" -> "Info Exposure";
 
