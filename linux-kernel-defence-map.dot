@@ -67,7 +67,7 @@ digraph {
     "-fstack-protector-";
     "FORTIFY_SOURCE";
     "DEBUG_LIST";
-    "slub_debug";
+    "SLUB_DEBUG_ON";
     "SLAB_FREELIST_HARDENED";
     "KPTI";
     "SLAB_FREELIST_RANDOM";
@@ -252,7 +252,7 @@ digraph {
 
   "PAX_MEMORY_SANITIZE" -> "Use-After-Free";
 
-  "slub_debug" -> "Double Free";
+  "SLUB_DEBUG_ON" -> "Double Free";
   "SLAB_FREELIST_HARDENED" -> "Double Free";
 
   "PAX_MEMORY_STACKLEAK" -> "Info Exposure";
@@ -267,7 +267,7 @@ digraph {
 
   "DEBUG_LIST" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
-  "slub_debug" -> "Metadata Corruption";
+  "SLUB_DEBUG_ON" -> "Metadata Corruption";
   "SLAB_FREELIST_RANDOM" -> "Metadata Corruption";
   "SLAB_FREELIST_HARDENED" -> "Metadata Corruption";
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
