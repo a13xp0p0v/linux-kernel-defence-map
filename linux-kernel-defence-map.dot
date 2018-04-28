@@ -291,7 +291,7 @@ digraph {
 
   "SLAB_FREELIST_RANDOM" -> "Heap Spray";
 
-  "PAX_RAP" -> "Code Reuse" [ltail=cluster_cfi];
+  "PAX_RAP":e -> "Code Reuse" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr";
   "KPTI" -> "ret2usr";
@@ -300,14 +300,14 @@ digraph {
 
   "PAX_UDEREF":ne -> "userspace data access" [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF":ne -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef, weight=4];
-  "PAX_RAP" -> "ret2usr + ROP" [ltail=cluster_cfi];
+  "PAX_UDEREF":ne -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
+  "PAX_RAP":e -> "ret2usr + ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2dir";
   "XPFO" -> "ret2dir";
 
   "XPFO" -> "ret2dir + ROP";
-  "PAX_RAP" -> "ret2dir + ROP" [ltail=cluster_cfi];
+  "PAX_RAP":e -> "ret2dir + ROP" [ltail=cluster_cfi];
 
   "KASLR" -> "Finding Kernel Objects";
   "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
