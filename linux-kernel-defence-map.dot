@@ -173,8 +173,8 @@ digraph {
   "ARM64_SW_TTBR0_PAN" -> "SMAP/PAN";
   "STATIC_USERMODEHELPER" -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
-  "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w;
-  "slub_debug=P" -> "Heap free() Poisoning":w;
+  "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
+  "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "SLUB_DEBUG_ON";
 
 
