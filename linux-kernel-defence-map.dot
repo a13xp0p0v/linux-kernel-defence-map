@@ -140,7 +140,7 @@ digraph {
     node [shape=oval, color=palegreen3];
     "REFCOUNT_FULL";
     "HARDENED_USERCOPY";
-    "PAGE_POISONING*";
+    "PAGE_POISONING";
     "VMAP_STACK";
     "THREAD_INFO_IN_TASK";
     "RANDSTRUCT";
@@ -165,7 +165,7 @@ digraph {
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
   "REFCOUNT_FULL" -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY" -> "PAX_USERCOPY";
-  "PAGE_POISONING*" -> "PAX_MEMORY_SANITIZE";
+  "PAGE_POISONING" -> "PAX_MEMORY_SANITIZE";
   "VMAP_STACK" -> "GRKERNSEC_KSTACKOVERFLOW";
   "THREAD_INFO_IN_TASK" -> "GRKERNSEC_KSTACKOVERFLOW";
   "RANDSTRUCT" -> "GRKERNSEC_RANDSTRUCT";
