@@ -85,7 +85,7 @@ digraph {
     "SECURITY_LOADPIN";
     "RETPOLINE";
     "bpf_jit_harden";
-    "address limit check on user-mode return";  // Arch specific, e.g, https://patchwork.kernel.org/patch/9787781/
+    "TIF_SETFS flag";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -197,7 +197,7 @@ digraph {
     "Undefined Behaviour (CWE-758)";
     "Type Confusion (CWE-843)";
     "Side Channels (CWE-514)";
-    "Unbalanced set_fs";
+    "Unbalanced set_fs()";
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -279,6 +279,8 @@ digraph {
   "KPTI" -> "Side Channels (CWE-514)";
   "RETPOLINE" -> "Side Channels (CWE-514)";
 
+  "TIF_SETFS flag" -> "Unbalanced set_fs()";
+
   "DEBUG_LIST" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
   "SLUB_DEBUG_ON" -> "Metadata Corruption";
@@ -326,6 +328,4 @@ digraph {
   "MODULE_SIG*" -> "Bad Module Loading";
   "SECURITY_LOADPIN" -> "Bad Module Loading";
   "request_module_cap()" -> "Bad Module Loading";
-
-  "address limit check on user-mode return" -> "Unbalanced set_fs";
 }
