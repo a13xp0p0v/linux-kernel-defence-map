@@ -71,7 +71,7 @@ digraph {
     node [shape=oval, color=palegreen3, style=filled];
     "CC_STACKPROTECTOR";
     "FORTIFY_SOURCE";
-    "DEBUG_LIST";
+    "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
     "SLUB_DEBUG_ON";
     "SLAB_FREELIST_HARDENED";
     "PAGE_TABLE_ISOLATION";
@@ -277,7 +277,7 @@ digraph {
   "PAGE_TABLE_ISOLATION" -> "Side Channels (CWE-514)";
   "RETPOLINE" -> "Side Channels (CWE-514)";
 
-  "DEBUG_LIST" -> "Metadata Corruption";
+  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
   "SLUB_DEBUG_ON" -> "Metadata Corruption";
   "SLAB_FREELIST_RANDOM" -> "Metadata Corruption";
