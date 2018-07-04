@@ -69,16 +69,16 @@ digraph {
 
     // Mainline Defences
     node [shape=oval, color=palegreen3, style=filled];
-    "-fstack-protector-";
+    "CC_STACKPROTECTOR";
     "FORTIFY_SOURCE";
     "DEBUG_LIST";
     "SLUB_DEBUG_ON";
     "SLAB_FREELIST_HARDENED";
-    "KPTI";
+    "PAGE_TABLE_ISOLATION";
     "SLAB_FREELIST_RANDOM";
     "Printed Pointer Hashing";
-    "KASLR";
-    "STRICT_*_RWX";
+    "KASLR"; // RANDOMIZE_BASE, RANDOMIZE_MEMORY
+    "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
@@ -253,7 +253,7 @@ digraph {
   "PAX_USERCOPY" -> "General Buffer Overflow (CWE-120)";
   "FORTIFY_SOURCE" -> "General Buffer Overflow (CWE-120)";
 
-  "-fstack-protector-" -> "Stack Buffer Overflow (CWE-121)";
+  "CC_STACKPROTECTOR" -> "Stack Buffer Overflow (CWE-121)";
 
   "PAX_REFCOUNT" -> "Int Overflow/Underflow (CWE-128/191)";
   "PAX_SIZE_OVERFLOW" -> "Int Overflow/Underflow (CWE-128/191)";
@@ -274,7 +274,7 @@ digraph {
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure (CWE-200)";
   "GRKERNSEC_DMESG" -> "Info Exposure (CWE-200)";
 
-  "KPTI" -> "Side Channels (CWE-514)";
+  "PAGE_TABLE_ISOLATION" -> "Side Channels (CWE-514)";
   "RETPOLINE" -> "Side Channels (CWE-514)";
 
   "DEBUG_LIST" -> "Metadata Corruption";
@@ -294,7 +294,7 @@ digraph {
   "PAX_RAP":e -> "Code Reuse" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr";
-  "KPTI" -> "ret2usr";
+  "PAGE_TABLE_ISOLATION" -> "ret2usr";
   "SMEP/PXN" -> "ret2usr";
   "SMAP/PAN":se -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
@@ -317,7 +317,7 @@ digraph {
   "bpf_jit_harden" -> "JIT Abuse";
 
   "PAX_KERNEXEC":e -> "WX Area Abuse";
-  "STRICT_*_RWX" -> "WX Area Abuse";
+  "STRICT_{KERNEL,MODULE}_RWX" -> "WX Area Abuse";
   "DEBUG_WX" -> "WX Area Abuse";
 
   "GRKERNSEC_MODHARDEN" -> "Bad Module Loading";
