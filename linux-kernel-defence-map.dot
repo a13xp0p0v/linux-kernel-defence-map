@@ -103,6 +103,7 @@ digraph {
     "PAX_KERNEXEC";
     "GRKERNSEC_HIDESYM";
     "GRKERNSEC_RANDSTRUCT";
+    "PAX_LATENT_ENTROPY";
     "PAX_CONSTIFY_PLUGIN";
     "PAX_RANDKSTACK";
     "GRKERNSEC_JIT_HARDEN";
@@ -144,6 +145,7 @@ digraph {
     "THREAD_INFO_IN_TASK";
     "RANDSTRUCT";
     "STRUCTLEAK";
+    "LATENT_ENTROPY";
     "__ro_after_init";
     "SECURITY_DMESG_RESTRICT";
     "CPU_SW_DOMAIN_PAN";
@@ -168,6 +170,7 @@ digraph {
   "THREAD_INFO_IN_TASK" -> "GRKERNSEC_KSTACKOVERFLOW";
   "RANDSTRUCT" -> "GRKERNSEC_RANDSTRUCT";
   "STRUCTLEAK" -> "PAX_MEMORY_STRUCTLEAK";
+  "LATENT_ENTROPY" -> "PAX_LATENT_ENTROPY";
   "__ro_after_init" -> "__read_only";
   "SECURITY_DMESG_RESTRICT" -> "GRKERNSEC_DMESG";
   "STACKLEAK" -> "PAX_MEMORY_STACKLEAK";
@@ -318,6 +321,7 @@ digraph {
   "KASLR" -> "Finding Kernel Objects";
   "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
   "PAX_RANDKSTACK" -> "Finding Kernel Objects";
+  "PAX_LATENT_ENTROPY" -> "Finding Kernel Objects";
 
   "GRKERNSEC_JIT_HARDEN" -> "JIT Abuse";
   "bpf_jit_harden" -> "JIT Abuse";
