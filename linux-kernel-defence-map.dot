@@ -85,6 +85,7 @@ digraph {
     "SECURITY_LOADPIN";
     "RETPOLINE";
     "bpf_jit_harden";
+    "DEFAULT_MMAP_MIN_ADDR=65536";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -191,6 +192,7 @@ digraph {
     "Uninitialized Vars (CWE-457)";
     "Use-After-Free (CWE-416)";
     "Double Free (CWE-415)";
+    "NULL Pointer Dereference (CWE-476)";
     "Info Exposure (CWE-200)";
     "Race Condition (CWE-362)";
     "Undefined Behaviour (CWE-758)";
@@ -266,6 +268,8 @@ digraph {
 
   "SLUB_DEBUG_ON" -> "Double Free (CWE-415)";
   "SLAB_FREELIST_HARDENED" -> "Double Free (CWE-415)";
+
+  "DEFAULT_MMAP_MIN_ADDR=65536" -> "NULL Pointer Dereference (CWE-476)";
 
   "PAX_MEMORY_STACKLEAK" -> "Info Exposure (CWE-200)";
   "GRKERNSEC_HIDESYM" -> "Info Exposure (CWE-200)";
