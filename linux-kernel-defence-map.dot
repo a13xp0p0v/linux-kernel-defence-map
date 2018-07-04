@@ -86,6 +86,7 @@ digraph {
     "RETPOLINE";
     "bpf_jit_harden";
     "DEFAULT_MMAP_MIN_ADDR=65536";
+    "SCHED_STACK_END_CHECK";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -251,6 +252,7 @@ digraph {
   edge [style=solid, arrowhead=normal, dir=forward, headport=_, tailport=_];
   "GRKERNSEC_KSTACKOVERFLOW" -> "Stack Depth Overflow (CWE-674,?)";
   "PAX_MEMORY_STACKLEAK" -> "Stack Depth Overflow (CWE-674,?)";
+  "SCHED_STACK_END_CHECK" -> "Stack Depth Overflow (CWE-674,?)";
 
   "PAX_USERCOPY" -> "General Buffer Overflow (CWE-120)";
   "FORTIFY_SOURCE" -> "General Buffer Overflow (CWE-120)";
