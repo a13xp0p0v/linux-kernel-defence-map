@@ -115,6 +115,7 @@ digraph {
     "GRKERNSEC_DMESG";
     grsecurity_hardened_freelist [label="by default in grsecurity"];
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
+    "Respectre";
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -287,6 +288,7 @@ digraph {
 
   "PAGE_TABLE_ISOLATION" -> "Side Channels (CWE-514)";
   "RETPOLINE" -> "Side Channels (CWE-514)";
+  "Respectre" -> "Side Channels (CWE-514)";
 
   "TIF_SETFS flag" -> "Unbalanced set_fs()";
 

@@ -35,7 +35,7 @@ https://www.kernel.org/doc/html/latest/security/self-protection.html
 - Linux kernel mitigation checklist by Shawn C:
 https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
 
-## The Map for v4.17
+## The Map for v4.19
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.png)
 
