@@ -251,6 +251,7 @@ digraph {
   "Double Free (CWE-415)" -> "KASAN";
   "Undefined Behaviour (CWE-758)" -> "UBSAN";
   "Uninitialized Vars (CWE-457)" -> "KMSAN";
+  "Info Exposure (CWE-200)" -> "KMSAN";
   "Race Condition (CWE-362)" -> "KTSAN";
 
 
