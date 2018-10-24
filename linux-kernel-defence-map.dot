@@ -179,7 +179,7 @@ digraph {
   "CPU_SW_DOMAIN_PAN" -> "SMAP/PAN";
   "ARM64_SW_TTBR0_PAN" -> "SMAP/PAN";
   "STATIC_USERMODEHELPER" -> grsecurity_hardened_usermodehelper;
-  "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
+  "SLAB_FREELIST_HARDENED":w -> grsecurity_hardened_freelist:w;
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "SLUB_DEBUG_ON";
@@ -283,7 +283,7 @@ digraph {
   "PAX_MEMORY_STACKLEAK" -> "Info Exposure (CWE-200)";
   "GRKERNSEC_HIDESYM" -> "Info Exposure (CWE-200)";
   "Printed Pointer Hashing" -> "Info Exposure (CWE-200)";
-  "Heap free() Poisoning" -> "Info Exposure (CWE-200)";
+  "Heap free() Poisoning":e -> "Info Exposure (CWE-200)";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure (CWE-200)";
   "GRKERNSEC_DMESG" -> "Info Exposure (CWE-200)";
 
