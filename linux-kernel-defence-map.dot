@@ -184,7 +184,7 @@ digraph {
   "CPU_SW_DOMAIN_PAN" -> "SMAP/PAN";
   "ARM64_SW_TTBR0_PAN" -> "SMAP/PAN";
   "STATIC_USERMODEHELPER" -> grsecurity_hardened_usermodehelper;
-  "SLAB_FREELIST_HARDENED":w -> grsecurity_hardened_freelist:w;
+  "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
 
@@ -270,7 +270,7 @@ digraph {
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
   edge [style=solid, arrowhead=normal, dir=forward, headport=_, tailport=_];
   "GRKERNSEC_KSTACKOVERFLOW" -> "Stack Depth Overflow (CWE-674,?)";
-  "PAX_MEMORY_STACKLEAK" -> "Stack Depth Overflow (CWE-674,?)";
+  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
   "SCHED_STACK_END_CHECK" -> "Stack Depth Overflow (CWE-674,?)";
 
   "PAX_USERCOPY" -> "General Buffer Overflow (CWE-120)";
@@ -283,7 +283,7 @@ digraph {
   "PAX_REFCOUNT" -> "Int Overflow/Underflow (CWE-128/191)";
   "PAX_SIZE_OVERFLOW" -> "Int Overflow/Underflow (CWE-128/191)";
 
-  "PAX_MEMORY_STACKLEAK" -> "Uninitialized Vars (CWE-457)";
+  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)";
   "PAX_MEMORY_STRUCTLEAK" -> "Uninitialized Vars (CWE-457)";
   "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)";
 
@@ -294,7 +294,7 @@ digraph {
 
   "DEFAULT_MMAP_MIN_ADDR=65536" -> "NULL Pointer Dereference (CWE-476)";
 
-  "PAX_MEMORY_STACKLEAK" -> "Info Exposure (CWE-200)";
+  "PAX_MEMORY_STACKLEAK":e -> "Info Exposure (CWE-200)";
   "GRKERNSEC_HIDESYM" -> "Info Exposure (CWE-200)";
   "Printed Pointer Hashing" -> "Info Exposure (CWE-200)";
   "Heap free() Poisoning":e -> "Info Exposure (CWE-200)";
@@ -330,9 +330,9 @@ digraph {
   "SMEP/PXN" -> "ret2usr";
   "SMAP/PAN":se -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF":ne -> "userspace data access" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":se -> "userspace data access" [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF":ne -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":se -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
   "PAX_RAP":e -> "ret2usr + ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2dir";
