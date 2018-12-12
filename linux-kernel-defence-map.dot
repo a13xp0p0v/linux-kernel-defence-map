@@ -69,7 +69,7 @@ digraph {
 
     // Mainline Defences
     node [shape=oval, color=palegreen3, style=filled];
-    "CC_STACKPROTECTOR";
+    "STACKPROTECTOR";
     "FORTIFY_SOURCE";
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
     "SLUB_DEBUG_ON";
@@ -77,7 +77,7 @@ digraph {
     "PAGE_TABLE_ISOLATION";
     "SLAB_FREELIST_RANDOM";
     "Printed Pointer Hashing";
-    "KASLR"; // RANDOMIZE_BASE, RANDOMIZE_MEMORY
+    "RANDOMIZE_{BASE,MEMORY}";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
     "BUG_ON_DATA_CORRUPTION";
@@ -87,7 +87,7 @@ digraph {
     "bpf_jit_harden";
     "DEFAULT_MMAP_MIN_ADDR=65536";
     "SCHED_STACK_END_CHECK";
-    "TIF_SETFS flag";
+    "TIF_FSCHECK flag";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -264,7 +264,7 @@ digraph {
   "PAX_USERCOPY" -> "General Buffer Overflow (CWE-120)";
   "FORTIFY_SOURCE" -> "General Buffer Overflow (CWE-120)";
 
-  "CC_STACKPROTECTOR" -> "Stack Buffer Overflow (CWE-121)";
+  "STACKPROTECTOR" -> "Stack Buffer Overflow (CWE-121)";
 
   "PAX_REFCOUNT" -> "Int Overflow/Underflow (CWE-128/191)";
   "PAX_SIZE_OVERFLOW" -> "Int Overflow/Underflow (CWE-128/191)";
@@ -291,7 +291,7 @@ digraph {
   "RETPOLINE" -> "Side Channels (CWE-514)";
   "Respectre" -> "Side Channels (CWE-514)";
 
-  "TIF_SETFS flag" -> "Unbalanced set_fs()";
+  "TIF_FSCHECK flag" -> "Unbalanced set_fs()";
 
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
@@ -325,7 +325,7 @@ digraph {
   "XPFO" -> "ret2dir + ROP";
   "PAX_RAP":e -> "ret2dir + ROP" [ltail=cluster_cfi];
 
-  "KASLR" -> "Finding Kernel Objects";
+  "RANDOMIZE_{BASE,MEMORY}" -> "Finding Kernel Objects";
   "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
   "PAX_RANDKSTACK" -> "Finding Kernel Objects";
   "PAX_LATENT_ENTROPY" -> "Finding Kernel Objects";
