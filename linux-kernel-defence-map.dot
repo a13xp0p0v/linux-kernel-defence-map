@@ -179,7 +179,6 @@ digraph {
   "SLAB_FREELIST_HARDENED":w -> grsecurity_hardened_freelist:w;
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
-  "slub_debug=P" -> "SLUB_DEBUG_ON";
 
 
   // Vulnerabilities and Exploitation Techniques
