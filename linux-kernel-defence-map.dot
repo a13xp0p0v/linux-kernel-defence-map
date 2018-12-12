@@ -95,6 +95,7 @@ digraph {
     "XPFO";
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
+    "LOCK_DOWN_KERNEL"; // remember about LOCK_DOWN_MANDATORY
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -218,6 +219,7 @@ digraph {
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
+    "Changing Kernel Image";
     "Bad Module Loading";
   }
 
@@ -229,6 +231,7 @@ digraph {
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
   "Metadata Corruption" -> "Allocator Metadata Corruption";
+  "Changing Kernel Image" -> "Bad Module Loading";
 
 
   // Bug Detection Means
@@ -337,6 +340,8 @@ digraph {
   "PAX_KERNEXEC":e -> "WX Area Abuse";
   "STRICT_{KERNEL,MODULE}_RWX" -> "WX Area Abuse";
   "DEBUG_WX" -> "WX Area Abuse";
+
+  "LOCK_DOWN_KERNEL" -> "Changing Kernel Image";
 
   "GRKERNSEC_MODHARDEN" -> "Bad Module Loading";
   "MODULE_SIG*" -> "Bad Module Loading";
