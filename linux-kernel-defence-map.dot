@@ -88,6 +88,7 @@ digraph {
     "DEFAULT_MMAP_MIN_ADDR=65536";
     "SCHED_STACK_END_CHECK";
     "TIF_FSCHECK flag";
+    "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -207,7 +208,7 @@ digraph {
     "Metadata Corruption";
     "Allocator Metadata Corruption";
     "Function Pointer Overwrite";
-    "Heap Spray";
+    "Heap Layout Control";
     "Code Reuse";
     "ret2usr";
     "userspace data access";
@@ -223,6 +224,7 @@ digraph {
   edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
   "General Buffer Overflow (CWE-120)" -> "Stack Buffer Overflow (CWE-121)";
   "General Buffer Overflow (CWE-120)" -> "Int Overflow/Underflow (CWE-128/191)";
+  "General Buffer Overflow (CWE-120)" -> "Heap Layout Control";
   "Int Overflow/Underflow (CWE-128/191)" -> "Use-After-Free (CWE-416)";
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
@@ -303,7 +305,8 @@ digraph {
   "PAX_CONSTIFY_PLUGIN" -> "Function Pointer Overwrite";
   "__read_only" -> "Function Pointer Overwrite";
 
-  "SLAB_FREELIST_RANDOM" -> "Heap Spray";
+  "SLAB_FREELIST_RANDOM" -> "Heap Layout Control";
+  "slab_nomerge" -> "Heap Layout Control";
 
   "PAX_RAP":e -> "Code Reuse" [ltail=cluster_cfi];
 
