@@ -223,7 +223,7 @@ digraph {
   edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
   "General Buffer Overflow (CWE-120)" -> "Stack Buffer Overflow (CWE-121)";
   "General Buffer Overflow (CWE-120)" -> "Int Overflow/Underflow (CWE-128/191)";
-  "Int Overflow/Underflow (CWE-128/191)" -> "Double Free (CWE-415)";
+  "Int Overflow/Underflow (CWE-128/191)" -> "Use-After-Free (CWE-416)";
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
   "Metadata Corruption" -> "Allocator Metadata Corruption";
