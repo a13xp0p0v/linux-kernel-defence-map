@@ -89,6 +89,7 @@ digraph {
     "TIF_FSCHECK flag";
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "slub_debug=F"; // sanity checks
+    "slub_debug=Z"; // red zoning
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -192,6 +193,7 @@ digraph {
     "Stack Depth Overflow (CWE-674,?)";
     "General Buffer Overflow (CWE-120)";
     "Stack Buffer Overflow (CWE-121)";
+    "Heap Buffer Overflow (CWE-122)";
     "Int Overflow/Underflow (CWE-128/191)";
     "Uninitialized Vars (CWE-457)";
     "Use-After-Free (CWE-416)";
@@ -225,8 +227,8 @@ digraph {
 
   edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
   "General Buffer Overflow (CWE-120)" -> "Stack Buffer Overflow (CWE-121)";
-  "General Buffer Overflow (CWE-120)" -> "Int Overflow/Underflow (CWE-128/191)";
-  "General Buffer Overflow (CWE-120)" -> "Heap Layout Control";
+  "General Buffer Overflow (CWE-120)" -> "Heap Buffer Overflow (CWE-122)";
+  "Heap Buffer Overflow (CWE-122)" -> "Heap Layout Control";
   "Int Overflow/Underflow (CWE-128/191)" -> "Use-After-Free (CWE-416)";
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
@@ -250,6 +252,7 @@ digraph {
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
   "General Buffer Overflow (CWE-120)" -> "KASAN";
   "Stack Buffer Overflow (CWE-121)" -> "KASAN";
+  "Heap Buffer Overflow (CWE-122)" -> "KASAN";
   "Use-After-Free (CWE-416)" -> "KASAN";
   "Double Free (CWE-415)" -> "KASAN";
   "Undefined Behaviour (CWE-758)" -> "UBSAN";
@@ -268,6 +271,8 @@ digraph {
   "FORTIFY_SOURCE" -> "General Buffer Overflow (CWE-120)";
 
   "STACKPROTECTOR" -> "Stack Buffer Overflow (CWE-121)";
+
+  "slub_debug=Z" -> "Heap Buffer Overflow (CWE-122)";
 
   "PAX_REFCOUNT" -> "Int Overflow/Underflow (CWE-128/191)";
   "PAX_SIZE_OVERFLOW" -> "Int Overflow/Underflow (CWE-128/191)";
