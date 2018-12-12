@@ -205,6 +205,7 @@ digraph {
     // Exploitation Techniques
     node [shape=box, color=gold];
     "Metadata Corruption";
+    "Allocator Metadata Corruption";
     "Function Pointer Overwrite";
     "Heap Spray";
     "Code Reuse";
@@ -225,6 +226,7 @@ digraph {
   "Int Overflow/Underflow (CWE-128/191)" -> "Double Free (CWE-415)";
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
+  "Metadata Corruption" -> "Allocator Metadata Corruption";
 
 
   // Bug Detection Means
@@ -291,12 +293,12 @@ digraph {
 
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
-  "SLUB_DEBUG_ON" -> "Metadata Corruption";
-  "SLAB_FREELIST_RANDOM" -> "Metadata Corruption";
-  "SLAB_FREELIST_HARDENED" -> "Metadata Corruption";
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
   grsecurity_hardened_usermodehelper -> "Metadata Corruption";
-  grsecurity_hardened_freelist -> "Metadata Corruption";
+
+  "SLUB_DEBUG_ON" -> "Allocator Metadata Corruption";
+  grsecurity_hardened_freelist -> "Allocator Metadata Corruption";
+  "SLAB_FREELIST_HARDENED" -> "Allocator Metadata Corruption";
 
   "PAX_CONSTIFY_PLUGIN" -> "Function Pointer Overwrite";
   "__read_only" -> "Function Pointer Overwrite";
