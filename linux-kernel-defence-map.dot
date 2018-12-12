@@ -72,7 +72,6 @@ digraph {
     "STACKPROTECTOR";
     "FORTIFY_SOURCE";
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
-    "SLUB_DEBUG_ON";
     "SLAB_FREELIST_HARDENED";
     "PAGE_TABLE_ISOLATION";
     "SLAB_FREELIST_RANDOM";
@@ -89,6 +88,7 @@ digraph {
     "SCHED_STACK_END_CHECK";
     "TIF_FSCHECK flag";
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
+    "slub_debug=F"; // sanity checks
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -155,7 +155,7 @@ digraph {
     "CPU_SW_DOMAIN_PAN";
     "ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
-    "slub_debug=P";
+    "slub_debug=P"; // object and padding poisoning
     "STACKLEAK";
 
     // Commercial Defences
@@ -278,7 +278,7 @@ digraph {
 
   "Heap free() Poisoning":e -> "Use-After-Free (CWE-416)";
 
-  "SLUB_DEBUG_ON" -> "Double Free (CWE-415)";
+  "slub_debug=F" -> "Double Free (CWE-415)";
   "SLAB_FREELIST_HARDENED" -> "Double Free (CWE-415)";
 
   "DEFAULT_MMAP_MIN_ADDR=65536" -> "NULL Pointer Dereference (CWE-476)";
@@ -301,7 +301,7 @@ digraph {
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
   grsecurity_hardened_usermodehelper -> "Metadata Corruption";
 
-  "SLUB_DEBUG_ON" -> "Allocator Metadata Corruption";
+  "slub_debug=F" -> "Allocator Metadata Corruption";
   grsecurity_hardened_freelist -> "Allocator Metadata Corruption";
   "SLAB_FREELIST_HARDENED" -> "Allocator Metadata Corruption";
 
