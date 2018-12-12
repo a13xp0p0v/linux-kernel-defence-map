@@ -55,8 +55,12 @@ digraph {
 
   // For pretty legend layout:
   edge [arrowhead=none, style=invis];
-  "Mainline Defences" -> "Out-of-tree Defences" -> "Commercial Defences" -> "HW Defences";
-  "Defence Techniques" -> "Bug Detection" -> "Vulnerabilities" -> "Exploitation Techniques";
+  "Mainline Defences" -> "Out-of-tree Defences";
+  "Out-of-tree Defences" -> "Commercial Defences";
+  "Commercial Defences" -> "HW Defences" [minlen=2];
+  "Defence Techniques" -> "Bug Detection";
+  "Bug Detection" -> "Vulnerabilities";
+  "Vulnerabilities" -> "Exploitation Techniques" [minlen=2];
 
 
   // Defences
@@ -250,7 +254,7 @@ digraph {
 
 
   // Relations: Bug Detection Means vs Vulnerabilities
-  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
+  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_, minlen=2];
   "General Buffer Overflow (CWE-120)" -> "KASAN";
   "Stack Buffer Overflow (CWE-121)" -> "KASAN";
   "Heap Buffer Overflow (CWE-122)" -> "KASAN";
@@ -260,6 +264,7 @@ digraph {
   "Uninitialized Vars (CWE-457)" -> "KMSAN";
   "Info Exposure (CWE-200)" -> "KMSAN";
   "Race Condition (CWE-362)" -> "KTSAN";
+  edge [minlen=1];
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
