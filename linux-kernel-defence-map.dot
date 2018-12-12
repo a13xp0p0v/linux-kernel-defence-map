@@ -90,6 +90,7 @@ digraph {
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
+    "X86_INTEL_UMIP";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -294,6 +295,7 @@ digraph {
   "Heap free() Poisoning":e -> "Info Exposure (CWE-200)";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure (CWE-200)";
   "GRKERNSEC_DMESG" -> "Info Exposure (CWE-200)";
+  "X86_INTEL_UMIP" -> "Info Exposure (CWE-200)";
 
   "PAGE_TABLE_ISOLATION" -> "Side Channels (CWE-514)";
   "RETPOLINE" -> "Side Channels (CWE-514)";
