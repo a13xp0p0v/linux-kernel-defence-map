@@ -154,14 +154,11 @@ digraph {
     "ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
     "slub_debug=P";
+    "STACKLEAK";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
     "PAX_MEMORY_SANITIZE";
-
-    // Out-of-tree Defences
-    node [shape=oval, color=cornflowerblue];
-    "STACKLEAK";
   }
 
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
