@@ -35,6 +35,7 @@ digraph {
   fontsize=30;
   label="Linux Kernel Defence Map";
   compound=true;
+  ranksep="1.9 equally";
 
   rankdir=LR;
   node [style=filled];
@@ -57,10 +58,10 @@ digraph {
   edge [arrowhead=none, style=invis];
   "Mainline Defences" -> "Out-of-tree Defences";
   "Out-of-tree Defences" -> "Commercial Defences";
-  "Commercial Defences" -> "HW Defences" [minlen=2];
+  "Commercial Defences" -> "HW Defences";
   "Defence Techniques" -> "Bug Detection";
   "Bug Detection" -> "Vulnerabilities";
-  "Vulnerabilities" -> "Exploitation Techniques" [minlen=2];
+  "Vulnerabilities" -> "Exploitation Techniques";
 
 
   // Defences
@@ -135,12 +136,14 @@ digraph {
 
   subgraph cluster_smap_pan_uderef {
     label="";
+    rank=same;
     "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
     "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   subgraph cluster_cfi {
     label="";
+    rank=same;
     "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
@@ -289,7 +292,7 @@ digraph {
 
 
   // Relations: Bug Detection Means vs Vulnerabilities
-  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_, minlen=2];
+  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
   "General Buffer Overflow (CWE-120)" -> "KASAN";
   "Stack Buffer Overflow (CWE-121)" -> "KASAN";
   "Heap Buffer Overflow (CWE-122)" -> "KASAN";
@@ -299,7 +302,6 @@ digraph {
   "Uninitialized Vars (CWE-457)" -> "KMSAN";
   "Info Exposure (CWE-200)" -> "KMSAN";
   "Race Condition (CWE-362)" -> "KTSAN";
-  edge [minlen=1];
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
