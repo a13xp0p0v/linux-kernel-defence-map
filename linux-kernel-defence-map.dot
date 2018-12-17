@@ -209,7 +209,6 @@ digraph {
     "Undefined Behaviour (CWE-758)";
     "Type Confusion (CWE-843)";
     "Side Channels (CWE-514)";
-    "Unbalanced set_fs()";
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -228,6 +227,7 @@ digraph {
     "WX Area Abuse";
     "Changing Kernel Image";
     "Bad Module Loading";
+    "Unbalanced set_fs()";
   }
 
   edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
@@ -306,8 +306,6 @@ digraph {
   "RETPOLINE" -> "Side Channels (CWE-514)";
   "Respectre" -> "Side Channels (CWE-514)";
 
-  "TIF_FSCHECK flag" -> "Unbalanced set_fs()";
-
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
@@ -359,4 +357,7 @@ digraph {
   "MODULE_SIG*" -> "Bad Module Loading";
   "SECURITY_LOADPIN" -> "Bad Module Loading";
   "request_module_cap()" -> "Bad Module Loading";
+
+  "TIF_FSCHECK flag" -> "Unbalanced set_fs()";
+
 }
