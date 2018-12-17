@@ -188,8 +188,8 @@ digraph {
   "REFCOUNT_FULL" -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY" -> "PAX_USERCOPY";
   "PAGE_POISONING" -> "PAX_MEMORY_SANITIZE";
-  "VMAP_STACK" -> "GRKERNSEC_KSTACKOVERFLOW";
-  "THREAD_INFO_IN_TASK" -> "GRKERNSEC_KSTACKOVERFLOW";
+  "VMAP_STACK" -> "GRKERNSEC_KSTACKOVERFLOW":w;
+  "THREAD_INFO_IN_TASK" -> "GRKERNSEC_KSTACKOVERFLOW":w;
   "RANDSTRUCT" -> "GRKERNSEC_RANDSTRUCT";
   "STRUCTLEAK" -> "PAX_MEMORY_STRUCTLEAK";
   "LATENT_ENTROPY" -> "PAX_LATENT_ENTROPY";
@@ -279,7 +279,7 @@ digraph {
   "Int Overflow/Underflow (CWE-128/191)" -> "Use-After-Free (CWE-416)";
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
-  "Metadata Corruption" -> "Allocator Metadata Corruption";
+  "Metadata Corruption" -> "Allocator Metadata Corruption" [constraint=false];
   "Changing Kernel Image" -> "Bad Module Loading";
 
 
@@ -362,11 +362,11 @@ digraph {
   "PAX_KERNEXEC":e -> "ret2usr";
   "pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr" [constraint=false];
   "SMEP/PXN" -> "ret2usr";
-  "SMAP/PAN":se -> "ret2usr" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":e -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":se -> "userspace data access" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":e -> "userspace data access" [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":se -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":e -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
   "PAX_RAP":e -> "ret2usr + ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2dir";
