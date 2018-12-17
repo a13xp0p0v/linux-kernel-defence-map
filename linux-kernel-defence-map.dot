@@ -35,6 +35,7 @@ digraph {
   fontsize=30;
   label="Linux Kernel Defence Map";
   compound=true;
+  nodesep=0.4;
   ranksep="1.9 equally";
 
   rankdir=LR;
