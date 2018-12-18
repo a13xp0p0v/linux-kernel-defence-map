@@ -33,13 +33,14 @@
 digraph {
   labelloc=top;
   fontsize=30;
+  fontname=monospace;
   label="Linux Kernel Defence Map";
   compound=true;
   nodesep=0.4;
   ranksep="1.9 equally";
 
   rankdir=LR;
-  node [style=filled];
+  node [style=filled, fontname=monospace];
 
   subgraph cluster_legend {
     fontsize=25;
