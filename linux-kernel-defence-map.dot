@@ -1,5 +1,5 @@
 //
-// Linux Kernel Defence Map (for v4.16) shows the relations between:
+// Linux Kernel Defence Map shows the relations between:
 //  - vulnerability classes / exploitation techniques,
 //  - kernel defences,
 //  - bug detection means.
@@ -155,7 +155,7 @@ digraph {
     "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
   }
 
-  // Defences: child nodes and relations
+  // Defences: child nodes
   {
     rank=same;
 
@@ -182,6 +182,7 @@ digraph {
     "PAX_MEMORY_SANITIZE";
   }
 
+  // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
   "REFCOUNT_FULL" -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY" -> "PAX_USERCOPY";
@@ -268,6 +269,8 @@ digraph {
     "v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3615 / Foreshadow";
   }
+
+  // Vulnerabilities and Exploitation Techniques relations
   edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
   "General Buffer Overflow (CWE-120)" -> "Stack Buffer Overflow (CWE-121)";
   "General Buffer Overflow (CWE-120)" -> "Heap Buffer Overflow (CWE-122)";
@@ -283,7 +286,6 @@ digraph {
   {
     rank=same;
     node [shape=octagon, color=mediumpurple];
-
     "KASAN";
     "UBSAN";
     "KMSAN";
