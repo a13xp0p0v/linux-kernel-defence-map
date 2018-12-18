@@ -77,7 +77,6 @@ digraph {
     "FORTIFY_SOURCE";
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
     "SLAB_FREELIST_HARDENED";
-    "PAGE_TABLE_ISOLATION";
     "SLAB_FREELIST_RANDOM";
     "Printed Pointer Hashing";
     "RANDOMIZE_{BASE,MEMORY}";
@@ -86,7 +85,6 @@ digraph {
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
     "SECURITY_LOADPIN";
-    "RETPOLINE";
     "bpf_jit_harden";
     "DEFAULT_MMAP_MIN_ADDR=65536";
     "SCHED_STACK_END_CHECK";
@@ -95,6 +93,12 @@ digraph {
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
     "X86_INTEL_UMIP";
+
+    // Mainline Defences against Side Channel Vulnerabilities
+    "spectre_v2=on (RETPOLINE + microcode features)";
+    "pti=on (PAGE_TABLE_ISOLATION)";
+    "spec_store_bypass_disable=on";
+    "l1tf=full,force";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -123,7 +127,6 @@ digraph {
     "GRKERNSEC_DMESG";
     grsecurity_hardened_freelist [label="by default in grsecurity"];
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
-    "Respectre";
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -140,6 +143,13 @@ digraph {
     label="";
     "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
+  }
+
+  subgraph cluster_v1_mitigations {
+    label="";
+    rank=same;
+    "Respectre" [shape=oval, color=lightgrey]; // Commercial Defence
+    "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
   }
 
   // Defences: child nodes and relations
@@ -208,7 +218,6 @@ digraph {
     "Race Condition (CWE-362)";
     "Undefined Behaviour (CWE-758)";
     "Type Confusion (CWE-843)";
-    "Side Channels (CWE-514)";
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -230,6 +239,32 @@ digraph {
     "Unbalanced set_fs()";
   }
 
+  // Side Channel Vulnerabilities
+  subgraph cluster_side_channels {
+    label="Side Channels (CWE-514)";
+    rank=same;
+    fontsize=18;
+    node [shape=box, color=pink];
+
+    subgraph cluster_v1 {
+      label="";
+      "v1 / BCB / CVE-2017-5753";
+      "v1.1 / BCBS / CVE-2018-3693";
+      "v1.2 / RPB";
+    }
+    subgraph cluster_v2 {
+      label="";
+      "v2 / BTI / CVE-2017-5715";
+      "SpectreRSB / Return Mispredict";
+    }
+    subgraph cluster_v3 {
+      label="";
+      "v3 / RDCL / CVE-2017-5754 / Meltdown";
+      "v3a / RSRE / CVE-2018-3640";
+    }
+    "v4 / SSB / CVE-2018-3639";
+    "L1TF / CVE-2018-3615 / Foreshadow";
+  }
   edge [style=dotted, arrowhead=none, dir=none, headport=e, tailport=e];
   "General Buffer Overflow (CWE-120)" -> "Stack Buffer Overflow (CWE-121)";
   "General Buffer Overflow (CWE-120)" -> "Heap Buffer Overflow (CWE-122)";
@@ -302,10 +337,6 @@ digraph {
   "GRKERNSEC_DMESG" -> "Info Exposure (CWE-200)";
   "X86_INTEL_UMIP" -> "Info Exposure (CWE-200)";
 
-  "PAGE_TABLE_ISOLATION" -> "Side Channels (CWE-514)";
-  "RETPOLINE" -> "Side Channels (CWE-514)";
-  "Respectre" -> "Side Channels (CWE-514)";
-
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
@@ -324,7 +355,7 @@ digraph {
   "PAX_RAP":e -> "Code Reuse" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr";
-  "PAGE_TABLE_ISOLATION" -> "ret2usr";
+  "pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr" [constraint=false];
   "SMEP/PXN" -> "ret2usr";
   "SMAP/PAN":se -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
@@ -360,4 +391,9 @@ digraph {
 
   "TIF_FSCHECK flag" -> "Unbalanced set_fs()";
 
+  "Respectre" -> "v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
+  "spectre_v2=on (RETPOLINE + microcode features)" -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
+  "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [lhead="cluster_v3"];
+  "spec_store_bypass_disable=on" -> "v4 / SSB / CVE-2018-3639";
+  "l1tf=full,force" -> "L1TF / CVE-2018-3615 / Foreshadow";
 }
