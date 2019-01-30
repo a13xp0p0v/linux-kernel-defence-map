@@ -4,6 +4,11 @@
 //  - kernel defences,
 //  - bug detection means.
 //
+// Author: Alexander Popov <alex.popov@linux.com>
+//
+// License terms: GNU General Public License (GPL), version 3.0.
+// For details see LICENSE file.
+//
 // N.B. The node connections don't mean "full mitigation". These connections
 // represent some kind of relation. So ideally, this map should help to navigate
 // in documentation and Linux kernel sources.
