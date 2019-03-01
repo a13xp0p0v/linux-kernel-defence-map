@@ -2,38 +2,51 @@
 
 ## Intro
 
-Linux kernel security is a very complex area. It would be nice to have some
-graphical representation of its current state. So I've created a __Linux Kernel
-Defence Map__ showing the relations between:
-- vulnerability classes / exploitation techniques,
-- kernel defences,
-- bug detection means.
+Linux kernel security is a very complex topic.
+Some defence technologies are provided by the Linux kernel mainline.
+Others are going out‑of‑tree for various reasons (some of them are commercial, for example).
+Plus there are kernel defences that depend on special hardware features.
 
-__N.B.__ The node connections don't mean "full mitigation". These connections
-represent some kind of relation. So ideally, this map should help to navigate
-in documentation and Linux kernel sources.
+It would certainly be convenient to have a graphical representation of the current state of Linux kernel security.
 
-I wrote it in DOT language and generated the picture using GraphViz:
+So I've created a __Linux Kernel Defence Map__ showing the relationships between:
+ - Vulnerability classes
+ - Exploitation techniques
+ - Bug detection mechanisms
+ - Defence technologies
+
+__N.B.__ The node connections don't mean "full mitigation."
+Rather, each connection represents some kind of relationship.
+So this map should help to navigate the documentation and Linux kernel sources.
+It also provides the Common Weakness Enumeration (CWE) numbers for vulnerability classes.
+
+This map is written in the DOT language, which makes maintenance and updating in Git very convenient.
+The diagram is generated using GraphViz with the following command:
 ```
 dot -Tpng linux-kernel-defence-map.dot -o linux-kernel-defence-map.png
 ```
-So it is very pleasant to maintain this map with git.
-
-If you see any mistakes, feel free to create an Issue or ping me via alex.popov@linux.com
 
 ## Documentation
 
 - Grsecurity features:
-https://grsecurity.net/features.php
+
+  https://grsecurity.net/features.php
 
 - The State of Kernel Self Protection by Kees Cook:
-https://outflux.net/slides/2018/lca/kspp.pdf
+
+  https://outflux.net/slides/2018/lca/kspp.pdf
 
 - Linux kernel security documentation:
-https://www.kernel.org/doc/html/latest/security/self-protection.html
+
+  https://www.kernel.org/doc/html/latest/security/self-protection.html
 
 - Linux kernel mitigation checklist by Shawn C:
-https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
+
+  https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
+
+- Trends, challenge, and shifts in software vulnerability mitigation by MSRC:
+
+  https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL
 
 ## The Map for v4.19
 
