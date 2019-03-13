@@ -183,6 +183,7 @@ digraph {
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
     "STACKLEAK";
+    "UNMAP_KERNEL_AT_EL0";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -208,6 +209,7 @@ digraph {
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
+  "UNMAP_KERNEL_AT_EL0" -> "pti=on (PAGE_TABLE_ISOLATION)" [constraint=false];
 
 
   // Vulnerabilities and Exploitation Techniques
