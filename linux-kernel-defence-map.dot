@@ -274,7 +274,7 @@ digraph {
       "v3a / RSRE / CVE-2018-3640";
     }
     "v4 / SSB / CVE-2018-3639";
-    "L1TF / CVE-2018-3615 / Foreshadow";
+    "L1TF / CVE-2018-3620 / Foreshadow";
   }
 
   // Vulnerabilities and Exploitation Techniques relations
@@ -406,5 +406,5 @@ digraph {
   "spectre_v2=on (RETPOLINE + microcode features)" -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
   "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [lhead="cluster_v3"];
   "spec_store_bypass_disable=on" -> "v4 / SSB / CVE-2018-3639";
-  "l1tf=full,force" -> "L1TF / CVE-2018-3615 / Foreshadow";
+  "l1tf=full,force" -> "L1TF / CVE-2018-3620 / Foreshadow";
 }
