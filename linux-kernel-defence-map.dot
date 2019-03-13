@@ -86,7 +86,7 @@ digraph {
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
     "SLAB_FREELIST_HARDENED";
     "SLAB_FREELIST_RANDOM";
-    "Printed Pointer Hashing";
+    "kptr_restrict";
     "RANDOMIZE_{BASE,MEMORY}";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
@@ -236,7 +236,7 @@ digraph {
     "Allocator Metadata Corruption";
     "Function Pointer Overwrite";
     "Heap Layout Control";
-    "Code Reuse";
+    "ROP";
     "ret2usr";
     "userspace data access";
     "ret2usr + ROP";
@@ -342,7 +342,7 @@ digraph {
 
   "PAX_MEMORY_STACKLEAK":e -> "Info Exposure (CWE-200)";
   "GRKERNSEC_HIDESYM" -> "Info Exposure (CWE-200)";
-  "Printed Pointer Hashing" -> "Info Exposure (CWE-200)";
+  "kptr_restrict" -> "Info Exposure (CWE-200)";
   "Heap free() Poisoning":e -> "Info Exposure (CWE-200)";
   "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure (CWE-200)";
   "GRKERNSEC_DMESG" -> "Info Exposure (CWE-200)";
@@ -363,7 +363,7 @@ digraph {
   "SLAB_FREELIST_RANDOM" -> "Heap Layout Control";
   "slab_nomerge" -> "Heap Layout Control";
 
-  "PAX_RAP":e -> "Code Reuse" [ltail=cluster_cfi];
+  "PAX_RAP":e -> "ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr";
   "pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr" [constraint=false];
