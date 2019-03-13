@@ -48,7 +48,7 @@ dot -Tpng linux-kernel-defence-map.dot -o linux-kernel-defence-map.png
 
   https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL
 
-## The Map for v4.19
+## The Map for v5.0
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.png)
 
