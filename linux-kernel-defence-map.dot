@@ -87,7 +87,6 @@ digraph {
     "SLAB_FREELIST_HARDENED";
     "SLAB_FREELIST_RANDOM";
     "kptr_restrict";
-    "RANDOMIZE_{BASE,MEMORY}";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
     "BUG_ON_DATA_CORRUPTION";
@@ -123,10 +122,7 @@ digraph {
     "PAX_USERCOPY";
     "PAX_KERNEXEC";
     "GRKERNSEC_HIDESYM";
-    "GRKERNSEC_RANDSTRUCT";
-    "PAX_LATENT_ENTROPY";
     "PAX_CONSTIFY_PLUGIN";
-    "PAX_RANDKSTACK";
     "GRKERNSEC_JIT_HARDEN";
     "PAX_MEMORY_STRUCTLEAK";
     "PAX_MEMORY_STACKLEAK";
@@ -160,6 +156,17 @@ digraph {
     rank=same;
     "Respectre" [shape=oval, color=lightgrey]; // Commercial Defence
     "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
+  }
+
+  subgraph cluster_layout_randomization {
+    label="Layout Randomization";
+    rank=same;
+    fontsize=18;
+    style="dashed";
+    "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3, style=filled]; // Mainline Defence
+    "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
+    "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
+    "PAX_LATENT_ENTROPY" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   // Defences: child nodes
@@ -383,10 +390,7 @@ digraph {
   "XPFO" -> "ret2dir + ROP";
   "PAX_RAP":e -> "ret2dir + ROP" [ltail=cluster_cfi];
 
-  "RANDOMIZE_{BASE,MEMORY}" -> "Finding Kernel Objects";
-  "GRKERNSEC_RANDSTRUCT" -> "Finding Kernel Objects";
-  "PAX_RANDKSTACK" -> "Finding Kernel Objects";
-  "PAX_LATENT_ENTROPY" -> "Finding Kernel Objects";
+  "PAX_RANDKSTACK":ne -> "Finding Kernel Objects" [ltail=cluster_layout_randomization];
 
   "GRKERNSEC_JIT_HARDEN" -> "JIT Abuse";
   "bpf_jit_harden" -> "JIT Abuse";
