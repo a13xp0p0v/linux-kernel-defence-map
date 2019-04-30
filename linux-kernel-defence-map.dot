@@ -86,7 +86,6 @@ digraph {
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
     "SLAB_FREELIST_HARDENED";
     "SLAB_FREELIST_RANDOM";
-    "kptr_restrict";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
     "BUG_ON_DATA_CORRUPTION";
@@ -99,7 +98,6 @@ digraph {
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
-    "X86_INTEL_UMIP";
 
     // Mainline Defences against Side Channel Vulnerabilities
     "spectre_v2=on (RETPOLINE + microcode features)";
@@ -120,14 +118,12 @@ digraph {
     "PAX_SIZE_OVERFLOW";
     "PAX_USERCOPY";
     "PAX_KERNEXEC";
-    "GRKERNSEC_HIDESYM";
     "PAX_CONSTIFY_PLUGIN";
     "GRKERNSEC_JIT_HARDEN";
     "PAX_MEMORY_STRUCTLEAK";
     "PAX_MEMORY_STACKLEAK";
     "GRKERNSEC_MODHARDEN";
     "__read_only";
-    "GRKERNSEC_DMESG";
     grsecurity_hardened_freelist [label="by default in grsecurity"];
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
 
@@ -174,6 +170,16 @@ digraph {
     "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_LATENT_ENTROPY" [shape=oval, color=lightgrey]; // Commercial Defence
+  }
+
+  subgraph cluster_info_exposure_mitigations {
+    label="";
+    rank=same;
+    style="dashed";
+    "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
+    "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
+    "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   // Defences: child nodes
@@ -235,11 +241,9 @@ digraph {
     "Stack Buffer Overflow (CWE-121)";
     "Heap Buffer Overflow (CWE-122)";
     "Int Overflow/Underflow (CWE-128/191)";
-    "Uninitialized Vars (CWE-457)";
     "Use-After-Free (CWE-416)";
     "Double Free (CWE-415)";
     "NULL Pointer Dereference (CWE-476)";
-    "Info Exposure (CWE-200)";
     "Race Condition (CWE-362)";
     "Undefined Behaviour (CWE-758)";
     "Type Confusion (CWE-843)";
@@ -262,6 +266,15 @@ digraph {
     "Changing Kernel Image";
     "Bad Module Loading";
     "Unbalanced set_fs()";
+  }
+
+  subgraph cluster_info_exposures {
+    label="";
+    rank=same;
+    style="dashed";
+    node [shape=box, color=pink]; // Vulnerabilities
+    "Info Exposure (CWE-200)";
+    "Uninitialized Vars (CWE-457)";
   }
 
   // Side Channel Vulnerabilities
@@ -343,9 +356,9 @@ digraph {
   "PAX_REFCOUNT" -> "Int Overflow/Underflow (CWE-128/191)";
   "PAX_SIZE_OVERFLOW" -> "Int Overflow/Underflow (CWE-128/191)";
 
-  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)";
-  "PAX_MEMORY_STRUCTLEAK" -> "Uninitialized Vars (CWE-457)";
-  "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)";
+  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)":s [lhead=cluster_info_exposures];
+  "PAX_MEMORY_STRUCTLEAK" -> "Uninitialized Vars (CWE-457)":s [lhead=cluster_info_exposures];
+  "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)":s [lhead=cluster_info_exposures];
 
   "Heap free() Poisoning":e -> "Use-After-Free (CWE-416)";
 
@@ -354,13 +367,7 @@ digraph {
 
   "DEFAULT_MMAP_MIN_ADDR=65536" -> "NULL Pointer Dereference (CWE-476)";
 
-  "PAX_MEMORY_STACKLEAK":e -> "Info Exposure (CWE-200)";
-  "GRKERNSEC_HIDESYM" -> "Info Exposure (CWE-200)";
-  "kptr_restrict" -> "Info Exposure (CWE-200)";
-  "Heap free() Poisoning":e -> "Info Exposure (CWE-200)";
-  "PAX_MEMORY_STRUCTLEAK" -> "Info Exposure (CWE-200)";
-  "GRKERNSEC_DMESG" -> "Info Exposure (CWE-200)";
-  "X86_INTEL_UMIP" -> "Info Exposure (CWE-200)";
+  "kptr_restrict" -> "Info Exposure (CWE-200)" [ltail=cluster_info_exposure_mitigations];
 
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
