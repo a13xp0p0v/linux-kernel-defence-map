@@ -166,7 +166,7 @@ digraph {
     rank=same;
     fontsize=18;
     style="dashed";
-    "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3, style=filled]; // Mainline Defence
+    "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_LATENT_ENTROPY" [shape=oval, color=lightgrey]; // Commercial Defence
@@ -312,7 +312,7 @@ digraph {
   "Int Overflow/Underflow (CWE-128/191)" -> "Use-After-Free (CWE-416)";
   "Info Exposure (CWE-200)" -> "Finding Kernel Objects";
   "Metadata Corruption" -> "Function Pointer Overwrite";
-  "Metadata Corruption" -> "Allocator Metadata Corruption" [constraint=false];
+  "Metadata Corruption" -> "Allocator Metadata Corruption";
   "Changing Kernel Image" -> "Bad Module Loading";
 
 
