@@ -42,7 +42,7 @@ digraph {
   label="Linux Kernel Defence Map";
   compound=true;
   nodesep=0.4;
-  ranksep="1.9 equally";
+  ranksep="1.3 equally";
 
   rankdir=LR;
   node [style=filled, fontname=monospace];
