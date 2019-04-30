@@ -103,7 +103,6 @@ digraph {
 
     // Mainline Defences against Side Channel Vulnerabilities
     "spectre_v2=on (RETPOLINE + microcode features)";
-    "pti=on (PAGE_TABLE_ISOLATION)";
     "spec_store_bypass_disable=on";
     "l1tf=full,force";
 
@@ -135,6 +134,14 @@ digraph {
     // HW Defences
     node [shape=oval, color=aquamarine];
     "SMEP/PXN";
+  }
+
+  subgraph cluster_pti {
+    label="";
+    rank=same;
+    node [shape=oval, color=palegreen3]; // Mainline Defences
+    "pti=on (PAGE_TABLE_ISOLATION)";
+    "UNMAP_KERNEL_AT_EL0";
   }
 
   subgraph cluster_smap_pan_uderef {
@@ -190,7 +197,6 @@ digraph {
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
     "STACKLEAK";
-    "UNMAP_KERNEL_AT_EL0";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -216,7 +222,6 @@ digraph {
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
-  "UNMAP_KERNEL_AT_EL0" -> "pti=on (PAGE_TABLE_ISOLATION)" [constraint=false];
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -375,7 +380,7 @@ digraph {
   "PAX_RAP":e -> "ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr";
-  "pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr" [constraint=false];
+  "pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr" [ltail=cluster_pti, constraint=false];
   "SMEP/PXN" -> "ret2usr";
   "SMAP/PAN":e -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
@@ -410,7 +415,7 @@ digraph {
 
   "Respectre" -> "v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "spectre_v2=on (RETPOLINE + microcode features)" -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
-  "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [lhead="cluster_v3"];
+  "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
   "spec_store_bypass_disable=on" -> "v4 / SSB / CVE-2018-3639";
   "l1tf=full,force" -> "L1TF / CVE-2018-3620 / Foreshadow";
 }
