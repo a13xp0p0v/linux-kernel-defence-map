@@ -55,7 +55,7 @@ digraph {
     "Out-of-tree Defences" [shape=oval, color=cornflowerblue];
     "Commercial Defences" [shape=oval, color=lightgrey];
     "HW Defences" [shape=oval, color=aquamarine];
-    "Defence Techniques" [shape=octagon, color=black, style=solid];
+    "Generic Defence Techniques" [shape=oval, color=black, style=solid];
     "Bug Detection" [shape=octagon, color=mediumpurple];
     "Vulnerabilities" [shape=box, color=pink];
     "Exploitation Techniques" [shape=box, color=gold];
@@ -66,7 +66,7 @@ digraph {
   "Mainline Defences" -> "Out-of-tree Defences";
   "Out-of-tree Defences" -> "Commercial Defences";
   "Commercial Defences" -> "HW Defences";
-  "Defence Techniques" -> "Bug Detection";
+  "Generic Defence Techniques" -> "Bug Detection";
   "Bug Detection" -> "Vulnerabilities";
   "Vulnerabilities" -> "Exploitation Techniques";
 
@@ -75,8 +75,8 @@ digraph {
   {
     rank=same;
 
-    // Defence Techniques
-    node [shape=octagon, color=black, style=solid];
+    // Generic Defence Techniques
+    node [shape=oval, color=black, style=solid];
     "Heap free() Poisoning";
 
     // Mainline Defences
