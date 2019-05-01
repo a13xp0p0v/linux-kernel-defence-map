@@ -203,6 +203,7 @@ digraph {
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
     "STACKLEAK";
+    "STACKPROTECTOR_PER_TASK";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -228,6 +229,7 @@ digraph {
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
+  "STACKPROTECTOR_PER_TASK" -> "STACKPROTECTOR";
 
 
   // Vulnerabilities and Exploitation Techniques
