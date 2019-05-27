@@ -137,7 +137,7 @@ digraph {
     rank=same;
     node [shape=oval, color=palegreen3]; // Mainline Defences
     "pti=on (PAGE_TABLE_ISOLATION)";
-    "UNMAP_KERNEL_AT_EL0";
+    "kpti=on (UNMAP_KERNEL_AT_EL0)";
   }
 
   subgraph cluster_smap_pan_uderef {
