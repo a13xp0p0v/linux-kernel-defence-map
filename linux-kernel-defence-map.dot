@@ -103,6 +103,7 @@ digraph {
     "spectre_v2=on (RETPOLINE + microcode features)";
     "spec_store_bypass_disable=on";
     "l1tf=full,force";
+    "mds=full,nosmt";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -304,6 +305,14 @@ digraph {
     }
     "v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3620 / Foreshadow";
+    subgraph cluster_mds {
+      label="MDS";
+      "MFBDS / CVE-2018-12130 / RIDL / ZombieLoad";
+      "MSBDS / CVE-2018-12126 / Fallout";
+      "MLPDS / CVE-2018-12127";
+      "MDSUM / CVE-2019-11091";
+    }
+
   }
 
   // Vulnerabilities and Exploitation Techniques relations
@@ -427,4 +436,5 @@ digraph {
   "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
   "spec_store_bypass_disable=on" -> "v4 / SSB / CVE-2018-3639";
   "l1tf=full,force" -> "L1TF / CVE-2018-3620 / Foreshadow";
+  "mds=full,nosmt" -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
 }
