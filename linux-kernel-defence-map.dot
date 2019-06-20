@@ -99,7 +99,7 @@ digraph {
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
 
-    // Mainline Defences against Side Channel Vulnerabilities
+    // Mainline Defences against Transient Execution Attacks
     "spectre_v2=on (RETPOLINE + microcode features)";
     "spec_store_bypass_disable=on";
     "l1tf=full,force";
@@ -280,11 +280,10 @@ digraph {
     "Uninitialized Vars (CWE-457)";
   }
 
-  // Side Channel Vulnerabilities
-  subgraph cluster_side_channels {
-    label="Side Channels (CWE-514)";
+  subgraph cluster_transient_execution_vulnerabilities {
+    label="Transient Execution Vulnerabilities (Covert Channels, CWE-514)";
     rank=same;
-    fontsize=18;
+    fontsize=14;
     node [shape=box, color=pink];
 
     subgraph cluster_v1 {
