@@ -256,20 +256,28 @@ digraph {
     node [shape=box, color=gold];
     "Metadata Corruption";
     "Allocator Data Corruption";
-    "Function Pointer Overwrite";
     "Heap Layout Control";
-    "ROP";
-    "ret2usr";
     "userspace data access";
-    "ret2usr + ROP";
-    "ret2dir";
-    "ret2dir + ROP";
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
     "Changing Kernel Image";
     "Bad Module Loading";
     "Unbalanced set_fs()";
+  }
+
+  subgraph cluster_control_flow_hijack {
+    label="Control Flow Hijack";
+    fontsize=14;
+    rank=same;
+    style="dashed";
+    node [shape=box, color=gold]; // Exploitation Techniques
+    "ROP";
+    "ret2usr + ROP";
+    "ret2dir + ROP";
+    "ret2usr";
+    "ret2dir";
+    "Function Pointer Overwrite";
   }
 
   subgraph cluster_info_exposures {
