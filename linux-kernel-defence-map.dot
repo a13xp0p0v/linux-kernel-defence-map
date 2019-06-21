@@ -83,7 +83,7 @@ digraph {
     node [shape=oval, color=palegreen3, style=filled];
     "STACKPROTECTOR";
     "FORTIFY_SOURCE";
-    "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}";
+    "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}";
     "SLAB_FREELIST_HARDENED";
     "SLAB_FREELIST_RANDOM";
     "STRICT_{KERNEL,MODULE}_RWX";
@@ -379,7 +379,7 @@ digraph {
 
   "kptr_restrict" -> "Info Exposure (CWE-200)" [ltail=cluster_info_exposure_mitigations];
 
-  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS}" -> "Metadata Corruption";
+  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}" -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION" -> "Metadata Corruption";
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
   grsecurity_hardened_usermodehelper -> "Metadata Corruption";
