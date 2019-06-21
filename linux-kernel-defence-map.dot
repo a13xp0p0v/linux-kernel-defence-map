@@ -353,11 +353,12 @@ digraph {
   "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
   "SCHED_STACK_END_CHECK" -> "Stack Depth Overflow (CWE-674,?)";
 
-  "PAX_USERCOPY" -> "General Buffer Overflow (CWE-120)";
   "FORTIFY_SOURCE" -> "General Buffer Overflow (CWE-120)";
 
+  "PAX_USERCOPY" -> "Stack Buffer Overflow (CWE-121)";
   "STACKPROTECTOR" -> "Stack Buffer Overflow (CWE-121)";
 
+  "PAX_USERCOPY" -> "Heap Buffer Overflow (CWE-122)";
   "slub_debug=Z" -> "Heap Buffer Overflow (CWE-122)";
 
   "PAX_REFCOUNT" -> "Int Overflow/Underflow (CWE-128/191)";
