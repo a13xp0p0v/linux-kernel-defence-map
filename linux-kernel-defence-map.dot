@@ -255,7 +255,7 @@ digraph {
     // Exploitation Techniques
     node [shape=box, color=gold];
     "Metadata Corruption";
-    "Allocator Metadata Corruption";
+    "Allocator Data Corruption";
     "Function Pointer Overwrite";
     "Heap Layout Control";
     "ROP";
@@ -385,9 +385,9 @@ digraph {
   "PROTECTABLE_MEMORY" -> "Metadata Corruption";
   grsecurity_hardened_usermodehelper -> "Metadata Corruption";
 
-  "slub_debug=F" -> "Allocator Metadata Corruption";
-  grsecurity_hardened_freelist -> "Allocator Metadata Corruption";
-  "SLAB_FREELIST_HARDENED" -> "Allocator Metadata Corruption";
+  "slub_debug=F" -> "Allocator Data Corruption";
+  grsecurity_hardened_freelist -> "Allocator Data Corruption";
+  "SLAB_FREELIST_HARDENED" -> "Allocator Data Corruption";
 
   "PAX_CONSTIFY_PLUGIN" -> "Function Pointer Overwrite";
   "__read_only" -> "Function Pointer Overwrite";
