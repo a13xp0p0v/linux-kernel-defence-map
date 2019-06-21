@@ -84,7 +84,6 @@ digraph {
     "STACKPROTECTOR";
     "FORTIFY_SOURCE";
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}";
-    "SLAB_FREELIST_HARDENED";
     "SLAB_FREELIST_RANDOM";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
@@ -126,7 +125,6 @@ digraph {
     "PAX_MEMORY_STACKLEAK";
     "GRKERNSEC_MODHARDEN";
     "__read_only";
-    grsecurity_hardened_freelist [label="by default in grsecurity"];
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
 
     // HW Defences
@@ -184,6 +182,14 @@ digraph {
     "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
+  subgraph cluster_freelist_hardening {
+    label="";
+    rank=same;
+    style="invis";
+    "SLAB_FREELIST_HARDENED" [shape=oval, color=palegreen3]; // Mainline Defence
+    grsecurity_hardened_freelist [label="by default in grsecurity", shape=oval, color=lightgrey]; // Commercial Defence
+  }
+
   // Defences: child nodes
   {
     rank=same;
@@ -228,7 +234,7 @@ digraph {
   "CPU_SW_DOMAIN_PAN" -> "SMAP/PAN";
   "ARM64_SW_TTBR0_PAN" -> "SMAP/PAN";
   "STATIC_USERMODEHELPER" -> grsecurity_hardened_usermodehelper;
-  "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist;
+  "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "PAX_MEMORY_SANITIZE" -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P" -> "Heap free() Poisoning":w [style=filled];
   "STACKPROTECTOR_PER_TASK" -> "STACKPROTECTOR";
