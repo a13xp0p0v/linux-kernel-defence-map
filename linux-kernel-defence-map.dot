@@ -100,7 +100,8 @@ digraph {
     "slub_debug=Z"; // red zoning
 
     // Mainline Defences against Transient Execution Attacks
-    "spectre_v2=on (RETPOLINE + microcode features)";
+    "MICROCODE";
+    "spectre_v2=on (RETPOLINE)";
     "spec_store_bypass_disable=on";
     "l1tf=full,force";
     "mds=full,nosmt";
@@ -430,8 +431,9 @@ digraph {
 
   "TIF_FSCHECK flag" -> "Unbalanced set_fs()";
 
+  "MICROCODE" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [lhead=cluster_transient_execution_vulnerabilities]
   "Respectre" -> "v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
-  "spectre_v2=on (RETPOLINE + microcode features)" -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
+  "spectre_v2=on (RETPOLINE)" -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
   "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
   "spec_store_bypass_disable=on" -> "v4 / SSB / CVE-2018-3639";
   "l1tf=full,force" -> "L1TF / CVE-2018-3620 / Foreshadow";
