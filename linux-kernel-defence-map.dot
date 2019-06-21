@@ -272,6 +272,7 @@ digraph {
     fontsize=14;
     rank=same;
     style="dashed";
+    margin=35;
     node [shape=box, color=gold]; // Exploitation Techniques
     "ROP";
     "ret2usr + ROP";
@@ -285,6 +286,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
+    margin=35;
     node [shape=box, color=pink]; // Vulnerabilities
     "Info Exposure (CWE-200)";
     "Uninitialized Vars (CWE-457)";
