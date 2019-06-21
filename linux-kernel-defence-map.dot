@@ -41,8 +41,8 @@ digraph {
   fontname=monospace;
   label="Linux Kernel Defence Map";
   compound=true;
-  nodesep=0.4;
-  ranksep="1.3 equally";
+  nodesep=0.8;
+  splines=line;
 
   rankdir=LR;
   node [style=filled, fontname=monospace];
@@ -431,7 +431,7 @@ digraph {
 
   "TIF_FSCHECK flag" -> "Unbalanced set_fs()";
 
-  "MICROCODE" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [lhead=cluster_transient_execution_vulnerabilities]
+  "MICROCODE" -> "MLPDS / CVE-2018-12127" [lhead=cluster_transient_execution_vulnerabilities]
   "Respectre" -> "v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "spectre_v2=on (RETPOLINE)" -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
   "pti=on (PAGE_TABLE_ISOLATION)" -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
