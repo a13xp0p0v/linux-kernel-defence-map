@@ -50,6 +50,7 @@ digraph {
   subgraph cluster_legend {
     fontsize=25;
     label="Legend:";
+    margin=35;
 
     "Mainline Defences" [shape=oval, color=palegreen3];
     "Out-of-tree Defences" [shape=oval, color=cornflowerblue];
@@ -135,6 +136,7 @@ digraph {
   subgraph cluster_pti {
     label="";
     rank=same;
+    margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defences
     "pti=on (PAGE_TABLE_ISOLATION)";
     "kpti=on (UNMAP_KERNEL_AT_EL0)";
@@ -143,6 +145,7 @@ digraph {
   subgraph cluster_smap_pan_uderef {
     label="";
     rank=same;
+    margin=15;
     "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
     "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -150,6 +153,7 @@ digraph {
   subgraph cluster_cfi {
     label="";
     rank=same;
+    margin=15;
     "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
@@ -157,6 +161,7 @@ digraph {
   subgraph cluster_v1_mitigations {
     label="";
     rank=same;
+    margin=35;
     "Respectre" [shape=oval, color=lightgrey]; // Commercial Defence
     "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
   }
@@ -166,6 +171,7 @@ digraph {
     rank=same;
     fontsize=18;
     style="dashed";
+    margin=35;
     "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
@@ -176,6 +182,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
+    margin=35;
     "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
     "X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
@@ -186,6 +193,7 @@ digraph {
     label="";
     rank=same;
     style="invis";
+    margin=35;
     "SLAB_FREELIST_HARDENED" [shape=oval, color=palegreen3]; // Mainline Defence
     grsecurity_hardened_freelist [label="by default in grsecurity", shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -306,17 +314,20 @@ digraph {
 
     subgraph cluster_v1 {
       label="";
+      margin=35;
       "v1 / BCB / CVE-2017-5753";
       "v1.1 / BCBS / CVE-2018-3693";
       "v1.2 / RPB";
     }
     subgraph cluster_v2 {
       label="";
+      margin=35;
       "v2 / BTI / CVE-2017-5715";
       "SpectreRSB / Return Mispredict";
     }
     subgraph cluster_v3 {
       label="";
+      margin=35;
       "v3 / RDCL / CVE-2017-5754 / Meltdown";
       "v3a / RSRE / CVE-2018-3640";
     }
@@ -324,6 +335,7 @@ digraph {
     "L1TF / CVE-2018-3620 / Foreshadow";
     subgraph cluster_mds {
       label="MDS";
+      margin=35;
       "MFBDS / CVE-2018-12130 / RIDL / ZombieLoad";
       "MSBDS / CVE-2018-12126 / Fallout";
       "MLPDS / CVE-2018-12127";
