@@ -363,6 +363,7 @@ digraph {
   "Use-After-Free (CWE-416)":e -> "KASAN";
   "Double Free (CWE-415)":e -> "KASAN";
   "Undefined Behaviour (CWE-758)":e -> "UBSAN";
+  "Int Overflow/Underflow (CWE-128/191)":e -> "UBSAN";
   "Uninitialized Vars (CWE-457)":e -> "KMSAN" [ltail=cluster_info_exposures];
   "Race Condition (CWE-362)":e -> "KTSAN";
 
