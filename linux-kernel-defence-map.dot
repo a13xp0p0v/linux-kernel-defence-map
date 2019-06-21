@@ -257,7 +257,7 @@ digraph {
     "Metadata Corruption";
     "Allocator Data Corruption";
     "Heap Layout Control";
-    "userspace data access";
+    "Userspace Data Access";
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
@@ -345,7 +345,6 @@ digraph {
     "KTSAN";
   }
 
-
   // Relations: Bug Detection Means vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
   "General Buffer Overflow (CWE-120)" -> "KASAN";
@@ -410,7 +409,7 @@ digraph {
   "SMEP/PXN" -> "ret2usr";
   "SMAP/PAN":e -> "ret2usr" [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":e -> "userspace data access" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":e -> "Userspace Data Access" [ltail=cluster_smap_pan_uderef];
 
   "SMAP/PAN":e -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
   "PAX_RAP":e -> "ret2usr + ROP" [ltail=cluster_cfi];
