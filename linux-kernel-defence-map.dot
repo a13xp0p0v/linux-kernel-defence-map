@@ -251,6 +251,7 @@ digraph {
     "Race Condition (CWE-362)";
     "Undefined Behaviour (CWE-758)";
     "Type Confusion (CWE-843)";
+    "Double Fetch (CWE-415)";
 
     // Exploitation Techniques
     node [shape=box, color=gold];
