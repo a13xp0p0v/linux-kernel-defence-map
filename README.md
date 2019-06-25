@@ -25,7 +25,7 @@ It also provides the Common Weakness Enumeration (CWE) numbers for vulnerability
 This map is written in the DOT language, which makes maintenance and updating in Git very convenient.
 The diagram is generated using GraphViz with the following command:
 ```
-dot -Tpng linux-kernel-defence-map.dot -o linux-kernel-defence-map.png
+dot -Tsvg linux-kernel-defence-map.dot -o linux-kernel-defence-map.svg
 ```
 
 ## Do you want to check your kernel config?
@@ -62,6 +62,6 @@ You are welcome to try it.
 
 ## The Map for v5.1
 
-![Linux Kernel Defence Map](./linux-kernel-defence-map.png)
+![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
 [1]: https://github.com/a13xp0p0v/kconfig-hardened-check
