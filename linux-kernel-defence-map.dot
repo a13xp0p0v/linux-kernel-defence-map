@@ -112,6 +112,7 @@ digraph {
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
     "LOCK_DOWN_KERNEL"; // remember about LOCK_DOWN_MANDATORY
+    "LKRG";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -402,6 +403,7 @@ digraph {
   "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption";
   "PROTECTABLE_MEMORY":e -> "Metadata Corruption";
   grsecurity_hardened_usermodehelper:e -> "Metadata Corruption";
+  "LKRG":e -> "Metadata Corruption";
 
   "slub_debug=F":e -> "Allocator Data Corruption";
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption";
@@ -441,6 +443,7 @@ digraph {
   "DEBUG_WX":e -> "WX Area Abuse";
 
   "LOCK_DOWN_KERNEL":e -> "Changing Kernel Image";
+  "LKRG":e -> "Changing Kernel Image";
 
   "GRKERNSEC_MODHARDEN":e -> "Bad Module Loading";
   "MODULE_SIG*":e -> "Bad Module Loading";

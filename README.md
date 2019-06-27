@@ -60,6 +60,10 @@ You are welcome to try it.
 
   https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL
 
+- Linux Kernel Runtime Guard (LKRG) threat model:
+
+  https://openwall.info/wiki/p_lkrg/Threat_model
+
 ## The Map for v5.1
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
