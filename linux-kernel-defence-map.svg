@@ -54,25 +54,40 @@
 </g>
 <g id="clust14" class="cluster">
 <title>cluster_transient_execution_vulnerabilities</title>
+<g id="a_clust14"><a xlink:href="https://cwe.mitre.org/data/definitions/514.html" xlink:title="Transient Execution Vulnerabilities (Covert Channels, CWE&#45;514)">
 <polygon fill="none" stroke="#000000" points="891.6286,-2505 891.6286,-3869 1419.6286,-3869 1419.6286,-2505 891.6286,-2505"/>
 <text text-anchor="middle" x="1155.6286" y="-3853.8" font-family="monospace" font-size="14.00" fill="#000000">Transient Execution Vulnerabilities (Covert Channels, CWE&#45;514)</text>
+</a>
+</g>
 </g>
 <g id="clust15" class="cluster">
 <title>cluster_v1</title>
+<g id="a_clust15"><a xlink:href="https://cwe.mitre.org/data/definitions/514.html">
 <polygon fill="none" stroke="#000000" points="1000.6286,-2513 1000.6286,-2807 1309.6286,-2807 1309.6286,-2513 1000.6286,-2513"/>
+</a>
+</g>
 </g>
 <g id="clust16" class="cluster">
 <title>cluster_v2</title>
+<g id="a_clust16"><a xlink:href="https://cwe.mitre.org/data/definitions/514.html">
 <polygon fill="none" stroke="#000000" points="988.1286,-3430 988.1286,-3630 1322.1286,-3630 1322.1286,-3430 988.1286,-3430"/>
+</a>
+</g>
 </g>
 <g id="clust17" class="cluster">
 <title>cluster_v3</title>
+<g id="a_clust17"><a xlink:href="https://cwe.mitre.org/data/definitions/514.html">
 <polygon fill="none" stroke="#000000" points="963.1286,-3638 963.1286,-3838 1347.1286,-3838 1347.1286,-3638 963.1286,-3638"/>
+</a>
+</g>
 </g>
 <g id="clust18" class="cluster">
 <title>cluster_mds</title>
+<g id="a_clust18"><a xlink:href="https://cwe.mitre.org/data/definitions/514.html" xlink:title="MDS">
 <polygon fill="none" stroke="#000000" points="938.6286,-2913 938.6286,-3324 1371.6286,-3324 1371.6286,-2913 938.6286,-2913"/>
 <text text-anchor="middle" x="1155.1286" y="-3308.8" font-family="monospace" font-size="14.00" fill="#000000">MDS</text>
+</a>
+</g>
 </g>
 <!-- Mainline Defences -->
 <g id="node1" class="node">
@@ -137,8 +152,11 @@
 <!-- Use&#45;After&#45;Free (CWE&#45;416) -->
 <g id="node89" class="node">
 <title>Use&#45;After&#45;Free (CWE&#45;416)</title>
+<g id="a_node89"><a xlink:href="https://cwe.mitre.org/data/definitions/416.html" xlink:title="Use&#45;After&#45;Free (CWE&#45;416)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1262.6286,-1141 1047.6286,-1141 1047.6286,-1105 1262.6286,-1105 1262.6286,-1141"/>
 <text text-anchor="middle" x="1155.1286" y="-1119.3" font-family="monospace" font-size="14.00" fill="#000000">Use&#45;After&#45;Free (CWE&#45;416)</text>
+</a>
+</g>
 </g>
 <!-- Heap free() Poisoning&#45;&gt;Use&#45;After&#45;Free (CWE&#45;416) -->
 <g id="edge47" class="edge">
@@ -149,8 +167,11 @@
 <!-- Uninitialized Vars (CWE&#45;457) -->
 <g id="node113" class="node">
 <title>Uninitialized Vars (CWE&#45;457)</title>
+<g id="a_node113"><a xlink:href="https://cwe.mitre.org/data/definitions/457.html" xlink:title="Uninitialized Vars (CWE&#45;457)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1279.1286,-697 1031.1286,-697 1031.1286,-661 1279.1286,-661 1279.1286,-697"/>
 <text text-anchor="middle" x="1155.1286" y="-675.3" font-family="monospace" font-size="14.00" fill="#000000">Uninitialized Vars (CWE&#45;457)</text>
+</a>
+</g>
 </g>
 <!-- Heap free() Poisoning&#45;&gt;Uninitialized Vars (CWE&#45;457) -->
 <g id="edge46" class="edge">
@@ -167,8 +188,11 @@
 <!-- Stack Buffer Overflow (CWE&#45;121) -->
 <g id="node86" class="node">
 <title>Stack Buffer Overflow (CWE&#45;121)</title>
+<g id="a_node86"><a xlink:href="https://cwe.mitre.org/data/definitions/121.html" xlink:title="Stack Buffer Overflow (CWE&#45;121)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1291.1286,-1726 1019.1286,-1726 1019.1286,-1690 1291.1286,-1690 1291.1286,-1726"/>
 <text text-anchor="middle" x="1155.1286" y="-1704.3" font-family="monospace" font-size="14.00" fill="#000000">Stack Buffer Overflow (CWE&#45;121)</text>
+</a>
+</g>
 </g>
 <!-- STACKPROTECTOR&#45;&gt;Stack Buffer Overflow (CWE&#45;121) -->
 <g id="edge39" class="edge">
@@ -185,8 +209,11 @@
 <!-- General Buffer Overflow (CWE&#45;120) -->
 <g id="node85" class="node">
 <title>General Buffer Overflow (CWE&#45;120)</title>
+<g id="a_node85"><a xlink:href="https://cwe.mitre.org/data/definitions/120.html" xlink:title="General Buffer Overflow (CWE&#45;120)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1299.6286,-1235 1010.6286,-1235 1010.6286,-1199 1299.6286,-1199 1299.6286,-1235"/>
 <text text-anchor="middle" x="1155.1286" y="-1213.3" font-family="monospace" font-size="14.00" fill="#000000">General Buffer Overflow (CWE&#45;120)</text>
+</a>
+</g>
 </g>
 <!-- FORTIFY_SOURCE&#45;&gt;General Buffer Overflow (CWE&#45;120) -->
 <g id="edge37" class="edge">
@@ -329,8 +356,11 @@
 <!-- NULL Pointer Dereference (CWE&#45;476) -->
 <g id="node91" class="node">
 <title>NULL Pointer Dereference (CWE&#45;476)</title>
+<g id="a_node91"><a xlink:href="https://cwe.mitre.org/data/definitions/476.html" xlink:title="NULL Pointer Dereference (CWE&#45;476)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1303.6286,-5495 1006.6286,-5495 1006.6286,-5459 1303.6286,-5459 1303.6286,-5495"/>
 <text text-anchor="middle" x="1155.1286" y="-5473.3" font-family="monospace" font-size="14.00" fill="#000000">NULL Pointer Dereference (CWE&#45;476)</text>
+</a>
+</g>
 </g>
 <!-- DEFAULT_MMAP_MIN_ADDR=65536&#45;&gt;NULL Pointer Dereference (CWE&#45;476) -->
 <g id="edge50" class="edge">
@@ -347,8 +377,11 @@
 <!-- Stack Depth Overflow (CWE&#45;674,?) -->
 <g id="node84" class="node">
 <title>Stack Depth Overflow (CWE&#45;674,?)</title>
+<g id="a_node84"><a xlink:href="https://cwe.mitre.org/data/definitions/674.html" xlink:title="Stack Depth Overflow (CWE&#45;674,?)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1295.6286,-456 1014.6286,-456 1014.6286,-420 1295.6286,-420 1295.6286,-456"/>
 <text text-anchor="middle" x="1155.1286" y="-434.3" font-family="monospace" font-size="14.00" fill="#000000">Stack Depth Overflow (CWE&#45;674,?)</text>
+</a>
+</g>
 </g>
 <!-- SCHED_STACK_END_CHECK&#45;&gt;Stack Depth Overflow (CWE&#45;674,?) -->
 <g id="edge36" class="edge">
@@ -395,8 +428,11 @@
 <!-- Double Free (CWE&#45;415) -->
 <g id="node90" class="node">
 <title>Double Free (CWE&#45;415)</title>
+<g id="a_node90"><a xlink:href="https://cwe.mitre.org/data/definitions/415.html" xlink:title="Double Free (CWE&#45;415)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1250.1286,-1332 1060.1286,-1332 1060.1286,-1296 1250.1286,-1296 1250.1286,-1332"/>
 <text text-anchor="middle" x="1155.1286" y="-1310.3" font-family="monospace" font-size="14.00" fill="#000000">Double Free (CWE&#45;415)</text>
+</a>
+</g>
 </g>
 <!-- slub_debug=F&#45;&gt;Double Free (CWE&#45;415) -->
 <g id="edge48" class="edge">
@@ -425,8 +461,11 @@
 <!-- Heap Buffer Overflow (CWE&#45;122) -->
 <g id="node87" class="node">
 <title>Heap Buffer Overflow (CWE&#45;122)</title>
+<g id="a_node87"><a xlink:href="https://cwe.mitre.org/data/definitions/122.html" xlink:title="Heap Buffer Overflow (CWE&#45;122)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1287.1286,-1632 1023.1286,-1632 1023.1286,-1596 1287.1286,-1596 1287.1286,-1632"/>
 <text text-anchor="middle" x="1155.1286" y="-1610.3" font-family="monospace" font-size="14.00" fill="#000000">Heap Buffer Overflow (CWE&#45;122)</text>
+</a>
+</g>
 </g>
 <!-- slub_debug=Z&#45;&gt;Heap Buffer Overflow (CWE&#45;122) -->
 <g id="edge41" class="edge">
@@ -632,15 +671,18 @@
 <ellipse fill="#d3d3d3" stroke="#d3d3d3" cx="631.451" cy="-5665" rx="75.2868" ry="18"/>
 <text text-anchor="middle" x="631.451" y="-5661.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_REFCOUNT</text>
 </g>
-<!-- Int Overflow/Underflow (CWE&#45;128/191) -->
+<!-- Int Overflow/Underflow (CWE&#45;190/191) -->
 <g id="node88" class="node">
-<title>Int Overflow/Underflow (CWE&#45;128/191)</title>
+<title>Int Overflow/Underflow (CWE&#45;190/191)</title>
+<g id="a_node88"><a xlink:href="https://cwe.mitre.org/data/definitions/190.html" xlink:title="Int Overflow/Underflow (CWE&#45;190/191)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1312.1286,-5730 998.1286,-5730 998.1286,-5694 1312.1286,-5694 1312.1286,-5730"/>
-<text text-anchor="middle" x="1155.1286" y="-5708.3" font-family="monospace" font-size="14.00" fill="#000000">Int Overflow/Underflow (CWE&#45;128/191)</text>
+<text text-anchor="middle" x="1155.1286" y="-5708.3" font-family="monospace" font-size="14.00" fill="#000000">Int Overflow/Underflow (CWE&#45;190/191)</text>
+</a>
 </g>
-<!-- PAX_REFCOUNT&#45;&gt;Int Overflow/Underflow (CWE&#45;128/191) -->
+</g>
+<!-- PAX_REFCOUNT&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191) -->
 <g id="edge42" class="edge">
-<title>PAX_REFCOUNT:e&#45;&gt;Int Overflow/Underflow (CWE&#45;128/191):_</title>
+<title>PAX_REFCOUNT:e&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191):_</title>
 <path fill="none" stroke="#000000" d="M707.451,-5665C707.451,-5665 860.5266,-5681.0708 987.6559,-5694.4177"/>
 <polygon fill="#000000" stroke="#000000" points="987.6129,-5697.9323 997.9237,-5695.4956 988.3438,-5690.9706 987.6129,-5697.9323"/>
 </g>
@@ -650,9 +692,9 @@
 <ellipse fill="#d3d3d3" stroke="#d3d3d3" cx="631.451" cy="-5759" rx="102.0819" ry="18"/>
 <text text-anchor="middle" x="631.451" y="-5755.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_SIZE_OVERFLOW</text>
 </g>
-<!-- PAX_SIZE_OVERFLOW&#45;&gt;Int Overflow/Underflow (CWE&#45;128/191) -->
+<!-- PAX_SIZE_OVERFLOW&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191) -->
 <g id="edge43" class="edge">
-<title>PAX_SIZE_OVERFLOW:e&#45;&gt;Int Overflow/Underflow (CWE&#45;128/191):_</title>
+<title>PAX_SIZE_OVERFLOW:e&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191):_</title>
 <path fill="none" stroke="#000000" d="M733.451,-5759C733.451,-5759 870.1387,-5743.7649 987.8695,-5730.6426"/>
 <polygon fill="#000000" stroke="#000000" points="988.5607,-5734.0873 998.1114,-5729.5011 987.7852,-5727.1304 988.5607,-5734.0873"/>
 </g>
@@ -1001,8 +1043,11 @@
 <!-- Info Exposure (CWE&#45;200) -->
 <g id="node112" class="node">
 <title>Info Exposure (CWE&#45;200)</title>
+<g id="a_node112"><a xlink:href="https://cwe.mitre.org/data/definitions/200.html" xlink:title="Info Exposure (CWE&#45;200)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1258.1286,-791 1052.1286,-791 1052.1286,-755 1258.1286,-755 1258.1286,-791"/>
 <text text-anchor="middle" x="1155.1286" y="-769.3" font-family="monospace" font-size="14.00" fill="#000000">Info Exposure (CWE&#45;200)</text>
+</a>
+</g>
 </g>
 <!-- GRKERNSEC_HIDESYM&#45;&gt;Info Exposure (CWE&#45;200) -->
 <g id="edge51" class="edge">
@@ -1268,9 +1313,9 @@
 <polygon fill="#9370db" stroke="#9370db" points="1571.2347,-5751.5442 1571.2347,-5766.4558 1547.4482,-5777 1513.809,-5777 1490.0225,-5766.4558 1490.0225,-5751.5442 1513.809,-5741 1547.4482,-5741 1571.2347,-5751.5442"/>
 <text text-anchor="middle" x="1530.6286" y="-5755.3" font-family="monospace" font-size="14.00" fill="#000000">UBSAN</text>
 </g>
-<!-- Int Overflow/Underflow (CWE&#45;128/191)&#45;&gt;UBSAN -->
+<!-- Int Overflow/Underflow (CWE&#45;190/191)&#45;&gt;UBSAN -->
 <g id="edge31" class="edge">
-<title>Int Overflow/Underflow (CWE&#45;128/191):e&#45;&gt;UBSAN:_</title>
+<title>Int Overflow/Underflow (CWE&#45;190/191):e&#45;&gt;UBSAN:_</title>
 <path fill="none" stroke="#000000" d="M1322.0361,-5714.1311C1351.5543,-5720.4806 1440.0658,-5739.5197 1491.817,-5750.6515"/>
 <polygon fill="#000000" stroke="#000000" points="1322.641,-5710.6813 1312.1286,-5712 1321.1689,-5717.5247 1322.641,-5710.6813"/>
 </g>
@@ -1289,8 +1334,11 @@
 <!-- Race Condition (CWE&#45;362) -->
 <g id="node92" class="node">
 <title>Race Condition (CWE&#45;362)</title>
+<g id="a_node92"><a xlink:href="https://cwe.mitre.org/data/definitions/362.html" xlink:title="Race Condition (CWE&#45;362)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1262.6286,-6071 1047.6286,-6071 1047.6286,-6035 1262.6286,-6035 1262.6286,-6071"/>
 <text text-anchor="middle" x="1155.1286" y="-6049.3" font-family="monospace" font-size="14.00" fill="#000000">Race Condition (CWE&#45;362)</text>
+</a>
+</g>
 </g>
 <!-- KTSAN -->
 <g id="node130" class="node">
@@ -1307,8 +1355,11 @@
 <!-- Undefined Behaviour (CWE&#45;758) -->
 <g id="node93" class="node">
 <title>Undefined Behaviour (CWE&#45;758)</title>
+<g id="a_node93"><a xlink:href="https://cwe.mitre.org/data/definitions/758.html" xlink:title="Undefined Behaviour (CWE&#45;758)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1283.1286,-5824 1027.1286,-5824 1027.1286,-5788 1283.1286,-5788 1283.1286,-5824"/>
 <text text-anchor="middle" x="1155.1286" y="-5802.3" font-family="monospace" font-size="14.00" fill="#000000">Undefined Behaviour (CWE&#45;758)</text>
+</a>
+</g>
 </g>
 <!-- Undefined Behaviour (CWE&#45;758)&#45;&gt;UBSAN -->
 <g id="edge30" class="edge">
@@ -1319,14 +1370,20 @@
 <!-- Type Confusion (CWE&#45;843) -->
 <g id="node94" class="node">
 <title>Type Confusion (CWE&#45;843)</title>
+<g id="a_node94"><a xlink:href="https://cwe.mitre.org/data/definitions/843.html" xlink:title="Type Confusion (CWE&#45;843)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1262.6286,-6165 1047.6286,-6165 1047.6286,-6129 1262.6286,-6129 1262.6286,-6165"/>
 <text text-anchor="middle" x="1155.1286" y="-6143.3" font-family="monospace" font-size="14.00" fill="#000000">Type Confusion (CWE&#45;843)</text>
+</a>
+</g>
 </g>
 <!-- Double Fetch (CWE&#45;415) -->
 <g id="node95" class="node">
 <title>Double Fetch (CWE&#45;415)</title>
+<g id="a_node95"><a xlink:href="https://cwe.mitre.org/data/definitions/415.html" xlink:title="Double Fetch (CWE&#45;415)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1254.1286,-6259 1056.1286,-6259 1056.1286,-6223 1254.1286,-6223 1254.1286,-6259"/>
 <text text-anchor="middle" x="1155.1286" y="-6237.3" font-family="monospace" font-size="14.00" fill="#000000">Double Fetch (CWE&#45;415)</text>
+</a>
+</g>
 </g>
 <!-- KMSAN -->
 <g id="node129" class="node">
