@@ -375,13 +375,13 @@ digraph {
   "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
 
-  "FORTIFY_SOURCE":e -> "General Buffer Overflow (CWE-120)" [URL="https://cwe.mitre.org/data/definitions/120.html"];
+  "FORTIFY_SOURCE":e -> "General Buffer Overflow (CWE-120)";
 
-  "PAX_USERCOPY":e -> "Stack Buffer Overflow (CWE-121)" [URL="https://cwe.mitre.org/data/definitions/121.html"];
-  "STACKPROTECTOR":e -> "Stack Buffer Overflow (CWE-121)" [URL="https://cwe.mitre.org/data/definitions/121.html"];
+  "PAX_USERCOPY":e -> "Stack Buffer Overflow (CWE-121)";
+  "STACKPROTECTOR":e -> "Stack Buffer Overflow (CWE-121)";
 
-  "PAX_USERCOPY":e -> "Heap Buffer Overflow (CWE-122)" [URL="https://cwe.mitre.org/data/definitions/122.html"];
-  "slub_debug=Z":e -> "Heap Buffer Overflow (CWE-122)" [URL="https://cwe.mitre.org/data/definitions/122.html"];
+  "PAX_USERCOPY":e -> "Heap Buffer Overflow (CWE-122)";
+  "slub_debug=Z":e -> "Heap Buffer Overflow (CWE-122)";
 
   "PAX_REFCOUNT":e -> "Int Overflow/Underflow (CWE-128/191)";
   "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-128/191)";
@@ -390,12 +390,12 @@ digraph {
   "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
   "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
 
-  "Heap free() Poisoning":e -> "Use-After-Free (CWE-416)" [URL="https://cwe.mitre.org/data/definitions/416.html"];
+  "Heap free() Poisoning":e -> "Use-After-Free (CWE-416)";
 
-  "slub_debug=F":e -> "Double Free (CWE-415)" [URL="https://cwe.mitre.org/data/definitions/415.html"];
-  "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)" [URL="https://cwe.mitre.org/data/definitions/415.html"];
+  "slub_debug=F":e -> "Double Free (CWE-415)";
+  "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
 
-  "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)" [URL="https://cwe.mitre.org/data/definitions/476.html"];
+  "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)";
 
   "GRKERNSEC_HIDESYM":e -> "Info Exposure (CWE-200)" [ltail=cluster_info_exposure_mitigations];
 
