@@ -255,7 +255,7 @@ digraph {
 
     // Vulnerabilities
     node [shape=box, color=pink];
-    "Stack Depth Overflow (CWE-674,?)";
+    "Stack Depth Overflow (CWE-674,?)" [URL="https://cwe.mitre.org/data/definitions/674.html"];
     "General Buffer Overflow (CWE-120)" [URL="https://cwe.mitre.org/data/definitions/120.html"];
     "Stack Buffer Overflow (CWE-121)" [URL="https://cwe.mitre.org/data/definitions/121.html"];
     "Heap Buffer Overflow (CWE-122)" [URL="https://cwe.mitre.org/data/definitions/122.html"];
@@ -309,6 +309,7 @@ digraph {
 
   subgraph cluster_transient_execution_vulnerabilities {
     label="Transient Execution Vulnerabilities (Covert Channels, CWE-514)";
+    URL="https://cwe.mitre.org/data/definitions/514.html";
     rank=same;
     fontsize=14;
     node [shape=box, color=pink];
