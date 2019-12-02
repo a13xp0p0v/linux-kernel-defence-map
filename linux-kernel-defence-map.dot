@@ -96,6 +96,7 @@ digraph {
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
     "init_on_alloc";
+    "LOCKDOWN_LSM";
 
     // Mainline Defences against Transient Execution Attacks
     "X86: MICROCODE";
@@ -107,7 +108,6 @@ digraph {
     "XPFO";
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
-    "LOCK_DOWN_KERNEL"; // remember about LOCK_DOWN_MANDATORY
     "LKRG";
 
     // Commercial Defences
@@ -471,7 +471,7 @@ digraph {
   "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse";
   "DEBUG_WX":e -> "WX Area Abuse";
 
-  "LOCK_DOWN_KERNEL":e -> "Changing Kernel Image";
+  "LOCKDOWN_LSM":e -> "Changing Kernel Image";
   "LKRG":e -> "Changing Kernel Image";
 
   "GRKERNSEC_MODHARDEN":e -> "Bad Module Loading";
