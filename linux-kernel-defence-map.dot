@@ -42,7 +42,7 @@ digraph {
   splines=line;
 
   rankdir=LR;
-  node [style=filled, fontname=monospace];
+  node [style=filled, fontname=monospace, margin="0.22,0.055"];
 
   subgraph cluster_legend {
     fontsize=25;
@@ -305,10 +305,11 @@ digraph {
   }
 
   subgraph cluster_transient_execution_vulnerabilities {
-    label="Transient Execution Vulnerabilities (Covert Channels, CWE-514)";
+    label="Transient Execution Vulnerabilities \n (Covert Channels, CWE-514)";
     URL="https://cwe.mitre.org/data/definitions/514.html";
     rank=same;
-    fontsize=14;
+    fontsize=18;
+    margin=30;
     node [shape=box, color=pink];
 
     subgraph cluster_v1 {
