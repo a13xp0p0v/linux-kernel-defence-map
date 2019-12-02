@@ -197,8 +197,9 @@ digraph {
     rank=same;
     style="dashed";
     margin=35;
-    "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
     "X86: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
+    "ARM: HARDEN_EL2_VECTORS" [shape=oval, color=palegreen3]; // Mainline Defence
+    "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
     "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -412,7 +413,7 @@ digraph {
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)";
 
-  "GRKERNSEC_HIDESYM":e -> "Info Exposure (CWE-200)" [ltail=cluster_info_exposure_mitigations];
+  "kptr_restrict":e -> "Info Exposure (CWE-200)" [ltail=cluster_info_exposure_mitigations];
 
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption";
