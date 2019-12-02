@@ -85,6 +85,7 @@ digraph {
     "SLAB_FREELIST_RANDOM";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
+    "ARM: RODATA_FULL_DEFAULT_ENABLED";
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
     "SECURITY_LOADPIN";
@@ -470,6 +471,7 @@ digraph {
   "PAX_KERNEXEC":e -> "WX Area Abuse";
   "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse";
   "DEBUG_WX":e -> "WX Area Abuse";
+  "ARM: RODATA_FULL_DEFAULT_ENABLED":e -> "WX Area Abuse";
 
   "LOCKDOWN_LSM":e -> "Changing Kernel Image";
   "LKRG":e -> "Changing Kernel Image";
