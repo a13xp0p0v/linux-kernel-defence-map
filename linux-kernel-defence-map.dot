@@ -234,6 +234,7 @@ digraph {
     "ARM: ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
+    "init_on_free";
     "STACKLEAK";
     "ARM: STACKPROTECTOR_PER_TASK";
 
@@ -261,6 +262,7 @@ digraph {
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P":e -> "Heap free() Poisoning":w [style=filled];
+  "init_on_free" -> "Heap free() Poisoning":w [style=filled];
   "ARM: STACKPROTECTOR_PER_TASK":e -> "STACKPROTECTOR";
 
 
