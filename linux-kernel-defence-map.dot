@@ -14,11 +14,8 @@
 // in documentation and Linux kernel sources.
 //
 // It is written in DOT language.
-// How to generate png:
-//    dot -Tpng linux-kernel-defence-map.dot -o linux-kernel-defence-map.png
-//
-// TODO:
-//    - Attack surface reduction (like seccomp, LSM)
+// How to generate svg:
+//    dot -Tsvg linux-kernel-defence-map.dot -o linux-kernel-defence-map.svg
 //
 // References:
 //
