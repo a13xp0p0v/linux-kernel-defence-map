@@ -97,11 +97,11 @@ digraph {
     "slub_debug=Z"; // red zoning
 
     // Mainline Defences against Transient Execution Attacks
-    "MICROCODE";
-    "spectre_v2=on (RETPOLINE)";
-    "spec_store_bypass_disable=on";
-    "l1tf=full,force";
-    "mds=full,nosmt";
+    "X86: MICROCODE";
+    "X86: spectre_v2=on (RETPOLINE)";
+    "X86: spec_store_bypass_disable=on";
+    "X86: l1tf=full,force";
+    "X86: mds=full,nosmt";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -136,8 +136,8 @@ digraph {
     rank=same;
     margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defences
-    "pti=on (PAGE_TABLE_ISOLATION)";
-    "kpti=on (UNMAP_KERNEL_AT_EL0)";
+    "X86: pti=on (PAGE_TABLE_ISOLATION)";
+    "ARM: kpti=on (UNMAP_KERNEL_AT_EL0)";
   }
 
   subgraph cluster_smap_pan_uderef {
@@ -182,7 +182,7 @@ digraph {
     style="dashed";
     margin=35;
     "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
     "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -212,12 +212,12 @@ digraph {
     "LATENT_ENTROPY";
     "__ro_after_init";
     "SECURITY_DMESG_RESTRICT";
-    "CPU_SW_DOMAIN_PAN";
-    "ARM64_SW_TTBR0_PAN";
+    "ARM: CPU_SW_DOMAIN_PAN";
+    "ARM: ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
     "STACKLEAK";
-    "STACKPROTECTOR_PER_TASK";
+    "ARM: STACKPROTECTOR_PER_TASK";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -237,13 +237,13 @@ digraph {
   "__ro_after_init":e -> "__read_only";
   "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG";
   "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK";
-  "CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
-  "ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
+  "ARM: CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
+  "ARM: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w [style=filled];
   "slub_debug=P":e -> "Heap free() Poisoning":w [style=filled];
-  "STACKPROTECTOR_PER_TASK":e -> "STACKPROTECTOR";
+  "ARM: STACKPROTECTOR_PER_TASK":e -> "STACKPROTECTOR";
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -417,7 +417,7 @@ digraph {
   "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti, constraint=false];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti, constraint=false];
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -451,11 +451,11 @@ digraph {
 
   "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
-  "MICROCODE":e -> "MLPDS / CVE-2018-12127" [lhead=cluster_transient_execution_vulnerabilities]
+  "X86: MICROCODE":e -> "MLPDS / CVE-2018-12127" [lhead=cluster_transient_execution_vulnerabilities]
   "Respectre":e -> "v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
-  "spectre_v2=on (RETPOLINE)":e -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
-  "pti=on (PAGE_TABLE_ISOLATION)":e -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
-  "spec_store_bypass_disable=on":e -> "v4 / SSB / CVE-2018-3639";
-  "l1tf=full,force":e -> "L1TF / CVE-2018-3620 / Foreshadow";
-  "mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
+  "X86: spectre_v2=on (RETPOLINE)":e -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
+  "X86: spec_store_bypass_disable=on":e -> "v4 / SSB / CVE-2018-3639";
+  "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620 / Foreshadow";
+  "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
 }
