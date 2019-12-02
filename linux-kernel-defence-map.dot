@@ -98,7 +98,6 @@ digraph {
 
     // Mainline Defences against Transient Execution Attacks
     "X86: MICROCODE";
-    "X86: spectre_v2=on (RETPOLINE)";
     "X86: spec_store_bypass_disable=on";
     "X86: l1tf=full,force";
     "X86: mds=full,nosmt";
@@ -163,6 +162,16 @@ digraph {
     "Respectre" [shape=oval, color=lightgrey]; // Commercial Defence
     "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
   }
+
+  subgraph cluster_v2_mitigations {
+    label="";
+    rank=same;
+    margin=35;
+    node [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86: spectre_v2=on (RETPOLINE)";
+    "ARM: HARDEN_BRANCH_PREDICTOR";
+  }
+
 
   subgraph cluster_layout_randomization {
     label="Layout Randomization";
@@ -453,7 +462,7 @@ digraph {
 
   "X86: MICROCODE":e -> "MLPDS / CVE-2018-12127" [lhead=cluster_transient_execution_vulnerabilities]
   "Respectre":e -> "v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
-  "X86: spectre_v2=on (RETPOLINE)":e -> "v2 / BTI / CVE-2017-5715" [lhead=cluster_v2];
+  "X86: spectre_v2=on (RETPOLINE)":e -> "v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
   "X86: spec_store_bypass_disable=on":e -> "v4 / SSB / CVE-2018-3639";
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620 / Foreshadow";
