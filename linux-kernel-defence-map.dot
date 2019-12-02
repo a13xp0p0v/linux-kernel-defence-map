@@ -95,6 +95,7 @@ digraph {
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
+    "init_on_alloc";
 
     // Mainline Defences against Transient Execution Attacks
     "X86: MICROCODE";
@@ -406,6 +407,7 @@ digraph {
   "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
   "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
   "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
+  "init_on_alloc":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
 
   "Heap free() Poisoning":e -> "Use-After-Free (CWE-416)";
 
