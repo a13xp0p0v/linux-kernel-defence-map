@@ -357,6 +357,7 @@ digraph {
       "MSBDS / CVE-2018-12126 / Fallout";
       "MLPDS / CVE-2018-12127";
       "MDSUM / CVE-2019-11091";
+      "TAA / CVE-2019-11135";
     }
 
   }
