@@ -119,7 +119,6 @@ digraph {
     "PAX_KERNEXEC";
     "PAX_CONSTIFY_PLUGIN";
     "GRKERNSEC_JIT_HARDEN";
-    "PAX_MEMORY_STRUCTLEAK";
     "PAX_MEMORY_STACKLEAK";
     "GRKERNSEC_MODHARDEN";
     "__read_only";
@@ -214,6 +213,15 @@ digraph {
     grsecurity_hardened_freelist [label="by default in grsecurity", shape=oval, color=lightgrey]; // Commercial Defence
   }
 
+  subgraph cluster_stack_init {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=35;
+    "INIT_STACK_ALL" [shape=oval, color=palegreen3]; // Mainline Defence
+    "PAX_MEMORY_STRUCTLEAK" [shape=oval, color=lightgrey]; // Commercial Defence
+  }
+
   // Defences: child nodes
   {
     rank=same;
@@ -251,7 +259,7 @@ digraph {
   "VMAP_STACK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
   "THREAD_INFO_IN_TASK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
   "RANDSTRUCT":e -> "GRKERNSEC_RANDSTRUCT";
-  "STRUCTLEAK":e -> "PAX_MEMORY_STRUCTLEAK";
+  "STRUCTLEAK":e -> "PAX_MEMORY_STRUCTLEAK":w;
   "LATENT_ENTROPY":e -> "PAX_LATENT_ENTROPY";
   "__ro_after_init":e -> "__read_only";
   "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG";
@@ -407,7 +415,7 @@ digraph {
   "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-190/191)";
 
   "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
-  "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
+  "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
   "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
   "init_on_alloc":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
 
