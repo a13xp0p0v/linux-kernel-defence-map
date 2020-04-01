@@ -372,6 +372,7 @@ digraph {
       "MDSUM / CVE-2019-11091";
       "TAA / CVE-2019-11135";
       "L1DES / CVE-2020-0549 / CacheOut";
+      "VRS / CVE-2020-0548";
     }
   }
 
