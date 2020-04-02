@@ -155,6 +155,7 @@ digraph {
   subgraph cluster_ro {
     label="";
     rank=same;
+    style="dashed";
     margin=15;
     "__read_only" [shape=oval, color=palegreen3]; // Mainline Defence
     "PAX_CONSTIFY_PLUGIN" [shape=oval, color=lightgrey]; // Commercial Defence
