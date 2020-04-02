@@ -73,10 +73,6 @@ digraph {
   {
     rank=same;
 
-    // Generic Defence Techniques
-    node [shape=oval, color=black, style=solid];
-    "Heap free() Poisoning";
-
     // Mainline Defences
     node [shape=oval, color=palegreen3, style=filled];
     "STACKPROTECTOR";
@@ -97,7 +93,6 @@ digraph {
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "slub_debug=F"; // sanity checks
     "slub_debug=Z"; // red zoning
-    "init_on_alloc";
     "LOCKDOWN_LSM";
     "unprivileged_userfaultfd=0";
     "LDISC_AUTOLOAD is not set";
@@ -224,6 +219,15 @@ digraph {
     margin=35;
     "INIT_STACK_ALL" [shape=oval, color=palegreen3]; // Mainline Defence
     "PAX_MEMORY_STRUCTLEAK" [shape=oval, color=lightgrey]; // Commercial Defence
+  }
+
+  subgraph cluster_heap_erasing {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=15;
+    "Heap free() Poisoning" [shape=oval, color=black, style=solid]; // Generic Defence Technique
+    "init_on_alloc" [shape=oval, color=palegreen3]; // Mainline Defence
   }
 
   // Defences: child nodes
@@ -426,10 +430,9 @@ digraph {
 
   "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
   "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
-  "Heap free() Poisoning":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
-  "init_on_alloc":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
+  "Heap free() Poisoning":s -> "Uninitialized Vars (CWE-457)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
 
-  "Heap free() Poisoning":e -> "Use-After-Free (CWE-416)";
+  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)" [ltail=cluster_heap_erasing];
 
   "slub_debug=F":e -> "Double Free (CWE-415)";
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
