@@ -99,9 +99,9 @@ digraph {
     "LDISC_AUTOLOAD is not set";
 
     // Mainline Defences against Transient Execution Attacks
-    "X86: MICROCODE";
     "X86: mds=full,nosmt";
     "X86: l1tf=full,force";
+    "X86: MICROCODE";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -157,7 +157,7 @@ digraph {
   subgraph cluster_v1_mitigations {
     label="";
     rank=same;
-    margin=35;
+    margin=15;
     "Respectre" [shape=oval, color=lightgrey]; // Commercial Defence
     "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
   }
@@ -165,7 +165,7 @@ digraph {
   subgraph cluster_v2_mitigations {
     label="";
     rank=same;
-    margin=35;
+    margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "X86: spectre_v2=on (RETPOLINE)";
     "ARM: HARDEN_BRANCH_PREDICTOR";
@@ -174,7 +174,7 @@ digraph {
   subgraph cluster_ssb_mitigations {
     label="";
     rank=same;
-    margin=35;
+    margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "X86: spec_store_bypass_disable=on";
     "ARM: ssbd=force-on";
@@ -185,7 +185,7 @@ digraph {
     rank=same;
     fontsize=18;
     style="dashed";
-    margin=35;
+    margin=15;
     "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
@@ -196,7 +196,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=35;
+    margin=15;
     "X86: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
     "ARM: HARDEN_EL2_VECTORS" [shape=oval, color=palegreen3]; // Mainline Defence
     "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
@@ -208,7 +208,7 @@ digraph {
     label="";
     rank=same;
     style="invis";
-    margin=35;
+    margin=15;
     "SLAB_FREELIST_HARDENED" [shape=oval, color=palegreen3]; // Mainline Defence
     grsecurity_hardened_freelist [label="by default in grsecurity", shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -217,7 +217,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=35;
+    margin=25;
     "INIT_STACK_ALL" [shape=oval, color=palegreen3]; // Mainline Defence
     "PAX_MEMORY_STRUCTLEAK" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -226,7 +226,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=15;
+    margin=25;
     "Heap free() Poisoning" [shape=oval, color=black, style=solid]; // Generic Defence Technique
     "init_on_alloc" [shape=oval, color=palegreen3]; // Mainline Defence
   }
@@ -323,10 +323,10 @@ digraph {
 
   subgraph cluster_control_flow_hijack {
     label="Control Flow Hijack";
-    fontsize=14;
+    fontsize=18;
     rank=same;
     style="dashed";
-    margin=35;
+    margin=25;
     node [shape=box, color=gold]; // Exploitation Techniques
     "ROP";
     "ret2usr + ROP";
@@ -340,7 +340,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=35;
+    margin=25;
     node [shape=box, color=pink]; // Vulnerabilities
     "Info Exposure (CWE-200)" [URL="https://cwe.mitre.org/data/definitions/200.html"];
     "Uninitialized Vars (CWE-457)" [URL="https://cwe.mitre.org/data/definitions/457.html"];
@@ -351,25 +351,25 @@ digraph {
     URL="https://cwe.mitre.org/data/definitions/514.html";
     rank=same;
     fontsize=18;
-    margin=30;
+    margin=25;
     node [shape=box, color=pink];
 
     subgraph cluster_v1 {
       label="";
-      margin=35;
+      margin=25;
       "Spectre v1 / BCB / CVE-2017-5753";
       "Spectre v1.1 / BCBS / CVE-2018-3693";
       "Spectre v1.2 / RPB";
     }
     subgraph cluster_v2 {
       label="";
-      margin=35;
+      margin=25;
       "Spectre v2 / BTI / CVE-2017-5715";
-      "Spectre RSB / Return Mispredict / CVE-2018-15572";
+      "Spectre RSB / CVE-2018-15572";
     }
     subgraph cluster_v3 {
       label="";
-      margin=35;
+      margin=25;
       "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
       "Spectre v3a / RSRE / CVE-2018-3640";
     }
@@ -377,7 +377,7 @@ digraph {
     "L1TF / CVE-2018-3646 / Foreshadow-VMM";
     subgraph cluster_mds {
       label="MDS";
-      margin=35;
+      margin=25;
       "MFBDS / CVE-2018-12130 / RIDL / ZombieLoad";
       "MSBDS / CVE-2018-12126 / Fallout";
       "MLPDS / CVE-2018-12127";
@@ -442,8 +442,7 @@ digraph {
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)";
-
-  "kptr_restrict":e -> "Info Exposure (CWE-200)" [ltail=cluster_info_exposure_mitigations];
+  "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
 
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption";
   "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption";
@@ -466,7 +465,7 @@ digraph {
   "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti, constraint=false];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -502,7 +501,7 @@ digraph {
 
   "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
-  "X86: MICROCODE":e -> "MLPDS / CVE-2018-12127" [lhead=cluster_transient_execution_vulnerabilities]
+  "X86: MICROCODE":e -> "Spectre v1 / BCB / CVE-2017-5753" [lhead=cluster_transient_execution_vulnerabilities]
   "Respectre":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
