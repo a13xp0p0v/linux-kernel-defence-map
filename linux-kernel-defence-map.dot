@@ -412,8 +412,8 @@ digraph {
   "GRKERNSEC_KSTACKOVERFLOW":e -> "Stack Depth Overflow (CWE-674,?)";
   "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
+  "PAX_USERCOPY":e -> "Stack Depth Overflow (CWE-674,?)";
 
-  "PAX_USERCOPY":e -> "Stack Buffer Overflow (CWE-121)";
   "STACKPROTECTOR":e -> "Stack Buffer Overflow (CWE-121)";
   "FORTIFY_SOURCE":e -> "Stack Buffer Overflow (CWE-121)";
 
