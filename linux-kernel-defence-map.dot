@@ -250,6 +250,10 @@ digraph {
     "STACKLEAK";
     "ARM: STACKPROTECTOR_PER_TASK";
 
+    // Out-of-tree Defences
+    node [shape=oval, color=cornflowerblue];
+    "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
+
     // Commercial Defences
     node [shape=oval, color=lightgrey];
     "PAX_MEMORY_SANITIZE";
@@ -276,6 +280,7 @@ digraph {
   "slub_debug=P":e -> "Heap free() Poisoning":w [style=filled];
   "init_on_free" -> "Heap free() Poisoning":w [style=filled];
   "ARM: STACKPROTECTOR_PER_TASK":e -> "STACKPROTECTOR";
+  "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
 
 
   // Vulnerabilities and Exploitation Techniques
