@@ -1,8 +1,9 @@
 //
-// Linux Kernel Defence Map shows the relations between:
-//  - vulnerability classes / exploitation techniques,
-//  - kernel defences,
-//  - bug detection means.
+// Linux Kernel Defence Map showing the relationships between:
+//  - Vulnerability classes
+//  - Exploitation techniques
+//  - Bug detection mechanisms
+//  - Defence technologies
 //
 // Author: Alexander Popov <alex.popov@linux.com>
 //
@@ -387,7 +388,7 @@ digraph {
   }
 
 
-  // Bug Detection Means
+  // Bug Detection Mechanisms
   {
     rank=same;
     node [shape=octagon, color=mediumpurple];
@@ -398,7 +399,7 @@ digraph {
     "KCSAN";
   }
 
-  // Relations: Bug Detection Means vs Vulnerabilities
+  // Relations: Bug Detection Mechanisms vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
   "Stack Buffer Overflow (CWE-121)":e -> "KASAN";
   "Heap Out-of-Bounds Access (CWE-122,119)":e -> "KASAN";
