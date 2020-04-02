@@ -83,7 +83,7 @@ digraph {
     "FORTIFY_SOURCE";
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}";
     "SLAB_FREELIST_RANDOM";
-    "CONFIG_SHUFFLE_PAGE_ALLOCATOR";
+    "SHUFFLE_PAGE_ALLOCATOR";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
     "ARM: RODATA_FULL_DEFAULT_ENABLED";
@@ -447,7 +447,7 @@ digraph {
 
   "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control";
   "slab_nomerge":e -> "Heap Layout Control";
-  "CONFIG_SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
+  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
   "unprivileged_userfaultfd=0":e -> "Heap Layout Control";
 
   "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
