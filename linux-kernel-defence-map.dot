@@ -306,7 +306,6 @@ digraph {
     "Int Overflow/Underflow (CWE-190/191)" [URL="https://cwe.mitre.org/data/definitions/190.html"];
     "Use-After-Free (CWE-416)" [URL="https://cwe.mitre.org/data/definitions/416.html"];
     "Double Free (CWE-415)" [URL="https://cwe.mitre.org/data/definitions/415.html"];
-    "NULL Pointer Dereference (CWE-476)" [URL="https://cwe.mitre.org/data/definitions/476.html"];
     "Race Condition (CWE-362)" [URL="https://cwe.mitre.org/data/definitions/362.html"];
     "Undefined Behaviour (CWE-758)" [URL="https://cwe.mitre.org/data/definitions/758.html"];
     "Type Confusion (CWE-843)" [URL="https://cwe.mitre.org/data/definitions/843.html"];
@@ -318,7 +317,6 @@ digraph {
     "Metadata Corruption";
     "Allocator Data Corruption";
     "Heap Layout Control";
-    "Userspace Data Access";
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
@@ -326,6 +324,19 @@ digraph {
     "Bad Module Loading";
     "Unbalanced set_fs()";
     "Function Pointer Overwrite";
+  }
+
+  subgraph cluster_userspace_access {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=25;
+
+    // Vulnerability
+    "NULL Pointer Dereference (CWE-476)" [shape=box, color=pink, URL="https://cwe.mitre.org/data/definitions/476.html"];
+
+    // Exploitation Technique
+    "Userspace Data Access" [shape=box, color=gold];
   }
 
   subgraph cluster_control_flow_hijack {
@@ -447,7 +458,6 @@ digraph {
   "slub_debug=F":e -> "Double Free (CWE-415)";
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
 
-  "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)";
   "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
 
   "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption";
@@ -474,7 +484,9 @@ digraph {
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":s -> "Userspace Data Access" [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":s -> "Userspace Data Access":s [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+
+  "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
   "SMAP/PAN":s -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
   "PAX_RAP":s -> "ret2usr + ROP" [ltail=cluster_cfi];
