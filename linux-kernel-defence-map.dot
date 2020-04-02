@@ -100,6 +100,7 @@ digraph {
     "init_on_alloc";
     "LOCKDOWN_LSM";
     "unprivileged_userfaultfd=0";
+    "LDISC_AUTOLOAD is not set";
 
     // Mainline Defences against Transient Execution Attacks
     "X86: MICROCODE";
@@ -485,6 +486,7 @@ digraph {
   "MODULE_SIG*":e -> "Bad Module Loading";
   "SECURITY_LOADPIN":e -> "Bad Module Loading";
   "request_module_cap()":e -> "Bad Module Loading";
+  "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
