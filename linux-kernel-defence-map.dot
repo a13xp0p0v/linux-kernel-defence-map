@@ -117,11 +117,9 @@ digraph {
     "PAX_SIZE_OVERFLOW";
     "PAX_USERCOPY";
     "PAX_KERNEXEC";
-    "PAX_CONSTIFY_PLUGIN";
     "GRKERNSEC_JIT_HARDEN";
     "PAX_MEMORY_STACKLEAK";
     "GRKERNSEC_MODHARDEN";
-    "__read_only";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
 
     // HW Defences
@@ -152,6 +150,14 @@ digraph {
     margin=15;
     "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
+  }
+
+  subgraph cluster_ro {
+    label="";
+    rank=same;
+    margin=15;
+    "__read_only" [shape=oval, color=palegreen3]; // Mainline Defence
+    "PAX_CONSTIFY_PLUGIN" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   subgraph cluster_v1_mitigations {
@@ -454,8 +460,7 @@ digraph {
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption";
   "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption";
 
-  "PAX_CONSTIFY_PLUGIN":e -> "Function Pointer Overwrite";
-  "__read_only":e -> "Function Pointer Overwrite";
+  "__read_only":e -> "Function Pointer Overwrite" [ltail=cluster_ro];
 
   "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control";
   "slab_nomerge":e -> "Heap Layout Control";
