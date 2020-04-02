@@ -60,6 +60,10 @@ You are welcome to try it.
 
   https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL
 
+- A Decade of Linux Kernel Vulnerabilities, their Mitigation and Open Problems by Abhilash Raj:
+
+  https://github.com/maxking/linux-vulnerabilities-10-years
+
 - Linux Kernel Runtime Guard (LKRG) threat model:
 
   https://openwall.info/wiki/p_lkrg/Threat_model
