@@ -325,10 +325,11 @@ digraph {
     "Changing Kernel Image";
     "Bad Module Loading";
     "Unbalanced set_fs()";
+    "Function Pointer Overwrite";
   }
 
   subgraph cluster_control_flow_hijack {
-    label="Control Flow Hijack";
+    label="  Control Flow Hijack Techniques  ";
     fontsize=18;
     rank=same;
     style="dashed";
@@ -339,7 +340,6 @@ digraph {
     "ret2dir + ROP";
     "ret2usr";
     "ret2dir";
-    "Function Pointer Overwrite";
   }
 
   subgraph cluster_info_exposures {
