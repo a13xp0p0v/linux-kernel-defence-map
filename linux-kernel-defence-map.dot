@@ -387,6 +387,7 @@ digraph {
     "UBSAN";
     "KMSAN";
     "KTSAN";
+    "KCSAN";
   }
 
   // Relations: Bug Detection Means vs Vulnerabilities
@@ -400,6 +401,7 @@ digraph {
   "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
   "Uninitialized Vars (CWE-457)":e -> "KMSAN" [ltail=cluster_info_exposures];
   "Race Condition (CWE-362)":e -> "KTSAN";
+  "Race Condition (CWE-362)":e -> "KCSAN";
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
