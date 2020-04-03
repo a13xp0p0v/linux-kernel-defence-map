@@ -364,6 +364,16 @@ digraph {
     "Uninitialized Vars (CWE-457)" [URL="https://cwe.mitre.org/data/definitions/457.html"];
   }
 
+  subgraph cluster_hang {
+    label="";
+    rank=same;
+    style="invis";
+    margin=25;
+    node [shape=box, color=pink]; // Vulnerabilities
+    "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
+    "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
+  }
+
   subgraph cluster_transient_execution_vulnerabilities {
     label="Transient Execution Vulnerabilities \n (Covert Channels, CWE-514)";
     URL="https://cwe.mitre.org/data/definitions/514.html";
@@ -417,6 +427,10 @@ digraph {
     "KTSAN";
     "KCSAN";
     "KMEMLEAK";
+    "PROVE_LOCKING";
+    "DEBUG_ATOMIC_SLEEP";
+    "LOCKUP_DETECTOR";
+    "WQ_WATCHDOG";
   }
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
@@ -431,6 +445,10 @@ digraph {
   "Race Condition (CWE-362)":e -> "KTSAN";
   "Race Condition (CWE-362)":e -> "KCSAN";
   "Memory Leak (CWE-401)":e -> "KMEMLEAK";
+  "Deadlock (CWE-833)" -> "PROVE_LOCKING":w;
+  "Deadlock (CWE-833)" -> "DEBUG_ATOMIC_SLEEP":w;
+  "Infinite Loop (CWE-835)" -> "LOCKUP_DETECTOR":w;
+  "Infinite Loop (CWE-835)" -> "WQ_WATCHDOG":w;
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
