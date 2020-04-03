@@ -157,8 +157,10 @@ digraph {
     rank=same;
     style="dashed";
     margin=15;
-    "__read_only" [shape=oval, color=palegreen3]; // Mainline Defence
-    "PAX_CONSTIFY_PLUGIN" [shape=oval, color=lightgrey]; // Commercial Defence
+    // Commercial Defences
+    node [shape=oval, color=lightgrey];
+    "__read_only";
+    "PAX_CONSTIFY_PLUGIN";
   }
 
   subgraph cluster_v1_mitigations {
