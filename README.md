@@ -68,7 +68,7 @@ You are welcome to try it.
 
   https://openwall.info/wiki/p_lkrg/Threat_model
 
-## The Map for v5.3
+## Map for Linux kernel v5.5
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
