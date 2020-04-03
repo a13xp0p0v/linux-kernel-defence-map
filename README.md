@@ -34,7 +34,7 @@ So there are plenty of Linux kernel hardening config options. A lot of them are
 not enabled by the major distros. We have to enable these options ourselves to
 make our systems more secure.
 
-But nobody likes verifying configs manually. So I've created the [__kconfig-hardened-check.py__][1]
+But nobody likes verifying configs manually. So I've created the [__kconfig-hardened-check__][1]
 that checks security hardening options in the Linux kernel Kconfig option list.
 You are welcome to try it.
 
