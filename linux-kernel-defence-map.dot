@@ -148,8 +148,8 @@ digraph {
     label="";
     rank=same;
     margin=15;
-    "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
+    "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "ARM: ARM64_PTR_AUTH" [shape=oval, color=palegreen3]; // Mainline Defences
   }
 
@@ -285,7 +285,7 @@ digraph {
   "LATENT_ENTROPY":e -> "PAX_LATENT_ENTROPY";
   "__ro_after_init":e -> "__read_only";
   "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG";
-  "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK";
+  "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK":w;
   "ARM: CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
   "ARM: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
@@ -353,7 +353,7 @@ digraph {
     "ret2dir + ROP";
     "ret2usr";
     "ret2dir";
-    "Return Address Overwrite";
+    "Return Address Overwrite" [fontsize=10, margin="0.07"];
   }
 
   subgraph cluster_info_exposures {
@@ -473,7 +473,7 @@ digraph {
   "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
   "Heap free() Poisoning":s -> "Uninitialized Vars (CWE-457)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
 
-  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)" [ltail=cluster_heap_erasing];
+  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)":w [ltail=cluster_heap_erasing];
 
   "slub_debug=F":e -> "Double Free (CWE-415)";
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
@@ -497,8 +497,8 @@ digraph {
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
   "unprivileged_userfaultfd=0":e -> "Heap Layout Control";
 
-  "STACKPROTECTOR":e -> "Return Address Overwrite";
-  "PAX_RAP":s -> "Return Address Overwrite" [ltail=cluster_cfi];
+  "STACKPROTECTOR":e -> "Return Address Overwrite":w;
+  "PAX_RAP":s -> "Return Address Overwrite":w [ltail=cluster_cfi];
 
   "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
 
@@ -511,8 +511,8 @@ digraph {
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
-  "SMAP/PAN":s -> "ret2usr + ROP" [ltail=cluster_smap_pan_uderef];
-  "PAX_RAP":s -> "ret2usr + ROP" [ltail=cluster_cfi];
+  "SMAP/PAN":s -> "ret2usr + ROP":sw [ltail=cluster_smap_pan_uderef];
+  "PAX_RAP":s -> "ret2usr + ROP":nw [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2dir";
   "XPFO":e -> "ret2dir";
