@@ -324,7 +324,7 @@ digraph {
     "Changing Kernel Image";
     "Bad Module Loading";
     "Unbalanced set_fs()";
-    "Function Pointer Overwrite";
+    "'ops' Structures Overwrite";
   }
 
   subgraph cluster_userspace_access {
@@ -489,7 +489,7 @@ digraph {
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption";
   "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption";
 
-  "__read_only":e -> "Function Pointer Overwrite" [ltail=cluster_ro];
+  "__read_only":e -> "'ops' Structures Overwrite" [ltail=cluster_ro];
 
   "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control";
   "slab_nomerge":e -> "Heap Layout Control";
