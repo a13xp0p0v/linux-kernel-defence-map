@@ -352,6 +352,7 @@ digraph {
     "ret2dir + ROP";
     "ret2usr";
     "ret2dir";
+    "Return Address Overwrite";
   }
 
   subgraph cluster_info_exposures {
@@ -458,7 +459,6 @@ digraph {
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
   "PAX_USERCOPY":e -> "Stack Depth Overflow (CWE-674,?)";
 
-  "STACKPROTECTOR":e -> "Stack Buffer Overflow (CWE-121)";
   "FORTIFY_SOURCE":e -> "Stack Buffer Overflow (CWE-121)";
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)";
@@ -495,6 +495,9 @@ digraph {
   "slab_nomerge":e -> "Heap Layout Control";
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
   "unprivileged_userfaultfd=0":e -> "Heap Layout Control";
+
+  "STACKPROTECTOR":e -> "Return Address Overwrite";
+  "PAX_RAP":s -> "Return Address Overwrite" [ltail=cluster_cfi];
 
   "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
 
