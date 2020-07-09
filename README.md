@@ -60,6 +60,10 @@ You are welcome to try it.
 
   https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL
 
+- Pursuing Durable Safety for Systems Software by Matt Miller [@mamillmsft][2]:
+
+  https://www.sstic.org/2020/presentation/ouverture_2020/
+
 - A Decade of Linux Kernel Vulnerabilities, their Mitigation and Open Problems by Abhilash Raj:
 
   https://github.com/maxking/linux-vulnerabilities-10-years
@@ -73,3 +77,4 @@ You are welcome to try it.
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
 [1]: https://github.com/a13xp0p0v/kconfig-hardened-check
+[2]: https://github.com/mamillmsft
