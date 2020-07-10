@@ -25,7 +25,7 @@
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_cfi</title>
-<polygon fill="none" stroke="#000000" points="551.4567,-2204 551.4567,-2458 827.1349,-2458 827.1349,-2204 551.4567,-2204"/>
+<polygon fill="none" stroke="#000000" points="578.1044,-2204 578.1044,-2458 800.4873,-2458 800.4873,-2204 578.1044,-2204"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_ro</title>
@@ -948,32 +948,32 @@
 <!-- PAX_RAP&#45;&gt;ROP -->
 <g id="edge74" class="edge">
 <title>PAX_RAP:s&#45;&gt;ROP:_</title>
-<path fill="none" stroke="#000000" d="M827.1337,-2342.7696C942.0258,-2367.5835 1098.0168,-2401.2738 1169.3756,-2416.6856"/>
+<path fill="none" stroke="#000000" d="M800.4833,-2337.0138C916.5964,-2362.0914 1092.3236,-2400.0442 1169.3756,-2416.6856"/>
 <polygon fill="#000000" stroke="#000000" points="1168.7394,-2420.1288 1179.2529,-2418.8189 1170.2172,-2413.2866 1168.7394,-2420.1288"/>
 </g>
 <!-- PAX_RAP&#45;&gt;ret2usr + ROP -->
 <g id="edge82" class="edge">
 <title>PAX_RAP:s&#45;&gt;ret2usr + ROP:nw</title>
-<path fill="none" stroke="#000000" d="M827.1329,-2266.294C940.6259,-2227.8369 1088.9881,-2177.5645 1128.0862,-2164.3161"/>
+<path fill="none" stroke="#000000" d="M800.4842,-2275.3239C916.0382,-2236.1685 1085.8416,-2178.6307 1128.0862,-2164.3161"/>
 <polygon fill="#000000" stroke="#000000" points="1129.5248,-2167.5242 1137.8725,-2161 1127.2782,-2160.8945 1129.5248,-2167.5242"/>
 </g>
 <!-- PAX_RAP&#45;&gt;ret2dir + ROP -->
 <g id="edge86" class="edge">
 <title>PAX_RAP:s&#45;&gt;ret2dir + ROP:_</title>
-<path fill="none" stroke="#000000" d="M827.1338,-2367.7549C933.7355,-2410.1015 1075.7188,-2466.5031 1152.6536,-2497.0648"/>
+<path fill="none" stroke="#000000" d="M800.4842,-2357.1686C908.8379,-2400.2111 1069.1037,-2463.8753 1152.6536,-2497.0648"/>
 <polygon fill="#000000" stroke="#000000" points="1151.7211,-2500.4603 1162.3068,-2500.8994 1154.3054,-2493.9548 1151.7211,-2500.4603"/>
 </g>
 <!-- PAX_RAP&#45;&gt;Return Address Overwrite -->
 <g id="edge73" class="edge">
 <title>PAX_RAP:s&#45;&gt;Return Address Overwrite:w</title>
-<path fill="none" stroke="#000000" d="M827.1336,-2289.2228C937.8737,-2270.12 1081.1007,-2245.4132 1119.8427,-2238.7302"/>
+<path fill="none" stroke="#000000" d="M800.4824,-2293.8202C913.5464,-2274.3165 1077.9066,-2245.9642 1119.8427,-2238.7302"/>
 <polygon fill="#000000" stroke="#000000" points="1120.6131,-2242.149 1129.8725,-2237 1119.4231,-2235.2509 1120.6131,-2242.149"/>
 </g>
-<!-- ARM: ARM64_PTR_AUTH -->
+<!-- ARM64_PTR_AUTH -->
 <g id="node53" class="node">
-<title>ARM: ARM64_PTR_AUTH</title>
-<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-2237" rx="122.6784" ry="18"/>
-<text text-anchor="middle" x="689.2958" y="-2233.3" font-family="monospace" font-size="14.00" fill="#000000">ARM: ARM64_PTR_AUTH</text>
+<title>ARM64_PTR_AUTH</title>
+<ellipse fill="#7fffd4" stroke="#7fffd4" cx="689.2958" cy="-2237" rx="96.3833" ry="18"/>
+<text text-anchor="middle" x="689.2958" y="-2233.3" font-family="monospace" font-size="14.00" fill="#000000">ARM64_PTR_AUTH</text>
 </g>
 <!-- __read_only -->
 <g id="node54" class="node">

@@ -150,7 +150,7 @@ digraph {
     margin=15;
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
     "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
-    "ARM: ARM64_PTR_AUTH" [shape=oval, color=palegreen3]; // Mainline Defences
+    "ARM64_PTR_AUTH" [shape=oval, color=aquamarine]; // HW Defence
   }
 
   subgraph cluster_ro {
