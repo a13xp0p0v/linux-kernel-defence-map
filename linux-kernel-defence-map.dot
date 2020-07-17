@@ -364,7 +364,7 @@ digraph {
     margin=25;
     node [shape=box, color=pink]; // Vulnerabilities
     "Info Exposure (CWE-200)" [URL="https://cwe.mitre.org/data/definitions/200.html"];
-    "Uninitialized Vars (CWE-457)" [URL="https://cwe.mitre.org/data/definitions/457.html"];
+    "Uninitialized Memory Usage (CWE-908)" [URL="https://cwe.mitre.org/data/definitions/908.html"];
   }
 
   subgraph cluster_hang {
@@ -445,7 +445,7 @@ digraph {
   "Double Free (CWE-415)":e -> "KASAN";
   "Undefined Behaviour (CWE-758)":e -> "UBSAN";
   "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
-  "Uninitialized Vars (CWE-457)":e -> "KMSAN" [ltail=cluster_info_exposures];
+  "Uninitialized Memory Usage (CWE-908)":e -> "KMSAN" [ltail=cluster_info_exposures];
   "Race Condition (CWE-362)":e -> "KTSAN";
   "Race Condition (CWE-362)":e -> "KCSAN";
   "Memory Leak (CWE-401)":e -> "KMEMLEAK";
@@ -473,9 +473,9 @@ digraph {
   "PAX_REFCOUNT":e -> "Int Overflow/Underflow (CWE-190/191)";
   "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-190/191)";
 
-  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Vars (CWE-457)" [lhead=cluster_info_exposures];
-  "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Vars (CWE-457)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
-  "Heap free() Poisoning":s -> "Uninitialized Vars (CWE-457)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
+  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Memory Usage (CWE-908)" [lhead=cluster_info_exposures];
+  "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
+  "Heap free() Poisoning":s -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
 
   "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)":w [ltail=cluster_heap_erasing];
 
