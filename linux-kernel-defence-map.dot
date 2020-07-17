@@ -308,6 +308,7 @@ digraph {
     "Global Variable Out-of-Bounds Access (CWE-?,119)" [fontsize=12, margin="0.04", URL="https://cwe.mitre.org/data/definitions/119.html"];
     "Int Overflow/Underflow (CWE-190/191)" [URL="https://cwe.mitre.org/data/definitions/190.html"];
     "Use-After-Free (CWE-416)" [URL="https://cwe.mitre.org/data/definitions/416.html"];
+    "Use-After-Scope (CWE-562)" [URL="https://cwe.mitre.org/data/definitions/562.html"];
     "Double Free (CWE-415)" [URL="https://cwe.mitre.org/data/definitions/415.html"];
     "Race Condition (CWE-362)" [URL="https://cwe.mitre.org/data/definitions/362.html"];
     "Undefined Behaviour (CWE-758)" [URL="https://cwe.mitre.org/data/definitions/758.html"];
@@ -442,6 +443,7 @@ digraph {
   "Heap Out-of-Bounds Access (CWE-122,119)":e -> "KASAN";
   "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN";
   "Use-After-Free (CWE-416)":e -> "KASAN";
+  "Use-After-Scope (CWE-562)":e -> "KASAN";
   "Double Free (CWE-415)":e -> "KASAN";
   "Undefined Behaviour (CWE-758)":e -> "UBSAN";
   "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
