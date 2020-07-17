@@ -68,7 +68,7 @@
 </g>
 <g id="clust17" class="cluster">
 <title>cluster_userspace_access</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="1026.3725,-1902 1026.3725,-2082 1389.3725,-2082 1389.3725,-1902 1026.3725,-1902"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="1026.3725,-1901 1026.3725,-2081 1389.3725,-2081 1389.3725,-1901 1026.3725,-1901"/>
 </g>
 <g id="clust18" class="cluster">
 <title>cluster_control_flow_hijack</title>
@@ -77,7 +77,7 @@
 </g>
 <g id="clust19" class="cluster">
 <title>cluster_info_exposures</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="1050.8725,-3529 1050.8725,-3709 1364.8725,-3709 1364.8725,-3529 1050.8725,-3529"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="1017.8725,-3548 1017.8725,-3728 1397.8725,-3728 1397.8725,-3548 1017.8725,-3548"/>
 </g>
 <g id="clust21" class="cluster">
 <title>cluster_transient_execution_vulnerabilities</title>
@@ -178,13 +178,13 @@
 <text text-anchor="middle" x="689.2958" y="-2139.3" font-family="monospace" font-size="14.00" fill="#000000">STACKPROTECTOR</text>
 </g>
 <!-- Return Address Overwrite -->
-<g id="node124" class="node">
+<g id="node125" class="node">
 <title>Return Address Overwrite</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1285.3725,-2255 1130.3725,-2255 1130.3725,-2219 1285.3725,-2219 1285.3725,-2255"/>
 <text text-anchor="middle" x="1207.8725" y="-2234.5" font-family="monospace" font-size="10.00" fill="#000000">Return Address Overwrite</text>
 </g>
 <!-- STACKPROTECTOR&#45;&gt;Return Address Overwrite -->
-<g id="edge72" class="edge">
+<g id="edge73" class="edge">
 <title>STACKPROTECTOR:e&#45;&gt;Return Address Overwrite:w</title>
 <path fill="none" stroke="#000000" d="M786.2958,-2143C786.2958,-2143 1063.6275,-2218.8759 1119.9605,-2234.2881"/>
 <polygon fill="#000000" stroke="#000000" points="1119.3034,-2237.7369 1129.8725,-2237 1121.1507,-2230.9851 1119.3034,-2237.7369"/>
@@ -199,46 +199,46 @@
 <g id="node96" class="node">
 <title>Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119)</title>
 <g id="a_node96"><a xlink:href="https://cwe.mitre.org/data/definitions/121.html" xlink:title="Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1389.3725,-4370 1026.3725,-4370 1026.3725,-4334 1389.3725,-4334 1389.3725,-4370"/>
-<text text-anchor="middle" x="1207.8725" y="-4348.3" font-family="monospace" font-size="14.00" fill="#000000">Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119)</text>
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1389.3725,-4417 1026.3725,-4417 1026.3725,-4381 1389.3725,-4381 1389.3725,-4417"/>
+<text text-anchor="middle" x="1207.8725" y="-4395.3" font-family="monospace" font-size="14.00" fill="#000000">Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119)</text>
 </a>
 </g>
 </g>
 <!-- FORTIFY_SOURCE&#45;&gt;Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119) -->
-<g id="edge45" class="edge">
+<g id="edge46" class="edge">
 <title>FORTIFY_SOURCE:e&#45;&gt;Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119):w</title>
-<path fill="none" stroke="#000000" d="M786.2958,-4399C786.2958,-4399 970.5415,-4362.8548 1015.8833,-4353.9597"/>
-<polygon fill="#000000" stroke="#000000" points="1016.7334,-4357.3597 1025.8725,-4352 1015.3858,-4350.4906 1016.7334,-4357.3597"/>
+<path fill="none" stroke="#000000" d="M786.2958,-4399C786.2958,-4399 969.7218,-4399 1015.5782,-4399"/>
+<polygon fill="#000000" stroke="#000000" points="1015.8726,-4402.5001 1025.8725,-4399 1015.8725,-4395.5001 1015.8726,-4402.5001"/>
 </g>
 <!-- Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119) -->
 <g id="node97" class="node">
 <title>Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119)</title>
 <g id="a_node97"><a xlink:href="https://cwe.mitre.org/data/definitions/122.html" xlink:title="Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1384.8725,-4276 1030.8725,-4276 1030.8725,-4240 1384.8725,-4240 1384.8725,-4276"/>
-<text text-anchor="middle" x="1207.8725" y="-4254.3" font-family="monospace" font-size="14.00" fill="#000000">Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119)</text>
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1384.8725,-4323 1030.8725,-4323 1030.8725,-4287 1384.8725,-4287 1384.8725,-4323"/>
+<text text-anchor="middle" x="1207.8725" y="-4301.3" font-family="monospace" font-size="14.00" fill="#000000">Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119)</text>
 </a>
 </g>
 </g>
 <!-- FORTIFY_SOURCE&#45;&gt;Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119) -->
-<g id="edge48" class="edge">
+<g id="edge49" class="edge">
 <title>FORTIFY_SOURCE:e&#45;&gt;Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119):_</title>
-<path fill="none" stroke="#000000" d="M786.2958,-4399C786.2958,-4399 1026.6932,-4318.597 1144.4214,-4279.2218"/>
-<polygon fill="#000000" stroke="#000000" points="1145.6779,-4282.4922 1154.0514,-4276.001 1143.4575,-4275.8536 1145.6779,-4282.4922"/>
+<path fill="none" stroke="#000000" d="M786.2958,-4399C786.2958,-4399 993.311,-4352.8413 1117.2098,-4325.2153"/>
+<polygon fill="#000000" stroke="#000000" points="1118.0885,-4328.6054 1127.0871,-4323.0129 1116.5651,-4321.7732 1118.0885,-4328.6054"/>
 </g>
 <!-- Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119) -->
 <g id="node98" class="node">
 <title>Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119)</title>
 <g id="a_node98"><a xlink:href="https://cwe.mitre.org/data/definitions/119.html" xlink:title="Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1391.3725,-4464 1024.3725,-4464 1024.3725,-4428 1391.3725,-4428 1391.3725,-4464"/>
-<text text-anchor="middle" x="1207.8725" y="-4442.9" font-family="monospace" font-size="12.00" fill="#000000">Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119)</text>
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1391.3725,-4511 1024.3725,-4511 1024.3725,-4475 1391.3725,-4475 1391.3725,-4511"/>
+<text text-anchor="middle" x="1207.8725" y="-4489.9" font-family="monospace" font-size="12.00" fill="#000000">Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119)</text>
 </a>
 </g>
 </g>
 <!-- FORTIFY_SOURCE&#45;&gt;Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119) -->
-<g id="edge49" class="edge">
+<g id="edge50" class="edge">
 <title>FORTIFY_SOURCE:e&#45;&gt;Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119):w</title>
-<path fill="none" stroke="#000000" d="M786.2958,-4399C786.2958,-4399 969.0034,-4435.1452 1013.9666,-4444.0403"/>
-<polygon fill="#000000" stroke="#000000" points="1013.3834,-4447.4927 1023.8725,-4446 1014.7419,-4440.6258 1013.3834,-4447.4927"/>
+<path fill="none" stroke="#000000" d="M786.2958,-4399C786.2958,-4399 970.6348,-4471.9358 1014.5593,-4489.3151"/>
+<polygon fill="#000000" stroke="#000000" points="1013.2862,-4492.5753 1023.8725,-4493 1015.8616,-4486.0663 1013.2862,-4492.5753"/>
 </g>
 <!-- DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL} -->
 <g id="node11" class="node">
@@ -247,13 +247,13 @@
 <text text-anchor="middle" x="689.2958" y="-5288.3" font-family="monospace" font-size="14.00" fill="#000000">DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}</text>
 </g>
 <!-- Metadata Corruption -->
-<g id="node107" class="node">
+<g id="node108" class="node">
 <title>Metadata Corruption</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1302.3725,-5122 1113.3725,-5122 1113.3725,-5086 1302.3725,-5086 1302.3725,-5122"/>
 <text text-anchor="middle" x="1207.8725" y="-5100.3" font-family="monospace" font-size="14.00" fill="#000000">Metadata Corruption</text>
 </g>
 <!-- DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}&#45;&gt;Metadata Corruption -->
-<g id="edge59" class="edge">
+<g id="edge60" class="edge">
 <title>DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}:e&#45;&gt;Metadata Corruption:_</title>
 <path fill="none" stroke="#000000" d="M951.8725,-5292C951.8725,-5292 1105.8027,-5178.9575 1174.9393,-5128.1853"/>
 <polygon fill="#000000" stroke="#000000" points="1177.3378,-5130.7664 1183.3262,-5122.0262 1173.1944,-5125.1243 1177.3378,-5130.7664"/>
@@ -265,13 +265,13 @@
 <text text-anchor="middle" x="689.2958" y="-5664.3" font-family="monospace" font-size="14.00" fill="#000000">SLAB_FREELIST_RANDOM</text>
 </g>
 <!-- Heap Layout Control -->
-<g id="node109" class="node">
+<g id="node110" class="node">
 <title>Heap Layout Control</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1302.3725,-5545 1113.3725,-5545 1113.3725,-5509 1302.3725,-5509 1302.3725,-5545"/>
 <text text-anchor="middle" x="1207.8725" y="-5523.3" font-family="monospace" font-size="14.00" fill="#000000">Heap Layout Control</text>
 </g>
 <!-- SLAB_FREELIST_RANDOM&#45;&gt;Heap Layout Control -->
-<g id="edge68" class="edge">
+<g id="edge69" class="edge">
 <title>SLAB_FREELIST_RANDOM:e&#45;&gt;Heap Layout Control:_</title>
 <path fill="none" stroke="#000000" d="M818.2958,-5668C818.2958,-5668 1039.5545,-5587.9196 1148.5809,-5548.4595"/>
 <polygon fill="#000000" stroke="#000000" points="1149.9248,-5551.6954 1158.1367,-5545.001 1147.5424,-5545.1132 1149.9248,-5551.6954"/>
@@ -283,7 +283,7 @@
 <text text-anchor="middle" x="689.2958" y="-5570.3" font-family="monospace" font-size="14.00" fill="#000000">SHUFFLE_PAGE_ALLOCATOR</text>
 </g>
 <!-- SHUFFLE_PAGE_ALLOCATOR&#45;&gt;Heap Layout Control -->
-<g id="edge70" class="edge">
+<g id="edge71" class="edge">
 <title>SHUFFLE_PAGE_ALLOCATOR:e&#45;&gt;Heap Layout Control:_</title>
 <path fill="none" stroke="#000000" d="M828.2958,-5574C828.2958,-5574 990.6901,-5553.892 1103.0387,-5539.9808"/>
 <polygon fill="#000000" stroke="#000000" points="1103.5744,-5543.4412 1113.0685,-5538.7388 1102.7141,-5536.4943 1103.5744,-5543.4412"/>
@@ -295,13 +295,13 @@
 <text text-anchor="middle" x="689.2958" y="-2985.3" font-family="monospace" font-size="14.00" fill="#000000">STRICT_{KERNEL,MODULE}_RWX</text>
 </g>
 <!-- WX Area Abuse -->
-<g id="node112" class="node">
+<g id="node113" class="node">
 <title>WX Area Abuse</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1277.8725,-2866 1137.8725,-2866 1137.8725,-2830 1277.8725,-2830 1277.8725,-2866"/>
 <text text-anchor="middle" x="1207.8725" y="-2844.3" font-family="monospace" font-size="14.00" fill="#000000">WX Area Abuse</text>
 </g>
 <!-- STRICT_{KERNEL,MODULE}_RWX&#45;&gt;WX Area Abuse -->
-<g id="edge91" class="edge">
+<g id="edge92" class="edge">
 <title>STRICT_{KERNEL,MODULE}_RWX:e&#45;&gt;WX Area Abuse:_</title>
 <path fill="none" stroke="#000000" d="M850.2958,-2989C850.2958,-2989 1052.5638,-2909.2415 1152.8459,-2869.6982"/>
 <polygon fill="#000000" stroke="#000000" points="1154.2031,-2872.9254 1162.222,-2866.001 1151.6352,-2866.4133 1154.2031,-2872.9254"/>
@@ -313,7 +313,7 @@
 <text text-anchor="middle" x="689.2958" y="-2891.3" font-family="monospace" font-size="14.00" fill="#000000">DEBUG_WX</text>
 </g>
 <!-- DEBUG_WX&#45;&gt;WX Area Abuse -->
-<g id="edge92" class="edge">
+<g id="edge93" class="edge">
 <title>DEBUG_WX:e&#45;&gt;WX Area Abuse:_</title>
 <path fill="none" stroke="#000000" d="M754.2958,-2895C754.2958,-2895 996.7859,-2869.873 1127.1605,-2856.3635"/>
 <polygon fill="#000000" stroke="#000000" points="1127.9129,-2859.8043 1137.4989,-2855.2922 1127.1913,-2852.8416 1127.9129,-2859.8043"/>
@@ -325,7 +325,7 @@
 <text text-anchor="middle" x="689.2958" y="-2797.3" font-family="monospace" font-size="14.00" fill="#000000">ARM: RODATA_FULL_DEFAULT_ENABLED</text>
 </g>
 <!-- ARM: RODATA_FULL_DEFAULT_ENABLED&#45;&gt;WX Area Abuse -->
-<g id="edge93" class="edge">
+<g id="edge94" class="edge">
 <title>ARM: RODATA_FULL_DEFAULT_ENABLED:e&#45;&gt;WX Area Abuse:_</title>
 <path fill="none" stroke="#000000" d="M882.2958,-2801C882.2958,-2801 1031.1923,-2822.4946 1127.5989,-2836.4118"/>
 <polygon fill="#000000" stroke="#000000" points="1127.2306,-2839.8948 1137.6281,-2837.8596 1128.2308,-2832.9666 1127.2306,-2839.8948"/>
@@ -337,7 +337,7 @@
 <text text-anchor="middle" x="689.2958" y="-5194.3" font-family="monospace" font-size="14.00" fill="#000000">BUG_ON_DATA_CORRUPTION</text>
 </g>
 <!-- BUG_ON_DATA_CORRUPTION&#45;&gt;Metadata Corruption -->
-<g id="edge60" class="edge">
+<g id="edge61" class="edge">
 <title>BUG_ON_DATA_CORRUPTION:e&#45;&gt;Metadata Corruption:_</title>
 <path fill="none" stroke="#000000" d="M828.2958,-5198C828.2958,-5198 1013.5669,-5152.1187 1125.2331,-5124.4652"/>
 <polygon fill="#000000" stroke="#000000" points="1126.27,-5127.8142 1135.1355,-5122.0129 1124.5873,-5121.0195 1126.27,-5127.8142"/>
@@ -349,13 +349,13 @@
 <text text-anchor="middle" x="689.2958" y="-6134.3" font-family="monospace" font-size="14.00" fill="#000000">MODULE_SIG*</text>
 </g>
 <!-- Bad Module Loading -->
-<g id="node114" class="node">
+<g id="node115" class="node">
 <title>Bad Module Loading</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1298.3725,-5968 1117.3725,-5968 1117.3725,-5932 1298.3725,-5932 1298.3725,-5968"/>
 <text text-anchor="middle" x="1207.8725" y="-5946.3" font-family="monospace" font-size="14.00" fill="#000000">Bad Module Loading</text>
 </g>
 <!-- MODULE_SIG*&#45;&gt;Bad Module Loading -->
-<g id="edge97" class="edge">
+<g id="edge98" class="edge">
 <title>MODULE_SIG*:e&#45;&gt;Bad Module Loading:_</title>
 <path fill="none" stroke="#000000" d="M769.2958,-6138C769.2958,-6138 1040.5804,-6021.7113 1156.4277,-5972.0523"/>
 <polygon fill="#000000" stroke="#000000" points="1158.0078,-5975.1831 1165.82,-5968.0262 1155.2498,-5968.7493 1158.0078,-5975.1831"/>
@@ -367,7 +367,7 @@
 <text text-anchor="middle" x="689.2958" y="-6040.3" font-family="monospace" font-size="14.00" fill="#000000">SECURITY_LOADPIN</text>
 </g>
 <!-- SECURITY_LOADPIN&#45;&gt;Bad Module Loading -->
-<g id="edge98" class="edge">
+<g id="edge99" class="edge">
 <title>SECURITY_LOADPIN:e&#45;&gt;Bad Module Loading:_</title>
 <path fill="none" stroke="#000000" d="M796.2958,-6044C796.2958,-6044 997.9952,-5997.9339 1118.9961,-5970.2985"/>
 <polygon fill="#000000" stroke="#000000" points="1120.0338,-5973.6517 1129.0034,-5968.0129 1118.4751,-5966.8274 1120.0338,-5973.6517"/>
@@ -379,13 +379,13 @@
 <text text-anchor="middle" x="689.2958" y="-6322.3" font-family="monospace" font-size="14.00" fill="#000000">bpf_jit_harden</text>
 </g>
 <!-- JIT Abuse -->
-<g id="node111" class="node">
+<g id="node112" class="node">
 <title>JIT Abuse</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1261.3725,-6297 1154.3725,-6297 1154.3725,-6261 1261.3725,-6261 1261.3725,-6297"/>
 <text text-anchor="middle" x="1207.8725" y="-6275.3" font-family="monospace" font-size="14.00" fill="#000000">JIT Abuse</text>
 </g>
 <!-- bpf_jit_harden&#45;&gt;JIT Abuse -->
-<g id="edge89" class="edge">
+<g id="edge90" class="edge">
 <title>bpf_jit_harden:e&#45;&gt;JIT Abuse:_</title>
 <path fill="none" stroke="#000000" d="M786.2958,-6326C786.2958,-6326 1026.2107,-6299.2528 1144.0664,-6286.1135"/>
 <polygon fill="#000000" stroke="#000000" points="1144.5008,-6289.5869 1154.0514,-6285.0003 1143.7251,-6282.63 1144.5008,-6289.5869"/>
@@ -397,19 +397,19 @@
 <text text-anchor="middle" x="689.2958" y="-1857.3" font-family="monospace" font-size="14.00" fill="#000000">DEFAULT_MMAP_MIN_ADDR=65536</text>
 </g>
 <!-- NULL Pointer Dereference (CWE&#45;476) -->
-<g id="node117" class="node">
+<g id="node118" class="node">
 <title>NULL Pointer Dereference (CWE&#45;476)</title>
-<g id="a_node117"><a xlink:href="https://cwe.mitre.org/data/definitions/476.html" xlink:title="NULL Pointer Dereference (CWE&#45;476)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1364.3725,-1963 1051.3725,-1963 1051.3725,-1927 1364.3725,-1927 1364.3725,-1963"/>
-<text text-anchor="middle" x="1207.8725" y="-1941.3" font-family="monospace" font-size="14.00" fill="#000000">NULL Pointer Dereference (CWE&#45;476)</text>
+<g id="a_node118"><a xlink:href="https://cwe.mitre.org/data/definitions/476.html" xlink:title="NULL Pointer Dereference (CWE&#45;476)">
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1364.3725,-1962 1051.3725,-1962 1051.3725,-1926 1364.3725,-1926 1364.3725,-1962"/>
+<text text-anchor="middle" x="1207.8725" y="-1940.3" font-family="monospace" font-size="14.00" fill="#000000">NULL Pointer Dereference (CWE&#45;476)</text>
 </a>
 </g>
 </g>
 <!-- DEFAULT_MMAP_MIN_ADDR=65536&#45;&gt;NULL Pointer Dereference (CWE&#45;476) -->
-<g id="edge80" class="edge">
+<g id="edge81" class="edge">
 <title>DEFAULT_MMAP_MIN_ADDR=65536:e&#45;&gt;NULL Pointer Dereference (CWE&#45;476):w</title>
-<path fill="none" stroke="#000000" d="M855.2958,-1861C855.2958,-1861 1002.3723,-1924.1692 1041.4395,-1940.9485"/>
-<polygon fill="#000000" stroke="#000000" points="1040.3029,-1944.2695 1050.8725,-1945 1043.0654,-1937.8376 1040.3029,-1944.2695"/>
+<path fill="none" stroke="#000000" d="M855.2958,-1861C855.2958,-1861 1002.3723,-1923.4172 1041.4395,-1939.9967"/>
+<polygon fill="#000000" stroke="#000000" points="1040.2999,-1943.3152 1050.8725,-1944 1043.0345,-1936.8714 1040.2999,-1943.3152"/>
 </g>
 <!-- SCHED_STACK_END_CHECK -->
 <g id="node22" class="node">
@@ -427,7 +427,7 @@
 </g>
 </g>
 <!-- SCHED_STACK_END_CHECK&#45;&gt;Stack Depth Overflow (CWE&#45;674,?) -->
-<g id="edge43" class="edge">
+<g id="edge44" class="edge">
 <title>SCHED_STACK_END_CHECK:e&#45;&gt;Stack Depth Overflow (CWE&#45;674,?):_</title>
 <path fill="none" stroke="#000000" d="M823.2958,-4023C823.2958,-4023 944.1282,-4037.7672 1050.3322,-4050.7466"/>
 <polygon fill="#000000" stroke="#000000" points="1050.209,-4054.2575 1060.5598,-4051.9966 1051.0582,-4047.3092 1050.209,-4054.2575"/>
@@ -439,13 +439,13 @@
 <text text-anchor="middle" x="689.2958" y="-6416.3" font-family="monospace" font-size="14.00" fill="#000000">TIF_FSCHECK flag</text>
 </g>
 <!-- Unbalanced set_fs() -->
-<g id="node115" class="node">
+<g id="node116" class="node">
 <title>Unbalanced set_fs()</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1302.3725,-6438 1113.3725,-6438 1113.3725,-6402 1302.3725,-6402 1302.3725,-6438"/>
 <text text-anchor="middle" x="1207.8725" y="-6416.3" font-family="monospace" font-size="14.00" fill="#000000">Unbalanced set_fs()</text>
 </g>
 <!-- TIF_FSCHECK flag&#45;&gt;Unbalanced set_fs() -->
-<g id="edge101" class="edge">
+<g id="edge102" class="edge">
 <title>TIF_FSCHECK flag:e&#45;&gt;Unbalanced set_fs():_</title>
 <path fill="none" stroke="#000000" d="M796.2958,-6420C796.2958,-6420 981.1221,-6420 1103.0609,-6420"/>
 <polygon fill="#000000" stroke="#000000" points="1103.1903,-6423.5001 1113.1903,-6420 1103.1902,-6416.5001 1103.1903,-6423.5001"/>
@@ -457,7 +457,7 @@
 <text text-anchor="middle" x="689.2958" y="-5476.3" font-family="monospace" font-size="14.00" fill="#000000">slab_nomerge</text>
 </g>
 <!-- slab_nomerge&#45;&gt;Heap Layout Control -->
-<g id="edge69" class="edge">
+<g id="edge70" class="edge">
 <title>slab_nomerge:e&#45;&gt;Heap Layout Control:_</title>
 <path fill="none" stroke="#000000" d="M775.2958,-5480C775.2958,-5480 974.9407,-5501.6917 1102.9705,-5515.6023"/>
 <polygon fill="#000000" stroke="#000000" points="1102.8896,-5519.114 1113.2091,-5516.7147 1103.6457,-5512.1549 1102.8896,-5519.114"/>
@@ -465,35 +465,35 @@
 <!-- slub_debug=F -->
 <g id="node25" class="node">
 <title>slub_debug=F</title>
-<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-4540" rx="85.5853" ry="18"/>
-<text text-anchor="middle" x="689.2958" y="-4536.3" font-family="monospace" font-size="14.00" fill="#000000">slub_debug=F</text>
+<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-4681" rx="85.5853" ry="18"/>
+<text text-anchor="middle" x="689.2958" y="-4677.3" font-family="monospace" font-size="14.00" fill="#000000">slub_debug=F</text>
 </g>
 <!-- Double Free (CWE&#45;415) -->
-<g id="node101" class="node">
+<g id="node102" class="node">
 <title>Double Free (CWE&#45;415)</title>
-<g id="a_node101"><a xlink:href="https://cwe.mitre.org/data/definitions/415.html" xlink:title="Double Free (CWE&#45;415)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1310.8725,-4558 1104.8725,-4558 1104.8725,-4522 1310.8725,-4522 1310.8725,-4558"/>
-<text text-anchor="middle" x="1207.8725" y="-4536.3" font-family="monospace" font-size="14.00" fill="#000000">Double Free (CWE&#45;415)</text>
+<g id="a_node102"><a xlink:href="https://cwe.mitre.org/data/definitions/415.html" xlink:title="Double Free (CWE&#45;415)">
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1310.8725,-4699 1104.8725,-4699 1104.8725,-4663 1310.8725,-4663 1310.8725,-4699"/>
+<text text-anchor="middle" x="1207.8725" y="-4677.3" font-family="monospace" font-size="14.00" fill="#000000">Double Free (CWE&#45;415)</text>
 </a>
 </g>
 </g>
 <!-- slub_debug=F&#45;&gt;Double Free (CWE&#45;415) -->
-<g id="edge56" class="edge">
+<g id="edge57" class="edge">
 <title>slub_debug=F:e&#45;&gt;Double Free (CWE&#45;415):_</title>
-<path fill="none" stroke="#000000" d="M775.2958,-4540C775.2958,-4540 966.3727,-4540 1094.5399,-4540"/>
-<polygon fill="#000000" stroke="#000000" points="1094.8093,-4543.5001 1104.8092,-4540 1094.8092,-4536.5001 1094.8093,-4543.5001"/>
+<path fill="none" stroke="#000000" d="M775.2958,-4681C775.2958,-4681 966.3727,-4681 1094.5399,-4681"/>
+<polygon fill="#000000" stroke="#000000" points="1094.8093,-4684.5001 1104.8092,-4681 1094.8092,-4677.5001 1094.8093,-4684.5001"/>
 </g>
 <!-- Allocator Data Corruption -->
-<g id="node108" class="node">
+<g id="node109" class="node">
 <title>Allocator Data Corruption</title>
-<polygon fill="#ffd700" stroke="#ffd700" points="1327.3725,-4652 1088.3725,-4652 1088.3725,-4616 1327.3725,-4616 1327.3725,-4652"/>
-<text text-anchor="middle" x="1207.8725" y="-4630.3" font-family="monospace" font-size="14.00" fill="#000000">Allocator Data Corruption</text>
+<polygon fill="#ffd700" stroke="#ffd700" points="1327.3725,-4605 1088.3725,-4605 1088.3725,-4569 1327.3725,-4569 1327.3725,-4605"/>
+<text text-anchor="middle" x="1207.8725" y="-4583.3" font-family="monospace" font-size="14.00" fill="#000000">Allocator Data Corruption</text>
 </g>
 <!-- slub_debug=F&#45;&gt;Allocator Data Corruption -->
-<g id="edge64" class="edge">
+<g id="edge65" class="edge">
 <title>slub_debug=F:e&#45;&gt;Allocator Data Corruption:_</title>
-<path fill="none" stroke="#000000" d="M775.2958,-4540C775.2958,-4540 987.7125,-4586.1587 1114.8441,-4613.7847"/>
-<polygon fill="#000000" stroke="#000000" points="1114.4641,-4617.2837 1124.9792,-4615.9871 1115.9505,-4610.4434 1114.4641,-4617.2837"/>
+<path fill="none" stroke="#000000" d="M775.2958,-4681C775.2958,-4681 987.7125,-4634.8413 1114.8441,-4607.2153"/>
+<polygon fill="#000000" stroke="#000000" points="1115.9505,-4610.5566 1124.9792,-4605.0129 1114.4641,-4603.7163 1115.9505,-4610.5566"/>
 </g>
 <!-- slub_debug=Z -->
 <g id="node26" class="node">
@@ -502,10 +502,10 @@
 <text text-anchor="middle" x="689.2958" y="-4301.3" font-family="monospace" font-size="14.00" fill="#000000">slub_debug=Z</text>
 </g>
 <!-- slub_debug=Z&#45;&gt;Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119) -->
-<g id="edge47" class="edge">
+<g id="edge48" class="edge">
 <title>slub_debug=Z:e&#45;&gt;Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119):_</title>
-<path fill="none" stroke="#000000" d="M775.2958,-4305C775.2958,-4305 912.3079,-4290.1135 1032.1134,-4277.0964"/>
-<polygon fill="#000000" stroke="#000000" points="1032.6099,-4280.5632 1042.1733,-4276.0034 1031.8537,-4273.6042 1032.6099,-4280.5632"/>
+<path fill="none" stroke="#000000" d="M775.2958,-4305C775.2958,-4305 903.6273,-4305 1020.4932,-4305"/>
+<polygon fill="#000000" stroke="#000000" points="1020.679,-4308.5001 1030.6789,-4305 1020.6789,-4301.5001 1020.679,-4308.5001"/>
 </g>
 <!-- LOCKDOWN_LSM -->
 <g id="node27" class="node">
@@ -514,13 +514,13 @@
 <text text-anchor="middle" x="689.2958" y="-4818.3" font-family="monospace" font-size="14.00" fill="#000000">LOCKDOWN_LSM</text>
 </g>
 <!-- Changing Kernel Image -->
-<g id="node113" class="node">
+<g id="node114" class="node">
 <title>Changing Kernel Image</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1310.8725,-4887 1104.8725,-4887 1104.8725,-4851 1310.8725,-4851 1310.8725,-4887"/>
 <text text-anchor="middle" x="1207.8725" y="-4865.3" font-family="monospace" font-size="14.00" fill="#000000">Changing Kernel Image</text>
 </g>
 <!-- LOCKDOWN_LSM&#45;&gt;Changing Kernel Image -->
-<g id="edge94" class="edge">
+<g id="edge95" class="edge">
 <title>LOCKDOWN_LSM:e&#45;&gt;Changing Kernel Image:_</title>
 <path fill="none" stroke="#000000" d="M775.2958,-4822C775.2958,-4822 966.3727,-4842.7607 1094.5399,-4856.6863"/>
 <polygon fill="#000000" stroke="#000000" points="1094.4897,-4860.2013 1104.8092,-4857.802 1095.2458,-4853.2423 1094.4897,-4860.2013"/>
@@ -532,7 +532,7 @@
 <text text-anchor="middle" x="689.2958" y="-5382.3" font-family="monospace" font-size="14.00" fill="#000000">unprivileged_userfaultfd=0</text>
 </g>
 <!-- unprivileged_userfaultfd=0&#45;&gt;Heap Layout Control -->
-<g id="edge71" class="edge">
+<g id="edge72" class="edge">
 <title>unprivileged_userfaultfd=0:e&#45;&gt;Heap Layout Control:_</title>
 <path fill="none" stroke="#000000" d="M850.2958,-5386C850.2958,-5386 1052.5638,-5465.7585 1152.8459,-5505.3018"/>
 <polygon fill="#000000" stroke="#000000" points="1151.6352,-5508.5867 1162.222,-5508.999 1154.2031,-5502.0746 1151.6352,-5508.5867"/>
@@ -544,7 +544,7 @@
 <text text-anchor="middle" x="689.2958" y="-5946.3" font-family="monospace" font-size="14.00" fill="#000000">LDISC_AUTOLOAD is not set</text>
 </g>
 <!-- LDISC_AUTOLOAD is not set&#45;&gt;Bad Module Loading -->
-<g id="edge100" class="edge">
+<g id="edge101" class="edge">
 <title>LDISC_AUTOLOAD is not set:e&#45;&gt;Bad Module Loading:_</title>
 <path fill="none" stroke="#000000" d="M845.2958,-5950C845.2958,-5950 999.7934,-5950 1107.0855,-5950"/>
 <polygon fill="#000000" stroke="#000000" points="1107.3145,-5953.5001 1117.3144,-5950 1107.3144,-5946.5001 1107.3145,-5953.5001"/>
@@ -556,13 +556,13 @@
 <text text-anchor="middle" x="689.2958" y="-1367.3" font-family="monospace" font-size="14.00" fill="#000000">X86: mds=full,nosmt</text>
 </g>
 <!-- MSBDS / CVE&#45;2018&#45;12126 / Fallout -->
-<g id="node139" class="node">
+<g id="node140" class="node">
 <title>MSBDS / CVE&#45;2018&#45;12126 / Fallout</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1356.3725,-1389 1059.3725,-1389 1059.3725,-1353 1356.3725,-1353 1356.3725,-1389"/>
 <text text-anchor="middle" x="1207.8725" y="-1367.3" font-family="monospace" font-size="14.00" fill="#000000">MSBDS / CVE&#45;2018&#45;12126 / Fallout</text>
 </g>
 <!-- X86: mds=full,nosmt&#45;&gt;MSBDS / CVE&#45;2018&#45;12126 / Fallout -->
-<g id="edge109" class="edge">
+<g id="edge110" class="edge">
 <title>X86: mds=full,nosmt:e&#45;&gt;MSBDS / CVE&#45;2018&#45;12126 / Fallout:_</title>
 <path fill="none" stroke="#000000" d="M812.2958,-1371C812.2958,-1371 894.104,-1371 983.314,-1371"/>
 <polygon fill="#000000" stroke="#000000" points="983.3741,-1374.5001 993.374,-1371 983.374,-1367.5001 983.3741,-1374.5001"/>
@@ -570,32 +570,32 @@
 <!-- X86: l1tf=full,force -->
 <g id="node31" class="node">
 <title>X86: l1tf=full,force</title>
-<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-901" rx="128.8774" ry="18"/>
-<text text-anchor="middle" x="689.2958" y="-897.3" font-family="monospace" font-size="14.00" fill="#000000">X86: l1tf=full,force</text>
+<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-854" rx="128.8774" ry="18"/>
+<text text-anchor="middle" x="689.2958" y="-850.3" font-family="monospace" font-size="14.00" fill="#000000">X86: l1tf=full,force</text>
 </g>
 <!-- L1TF / CVE&#45;2018&#45;3646 / Foreshadow&#45;VMM -->
-<g id="node137" class="node">
+<g id="node138" class="node">
 <title>L1TF / CVE&#45;2018&#45;3646 / Foreshadow&#45;VMM</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1376.8725,-825 1038.8725,-825 1038.8725,-789 1376.8725,-789 1376.8725,-825"/>
 <text text-anchor="middle" x="1207.8725" y="-803.3" font-family="monospace" font-size="14.00" fill="#000000">L1TF / CVE&#45;2018&#45;3646 / Foreshadow&#45;VMM</text>
 </g>
 <!-- X86: l1tf=full,force&#45;&gt;L1TF / CVE&#45;2018&#45;3646 / Foreshadow&#45;VMM -->
-<g id="edge107" class="edge">
+<g id="edge108" class="edge">
 <title>X86: l1tf=full,force:e&#45;&gt;L1TF / CVE&#45;2018&#45;3646 / Foreshadow&#45;VMM:w</title>
-<path fill="none" stroke="#000000" d="M818.2958,-901C818.2958,-901 987.1749,-829.0313 1029.3946,-811.0391"/>
-<polygon fill="#000000" stroke="#000000" points="1031.0452,-814.1403 1038.8725,-807 1028.3009,-807.7006 1031.0452,-814.1403"/>
+<path fill="none" stroke="#000000" d="M818.2958,-854C818.2958,-854 985.6704,-818.3362 1028.8217,-809.1416"/>
+<polygon fill="#000000" stroke="#000000" points="1029.8215,-812.5072 1038.8725,-807 1028.3627,-805.6609 1029.8215,-812.5072"/>
 </g>
 <!-- L1DES / CVE&#45;2020&#45;0549 / CacheOut -->
-<g id="node143" class="node">
+<g id="node144" class="node">
 <title>L1DES / CVE&#45;2020&#45;0549 / CacheOut</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1356.3725,-1013 1059.3725,-1013 1059.3725,-977 1356.3725,-977 1356.3725,-1013"/>
 <text text-anchor="middle" x="1207.8725" y="-991.3" font-family="monospace" font-size="14.00" fill="#000000">L1DES / CVE&#45;2020&#45;0549 / CacheOut</text>
 </g>
 <!-- X86: l1tf=full,force&#45;&gt;L1DES / CVE&#45;2020&#45;0549 / CacheOut -->
-<g id="edge108" class="edge">
+<g id="edge109" class="edge">
 <title>X86: l1tf=full,force:e&#45;&gt;L1DES / CVE&#45;2020&#45;0549 / CacheOut:w</title>
-<path fill="none" stroke="#000000" d="M818.2958,-901C818.2958,-901 1004.9625,-973.9358 1049.4417,-991.3151"/>
-<polygon fill="#000000" stroke="#000000" points="1048.2845,-994.6206 1058.8725,-995 1050.8321,-988.1006 1048.2845,-994.6206"/>
+<path fill="none" stroke="#000000" d="M818.2958,-854C818.2958,-854 1006.6217,-964.3762 1050.025,-989.8145"/>
+<polygon fill="#000000" stroke="#000000" points="1048.4753,-992.9631 1058.8725,-995 1052.0149,-986.9239 1048.4753,-992.9631"/>
 </g>
 <!-- X86: MICROCODE -->
 <g id="node32" class="node">
@@ -604,13 +604,13 @@
 <text text-anchor="middle" x="689.2958" y="-756.3" font-family="monospace" font-size="14.00" fill="#000000">X86: MICROCODE</text>
 </g>
 <!-- Spectre v1 / BCB / CVE&#45;2017&#45;5753 -->
-<g id="node129" class="node">
+<g id="node130" class="node">
 <title>Spectre v1 / BCB / CVE&#45;2017&#45;5753</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1356.3725,-731 1059.3725,-731 1059.3725,-695 1356.3725,-695 1356.3725,-731"/>
 <text text-anchor="middle" x="1207.8725" y="-709.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v1 / BCB / CVE&#45;2017&#45;5753</text>
 </g>
 <!-- X86: MICROCODE&#45;&gt;Spectre v1 / BCB / CVE&#45;2017&#45;5753 -->
-<g id="edge102" class="edge">
+<g id="edge103" class="edge">
 <title>X86: MICROCODE:e&#45;&gt;Spectre v1 / BCB / CVE&#45;2017&#45;5753:_</title>
 <path fill="none" stroke="#000000" d="M786.2958,-760C786.2958,-760 862.2713,-751.5298 949.716,-741.7809"/>
 <polygon fill="#000000" stroke="#000000" points="950.323,-745.235 959.8736,-740.6485 949.5474,-738.2781 950.323,-745.235"/>
@@ -622,25 +622,25 @@
 <text text-anchor="middle" x="689.2958" y="-2609.3" font-family="monospace" font-size="14.00" fill="#000000">XPFO</text>
 </g>
 <!-- ret2dir + ROP -->
-<g id="node121" class="node">
+<g id="node122" class="node">
 <title>ret2dir + ROP</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1277.8725,-2537 1137.8725,-2537 1137.8725,-2501 1277.8725,-2501 1277.8725,-2537"/>
 <text text-anchor="middle" x="1207.8725" y="-2515.3" font-family="monospace" font-size="14.00" fill="#000000">ret2dir + ROP</text>
 </g>
 <!-- XPFO&#45;&gt;ret2dir + ROP -->
-<g id="edge85" class="edge">
+<g id="edge86" class="edge">
 <title>XPFO:e&#45;&gt;ret2dir + ROP:_</title>
 <path fill="none" stroke="#000000" d="M732.2958,-2613C732.2958,-2613 992.2371,-2561.6214 1127.7646,-2534.8337"/>
 <polygon fill="#000000" stroke="#000000" points="1128.5681,-2538.2427 1137.6996,-2532.87 1127.2107,-2531.3756 1128.5681,-2538.2427"/>
 </g>
 <!-- ret2dir -->
-<g id="node123" class="node">
+<g id="node124" class="node">
 <title>ret2dir</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1252.8725,-2631 1162.8725,-2631 1162.8725,-2595 1252.8725,-2595 1252.8725,-2631"/>
 <text text-anchor="middle" x="1207.8725" y="-2609.3" font-family="monospace" font-size="14.00" fill="#000000">ret2dir</text>
 </g>
 <!-- XPFO&#45;&gt;ret2dir -->
-<g id="edge84" class="edge">
+<g id="edge85" class="edge">
 <title>XPFO:e&#45;&gt;ret2dir:_</title>
 <path fill="none" stroke="#000000" d="M732.2958,-2613C732.2958,-2613 1027.178,-2613 1152.5421,-2613"/>
 <polygon fill="#000000" stroke="#000000" points="1152.7027,-2616.5001 1162.7027,-2613 1152.7027,-2609.5001 1152.7027,-2616.5001"/>
@@ -652,7 +652,7 @@
 <text text-anchor="middle" x="689.2958" y="-5100.3" font-family="monospace" font-size="14.00" fill="#000000">PROTECTABLE_MEMORY</text>
 </g>
 <!-- PROTECTABLE_MEMORY&#45;&gt;Metadata Corruption -->
-<g id="edge61" class="edge">
+<g id="edge62" class="edge">
 <title>PROTECTABLE_MEMORY:e&#45;&gt;Metadata Corruption:_</title>
 <path fill="none" stroke="#000000" d="M807.2958,-5104C807.2958,-5104 984.2857,-5104 1102.972,-5104"/>
 <polygon fill="#000000" stroke="#000000" points="1103.1952,-5107.5001 1113.1952,-5104 1103.1952,-5100.5001 1103.1952,-5107.5001"/>
@@ -664,7 +664,7 @@
 <text text-anchor="middle" x="689.2958" y="-5852.3" font-family="monospace" font-size="14.00" fill="#000000">request_module_cap()</text>
 </g>
 <!-- request_module_cap()&#45;&gt;Bad Module Loading -->
-<g id="edge99" class="edge">
+<g id="edge100" class="edge">
 <title>request_module_cap():e&#45;&gt;Bad Module Loading:_</title>
 <path fill="none" stroke="#000000" d="M818.2958,-5856C818.2958,-5856 1008.8306,-5901.9737 1123.4016,-5929.6182"/>
 <polygon fill="#000000" stroke="#000000" points="1122.6772,-5933.0438 1133.2192,-5931.9871 1124.3191,-5926.2391 1122.6772,-5933.0438"/>
@@ -676,13 +676,13 @@
 <text text-anchor="middle" x="689.2958" y="-4912.3" font-family="monospace" font-size="14.00" fill="#000000">LKRG</text>
 </g>
 <!-- LKRG&#45;&gt;Metadata Corruption -->
-<g id="edge63" class="edge">
+<g id="edge64" class="edge">
 <title>LKRG:e&#45;&gt;Metadata Corruption:_</title>
 <path fill="none" stroke="#000000" d="M732.2958,-4916C732.2958,-4916 1027.6496,-5032.7562 1152.8424,-5082.246"/>
 <polygon fill="#000000" stroke="#000000" points="1151.6858,-5085.5523 1162.2723,-5085.9738 1154.2592,-5079.0425 1151.6858,-5085.5523"/>
 </g>
 <!-- LKRG&#45;&gt;Changing Kernel Image -->
-<g id="edge95" class="edge">
+<g id="edge96" class="edge">
 <title>LKRG:e&#45;&gt;Changing Kernel Image:_</title>
 <path fill="none" stroke="#000000" d="M732.2958,-4916C732.2958,-4916 954.0372,-4894.0859 1094.6963,-4880.1849"/>
 <polygon fill="#000000" stroke="#000000" points="1095.0722,-4883.6649 1104.6795,-4879.1983 1094.3837,-4876.6988 1095.0722,-4883.6649"/>
@@ -694,7 +694,7 @@
 <text text-anchor="middle" x="689.2958" y="-4113.3" font-family="monospace" font-size="14.00" fill="#000000">GRKERNSEC_KSTACKOVERFLOW</text>
 </g>
 <!-- GRKERNSEC_KSTACKOVERFLOW&#45;&gt;Stack Depth Overflow (CWE&#45;674,?) -->
-<g id="edge41" class="edge">
+<g id="edge42" class="edge">
 <title>GRKERNSEC_KSTACKOVERFLOW:e&#45;&gt;Stack Depth Overflow (CWE&#45;674,?):_</title>
 <path fill="none" stroke="#000000" d="M839.2958,-4117C839.2958,-4117 954.8677,-4102.2626 1056.5787,-4089.2926"/>
 <polygon fill="#000000" stroke="#000000" points="1057.2117,-4092.7403 1066.6886,-4088.0034 1056.3262,-4085.7966 1057.2117,-4092.7403"/>
@@ -715,7 +715,7 @@
 </g>
 </g>
 <!-- PAX_REFCOUNT&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191) -->
-<g id="edge50" class="edge">
+<g id="edge51" class="edge">
 <title>PAX_REFCOUNT:e&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191):_</title>
 <path fill="none" stroke="#000000" d="M775.2958,-6514C775.2958,-6514 912.7708,-6528.9368 1032.7199,-6541.9694"/>
 <polygon fill="#000000" stroke="#000000" points="1032.4715,-6545.463 1042.7911,-6543.0637 1033.2277,-6538.5039 1032.4715,-6545.463"/>
@@ -727,7 +727,7 @@
 <text text-anchor="middle" x="689.2958" y="-6604.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_SIZE_OVERFLOW</text>
 </g>
 <!-- PAX_SIZE_OVERFLOW&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191) -->
-<g id="edge51" class="edge">
+<g id="edge52" class="edge">
 <title>PAX_SIZE_OVERFLOW:e&#45;&gt;Int Overflow/Underflow (CWE&#45;190/191):_</title>
 <path fill="none" stroke="#000000" d="M802.2958,-6608C802.2958,-6608 930.2407,-6593.1732 1042.4069,-6580.1749"/>
 <polygon fill="#000000" stroke="#000000" points="1042.9851,-6583.6314 1052.5157,-6579.0034 1042.1792,-6576.6779 1042.9851,-6583.6314"/>
@@ -739,16 +739,16 @@
 <text text-anchor="middle" x="689.2958" y="-4207.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_USERCOPY</text>
 </g>
 <!-- PAX_USERCOPY&#45;&gt;Stack Depth Overflow (CWE&#45;674,?) -->
-<g id="edge44" class="edge">
+<g id="edge45" class="edge">
 <title>PAX_USERCOPY:e&#45;&gt;Stack Depth Overflow (CWE&#45;674,?):_</title>
 <path fill="none" stroke="#000000" d="M775.2958,-4211C775.2958,-4211 1022.4614,-4130.4355 1143.1293,-4091.1033"/>
 <polygon fill="#000000" stroke="#000000" points="1144.224,-4094.4278 1152.647,-4088.001 1142.0547,-4087.7724 1144.224,-4094.4278"/>
 </g>
 <!-- PAX_USERCOPY&#45;&gt;Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119) -->
-<g id="edge46" class="edge">
+<g id="edge47" class="edge">
 <title>PAX_USERCOPY:e&#45;&gt;Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119):_</title>
-<path fill="none" stroke="#000000" d="M775.2958,-4211C775.2958,-4211 912.3079,-4225.8865 1032.1134,-4238.9036"/>
-<polygon fill="#000000" stroke="#000000" points="1031.8537,-4242.3958 1042.1733,-4239.9966 1032.6099,-4235.4368 1031.8537,-4242.3958"/>
+<path fill="none" stroke="#000000" d="M775.2958,-4211C775.2958,-4211 987.7125,-4257.1587 1114.8441,-4284.7847"/>
+<polygon fill="#000000" stroke="#000000" points="1114.4641,-4288.2837 1124.9792,-4286.9871 1115.9505,-4281.4434 1114.4641,-4288.2837"/>
 </g>
 <!-- PAX_KERNEXEC -->
 <g id="node41" class="node">
@@ -757,25 +757,25 @@
 <text text-anchor="middle" x="689.2958" y="-2703.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_KERNEXEC</text>
 </g>
 <!-- PAX_KERNEXEC&#45;&gt;WX Area Abuse -->
-<g id="edge90" class="edge">
+<g id="edge91" class="edge">
 <title>PAX_KERNEXEC:e&#45;&gt;WX Area Abuse:_</title>
 <path fill="none" stroke="#000000" d="M775.2958,-2707C775.2958,-2707 1022.4614,-2787.5645 1143.1293,-2826.8967"/>
 <polygon fill="#000000" stroke="#000000" points="1142.0547,-2830.2276 1152.647,-2829.999 1144.224,-2823.5722 1142.0547,-2830.2276"/>
 </g>
 <!-- ret2usr -->
-<g id="node122" class="node">
+<g id="node123" class="node">
 <title>ret2usr</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1252.8725,-2349 1162.8725,-2349 1162.8725,-2313 1252.8725,-2313 1252.8725,-2349"/>
 <text text-anchor="middle" x="1207.8725" y="-2327.3" font-family="monospace" font-size="14.00" fill="#000000">ret2usr</text>
 </g>
 <!-- PAX_KERNEXEC&#45;&gt;ret2usr -->
-<g id="edge75" class="edge">
+<g id="edge76" class="edge">
 <title>PAX_KERNEXEC:e&#45;&gt;ret2usr:w</title>
 <path fill="none" stroke="#000000" d="M775.2958,-2707C775.2958,-2707 1101.8938,-2390.1573 1155.4763,-2338.1754"/>
 <polygon fill="#000000" stroke="#000000" points="1158.1322,-2340.4752 1162.8725,-2331 1153.258,-2335.451 1158.1322,-2340.4752"/>
 </g>
 <!-- PAX_KERNEXEC&#45;&gt;ret2dir -->
-<g id="edge83" class="edge">
+<g id="edge84" class="edge">
 <title>PAX_KERNEXEC:e&#45;&gt;ret2dir:_</title>
 <path fill="none" stroke="#000000" d="M775.2958,-2707C775.2958,-2707 1036.5585,-2650.227 1153.0011,-2624.9237"/>
 <polygon fill="#000000" stroke="#000000" points="1153.7747,-2628.3374 1162.8034,-2622.7936 1152.2882,-2621.497 1153.7747,-2628.3374"/>
@@ -787,7 +787,7 @@
 <text text-anchor="middle" x="689.2958" y="-6228.3" font-family="monospace" font-size="14.00" fill="#000000">GRKERNSEC_JIT_HARDEN</text>
 </g>
 <!-- GRKERNSEC_JIT_HARDEN&#45;&gt;JIT Abuse -->
-<g id="edge88" class="edge">
+<g id="edge89" class="edge">
 <title>GRKERNSEC_JIT_HARDEN:e&#45;&gt;JIT Abuse:_</title>
 <path fill="none" stroke="#000000" d="M818.2958,-6232C818.2958,-6232 1033.5894,-6257.9738 1144.0806,-6271.3039"/>
 <polygon fill="#000000" stroke="#000000" points="1143.7653,-6274.7912 1154.1126,-6272.5142 1144.6038,-6267.8416 1143.7653,-6274.7912"/>
@@ -799,25 +799,25 @@
 <text text-anchor="middle" x="689.2958" y="-3925.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_MEMORY_STACKLEAK</text>
 </g>
 <!-- PAX_MEMORY_STACKLEAK&#45;&gt;Stack Depth Overflow (CWE&#45;674,?) -->
-<g id="edge42" class="edge">
+<g id="edge43" class="edge">
 <title>PAX_MEMORY_STACKLEAK:e&#45;&gt;Stack Depth Overflow (CWE&#45;674,?):_</title>
 <path fill="none" stroke="#000000" d="M818.2958,-3929C818.2958,-3929 1039.5545,-4009.0804 1148.5809,-4048.5405"/>
 <polygon fill="#000000" stroke="#000000" points="1147.5424,-4051.8868 1158.1367,-4051.999 1149.9248,-4045.3046 1147.5424,-4051.8868"/>
 </g>
-<!-- Uninitialized Vars (CWE&#45;457) -->
-<g id="node126" class="node">
-<title>Uninitialized Vars (CWE&#45;457)</title>
-<g id="a_node126"><a xlink:href="https://cwe.mitre.org/data/definitions/457.html" xlink:title="Uninitialized Vars (CWE&#45;457)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1339.8725,-3684 1075.8725,-3684 1075.8725,-3648 1339.8725,-3648 1339.8725,-3684"/>
-<text text-anchor="middle" x="1207.8725" y="-3662.3" font-family="monospace" font-size="14.00" fill="#000000">Uninitialized Vars (CWE&#45;457)</text>
+<!-- Uninitialized Memory Usage (CWE&#45;908) -->
+<g id="node127" class="node">
+<title>Uninitialized Memory Usage (CWE&#45;908)</title>
+<g id="a_node127"><a xlink:href="https://cwe.mitre.org/data/definitions/908.html" xlink:title="Uninitialized Memory Usage (CWE&#45;908)">
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1372.8725,-3703 1042.8725,-3703 1042.8725,-3667 1372.8725,-3667 1372.8725,-3703"/>
+<text text-anchor="middle" x="1207.8725" y="-3681.3" font-family="monospace" font-size="14.00" fill="#000000">Uninitialized Memory Usage (CWE&#45;908)</text>
 </a>
 </g>
 </g>
-<!-- PAX_MEMORY_STACKLEAK&#45;&gt;Uninitialized Vars (CWE&#45;457) -->
-<g id="edge52" class="edge">
-<title>PAX_MEMORY_STACKLEAK:e&#45;&gt;Uninitialized Vars (CWE&#45;457):_</title>
-<path fill="none" stroke="#000000" d="M818.2958,-3929C818.2958,-3929 1022.9208,-3790.8594 1135.5705,-3714.8105"/>
-<polygon fill="#000000" stroke="#000000" points="1137.8525,-3717.4929 1144.1823,-3708.9968 1133.9358,-3711.6912 1137.8525,-3717.4929"/>
+<!-- PAX_MEMORY_STACKLEAK&#45;&gt;Uninitialized Memory Usage (CWE&#45;908) -->
+<g id="edge53" class="edge">
+<title>PAX_MEMORY_STACKLEAK:e&#45;&gt;Uninitialized Memory Usage (CWE&#45;908):_</title>
+<path fill="none" stroke="#000000" d="M818.2958,-3929C818.2958,-3929 1016.9209,-3804.597 1130.5199,-3733.4476"/>
+<polygon fill="#000000" stroke="#000000" points="1132.6031,-3736.2727 1139.2202,-3727.9984 1128.8874,-3730.3403 1132.6031,-3736.2727"/>
 </g>
 <!-- GRKERNSEC_MODHARDEN -->
 <g id="node44" class="node">
@@ -826,7 +826,7 @@
 <text text-anchor="middle" x="689.2958" y="-5758.3" font-family="monospace" font-size="14.00" fill="#000000">GRKERNSEC_MODHARDEN</text>
 </g>
 <!-- GRKERNSEC_MODHARDEN&#45;&gt;Bad Module Loading -->
-<g id="edge96" class="edge">
+<g id="edge97" class="edge">
 <title>GRKERNSEC_MODHARDEN:e&#45;&gt;Bad Module Loading:_</title>
 <path fill="none" stroke="#000000" d="M812.2958,-5762C812.2958,-5762 1056.0008,-5877.8221 1160.8405,-5927.6477"/>
 <polygon fill="#000000" stroke="#000000" points="1159.4087,-5930.8424 1169.943,-5931.9738 1162.4135,-5924.5201 1159.4087,-5930.8424"/>
@@ -838,7 +838,7 @@
 <text text-anchor="middle" x="689.2958" y="-5006.3" font-family="monospace" font-size="14.00" fill="#000000">by default in grsecurity</text>
 </g>
 <!-- grsecurity_hardened_usermodehelper&#45;&gt;Metadata Corruption -->
-<g id="edge62" class="edge">
+<g id="edge63" class="edge">
 <title>grsecurity_hardened_usermodehelper:e&#45;&gt;Metadata Corruption:_</title>
 <path fill="none" stroke="#000000" d="M839.2958,-5010C839.2958,-5010 1018.836,-5055.789 1127.3005,-5083.4513"/>
 <polygon fill="#000000" stroke="#000000" points="1126.6886,-5086.9072 1137.2434,-5085.9871 1128.4185,-5080.1243 1126.6886,-5086.9072"/>
@@ -850,7 +850,7 @@
 <text text-anchor="middle" x="689.2958" y="-2515.3" font-family="monospace" font-size="14.00" fill="#000000">SMEP/PXN</text>
 </g>
 <!-- SMEP/PXN&#45;&gt;ret2usr -->
-<g id="edge77" class="edge">
+<g id="edge78" class="edge">
 <title>SMEP/PXN:e&#45;&gt;ret2usr:w</title>
 <path fill="none" stroke="#000000" d="M754.2958,-2519C754.2958,-2519 1092.7544,-2363.2637 1153.5712,-2335.2799"/>
 <polygon fill="#000000" stroke="#000000" points="1155.2511,-2338.3597 1162.8725,-2331 1152.3251,-2332.0006 1155.2511,-2338.3597"/>
@@ -862,19 +862,19 @@
 <text text-anchor="middle" x="689.2958" y="-1763.3" font-family="monospace" font-size="14.00" fill="#000000">X86: pti=on (PAGE_TABLE_ISOLATION)</text>
 </g>
 <!-- X86: pti=on (PAGE_TABLE_ISOLATION)&#45;&gt;ret2usr -->
-<g id="edge76" class="edge">
+<g id="edge77" class="edge">
 <title>X86: pti=on (PAGE_TABLE_ISOLATION):e&#45;&gt;ret2usr:w</title>
 <path fill="none" stroke="#000000" d="M907.7237,-1797.1856C958.6742,-1903.7825 1128.6909,-2259.4862 1158.4185,-2321.6813"/>
 <polygon fill="#000000" stroke="#000000" points="1155.4022,-2323.487 1162.8725,-2331 1161.7179,-2320.4683 1155.4022,-2323.487"/>
 </g>
 <!-- Spectre v3 / RDCL / CVE&#45;2017&#45;5754 / Meltdown -->
-<g id="node134" class="node">
+<g id="node135" class="node">
 <title>Spectre v3 / RDCL / CVE&#45;2017&#45;5754 / Meltdown</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1405.8725,-1785 1009.8725,-1785 1009.8725,-1749 1405.8725,-1749 1405.8725,-1785"/>
 <text text-anchor="middle" x="1207.8725" y="-1763.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v3 / RDCL / CVE&#45;2017&#45;5754 / Meltdown</text>
 </g>
 <!-- X86: pti=on (PAGE_TABLE_ISOLATION)&#45;&gt;Spectre v3 / RDCL / CVE&#45;2017&#45;5754 / Meltdown -->
-<g id="edge105" class="edge">
+<g id="edge106" class="edge">
 <title>X86: pti=on (PAGE_TABLE_ISOLATION):e&#45;&gt;Spectre v3 / RDCL / CVE&#45;2017&#45;5754 / Meltdown:_</title>
 <path fill="none" stroke="#000000" d="M907.7259,-1767C922.1651,-1767 946.2876,-1767 974.7694,-1767"/>
 <polygon fill="#000000" stroke="#000000" points="974.8738,-1770.5001 984.8738,-1767 974.8738,-1763.5001 974.8738,-1770.5001"/>
@@ -892,31 +892,31 @@
 <text text-anchor="middle" x="689.2958" y="-2045.3" font-family="monospace" font-size="14.00" fill="#000000">SMAP/PAN</text>
 </g>
 <!-- Userspace Data Access -->
-<g id="node118" class="node">
+<g id="node119" class="node">
 <title>Userspace Data Access</title>
-<polygon fill="#ffd700" stroke="#ffd700" points="1310.8725,-2057 1104.8725,-2057 1104.8725,-2021 1310.8725,-2021 1310.8725,-2057"/>
-<text text-anchor="middle" x="1207.8725" y="-2035.3" font-family="monospace" font-size="14.00" fill="#000000">Userspace Data Access</text>
+<polygon fill="#ffd700" stroke="#ffd700" points="1310.8725,-2056 1104.8725,-2056 1104.8725,-2020 1310.8725,-2020 1310.8725,-2056"/>
+<text text-anchor="middle" x="1207.8725" y="-2034.3" font-family="monospace" font-size="14.00" fill="#000000">Userspace Data Access</text>
 </g>
 <!-- SMAP/PAN&#45;&gt;Userspace Data Access -->
-<g id="edge79" class="edge">
+<g id="edge80" class="edge">
 <title>SMAP/PAN:s&#45;&gt;Userspace Data Access:s</title>
-<path fill="none" stroke="#000000" d="M779.0367,-2029.2695C844.2787,-2028.0114 935.0228,-2026.2615 1016.2436,-2024.6953"/>
-<polygon fill="#000000" stroke="#000000" points="1016.4432,-2028.1922 1026.3738,-2024.4999 1016.3081,-2021.1935 1016.4432,-2028.1922"/>
+<path fill="none" stroke="#000000" d="M779.0367,-2029.0964C844.2787,-2027.7125 935.0228,-2025.7877 1016.2436,-2024.0648"/>
+<polygon fill="#000000" stroke="#000000" points="1016.4503,-2027.5613 1026.3738,-2023.8499 1016.3018,-2020.5629 1016.4503,-2027.5613"/>
 </g>
 <!-- ret2usr + ROP -->
-<g id="node120" class="node">
+<g id="node121" class="node">
 <title>ret2usr + ROP</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1277.8725,-2161 1137.8725,-2161 1137.8725,-2125 1277.8725,-2125 1277.8725,-2161"/>
 <text text-anchor="middle" x="1207.8725" y="-2139.3" font-family="monospace" font-size="14.00" fill="#000000">ret2usr + ROP</text>
 </g>
 <!-- SMAP/PAN&#45;&gt;ret2usr + ROP -->
-<g id="edge81" class="edge">
+<g id="edge82" class="edge">
 <title>SMAP/PAN:s&#45;&gt;ret2usr + ROP:sw</title>
 <path fill="none" stroke="#000000" d="M779.037,-2049.8054C893.4496,-2073.7808 1081.9584,-2113.2831 1127.6606,-2122.8601"/>
 <polygon fill="#000000" stroke="#000000" points="1127.3673,-2126.3746 1137.8725,-2125 1128.803,-2119.5234 1127.3673,-2126.3746"/>
 </g>
 <!-- SMAP/PAN&#45;&gt;ret2usr -->
-<g id="edge78" class="edge">
+<g id="edge79" class="edge">
 <title>SMAP/PAN:s&#45;&gt;ret2usr:w</title>
 <path fill="none" stroke="#000000" d="M769.8008,-2081.9981C890.2942,-2158.3279 1108.3454,-2296.4583 1154.2485,-2325.5368"/>
 <polygon fill="#000000" stroke="#000000" points="1152.5519,-2328.6052 1162.8725,-2331 1156.2979,-2322.6919 1152.5519,-2328.6052"/>
@@ -940,31 +940,31 @@
 <text text-anchor="middle" x="689.2958" y="-2327.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_RAP</text>
 </g>
 <!-- ROP -->
-<g id="node119" class="node">
+<g id="node120" class="node">
 <title>ROP</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1236.3725,-2443 1179.3725,-2443 1179.3725,-2407 1236.3725,-2407 1236.3725,-2443"/>
 <text text-anchor="middle" x="1207.8725" y="-2421.3" font-family="monospace" font-size="14.00" fill="#000000">ROP</text>
 </g>
 <!-- PAX_RAP&#45;&gt;ROP -->
-<g id="edge74" class="edge">
+<g id="edge75" class="edge">
 <title>PAX_RAP:s&#45;&gt;ROP:_</title>
 <path fill="none" stroke="#000000" d="M800.4833,-2337.0138C916.5964,-2362.0914 1092.3236,-2400.0442 1169.3756,-2416.6856"/>
 <polygon fill="#000000" stroke="#000000" points="1168.7394,-2420.1288 1179.2529,-2418.8189 1170.2172,-2413.2866 1168.7394,-2420.1288"/>
 </g>
 <!-- PAX_RAP&#45;&gt;ret2usr + ROP -->
-<g id="edge82" class="edge">
+<g id="edge83" class="edge">
 <title>PAX_RAP:s&#45;&gt;ret2usr + ROP:nw</title>
 <path fill="none" stroke="#000000" d="M800.4842,-2275.3239C916.0382,-2236.1685 1085.8416,-2178.6307 1128.0862,-2164.3161"/>
 <polygon fill="#000000" stroke="#000000" points="1129.5248,-2167.5242 1137.8725,-2161 1127.2782,-2160.8945 1129.5248,-2167.5242"/>
 </g>
 <!-- PAX_RAP&#45;&gt;ret2dir + ROP -->
-<g id="edge86" class="edge">
+<g id="edge87" class="edge">
 <title>PAX_RAP:s&#45;&gt;ret2dir + ROP:_</title>
 <path fill="none" stroke="#000000" d="M800.4842,-2357.1686C908.8379,-2400.2111 1069.1037,-2463.8753 1152.6536,-2497.0648"/>
 <polygon fill="#000000" stroke="#000000" points="1151.7211,-2500.4603 1162.3068,-2500.8994 1154.3054,-2493.9548 1151.7211,-2500.4603"/>
 </g>
 <!-- PAX_RAP&#45;&gt;Return Address Overwrite -->
-<g id="edge73" class="edge">
+<g id="edge74" class="edge">
 <title>PAX_RAP:s&#45;&gt;Return Address Overwrite:w</title>
 <path fill="none" stroke="#000000" d="M800.4824,-2293.8202C913.5464,-2274.3165 1077.9066,-2245.9642 1119.8427,-2238.7302"/>
 <polygon fill="#000000" stroke="#000000" points="1120.6131,-2242.149 1129.8725,-2237 1119.4231,-2235.2509 1120.6131,-2242.149"/>
@@ -982,13 +982,13 @@
 <text text-anchor="middle" x="689.2958" y="-6792.3" font-family="monospace" font-size="14.00" fill="#000000">__read_only</text>
 </g>
 <!-- &#39;ops&#39; Structures Overwrite -->
-<g id="node116" class="node">
+<g id="node117" class="node">
 <title>&#39;ops&#39; Structures Overwrite</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1331.3725,-6814 1084.3725,-6814 1084.3725,-6778 1331.3725,-6778 1331.3725,-6814"/>
 <text text-anchor="middle" x="1207.8725" y="-6792.3" font-family="monospace" font-size="14.00" fill="#000000">&#39;ops&#39; Structures Overwrite</text>
 </g>
 <!-- __read_only&#45;&gt;&#39;ops&#39; Structures Overwrite -->
-<g id="edge67" class="edge">
+<g id="edge68" class="edge">
 <title>__read_only:e&#45;&gt;&#39;ops&#39; Structures Overwrite:_</title>
 <path fill="none" stroke="#000000" d="M827.1306,-6796C889.6097,-6796 991.2985,-6796 1073.8737,-6796"/>
 <polygon fill="#000000" stroke="#000000" points="1074.2451,-6799.5001 1084.2451,-6796 1074.2451,-6792.5001 1074.2451,-6799.5001"/>
@@ -1006,7 +1006,7 @@
 <text text-anchor="middle" x="689.2958" y="-662.3" font-family="monospace" font-size="14.00" fill="#000000">Respectre</text>
 </g>
 <!-- Respectre&#45;&gt;Spectre v1 / BCB / CVE&#45;2017&#45;5753 -->
-<g id="edge103" class="edge">
+<g id="edge104" class="edge">
 <title>Respectre:e&#45;&gt;Spectre v1 / BCB / CVE&#45;2017&#45;5753:_</title>
 <path fill="none" stroke="#000000" d="M848.5795,-675.3548C895.5691,-680.2781 955.1494,-686.5207 1012.216,-692.4999"/>
 <polygon fill="#000000" stroke="#000000" points="1012.0658,-696.0033 1022.3762,-693.5645 1012.7953,-689.0414 1012.0658,-696.0033"/>
@@ -1024,13 +1024,13 @@
 <text text-anchor="middle" x="689.2958" y="-410.3" font-family="monospace" font-size="14.00" fill="#000000">X86: spectre_v2=on (RETPOLINE)</text>
 </g>
 <!-- Spectre v2 / BTI / CVE&#45;2017&#45;5715 -->
-<g id="node132" class="node">
+<g id="node133" class="node">
 <title>Spectre v2 / BTI / CVE&#45;2017&#45;5715</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1356.3725,-432 1059.3725,-432 1059.3725,-396 1356.3725,-396 1356.3725,-432"/>
 <text text-anchor="middle" x="1207.8725" y="-410.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v2 / BTI / CVE&#45;2017&#45;5715</text>
 </g>
 <!-- X86: spectre_v2=on (RETPOLINE)&#45;&gt;Spectre v2 / BTI / CVE&#45;2017&#45;5715 -->
-<g id="edge104" class="edge">
+<g id="edge105" class="edge">
 <title>X86: spectre_v2=on (RETPOLINE):e&#45;&gt;Spectre v2 / BTI / CVE&#45;2017&#45;5715:_</title>
 <path fill="none" stroke="#000000" d="M886.277,-414C911.8783,-414 966.8674,-414 1024.254,-414"/>
 <polygon fill="#000000" stroke="#000000" points="1024.3759,-417.5001 1034.3758,-414 1024.3758,-410.5001 1024.3759,-417.5001"/>
@@ -1048,13 +1048,13 @@
 <text text-anchor="middle" x="689.2958" y="-1575.3" font-family="monospace" font-size="14.00" fill="#000000">X86: spec_store_bypass_disable=on</text>
 </g>
 <!-- Spectre v4 / SSB / CVE&#45;2018&#45;3639 -->
-<g id="node136" class="node">
+<g id="node137" class="node">
 <title>Spectre v4 / SSB / CVE&#45;2018&#45;3639</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1356.3725,-1597 1059.3725,-1597 1059.3725,-1561 1356.3725,-1561 1356.3725,-1597"/>
 <text text-anchor="middle" x="1207.8725" y="-1575.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v4 / SSB / CVE&#45;2018&#45;3639</text>
 </g>
 <!-- X86: spec_store_bypass_disable=on&#45;&gt;Spectre v4 / SSB / CVE&#45;2018&#45;3639 -->
-<g id="edge106" class="edge">
+<g id="edge107" class="edge">
 <title>X86: spec_store_bypass_disable=on:e&#45;&gt;Spectre v4 / SSB / CVE&#45;2018&#45;3639:_</title>
 <path fill="none" stroke="#000000" d="M902.5251,-1579C929.7474,-1579 989.4925,-1579 1048.981,-1579"/>
 <polygon fill="#000000" stroke="#000000" points="1049.3148,-1582.5001 1059.3147,-1579 1049.3147,-1575.5001 1049.3148,-1582.5001"/>
@@ -1084,13 +1084,13 @@
 <text text-anchor="middle" x="689.2958" y="-6886.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_RANDKSTACK</text>
 </g>
 <!-- Finding Kernel Objects -->
-<g id="node110" class="node">
+<g id="node111" class="node">
 <title>Finding Kernel Objects</title>
 <polygon fill="#ffd700" stroke="#ffd700" points="1314.8725,-6908 1100.8725,-6908 1100.8725,-6872 1314.8725,-6872 1314.8725,-6908"/>
 <text text-anchor="middle" x="1207.8725" y="-6886.3" font-family="monospace" font-size="14.00" fill="#000000">Finding Kernel Objects</text>
 </g>
 <!-- PAX_RANDKSTACK&#45;&gt;Finding Kernel Objects -->
-<g id="edge87" class="edge">
+<g id="edge88" class="edge">
 <title>PAX_RANDKSTACK:e&#45;&gt;Finding Kernel Objects:_</title>
 <path fill="none" stroke="#000000" d="M848.5786,-6890C912.113,-6890 1012.2319,-6890 1090.6634,-6890"/>
 <polygon fill="#000000" stroke="#000000" points="1090.6732,-6893.5001 1100.6732,-6890 1090.6731,-6886.5001 1090.6732,-6893.5001"/>
@@ -1120,19 +1120,19 @@
 <text text-anchor="middle" x="689.2958" y="-3267.3" font-family="monospace" font-size="14.00" fill="#000000">kptr_restrict</text>
 </g>
 <!-- Info Exposure (CWE&#45;200) -->
-<g id="node125" class="node">
+<g id="node126" class="node">
 <title>Info Exposure (CWE&#45;200)</title>
-<g id="a_node125"><a xlink:href="https://cwe.mitre.org/data/definitions/200.html" xlink:title="Info Exposure (CWE&#45;200)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1318.8725,-3590 1096.8725,-3590 1096.8725,-3554 1318.8725,-3554 1318.8725,-3590"/>
-<text text-anchor="middle" x="1207.8725" y="-3568.3" font-family="monospace" font-size="14.00" fill="#000000">Info Exposure (CWE&#45;200)</text>
+<g id="a_node126"><a xlink:href="https://cwe.mitre.org/data/definitions/200.html" xlink:title="Info Exposure (CWE&#45;200)">
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1318.8725,-3609 1096.8725,-3609 1096.8725,-3573 1318.8725,-3573 1318.8725,-3609"/>
+<text text-anchor="middle" x="1207.8725" y="-3587.3" font-family="monospace" font-size="14.00" fill="#000000">Info Exposure (CWE&#45;200)</text>
 </a>
 </g>
 </g>
 <!-- kptr_restrict&#45;&gt;Info Exposure (CWE&#45;200) -->
-<g id="edge58" class="edge">
+<g id="edge59" class="edge">
 <title>kptr_restrict:e&#45;&gt;Info Exposure (CWE&#45;200):w</title>
-<path fill="none" stroke="#000000" d="M848.5823,-3335.9266C929.4454,-3412.8108 1057.2421,-3534.3195 1089.3593,-3564.8564"/>
-<polygon fill="#000000" stroke="#000000" points="1087.2137,-3567.6459 1096.8725,-3572 1092.0371,-3562.5729 1087.2137,-3567.6459"/>
+<path fill="none" stroke="#000000" d="M848.5791,-3340.0217C929.7016,-3422.0213 1058.0627,-3551.7704 1089.6656,-3583.7151"/>
+<polygon fill="#000000" stroke="#000000" points="1087.3514,-3586.3525 1096.8725,-3591 1092.3277,-3581.4294 1087.3514,-3586.3525"/>
 </g>
 <!-- GRKERNSEC_HIDESYM -->
 <g id="node69" class="node">
@@ -1149,37 +1149,37 @@
 <!-- SLAB_FREELIST_HARDENED -->
 <g id="node71" class="node">
 <title>SLAB_FREELIST_HARDENED</title>
-<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-4634" rx="139.1754" ry="18"/>
-<text text-anchor="middle" x="689.2958" y="-4630.3" font-family="monospace" font-size="14.00" fill="#000000">SLAB_FREELIST_HARDENED</text>
+<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="689.2958" cy="-4587" rx="139.1754" ry="18"/>
+<text text-anchor="middle" x="689.2958" y="-4583.3" font-family="monospace" font-size="14.00" fill="#000000">SLAB_FREELIST_HARDENED</text>
 </g>
 <!-- grsecurity_hardened_freelist -->
 <g id="node72" class="node">
 <title>grsecurity_hardened_freelist</title>
-<ellipse fill="#d3d3d3" stroke="#d3d3d3" cx="689.2958" cy="-4728" rx="150.2735" ry="18"/>
-<text text-anchor="middle" x="689.2958" y="-4724.3" font-family="monospace" font-size="14.00" fill="#000000">by default in grsecurity</text>
+<ellipse fill="#d3d3d3" stroke="#d3d3d3" cx="689.2958" cy="-4493" rx="150.2735" ry="18"/>
+<text text-anchor="middle" x="689.2958" y="-4489.3" font-family="monospace" font-size="14.00" fill="#000000">by default in grsecurity</text>
 </g>
 <!-- SLAB_FREELIST_HARDENED&#45;&gt;grsecurity_hardened_freelist -->
 <g id="edge21" class="edge">
 <title>SLAB_FREELIST_HARDENED:_&#45;&gt;grsecurity_hardened_freelist:_</title>
-<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M689.2958,-4652.3594C689.2958,-4671.565 689.2958,-4690.7706 689.2958,-4709.9763"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M689.2958,-4568.9763C689.2958,-4549.7706 689.2958,-4530.565 689.2958,-4511.3594"/>
 </g>
 <!-- SLAB_FREELIST_HARDENED&#45;&gt;Double Free (CWE&#45;415) -->
-<g id="edge57" class="edge">
+<g id="edge58" class="edge">
 <title>SLAB_FREELIST_HARDENED:e&#45;&gt;Double Free (CWE&#45;415):_</title>
-<path fill="none" stroke="#000000" d="M828.2958,-4634C828.2958,-4634 1013.5669,-4588.1187 1125.2331,-4560.4652"/>
-<polygon fill="#000000" stroke="#000000" points="1126.27,-4563.8142 1135.1355,-4558.0129 1124.5873,-4557.0195 1126.27,-4563.8142"/>
+<path fill="none" stroke="#000000" d="M828.2958,-4587C828.2958,-4587 1013.5669,-4632.8813 1125.2331,-4660.5348"/>
+<polygon fill="#000000" stroke="#000000" points="1124.5873,-4663.9805 1135.1355,-4662.9871 1126.27,-4657.1858 1124.5873,-4663.9805"/>
 </g>
 <!-- SLAB_FREELIST_HARDENED&#45;&gt;Allocator Data Corruption -->
-<g id="edge66" class="edge">
+<g id="edge67" class="edge">
 <title>SLAB_FREELIST_HARDENED:e&#45;&gt;Allocator Data Corruption:_</title>
-<path fill="none" stroke="#000000" d="M828.2958,-4634C828.2958,-4634 968.1625,-4634 1078.0904,-4634"/>
-<polygon fill="#000000" stroke="#000000" points="1078.2931,-4637.5001 1088.2931,-4634 1078.2931,-4630.5001 1078.2931,-4637.5001"/>
+<path fill="none" stroke="#000000" d="M828.2958,-4587C828.2958,-4587 968.1625,-4587 1078.0904,-4587"/>
+<polygon fill="#000000" stroke="#000000" points="1078.2931,-4590.5001 1088.2931,-4587 1078.2931,-4583.5001 1078.2931,-4590.5001"/>
 </g>
 <!-- grsecurity_hardened_freelist&#45;&gt;Allocator Data Corruption -->
-<g id="edge65" class="edge">
+<g id="edge66" class="edge">
 <title>grsecurity_hardened_freelist:e&#45;&gt;Allocator Data Corruption:_</title>
-<path fill="none" stroke="#000000" d="M839.2958,-4728C839.2958,-4728 1018.836,-4682.211 1127.3005,-4654.5487"/>
-<polygon fill="#000000" stroke="#000000" points="1128.4185,-4657.8757 1137.2434,-4652.0129 1126.6886,-4651.0928 1128.4185,-4657.8757"/>
+<path fill="none" stroke="#000000" d="M839.2958,-4493C839.2958,-4493 1018.836,-4538.789 1127.3005,-4566.4513"/>
+<polygon fill="#000000" stroke="#000000" points="1126.6886,-4569.9072 1137.2434,-4568.9871 1128.4185,-4563.1243 1126.6886,-4569.9072"/>
 </g>
 <!-- INIT_STACK_ALL -->
 <g id="node73" class="node">
@@ -1193,11 +1193,11 @@
 <ellipse fill="#d3d3d3" stroke="#d3d3d3" cx="689.2958" cy="-3553" rx="133.7763" ry="18"/>
 <text text-anchor="middle" x="689.2958" y="-3549.3" font-family="monospace" font-size="14.00" fill="#000000">PAX_MEMORY_STRUCTLEAK</text>
 </g>
-<!-- PAX_MEMORY_STRUCTLEAK&#45;&gt;Uninitialized Vars (CWE&#45;457) -->
-<g id="edge53" class="edge">
-<title>PAX_MEMORY_STRUCTLEAK:e&#45;&gt;Uninitialized Vars (CWE&#45;457):_</title>
-<path fill="none" stroke="#000000" d="M848.1797,-3560.3116C887.4272,-3571.8437 966.8981,-3595.1946 1041.1806,-3617.021"/>
-<polygon fill="#000000" stroke="#000000" points="1040.2941,-3620.4084 1050.8752,-3619.8695 1042.2675,-3613.6923 1040.2941,-3620.4084"/>
+<!-- PAX_MEMORY_STRUCTLEAK&#45;&gt;Uninitialized Memory Usage (CWE&#45;908) -->
+<g id="edge54" class="edge">
+<title>PAX_MEMORY_STRUCTLEAK:e&#45;&gt;Uninitialized Memory Usage (CWE&#45;908):_</title>
+<path fill="none" stroke="#000000" d="M848.1809,-3561.5414C881.6584,-3573.0321 944.4002,-3594.5672 1008.2247,-3616.474"/>
+<polygon fill="#000000" stroke="#000000" points="1007.2814,-3619.8506 1017.876,-3619.7866 1009.5539,-3613.2297 1007.2814,-3619.8506"/>
 </g>
 <!-- Heap free() Poisoning -->
 <g id="node75" class="node">
@@ -1209,22 +1209,22 @@
 <g id="node100" class="node">
 <title>Use&#45;After&#45;Free (CWE&#45;416)</title>
 <g id="a_node100"><a xlink:href="https://cwe.mitre.org/data/definitions/416.html" xlink:title="Use&#45;After&#45;Free (CWE&#45;416)">
-<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1323.3725,-3938 1092.3725,-3938 1092.3725,-3902 1323.3725,-3902 1323.3725,-3938"/>
-<text text-anchor="middle" x="1207.8725" y="-3916.3" font-family="monospace" font-size="14.00" fill="#000000">Use&#45;After&#45;Free (CWE&#45;416)</text>
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1323.3725,-3891 1092.3725,-3891 1092.3725,-3855 1323.3725,-3855 1323.3725,-3891"/>
+<text text-anchor="middle" x="1207.8725" y="-3869.3" font-family="monospace" font-size="14.00" fill="#000000">Use&#45;After&#45;Free (CWE&#45;416)</text>
 </a>
 </g>
 </g>
 <!-- Heap free() Poisoning&#45;&gt;Use&#45;After&#45;Free (CWE&#45;416) -->
-<g id="edge55" class="edge">
+<g id="edge56" class="edge">
 <title>Heap free() Poisoning:s&#45;&gt;Use&#45;After&#45;Free (CWE&#45;416):w</title>
-<path fill="none" stroke="#000000" d="M848.183,-3857.6516C942.2661,-3881.7229 1049.2955,-3909.1066 1081.9212,-3917.4539"/>
-<polygon fill="#000000" stroke="#000000" points="1081.317,-3920.912 1091.8725,-3920 1083.0522,-3914.1305 1081.317,-3920.912"/>
+<path fill="none" stroke="#000000" d="M848.183,-3839.1018C942.2661,-3852.1892 1049.2955,-3867.0774 1081.9212,-3871.6157"/>
+<polygon fill="#000000" stroke="#000000" points="1081.4857,-3875.0888 1091.8725,-3873 1082.4502,-3868.1555 1081.4857,-3875.0888"/>
 </g>
-<!-- Heap free() Poisoning&#45;&gt;Uninitialized Vars (CWE&#45;457) -->
-<g id="edge54" class="edge">
-<title>Heap free() Poisoning:s&#45;&gt;Uninitialized Vars (CWE&#45;457):_</title>
-<path fill="none" stroke="#000000" d="M848.1817,-3770.7354C912.3434,-3752.0527 986.2058,-3730.5453 1050.2402,-3711.8997"/>
-<polygon fill="#000000" stroke="#000000" points="1051.5837,-3715.1539 1060.2065,-3708.9976 1049.6267,-3708.433 1051.5837,-3715.1539"/>
+<!-- Heap free() Poisoning&#45;&gt;Uninitialized Memory Usage (CWE&#45;908) -->
+<g id="edge55" class="edge">
+<title>Heap free() Poisoning:s&#45;&gt;Uninitialized Memory Usage (CWE&#45;908):_</title>
+<path fill="none" stroke="#000000" d="M848.1835,-3776.5563C905.4004,-3761.9921 970.3315,-3745.4644 1029.1278,-3730.4982"/>
+<polygon fill="#000000" stroke="#000000" points="1030.1178,-3733.8579 1038.9454,-3727.9992 1028.391,-3727.0742 1030.1178,-3733.8579"/>
 </g>
 <!-- init_on_alloc -->
 <g id="node76" class="node">
@@ -1431,37 +1431,37 @@
 <path fill="none" stroke="#000000" d="M326.5358,-3600C326.5358,-3600 555.2958,-3835 555.2958,-3835"/>
 </g>
 <!-- KASAN -->
-<g id="node145" class="node">
+<g id="node146" class="node">
 <title>KASAN</title>
-<polygon fill="#9370db" stroke="#9370db" points="1643.3217,-4344.5442 1643.3217,-4359.4558 1612.7922,-4370 1569.6171,-4370 1539.0877,-4359.4558 1539.0877,-4344.5442 1569.6171,-4334 1612.7922,-4334 1643.3217,-4344.5442"/>
-<text text-anchor="middle" x="1591.2047" y="-4348.3" font-family="monospace" font-size="14.00" fill="#000000">KASAN</text>
+<polygon fill="#9370db" stroke="#9370db" points="1643.3217,-4438.5442 1643.3217,-4453.4558 1612.7922,-4464 1569.6171,-4464 1539.0877,-4453.4558 1539.0877,-4438.5442 1569.6171,-4428 1612.7922,-4428 1643.3217,-4438.5442"/>
+<text text-anchor="middle" x="1591.2047" y="-4442.3" font-family="monospace" font-size="14.00" fill="#000000">KASAN</text>
 </g>
 <!-- Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119)&#45;&gt;KASAN -->
 <g id="edge26" class="edge">
 <title>Stack Out&#45;of&#45;Bounds Access (CWE&#45;121,119):e&#45;&gt;KASAN:_</title>
-<path fill="none" stroke="#000000" d="M1399.9579,-4352C1425.0254,-4352 1491.5581,-4352 1539.0948,-4352"/>
-<polygon fill="#000000" stroke="#000000" points="1399.8726,-4348.5001 1389.8725,-4352 1399.8725,-4355.5001 1399.8726,-4348.5001"/>
+<path fill="none" stroke="#000000" d="M1399.6736,-4401.288C1425.9288,-4407.4171 1499.0999,-4424.4986 1547.0215,-4435.6857"/>
+<polygon fill="#000000" stroke="#000000" points="1400.4064,-4397.865 1389.8725,-4399 1398.815,-4404.6818 1400.4064,-4397.865"/>
 </g>
 <!-- Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119)&#45;&gt;KASAN -->
 <g id="edge27" class="edge">
 <title>Heap Out&#45;of&#45;Bounds Access (CWE&#45;122,119):e&#45;&gt;KASAN:_</title>
-<path fill="none" stroke="#000000" d="M1394.3211,-4262.3045C1423.2402,-4275.4794 1511.4874,-4315.6827 1559.4175,-4337.5185"/>
-<polygon fill="#000000" stroke="#000000" points="1395.4237,-4258.9608 1384.8725,-4258 1392.5216,-4265.3309 1395.4237,-4258.9608"/>
+<path fill="none" stroke="#000000" d="M1393.3862,-4310.8179C1422.6741,-4330.8322 1520.0129,-4397.35 1566.3162,-4428.9921"/>
+<polygon fill="#000000" stroke="#000000" points="1395.1036,-4307.7524 1384.8725,-4305 1391.1542,-4313.5318 1395.1036,-4307.7524"/>
 </g>
 <!-- Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119)&#45;&gt;KASAN -->
 <g id="edge28" class="edge">
 <title>Global Variable Out&#45;of&#45;Bounds Access (CWE&#45;?,119):e&#45;&gt;KASAN:_</title>
-<path fill="none" stroke="#000000" d="M1401.3057,-4441.5516C1429.3764,-4428.3141 1513.2937,-4388.7409 1559.6199,-4366.8946"/>
-<polygon fill="#000000" stroke="#000000" points="1399.4244,-4438.569 1391.8725,-4446 1402.4102,-4444.9003 1399.4244,-4438.569"/>
+<path fill="none" stroke="#000000" d="M1401.9026,-4490.635C1428.0807,-4484.4626 1499.7113,-4467.573 1546.9664,-4456.4308"/>
+<polygon fill="#000000" stroke="#000000" points="1400.8024,-4487.2984 1391.8725,-4493 1402.4089,-4494.1116 1400.8024,-4487.2984"/>
 </g>
 <!-- UBSAN -->
-<g id="node146" class="node">
+<g id="node147" class="node">
 <title>UBSAN</title>
 <polygon fill="#9370db" stroke="#9370db" points="1643.3217,-6600.5442 1643.3217,-6615.4558 1612.7922,-6626 1569.6171,-6626 1539.0877,-6615.4558 1539.0877,-6600.5442 1569.6171,-6590 1612.7922,-6590 1643.3217,-6600.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-6604.3" font-family="monospace" font-size="14.00" fill="#000000">UBSAN</text>
 </g>
 <!-- Int Overflow/Underflow (CWE&#45;190/191)&#45;&gt;UBSAN -->
-<g id="edge32" class="edge">
+<g id="edge33" class="edge">
 <title>Int Overflow/Underflow (CWE&#45;190/191):e&#45;&gt;UBSAN:_</title>
 <path fill="none" stroke="#000000" d="M1382.9275,-6563.1645C1411.3259,-6569.2778 1493.4616,-6586.959 1545.7009,-6598.2045"/>
 <polygon fill="#000000" stroke="#000000" points="1383.3852,-6559.6829 1372.8725,-6561 1381.912,-6566.5262 1383.3852,-6559.6829"/>
@@ -1469,230 +1469,245 @@
 <!-- Use&#45;After&#45;Free (CWE&#45;416)&#45;&gt;KASAN -->
 <g id="edge29" class="edge">
 <title>Use&#45;After&#45;Free (CWE&#45;416):e&#45;&gt;KASAN:_</title>
-<path fill="none" stroke="#000000" d="M1329.2056,-3928.618C1361.8043,-3981.2965 1534.3055,-4260.0528 1580.0581,-4333.9875"/>
-<polygon fill="#000000" stroke="#000000" points="1332.111,-3926.6617 1323.8725,-3920 1326.1585,-3930.3453 1332.111,-3926.6617"/>
+<path fill="none" stroke="#000000" d="M1328.1632,-3882.1966C1358.5402,-3947.3068 1541.1376,-4338.6861 1582.7624,-4427.9049"/>
+<polygon fill="#000000" stroke="#000000" points="1331.2724,-3880.5824 1323.8725,-3873 1324.9288,-3883.5421 1331.2724,-3880.5824"/>
+</g>
+<!-- Use&#45;After&#45;Scope (CWE&#45;562) -->
+<g id="node101" class="node">
+<title>Use&#45;After&#45;Scope (CWE&#45;562)</title>
+<g id="a_node101"><a xlink:href="https://cwe.mitre.org/data/definitions/562.html" xlink:title="Use&#45;After&#45;Scope (CWE&#45;562)">
+<polygon fill="#ffc0cb" stroke="#ffc0cb" points="1327.3725,-4793 1088.3725,-4793 1088.3725,-4757 1327.3725,-4757 1327.3725,-4793"/>
+<text text-anchor="middle" x="1207.8725" y="-4771.3" font-family="monospace" font-size="14.00" fill="#000000">Use&#45;After&#45;Scope (CWE&#45;562)</text>
+</a>
+</g>
+</g>
+<!-- Use&#45;After&#45;Scope (CWE&#45;562)&#45;&gt;KASAN -->
+<g id="edge30" class="edge">
+<title>Use&#45;After&#45;Scope (CWE&#45;562):e&#45;&gt;KASAN:_</title>
+<path fill="none" stroke="#000000" d="M1334.163,-4767.1409C1367.8682,-4725.0306 1527.3972,-4525.7193 1576.6717,-4464.1571"/>
+<polygon fill="#000000" stroke="#000000" points="1331.3889,-4765.0057 1327.8725,-4775 1336.854,-4769.3799 1331.3889,-4765.0057"/>
 </g>
 <!-- Double Free (CWE&#45;415)&#45;&gt;KASAN -->
-<g id="edge30" class="edge">
+<g id="edge31" class="edge">
 <title>Double Free (CWE&#45;415):e&#45;&gt;KASAN:_</title>
-<path fill="none" stroke="#000000" d="M1319.2439,-4534.3859C1356.2025,-4509.6002 1505.5869,-4409.4181 1565.8327,-4369.0153"/>
-<polygon fill="#000000" stroke="#000000" points="1317.2284,-4531.5233 1310.8725,-4540 1321.1273,-4537.337 1317.2284,-4531.5233"/>
+<path fill="none" stroke="#000000" d="M1318.8003,-4674.3542C1355.783,-4643.352 1511.9787,-4512.4145 1569.673,-4464.0498"/>
+<polygon fill="#000000" stroke="#000000" points="1316.2876,-4671.8935 1310.8725,-4681 1320.7846,-4677.258 1316.2876,-4671.8935"/>
 </g>
 <!-- Race Condition (CWE&#45;362) -->
-<g id="node102" class="node">
+<g id="node103" class="node">
 <title>Race Condition (CWE&#45;362)</title>
-<g id="a_node102"><a xlink:href="https://cwe.mitre.org/data/definitions/362.html" xlink:title="Race Condition (CWE&#45;362)">
+<g id="a_node103"><a xlink:href="https://cwe.mitre.org/data/definitions/362.html" xlink:title="Race Condition (CWE&#45;362)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1323.3725,-7002 1092.3725,-7002 1092.3725,-6966 1323.3725,-6966 1323.3725,-7002"/>
 <text text-anchor="middle" x="1207.8725" y="-6980.3" font-family="monospace" font-size="14.00" fill="#000000">Race Condition (CWE&#45;362)</text>
 </a>
 </g>
 </g>
 <!-- KTSAN -->
-<g id="node148" class="node">
+<g id="node149" class="node">
 <title>KTSAN</title>
 <polygon fill="#9370db" stroke="#9370db" points="1643.3217,-7023.5442 1643.3217,-7038.4558 1612.7922,-7049 1569.6171,-7049 1539.0877,-7038.4558 1539.0877,-7023.5442 1569.6171,-7013 1612.7922,-7013 1643.3217,-7023.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-7027.3" font-family="monospace" font-size="14.00" fill="#000000">KTSAN</text>
 </g>
 <!-- Race Condition (CWE&#45;362)&#45;&gt;KTSAN -->
-<g id="edge34" class="edge">
+<g id="edge35" class="edge">
 <title>Race Condition (CWE&#45;362):e&#45;&gt;KTSAN:_</title>
 <path fill="none" stroke="#000000" d="M1333.8895,-6985.7611C1367.4357,-6991.6589 1477.3556,-7010.9841 1542.1719,-7022.3795"/>
 <polygon fill="#000000" stroke="#000000" points="1334.3276,-6982.2845 1323.8725,-6984 1333.1154,-6989.1788 1334.3276,-6982.2845"/>
 </g>
 <!-- KCSAN -->
-<g id="node149" class="node">
+<g id="node150" class="node">
 <title>KCSAN</title>
 <polygon fill="#9370db" stroke="#9370db" points="1643.3217,-6929.5442 1643.3217,-6944.4558 1612.7922,-6955 1569.6171,-6955 1539.0877,-6944.4558 1539.0877,-6929.5442 1569.6171,-6919 1612.7922,-6919 1643.3217,-6929.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-6933.3" font-family="monospace" font-size="14.00" fill="#000000">KCSAN</text>
 </g>
 <!-- Race Condition (CWE&#45;362)&#45;&gt;KCSAN -->
-<g id="edge35" class="edge">
+<g id="edge36" class="edge">
 <title>Race Condition (CWE&#45;362):e&#45;&gt;KCSAN:_</title>
 <path fill="none" stroke="#000000" d="M1333.8895,-6982.2389C1367.4357,-6976.3411 1477.3556,-6957.0159 1542.1719,-6945.6205"/>
 <polygon fill="#000000" stroke="#000000" points="1333.1154,-6978.8212 1323.8725,-6984 1334.3276,-6985.7155 1333.1154,-6978.8212"/>
 </g>
 <!-- Undefined Behaviour (CWE&#45;758) -->
-<g id="node103" class="node">
+<g id="node104" class="node">
 <title>Undefined Behaviour (CWE&#45;758)</title>
-<g id="a_node103"><a xlink:href="https://cwe.mitre.org/data/definitions/758.html" xlink:title="Undefined Behaviour (CWE&#45;758)">
+<g id="a_node104"><a xlink:href="https://cwe.mitre.org/data/definitions/758.html" xlink:title="Undefined Behaviour (CWE&#45;758)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1343.8725,-6673 1071.8725,-6673 1071.8725,-6637 1343.8725,-6637 1343.8725,-6673"/>
 <text text-anchor="middle" x="1207.8725" y="-6651.3" font-family="monospace" font-size="14.00" fill="#000000">Undefined Behaviour (CWE&#45;758)</text>
 </a>
 </g>
 </g>
 <!-- Undefined Behaviour (CWE&#45;758)&#45;&gt;UBSAN -->
-<g id="edge31" class="edge">
+<g id="edge32" class="edge">
 <title>Undefined Behaviour (CWE&#45;758):e&#45;&gt;UBSAN:_</title>
 <path fill="none" stroke="#000000" d="M1353.8168,-6653.1103C1385.2189,-6647.143 1483.7169,-6628.4257 1543.5166,-6617.0621"/>
 <polygon fill="#000000" stroke="#000000" points="1353.0433,-6649.6946 1343.8725,-6655 1354.3502,-6656.5715 1353.0433,-6649.6946"/>
 </g>
 <!-- Type Confusion (CWE&#45;843) -->
-<g id="node104" class="node">
+<g id="node105" class="node">
 <title>Type Confusion (CWE&#45;843)</title>
-<g id="a_node104"><a xlink:href="https://cwe.mitre.org/data/definitions/843.html" xlink:title="Type Confusion (CWE&#45;843)">
+<g id="a_node105"><a xlink:href="https://cwe.mitre.org/data/definitions/843.html" xlink:title="Type Confusion (CWE&#45;843)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1323.3725,-7096 1092.3725,-7096 1092.3725,-7060 1323.3725,-7060 1323.3725,-7096"/>
 <text text-anchor="middle" x="1207.8725" y="-7074.3" font-family="monospace" font-size="14.00" fill="#000000">Type Confusion (CWE&#45;843)</text>
 </a>
 </g>
 </g>
 <!-- Double Fetch (CWE&#45;415) -->
-<g id="node105" class="node">
+<g id="node106" class="node">
 <title>Double Fetch (CWE&#45;415)</title>
-<g id="a_node105"><a xlink:href="https://cwe.mitre.org/data/definitions/415.html" xlink:title="Double Fetch (CWE&#45;415)">
+<g id="a_node106"><a xlink:href="https://cwe.mitre.org/data/definitions/415.html" xlink:title="Double Fetch (CWE&#45;415)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1314.8725,-7190 1100.8725,-7190 1100.8725,-7154 1314.8725,-7154 1314.8725,-7190"/>
 <text text-anchor="middle" x="1207.8725" y="-7168.3" font-family="monospace" font-size="14.00" fill="#000000">Double Fetch (CWE&#45;415)</text>
 </a>
 </g>
 </g>
 <!-- Memory Leak (CWE&#45;401) -->
-<g id="node106" class="node">
+<g id="node107" class="node">
 <title>Memory Leak (CWE&#45;401)</title>
-<g id="a_node106"><a xlink:href="https://cwe.mitre.org/data/definitions/401.html" xlink:title="Memory Leak (CWE&#45;401)">
+<g id="a_node107"><a xlink:href="https://cwe.mitre.org/data/definitions/401.html" xlink:title="Memory Leak (CWE&#45;401)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1310.8725,-7284 1104.8725,-7284 1104.8725,-7248 1310.8725,-7248 1310.8725,-7284"/>
 <text text-anchor="middle" x="1207.8725" y="-7262.3" font-family="monospace" font-size="14.00" fill="#000000">Memory Leak (CWE&#45;401)</text>
 </a>
 </g>
 </g>
 <!-- KMEMLEAK -->
-<g id="node150" class="node">
+<g id="node151" class="node">
 <title>KMEMLEAK</title>
 <polygon fill="#9370db" stroke="#9370db" points="1660.9965,-7258.5442 1660.9965,-7273.4558 1620.1134,-7284 1562.296,-7284 1521.4129,-7273.4558 1521.4129,-7258.5442 1562.296,-7248 1620.1134,-7248 1660.9965,-7258.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-7262.3" font-family="monospace" font-size="14.00" fill="#000000">KMEMLEAK</text>
 </g>
 <!-- Memory Leak (CWE&#45;401)&#45;&gt;KMEMLEAK -->
-<g id="edge36" class="edge">
+<g id="edge37" class="edge">
 <title>Memory Leak (CWE&#45;401):e&#45;&gt;KMEMLEAK:_</title>
 <path fill="none" stroke="#000000" d="M1321.3108,-7266C1353.4347,-7266 1452.7947,-7266 1521.5489,-7266"/>
 <polygon fill="#000000" stroke="#000000" points="1320.8726,-7262.5001 1310.8725,-7266 1320.8725,-7269.5001 1320.8726,-7262.5001"/>
 </g>
 <!-- KMSAN -->
-<g id="node147" class="node">
+<g id="node148" class="node">
 <title>KMSAN</title>
-<polygon fill="#9370db" stroke="#9370db" points="1643.3217,-3658.5442 1643.3217,-3673.4558 1612.7922,-3684 1569.6171,-3684 1539.0877,-3673.4558 1539.0877,-3658.5442 1569.6171,-3648 1612.7922,-3648 1643.3217,-3658.5442"/>
-<text text-anchor="middle" x="1591.2047" y="-3662.3" font-family="monospace" font-size="14.00" fill="#000000">KMSAN</text>
+<polygon fill="#9370db" stroke="#9370db" points="1643.3217,-3677.5442 1643.3217,-3692.4558 1612.7922,-3703 1569.6171,-3703 1539.0877,-3692.4558 1539.0877,-3677.5442 1569.6171,-3667 1612.7922,-3667 1643.3217,-3677.5442"/>
+<text text-anchor="middle" x="1591.2047" y="-3681.3" font-family="monospace" font-size="14.00" fill="#000000">KMSAN</text>
 </g>
-<!-- Uninitialized Vars (CWE&#45;457)&#45;&gt;KMSAN -->
-<g id="edge33" class="edge">
-<title>Uninitialized Vars (CWE&#45;457):e&#45;&gt;KMSAN:_</title>
-<path fill="none" stroke="#000000" d="M1375.0461,-3666C1417.7094,-3666 1490.0023,-3666 1539.1285,-3666"/>
-<polygon fill="#000000" stroke="#000000" points="1374.8701,-3662.5001 1364.8701,-3666 1374.87,-3669.5001 1374.8701,-3662.5001"/>
+<!-- Uninitialized Memory Usage (CWE&#45;908)&#45;&gt;KMSAN -->
+<g id="edge34" class="edge">
+<title>Uninitialized Memory Usage (CWE&#45;908):e&#45;&gt;KMSAN:_</title>
+<path fill="none" stroke="#000000" d="M1408.1906,-3685C1443.5816,-3685 1498.4682,-3685 1538.9087,-3685"/>
+<polygon fill="#000000" stroke="#000000" points="1407.8707,-3681.5001 1397.8707,-3685 1407.8707,-3688.5001 1407.8707,-3681.5001"/>
 </g>
 <!-- Deadlock (CWE&#45;833) -->
-<g id="node127" class="node">
+<g id="node128" class="node">
 <title>Deadlock (CWE&#45;833)</title>
-<g id="a_node127"><a xlink:href="https://cwe.mitre.org/data/definitions/833.html" xlink:title="Deadlock (CWE&#45;833)">
+<g id="a_node128"><a xlink:href="https://cwe.mitre.org/data/definitions/833.html" xlink:title="Deadlock (CWE&#45;833)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1298.3725,-7566 1117.3725,-7566 1117.3725,-7530 1298.3725,-7530 1298.3725,-7566"/>
 <text text-anchor="middle" x="1207.8725" y="-7544.3" font-family="monospace" font-size="14.00" fill="#000000">Deadlock (CWE&#45;833)</text>
 </a>
 </g>
 </g>
 <!-- PROVE_LOCKING -->
-<g id="node151" class="node">
+<g id="node152" class="node">
 <title>PROVE_LOCKING</title>
 <polygon fill="#9370db" stroke="#9370db" points="1689.6826,-7634.5442 1689.6826,-7649.4558 1631.9956,-7660 1550.4138,-7660 1492.7268,-7649.4558 1492.7268,-7634.5442 1550.4138,-7624 1631.9956,-7624 1689.6826,-7634.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-7638.3" font-family="monospace" font-size="14.00" fill="#000000">PROVE_LOCKING</text>
 </g>
 <!-- Deadlock (CWE&#45;833)&#45;&gt;PROVE_LOCKING -->
-<g id="edge37" class="edge">
+<g id="edge38" class="edge">
 <title>Deadlock (CWE&#45;833):_&#45;&gt;PROVE_LOCKING:w</title>
 <path fill="none" stroke="#000000" d="M1272.0614,-7569.2208C1355.9242,-7596.9458 1492.2047,-7642 1492.2047,-7642"/>
 <polygon fill="#000000" stroke="#000000" points="1272.9515,-7565.8288 1262.3582,-7566.0129 1270.7542,-7572.475 1272.9515,-7565.8288"/>
 </g>
 <!-- DEBUG_ATOMIC_SLEEP -->
-<g id="node152" class="node">
+<g id="node153" class="node">
 <title>DEBUG_ATOMIC_SLEEP</title>
 <polygon fill="#9370db" stroke="#9370db" points="1718.3692,-7540.5442 1718.3692,-7555.4558 1643.878,-7566 1538.5314,-7566 1464.0402,-7555.4558 1464.0402,-7540.5442 1538.5314,-7530 1643.878,-7530 1718.3692,-7540.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-7544.3" font-family="monospace" font-size="14.00" fill="#000000">DEBUG_ATOMIC_SLEEP</text>
 </g>
 <!-- Deadlock (CWE&#45;833)&#45;&gt;DEBUG_ATOMIC_SLEEP -->
-<g id="edge38" class="edge">
+<g id="edge39" class="edge">
 <title>Deadlock (CWE&#45;833):_&#45;&gt;DEBUG_ATOMIC_SLEEP:w</title>
 <path fill="none" stroke="#000000" d="M1308.6436,-7548C1380.4128,-7548 1464.2047,-7548 1464.2047,-7548"/>
 <polygon fill="#000000" stroke="#000000" points="1308.6064,-7544.5001 1298.6064,-7548 1308.6064,-7551.5001 1308.6064,-7544.5001"/>
 </g>
 <!-- Infinite Loop (CWE&#45;835) -->
-<g id="node128" class="node">
+<g id="node129" class="node">
 <title>Infinite Loop (CWE&#45;835)</title>
-<g id="a_node128"><a xlink:href="https://cwe.mitre.org/data/definitions/835.html" xlink:title="Infinite Loop (CWE&#45;835)">
+<g id="a_node129"><a xlink:href="https://cwe.mitre.org/data/definitions/835.html" xlink:title="Infinite Loop (CWE&#45;835)">
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1318.8725,-7472 1096.8725,-7472 1096.8725,-7436 1318.8725,-7436 1318.8725,-7472"/>
 <text text-anchor="middle" x="1207.8725" y="-7450.3" font-family="monospace" font-size="14.00" fill="#000000">Infinite Loop (CWE&#45;835)</text>
 </a>
 </g>
 </g>
 <!-- LOCKUP_DETECTOR -->
-<g id="node153" class="node">
+<g id="node154" class="node">
 <title>LOCKUP_DETECTOR</title>
 <polygon fill="#9370db" stroke="#9370db" points="1701.1949,-7446.5442 1701.1949,-7461.4558 1636.7641,-7472 1545.6453,-7472 1481.2145,-7461.4558 1481.2145,-7446.5442 1545.6453,-7436 1636.7641,-7436 1701.1949,-7446.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-7450.3" font-family="monospace" font-size="14.00" fill="#000000">LOCKUP_DETECTOR</text>
 </g>
 <!-- Infinite Loop (CWE&#45;835)&#45;&gt;LOCKUP_DETECTOR -->
-<g id="edge39" class="edge">
+<g id="edge40" class="edge">
 <title>Infinite Loop (CWE&#45;835):_&#45;&gt;LOCKUP_DETECTOR:w</title>
 <path fill="none" stroke="#000000" d="M1329.302,-7454C1402.3162,-7454 1481.2047,-7454 1481.2047,-7454"/>
 <polygon fill="#000000" stroke="#000000" points="1329.0472,-7450.5001 1319.0472,-7454 1329.0472,-7457.5001 1329.0472,-7450.5001"/>
 </g>
 <!-- WQ_WATCHDOG -->
-<g id="node154" class="node">
+<g id="node155" class="node">
 <title>WQ_WATCHDOG</title>
 <polygon fill="#9370db" stroke="#9370db" points="1677.7639,-7352.5442 1677.7639,-7367.4558 1627.0587,-7378 1555.3507,-7378 1504.6455,-7367.4558 1504.6455,-7352.5442 1555.3507,-7342 1627.0587,-7342 1677.7639,-7352.5442"/>
 <text text-anchor="middle" x="1591.2047" y="-7356.3" font-family="monospace" font-size="14.00" fill="#000000">WQ_WATCHDOG</text>
 </g>
 <!-- Infinite Loop (CWE&#45;835)&#45;&gt;WQ_WATCHDOG -->
-<g id="edge40" class="edge">
+<g id="edge41" class="edge">
 <title>Infinite Loop (CWE&#45;835):_&#45;&gt;WQ_WATCHDOG:w</title>
 <path fill="none" stroke="#000000" d="M1274.2387,-7432.9479C1361.5953,-7405.2374 1504.2047,-7360 1504.2047,-7360"/>
 <polygon fill="#000000" stroke="#000000" points="1273.1314,-7429.6272 1264.6577,-7435.9871 1275.248,-7436.2995 1273.1314,-7429.6272"/>
 </g>
 <!-- Spectre v1.1 / BCBS / CVE&#45;2018&#45;3693 -->
-<g id="node130" class="node">
+<g id="node131" class="node">
 <title>Spectre v1.1 / BCBS / CVE&#45;2018&#45;3693</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1368.3725,-637 1047.3725,-637 1047.3725,-601 1368.3725,-601 1368.3725,-637"/>
 <text text-anchor="middle" x="1207.8725" y="-615.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v1.1 / BCBS / CVE&#45;2018&#45;3693</text>
 </g>
 <!-- Spectre v1.2 / RPB -->
-<g id="node131" class="node">
+<g id="node132" class="node">
 <title>Spectre v1.2 / RPB</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1298.3725,-543 1117.3725,-543 1117.3725,-507 1298.3725,-507 1298.3725,-543"/>
 <text text-anchor="middle" x="1207.8725" y="-521.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v1.2 / RPB</text>
 </g>
 <!-- Spectre RSB / CVE&#45;2018&#45;15572 -->
-<g id="node133" class="node">
+<g id="node134" class="node">
 <title>Spectre RSB / CVE&#45;2018&#45;15572</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1339.8725,-338 1075.8725,-338 1075.8725,-302 1339.8725,-302 1339.8725,-338"/>
 <text text-anchor="middle" x="1207.8725" y="-316.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre RSB / CVE&#45;2018&#45;15572</text>
 </g>
 <!-- Spectre v3a / RSRE / CVE&#45;2018&#45;3640 -->
-<g id="node135" class="node">
+<g id="node136" class="node">
 <title>Spectre v3a / RSRE / CVE&#45;2018&#45;3640</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1364.3725,-1691 1051.3725,-1691 1051.3725,-1655 1364.3725,-1655 1364.3725,-1691"/>
 <text text-anchor="middle" x="1207.8725" y="-1669.3" font-family="monospace" font-size="14.00" fill="#000000">Spectre v3a / RSRE / CVE&#45;2018&#45;3640</text>
 </g>
 <!-- MFBDS / CVE&#45;2018&#45;12130 / RIDL / ZombieLoad -->
-<g id="node138" class="node">
+<g id="node139" class="node">
 <title>MFBDS / CVE&#45;2018&#45;12130 / RIDL / ZombieLoad</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1397.3725,-1483 1018.3725,-1483 1018.3725,-1447 1397.3725,-1447 1397.3725,-1483"/>
 <text text-anchor="middle" x="1207.8725" y="-1461.3" font-family="monospace" font-size="14.00" fill="#000000">MFBDS / CVE&#45;2018&#45;12130 / RIDL / ZombieLoad</text>
 </g>
 <!-- MLPDS / CVE&#45;2018&#45;12127 -->
-<g id="node140" class="node">
+<g id="node141" class="node">
 <title>MLPDS / CVE&#45;2018&#45;12127</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1314.8725,-1295 1100.8725,-1295 1100.8725,-1259 1314.8725,-1259 1314.8725,-1295"/>
 <text text-anchor="middle" x="1207.8725" y="-1273.3" font-family="monospace" font-size="14.00" fill="#000000">MLPDS / CVE&#45;2018&#45;12127</text>
 </g>
 <!-- MDSUM / CVE&#45;2019&#45;11091 -->
-<g id="node141" class="node">
+<g id="node142" class="node">
 <title>MDSUM / CVE&#45;2019&#45;11091</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1314.8725,-1201 1100.8725,-1201 1100.8725,-1165 1314.8725,-1165 1314.8725,-1201"/>
 <text text-anchor="middle" x="1207.8725" y="-1179.3" font-family="monospace" font-size="14.00" fill="#000000">MDSUM / CVE&#45;2019&#45;11091</text>
 </g>
 <!-- TAA / CVE&#45;2019&#45;11135 -->
-<g id="node142" class="node">
+<g id="node143" class="node">
 <title>TAA / CVE&#45;2019&#45;11135</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1306.8725,-1107 1108.8725,-1107 1108.8725,-1071 1306.8725,-1071 1306.8725,-1107"/>
 <text text-anchor="middle" x="1207.8725" y="-1085.3" font-family="monospace" font-size="14.00" fill="#000000">TAA / CVE&#45;2019&#45;11135</text>
 </g>
 <!-- VRS / CVE&#45;2020&#45;0548 -->
-<g id="node144" class="node">
+<g id="node145" class="node">
 <title>VRS / CVE&#45;2020&#45;0548</title>
 <polygon fill="#ffc0cb" stroke="#ffc0cb" points="1302.3725,-919 1113.3725,-919 1113.3725,-883 1302.3725,-883 1302.3725,-919"/>
 <text text-anchor="middle" x="1207.8725" y="-897.3" font-family="monospace" font-size="14.00" fill="#000000">VRS / CVE&#45;2020&#45;0548</text>
