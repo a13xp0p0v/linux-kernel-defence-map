@@ -78,7 +78,6 @@ digraph {
 
     // Mainline Defences
     node [shape=oval, color=palegreen3, style=filled];
-    "STACKPROTECTOR";
     "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}";
     "SLAB_FREELIST_RANDOM";
     "SHUFFLE_PAGE_ALLOCATOR";
@@ -99,6 +98,7 @@ digraph {
     "unprivileged_userfaultfd=0";
     "LDISC_AUTOLOAD is not set";
     "ARM: SHADOW_CALL_STACK";
+    "STACKPROTECTOR";
 
     // Mainline Defences against Transient Execution Attacks
     "X86: mds=full,nosmt";
@@ -357,8 +357,8 @@ digraph {
 
     // Vulnerabilities
     node [shape=box, color=pink];
-    "Stack Out-of-Bounds Access (CWE-121,119)" [URL="https://cwe.mitre.org/data/definitions/121.html"];
     "Heap Out-of-Bounds Access (CWE-122,119)" [URL="https://cwe.mitre.org/data/definitions/122.html"];
+    "Stack Out-of-Bounds Access (CWE-121,119)" [URL="https://cwe.mitre.org/data/definitions/121.html"];
     "Global Variable Out-of-Bounds Access (CWE-?,119)" [fontsize=12, margin="0.04", URL="https://cwe.mitre.org/data/definitions/119.html"];
   }
 
@@ -391,7 +391,7 @@ digraph {
     }
     "ret2usr";
     "ret2dir";
-    "Return Address Overwrite" [fontsize=10, margin="0.07"];
+    "Return Address Overwrite";
   }
 
   subgraph cluster_info_exposures {
@@ -499,9 +499,9 @@ digraph {
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
   edge [style=solid, arrowhead=normal, dir=forward, headport=_, tailport=_];
   "GRKERNSEC_KSTACKOVERFLOW":e -> "Stack Depth Overflow (CWE-674,?)";
-  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
+  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)":sw;
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
-  "PAX_USERCOPY":e -> "Stack Depth Overflow (CWE-674,?)";
+  "PAX_USERCOPY":e -> "Stack Depth Overflow (CWE-674,?)":w;
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
   "slub_debug=Z":e -> "Heap Out-of-Bounds Access (CWE-122,119)";
@@ -546,11 +546,11 @@ digraph {
   "Control Flow Integrity":e -> "ROP" [lhead=cluster_with_rop];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr":w [ltail=cluster_pti];
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":s -> "Userspace Data Access":s [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+  "SMAP/PAN":s -> "Userspace Data Access" [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
