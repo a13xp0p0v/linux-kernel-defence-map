@@ -215,7 +215,6 @@ digraph {
     style="dashed";
     margin=15;
     "X86: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
-    "ARM: HARDEN_EL2_VECTORS" [shape=oval, color=palegreen3]; // Mainline Defence
     "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
     "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
