@@ -39,7 +39,7 @@ digraph {
   fontname=monospace;
   label="Linux Kernel Defence Map";
   compound=true;
-  nodesep=0.8;
+  nodesep=0.5;
   splines=line;
 
   rankdir=LR;
