@@ -173,7 +173,7 @@ digraph {
     rank=same;
     style="solid"; // Similar functionality
     margin=15;
-    "Respectre" [shape=oval, color=lightgrey]; // Commercial Defence
+    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
     "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
   }
 
@@ -560,7 +560,7 @@ digraph {
   "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
   "X86: MICROCODE":e -> "Spectre v1 / BCB / CVE-2017-5753" [lhead=cluster_transient_execution_vulnerabilities]
-  "Respectre":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
+  "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639" [ltail=cluster_ssb_mitigations];
