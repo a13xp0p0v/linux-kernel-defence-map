@@ -98,6 +98,7 @@ digraph {
     "LOCKDOWN_LSM";
     "unprivileged_userfaultfd=0";
     "LDISC_AUTOLOAD is not set";
+    "ARM: SHADOW_CALL_STACK";
 
     // Mainline Defences against Transient Execution Attacks
     "X86: mds=full,nosmt";
@@ -531,6 +532,7 @@ digraph {
   "unprivileged_userfaultfd=0":e -> "Heap Layout Control";
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
+  "ARM: SHADOW_CALL_STACK":e -> "Return Address Overwrite":w;
   "PAX_RAP":s -> "Return Address Overwrite":w [ltail=cluster_cfi];
 
   "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
