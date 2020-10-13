@@ -41,6 +41,7 @@ digraph {
   compound=true;
   nodesep=0.5;
   splines=line;
+  remincross=true;
 
   rankdir=LR;
   node [style=filled, fontname=monospace, margin="0.22,0.055"];
