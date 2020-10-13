@@ -127,6 +127,10 @@ digraph {
     // HW Defences
     node [shape=oval, color=aquamarine];
     "SMEP/PXN";
+
+    // Generic Defence Techniques
+    node [shape=oval, color=black, style=solid];
+    "Control Flow Integrity";
   }
 
   subgraph cluster_pti {
@@ -146,17 +150,6 @@ digraph {
     margin=10;
     "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
     "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
-  }
-
-  subgraph cluster_cfi {
-    label="";
-    rank=same;
-    style="dashed"; // Different approaches and security properties
-    margin=10;
-    "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
-    "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
-    "ARM64_PTR_AUTH" [shape=oval, color=aquamarine]; // HW Defence
-    "Intel CET" [shape=oval, color=aquamarine]; // HW Defence
   }
 
   subgraph cluster_ro {
@@ -285,14 +278,25 @@ digraph {
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
+    "Clang CFI";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
+    "PAX_RAP";
     "PAX_MEMORY_SANITIZE";
+
+    // HW Defences
+    node [shape=oval, color=aquamarine];
+    "ARM64_PTR_AUTH";
+    "Intel CET";
   }
 
   // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
+  "Clang CFI":e -> "Control Flow Integrity":w;
+  "PAX_RAP":e -> "Control Flow Integrity":w;
+  "ARM64_PTR_AUTH":e -> "Control Flow Integrity":w;
+  "Intel CET":e -> "Control Flow Integrity":w;
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY";
   "PAGE_POISONING" -> "PAX_MEMORY_SANITIZE";
@@ -378,9 +382,13 @@ digraph {
     style="dashed";
     margin=25;
     node [shape=box, color=gold]; // Exploitation Techniques
-    "ROP";
-    "ret2usr + ROP";
-    "ret2dir + ROP";
+    subgraph cluster_with_rop {
+      label="";
+      margin=25;
+      "ROP";
+      "ret2usr + ROP";
+      "ret2dir + ROP";
+    }
     "ret2usr";
     "ret2dir";
     "Return Address Overwrite" [fontsize=10, margin="0.07"];
@@ -533,9 +541,9 @@ digraph {
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "ARM: SHADOW_CALL_STACK":e -> "Return Address Overwrite":w;
-  "PAX_RAP":s -> "Return Address Overwrite":w [ltail=cluster_cfi];
+  "Control Flow Integrity":e -> "Return Address Overwrite":w;
 
-  "PAX_RAP":s -> "ROP" [ltail=cluster_cfi];
+  "Control Flow Integrity":e -> "ROP" [lhead=cluster_with_rop];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
@@ -547,13 +555,11 @@ digraph {
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
   "SMAP/PAN":s -> "ret2usr + ROP":sw [ltail=cluster_smap_pan_uderef];
-  "PAX_RAP":s -> "ret2usr + ROP":nw [ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2dir";
   "XPFO":e -> "ret2dir";
 
   "XPFO":e -> "ret2dir + ROP";
-  "PAX_RAP":s -> "ret2dir + ROP" [ltail=cluster_cfi];
 
   "PAX_RANDKSTACK":e -> "Finding Kernel Objects" [ltail=cluster_layout_randomization];
 
