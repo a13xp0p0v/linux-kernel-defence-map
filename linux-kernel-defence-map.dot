@@ -288,7 +288,7 @@ digraph {
     // HW Defences
     node [shape=oval, color=aquamarine];
     "ARM64_PTR_AUTH";
-    "Intel CET";
+    "X86: Intel CET";
   }
 
   // Defences relations
@@ -296,7 +296,7 @@ digraph {
   "Clang CFI":e -> "Control Flow Integrity":w;
   "PAX_RAP":e -> "Control Flow Integrity":w;
   "ARM64_PTR_AUTH":e -> "Control Flow Integrity":w;
-  "Intel CET":e -> "Control Flow Integrity":w;
+  "X86: Intel CET":e -> "Control Flow Integrity":w;
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY";
   "PAGE_POISONING" -> "PAX_MEMORY_SANITIZE";
