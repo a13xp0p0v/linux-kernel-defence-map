@@ -287,7 +287,7 @@ digraph {
 
     // HW Defences
     node [shape=oval, color=aquamarine];
-    "ARM64_PTR_AUTH";
+    "ARM: ARM64_PTR_AUTH + ARM64_BTI_KERNEL" [fontsize=10];
     "X86: Intel CET";
   }
 
@@ -295,7 +295,7 @@ digraph {
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
   "Clang CFI":e -> "Control Flow Integrity":w;
   "PAX_RAP":e -> "Control Flow Integrity":w;
-  "ARM64_PTR_AUTH":e -> "Control Flow Integrity":w;
+  "ARM: ARM64_PTR_AUTH + ARM64_BTI_KERNEL":e -> "Control Flow Integrity":w;
   "X86: Intel CET":e -> "Control Flow Integrity":w;
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT";
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY";
