@@ -154,6 +154,7 @@ digraph {
     "Clang CFI" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
     "PAX_RAP" [shape=oval, color=lightgrey]; // Commercial Defence
     "ARM64_PTR_AUTH" [shape=oval, color=aquamarine]; // HW Defence
+    "Intel CET" [shape=oval, color=aquamarine]; // HW Defence
   }
 
   subgraph cluster_ro {
