@@ -229,7 +229,7 @@ digraph {
     rank=same;
     style="solid"; // Similar functionality
     margin=15;
-    "INIT_STACK_ALL" [shape=oval, color=palegreen3]; // Mainline Defence
+    "INIT_STACK_ALL_ZERO" [shape=oval, color=palegreen3]; // Mainline Defence
     "PAX_MEMORY_STRUCTLEAK" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
