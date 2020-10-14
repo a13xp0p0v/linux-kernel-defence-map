@@ -458,6 +458,7 @@ digraph {
       "TAA / CVE-2019-11135";
       "L1DES / CVE-2020-0549 / CacheOut";
       "VRS / CVE-2020-0548";
+      "SRBDS / CVE-2020-0543";
     }
   }
 
