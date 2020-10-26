@@ -110,7 +110,7 @@ digraph {
     "XPFO";
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
-    "LKRG";
+    "LKRG"; // Disable MODULE_UNLOAD to make bypass harder
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
