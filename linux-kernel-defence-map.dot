@@ -438,7 +438,6 @@ digraph {
       margin=25;
       "Spectre v1 / BCB / CVE-2017-5753";
       "Spectre v1.1 / BCBS / CVE-2018-3693";
-      "Spectre v1.2 / RPB";
       "Spectre v1 swapgs / CVE-2019-1125";
     }
     subgraph cluster_v2 {
