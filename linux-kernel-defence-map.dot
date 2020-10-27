@@ -447,7 +447,7 @@ digraph {
       "Spectre v3a / RSRE / CVE-2018-3640";
     }
     "Spectre v4 / SSB / CVE-2018-3639";
-    "L1TF / CVE-2018-3646 / Foreshadow-VMM";
+    "L1TF / CVE-2018-3620,3646 / Foreshadow";
     subgraph cluster_mds {
       label="MDS";
       style="solid";
@@ -589,7 +589,7 @@ digraph {
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639" [ltail=cluster_ssb_mitigations];
-  "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3646 / Foreshadow-VMM":w;
+  "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
 }
