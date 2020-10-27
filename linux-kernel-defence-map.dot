@@ -463,8 +463,8 @@ digraph {
         "MDSUM / CVE-2019-11091";
         "TAA / CVE-2019-11135 / ZombieLoad v2 ";
         "MSBDS / CVE-2018-12126 / Fallout";
+        "VRS / CVE-2020-0548";
       }
-      "VRS / CVE-2020-0548";
       "SRBDS / CVE-2020-0543 / CROSSTalk";
       "L1DES / CVE-2020-0549 / CacheOut";
     }
