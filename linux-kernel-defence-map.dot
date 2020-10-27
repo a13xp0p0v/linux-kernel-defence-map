@@ -421,7 +421,7 @@ digraph {
     fontsize=18;
     style="solid"; // CWE-514
     margin=25;
-    node [shape=box, color=pink];
+    node [shape=box, color=pink]; // Vulnerabilities
 
     subgraph cluster_v1 {
       label="";
@@ -448,18 +448,21 @@ digraph {
     }
     "Spectre v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
-    subgraph cluster_mds {
-      label="MDS";
+    subgraph cluster_mds_all {
+      label="MDS (aka RIDL)";
       style="solid";
       margin=25;
-      "MFBDS / CVE-2018-12130 / RIDL / ZombieLoad";
-      "MSBDS / CVE-2018-12126 / Fallout";
-      "MLPDS / CVE-2018-12127";
-      "MDSUM / CVE-2019-11091";
-      "TAA / CVE-2019-11135";
-      "L1DES / CVE-2020-0549 / CacheOut";
+      subgraph cluster_mds {
+        label="";
+        "MFBDS / CVE-2018-12130 / ZombieLoad";
+        "MLPDS / CVE-2018-12127";
+        "MDSUM / CVE-2019-11091";
+        "TAA / CVE-2019-11135 / ZombieLoad v2 ";
+        "MSBDS / CVE-2018-12126 / Fallout";
+      }
       "VRS / CVE-2020-0548";
       "SRBDS / CVE-2020-0543 / CROSSTalk";
+      "L1DES / CVE-2020-0549 / CacheOut";
     }
   }
 
