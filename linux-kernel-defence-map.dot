@@ -169,7 +169,7 @@ digraph {
     style="solid"; // Similar functionality
     margin=15;
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
-    "Manual *_nospec() usage" [shape=oval, color=palegreen3]; // Mainline Defence
+    "Manual usage of nospec barriers" [shape=oval, color=palegreen3]; // Mainline Defence
   }
 
   subgraph cluster_v2_mitigations {
@@ -430,6 +430,7 @@ digraph {
       "Spectre v1 / BCB / CVE-2017-5753";
       "Spectre v1.1 / BCBS / CVE-2018-3693";
       "Spectre v1.2 / RPB";
+      "Spectre v1 swapgs / CVE-2019-1125";
     }
     subgraph cluster_v2 {
       label="";
