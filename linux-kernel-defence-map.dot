@@ -103,7 +103,6 @@ digraph {
     // Mainline Defences against Transient Execution Attacks
     "X86: mds=full,nosmt";
     "X86: l1tf=full,force";
-    "X86: MICROCODE";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -131,6 +130,16 @@ digraph {
     // Generic Defence Techniques
     node [shape=oval, color=black, style=solid];
     "Control Flow Integrity";
+  }
+
+  subgraph cluster_cwe514_mitigations {
+    label="";
+    rank=same;
+    style="solid"; // Should work together
+    margin=10;
+    node [shape=oval, color=palegreen3]; // Mainline Defences
+    "mitigations=auto,nosmt";
+    "X86: MICROCODE";
   }
 
   subgraph cluster_pti {
@@ -587,7 +596,7 @@ digraph {
 
   "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
-  "X86: MICROCODE":e -> "Spectre v1 / BCB / CVE-2017-5753" [lhead=cluster_transient_execution_vulnerabilities]
+  "mitigations=auto,nosmt":e -> "Spectre v1 swapgs / CVE-2019-1125" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
