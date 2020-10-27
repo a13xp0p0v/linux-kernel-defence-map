@@ -447,13 +447,8 @@ digraph {
       "Spectre v2 / BTI / CVE-2017-5715";
       "Spectre RSB / CVE-2018-15572";
     }
-    subgraph cluster_v3 {
-      label="";
-      style="solid";
-      margin=25;
-      "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
-      "Spectre v3a / RSRE / CVE-2018-3640";
-    }
+    "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
+    "Spectre v3a / RSRE / CVE-2018-3640";
     "Spectre v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
     "Lazy FP State Restore / CVE-2018-3665";
@@ -560,7 +555,7 @@ digraph {
   "Control Flow Integrity":e -> "ROP" [lhead=cluster_with_rop];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "ret2usr":w [ltail=cluster_pti];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -599,7 +594,7 @@ digraph {
   "mitigations=auto,nosmt":e -> "Spectre v1 swapgs / CVE-2019-1125" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown" [ltail=cluster_pti, lhead=cluster_v3];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639" [ltail=cluster_ssb_mitigations];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
