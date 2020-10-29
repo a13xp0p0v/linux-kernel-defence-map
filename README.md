@@ -72,9 +72,14 @@ You are welcome to try it.
 
   https://openwall.info/wiki/p_lkrg/Threat_model
 
+- Spectre & Meltdown Checker by Stéphane Lesimple [@speed47][3]
+
+  https://github.com/speed47/spectre-meltdown-checker
+
 ## Map for Linux kernel v5.8
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
 [1]: https://github.com/a13xp0p0v/kconfig-hardened-check
 [2]: https://github.com/mamillmsft
+[3]: https://github.com/speed47
