@@ -467,6 +467,7 @@ digraph {
       }
       "SRBDS / CVE-2020-0543 / CROSSTalk";
       "L1DES / CVE-2020-0549 / CacheOut";
+      "Snoop / CVE-2020-0550";
     }
   }
 
@@ -598,5 +599,6 @@ digraph {
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639" [ltail=cluster_ssb_mitigations];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
+  "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
 }
