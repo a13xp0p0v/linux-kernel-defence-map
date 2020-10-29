@@ -592,7 +592,7 @@ digraph {
 
   "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
-  "mitigations=auto,nosmt":e -> "Spectre v1 swapgs / CVE-2019-1125" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
+  "mitigations=auto,nosmt":e -> "Spectre v3a / RSRE / CVE-2018-3640" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
