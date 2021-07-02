@@ -7,7 +7,7 @@ Some defence technologies are provided by the Linux kernel mainline.
 Others are going out‑of‑tree for various reasons (some of them are commercial, for example).
 Plus there are kernel defences that depend on special hardware features.
 
-It would certainly be convenient to have a graphical representation of the current state of Linux kernel security.
+It would be nice to have a graphical representation of the current state of Linux kernel security.
 
 So I've created a __Linux Kernel Defence Map__ showing the relationships between:
  - Vulnerability classes
@@ -30,12 +30,12 @@ dot -Tsvg linux-kernel-defence-map.dot -o linux-kernel-defence-map.svg
 
 ## Do you want to check your kernel config?
 
-So there are plenty of Linux kernel hardening config options. A lot of them are
+So there are plenty of security hardening options in the Linux kernel. A lot of them are
 not enabled by the major distros. We have to enable these options ourselves to
 make our systems more secure.
 
 But nobody likes verifying configs manually. So I've created the [__kconfig-hardened-check__][1]
-that checks security hardening options in the Linux kernel Kconfig option list.
+that checks security hardening options of the Linux kernel.
 You are welcome to try it.
 
 ## Documentation
