@@ -341,7 +341,7 @@ digraph {
     "Race Condition (CWE-362)" [URL="https://cwe.mitre.org/data/definitions/362.html"];
     "Undefined Behaviour (CWE-758)" [URL="https://cwe.mitre.org/data/definitions/758.html"];
     "Type Confusion (CWE-843)" [URL="https://cwe.mitre.org/data/definitions/843.html"];
-    "Double Fetch (CWE-415)" [URL="https://cwe.mitre.org/data/definitions/415.html"];
+    "Double Fetch (CWE-367)" [URL="https://cwe.mitre.org/data/definitions/367.html"];
     "Memory Leak (CWE-401)" [URL="https://cwe.mitre.org/data/definitions/401.html"];
 
     // Exploitation Techniques
