@@ -475,7 +475,6 @@ digraph {
   {
     rank=same;
     node [shape=octagon, color=mediumpurple];
-    "KASAN_GENERIC";
     "UBSAN";
     "KMSAN";
     "KTSAN";
@@ -489,11 +488,21 @@ digraph {
     "slub_debug=Z"; // red zoning
   }
 
+  subgraph cluster_uaf_detection {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=25;
+    node [shape=octagon, color=mediumpurple]; // Bug Detection Mechanisms
+    "KASAN_GENERIC";
+    "KFENCE";
+  }
+
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
   "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC":w [ltail=cluster_oob];
-  "Use-After-Free (CWE-416)":e -> "KASAN_GENERIC":w;
-  "Double Free (CWE-415)":e -> "KASAN_GENERIC":w;
+  "Use-After-Free (CWE-416)":e -> "KFENCE" [lhead=cluster_uaf_detection];
+  "Double Free (CWE-415)":e -> "KASAN_GENERIC" [lhead=cluster_uaf_detection];
   "Undefined Behaviour (CWE-758)":e -> "UBSAN";
   "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
   "Uninitialized Memory Usage (CWE-908)":e -> "KMSAN" [ltail=cluster_info_exposures];
@@ -507,6 +516,7 @@ digraph {
   "Heap Out-of-Bounds Access (CWE-122,119)" -> "slub_debug=Z";
   "Double Free (CWE-415)" -> "slub_debug=F";
   "Allocator Data Corruption" -> "slub_debug=F";
+  "Heap Out-of-Bounds Access (CWE-122,119)":e -> "KFENCE":w;
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
