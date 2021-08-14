@@ -490,9 +490,9 @@ digraph {
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
-  "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC" [ltail=cluster_oob];
-  "Use-After-Free (CWE-416)":e -> "KASAN_GENERIC";
-  "Double Free (CWE-415)":e -> "KASAN_GENERIC";
+  "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC":w [ltail=cluster_oob];
+  "Use-After-Free (CWE-416)":e -> "KASAN_GENERIC":w;
+  "Double Free (CWE-415)":e -> "KASAN_GENERIC":w;
   "Undefined Behaviour (CWE-758)":e -> "UBSAN";
   "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
   "Uninitialized Memory Usage (CWE-908)":e -> "KMSAN" [ltail=cluster_info_exposures];
@@ -511,7 +511,7 @@ digraph {
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
   edge [style=solid, arrowhead=normal, dir=forward, headport=_, tailport=_];
   "GRKERNSEC_KSTACKOVERFLOW":e -> "Stack Depth Overflow (CWE-674,?)";
-  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)":sw;
+  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
@@ -522,11 +522,11 @@ digraph {
   "PAX_REFCOUNT":e -> "Int Overflow/Underflow (CWE-190/191)";
   "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-190/191)";
 
-  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Memory Usage (CWE-908)":nw [lhead=cluster_info_exposures];
+  "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Memory Usage (CWE-908)" [lhead=cluster_info_exposures];
   "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
-  "Heap free() Poisoning":s -> "Uninitialized Memory Usage (CWE-908)":w [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
+  "Heap free() Poisoning":e -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
 
-  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)":w [ltail=cluster_heap_erasing];
+  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)" [ltail=cluster_heap_erasing];
 
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
 
