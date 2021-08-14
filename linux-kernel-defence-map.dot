@@ -513,9 +513,9 @@ digraph {
   "GRKERNSEC_KSTACKOVERFLOW":e -> "Stack Depth Overflow (CWE-674,?)";
   "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)":sw;
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
-  "PAX_USERCOPY":e -> "Stack Depth Overflow (CWE-674,?)":w;
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
+  "PAX_USERCOPY":e -> "Stack Out-of-Bounds Access (CWE-121,119)":w;
 
   "FORTIFY_SOURCE":e -> "Global Variable Out-of-Bounds Access (CWE-?,119)" [ltail=cluster_oob_detection, lhead=cluster_oob];
 
