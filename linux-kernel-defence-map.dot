@@ -122,6 +122,7 @@ digraph {
     "PAX_MEMORY_STACKLEAK";
     "GRKERNSEC_MODHARDEN";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
+    "AUTOSLAB";
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -546,6 +547,7 @@ digraph {
   "slab_nomerge":e -> "Heap Layout Control";
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
   "unprivileged_userfaultfd=0":e -> "Heap Layout Control";
+  "AUTOSLAB":e -> "Heap Layout Control";
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "ARM: SHADOW_CALL_STACK":e -> "Return Address Overwrite":w;
