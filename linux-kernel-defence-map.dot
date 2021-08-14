@@ -306,8 +306,8 @@ digraph {
   "PAX_RAP":e -> "Control Flow Integrity":w;
   "ARM: ARM64_PTR_AUTH + ARM64_BTI_KERNEL":e -> "Control Flow Integrity":w;
   "X86: Intel CET":e -> "Control Flow Integrity":w;
-  "REFCOUNT_FULL":e -> "PAX_REFCOUNT";
-  "HARDENED_USERCOPY":e -> "PAX_USERCOPY";
+  "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
+  "HARDENED_USERCOPY":e -> "PAX_USERCOPY":w;
   "PAGE_POISONING" -> "PAX_MEMORY_SANITIZE";
   "VMAP_STACK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
   "THREAD_INFO_IN_TASK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
@@ -513,7 +513,7 @@ digraph {
   "Deadlock (CWE-833)" -> "DEBUG_ATOMIC_SLEEP":w;
   "Infinite Loop (CWE-835)" -> "LOCKUP_DETECTOR":w;
   "Infinite Loop (CWE-835)" -> "WQ_WATCHDOG":w;
-  "Heap Out-of-Bounds Access (CWE-122,119)" -> "slub_debug=Z";
+  "Heap Out-of-Bounds Access (CWE-122,119)":e -> "slub_debug=Z":w;
   "Double Free (CWE-415)" -> "slub_debug=F";
   "Allocator Data Corruption" -> "slub_debug=F";
   "Heap Out-of-Bounds Access (CWE-122,119)":e -> "KFENCE":w;
@@ -527,10 +527,9 @@ digraph {
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
   "ARM: KASAN_HW_TAGS with ARM64_MTE":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
+  "FORTIFY_SOURCE":e -> "Heap Out-of-Bounds Access (CWE-122,119)" [ltail=cluster_oob_detection, lhead=cluster_oob];
 
   "PAX_USERCOPY":e -> "Stack Out-of-Bounds Access (CWE-121,119)":w;
-
-  "FORTIFY_SOURCE":e -> "Global Variable Out-of-Bounds Access (CWE-?,119)" [ltail=cluster_oob_detection, lhead=cluster_oob];
 
   "PAX_REFCOUNT":e -> "Int Overflow/Underflow (CWE-190/191)";
   "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-190/191)";
