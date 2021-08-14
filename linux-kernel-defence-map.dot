@@ -475,7 +475,7 @@ digraph {
   {
     rank=same;
     node [shape=octagon, color=mediumpurple];
-    "KASAN";
+    "KASAN_GENERIC";
     "UBSAN";
     "KMSAN";
     "KTSAN";
@@ -489,9 +489,9 @@ digraph {
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
-  "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN" [ltail=cluster_oob];
-  "Use-After-Free (CWE-416)":e -> "KASAN";
-  "Double Free (CWE-415)":e -> "KASAN";
+  "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC" [ltail=cluster_oob];
+  "Use-After-Free (CWE-416)":e -> "KASAN_GENERIC";
+  "Double Free (CWE-415)":e -> "KASAN_GENERIC";
   "Undefined Behaviour (CWE-758)":e -> "UBSAN";
   "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
   "Uninitialized Memory Usage (CWE-908)":e -> "KMSAN" [ltail=cluster_info_exposures];
