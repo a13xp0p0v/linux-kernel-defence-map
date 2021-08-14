@@ -92,8 +92,6 @@ digraph {
     "SCHED_STACK_END_CHECK";
     "TIF_FSCHECK flag";
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
-    "slub_debug=F"; // sanity checks
-    "slub_debug=Z"; // red zoning
     "LOCKDOWN_LSM";
     "unprivileged_userfaultfd=0";
     "LDISC_AUTOLOAD is not set";
@@ -486,6 +484,8 @@ digraph {
     "DEBUG_ATOMIC_SLEEP";
     "LOCKUP_DETECTOR";
     "WQ_WATCHDOG";
+    "slub_debug=F"; // sanity checks
+    "slub_debug=Z"; // red zoning
   }
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
@@ -503,6 +503,9 @@ digraph {
   "Deadlock (CWE-833)" -> "DEBUG_ATOMIC_SLEEP":w;
   "Infinite Loop (CWE-835)" -> "LOCKUP_DETECTOR":w;
   "Infinite Loop (CWE-835)" -> "WQ_WATCHDOG":w;
+  "Heap Out-of-Bounds Access (CWE-122,119)" -> "slub_debug=Z";
+  "Double Free (CWE-415)" -> "slub_debug=F";
+  "Allocator Data Corruption" -> "slub_debug=F";
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
@@ -513,7 +516,6 @@ digraph {
   "PAX_USERCOPY":e -> "Stack Depth Overflow (CWE-674,?)":w;
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
-  "slub_debug=Z":e -> "Heap Out-of-Bounds Access (CWE-122,119)";
 
   "FORTIFY_SOURCE":e -> "Global Variable Out-of-Bounds Access (CWE-?,119)" [ltail=cluster_oob_detection, lhead=cluster_oob];
 
@@ -526,7 +528,6 @@ digraph {
 
   "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)":w [ltail=cluster_heap_erasing];
 
-  "slub_debug=F":e -> "Double Free (CWE-415)";
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
 
   "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
@@ -537,7 +538,6 @@ digraph {
   grsecurity_hardened_usermodehelper:e -> "Metadata Corruption";
   "LKRG":e -> "Metadata Corruption";
 
-  "slub_debug=F":e -> "Allocator Data Corruption";
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption";
   "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption";
 
