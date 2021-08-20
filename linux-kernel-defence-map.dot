@@ -283,10 +283,10 @@ digraph {
     "slub_debug=P"; // object and padding poisoning
     "init_on_free";
     "STACKLEAK";
+    "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
-    "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
     "Clang CFI";
 
     // Commercial Defences
