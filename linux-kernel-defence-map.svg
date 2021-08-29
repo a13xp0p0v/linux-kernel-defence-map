@@ -1429,7 +1429,7 @@
 <!-- RANDOMIZE_KSTACK_OFFSET_DEFAULT -->
 <g id="node93" class="node">
 <title>RANDOMIZE_KSTACK_OFFSET_DEFAULT</title>
-<ellipse fill="cornflowerblue" stroke="cornflowerblue" cx="203.54" cy="-5585" rx="187.37" ry="18"/>
+<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="203.54" cy="-5585" rx="187.37" ry="18"/>
 <text text-anchor="middle" x="203.54" y="-5581.3" font-family="monospace" font-size="14.00">RANDOMIZE_KSTACK_OFFSET_DEFAULT</text>
 </g>
 <!-- RANDOMIZE_KSTACK_OFFSET_DEFAULT&#45;&gt;PAX_RANDKSTACK -->
@@ -1437,15 +1437,15 @@
 <title>RANDOMIZE_KSTACK_OFFSET_DEFAULT:e&#45;&gt;PAX_RANDKSTACK:_</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M390.72,-5585C390.72,-5585 505.87,-5585 592.91,-5585"/>
 </g>
-<!-- Clang CFI -->
+<!-- CFI_CLANG -->
 <g id="node94" class="node">
-<title>Clang CFI</title>
-<ellipse fill="cornflowerblue" stroke="cornflowerblue" cx="203.54" cy="-2839" rx="69.59" ry="18"/>
-<text text-anchor="middle" x="203.54" y="-2835.3" font-family="monospace" font-size="14.00">Clang CFI</text>
+<title>CFI_CLANG</title>
+<ellipse fill="#7ccd7c" stroke="#7ccd7c" cx="203.54" cy="-2839" rx="69.59" ry="18"/>
+<text text-anchor="middle" x="203.54" y="-2835.3" font-family="monospace" font-size="14.00">CFI_CLANG</text>
 </g>
-<!-- Clang CFI&#45;&gt;Control Flow Integrity -->
+<!-- CFI_CLANG&#45;&gt;Control Flow Integrity -->
 <g id="edge7" class="edge">
-<title>Clang CFI:e&#45;&gt;Control Flow Integrity:w</title>
+<title>CFI_CLANG:e&#45;&gt;Control Flow Integrity:w</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M274.54,-2839C274.54,-2839 549.3,-2842 549.3,-2842"/>
 </g>
 <!-- PAX_RAP -->
