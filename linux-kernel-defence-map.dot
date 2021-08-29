@@ -284,10 +284,10 @@ digraph {
     "init_on_free";
     "STACKLEAK";
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
+    "CFI_CLANG";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
-    "Clang CFI";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -302,7 +302,7 @@ digraph {
 
   // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
-  "Clang CFI":e -> "Control Flow Integrity":w;
+  "CFI_CLANG":e -> "Control Flow Integrity":w;
   "PAX_RAP":e -> "Control Flow Integrity":w;
   "ARM: ARM64_PTR_AUTH + ARM64_BTI_KERNEL":e -> "Control Flow Integrity":w;
   "X86: Intel CET":e -> "Control Flow Integrity":w;
