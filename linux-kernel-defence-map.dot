@@ -98,6 +98,7 @@ digraph {
     "ARM: SHADOW_CALL_STACK";
     "STACKPROTECTOR";
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
+    "ZERO_CALL_USED_REGS";
 
     // Mainline Defences against Transient Execution Attacks
     "X86: mds=full,nosmt";
@@ -568,6 +569,7 @@ digraph {
   "Control Flow Integrity":e -> "Return Address Overwrite":w;
 
   "Control Flow Integrity":e -> "ROP" [lhead=cluster_with_rop];
+  "ZERO_CALL_USED_REGS":e -> "ROP" [lhead=cluster_with_rop];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
