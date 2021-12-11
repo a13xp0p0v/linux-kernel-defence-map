@@ -401,7 +401,7 @@ digraph {
     }
     "ret2usr";
     "ret2dir";
-    "Return Address Overwrite";
+    "Return Address Overwrite" [fontsize=11];
   }
 
   subgraph cluster_info_exposures {
@@ -430,7 +430,7 @@ digraph {
     rank=same;
     fontsize=18;
     style="solid"; // CWE-514
-    margin=25;
+    margin=30;
     node [shape=box, color=pink]; // Vulnerabilities
 
     subgraph cluster_v1 {
@@ -577,7 +577,7 @@ digraph {
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":s -> "Userspace Data Access" [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+  "SMAP/PAN":s -> "Userspace Data Access":s [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
@@ -612,7 +612,7 @@ digraph {
   "mitigations=auto,nosmt":e -> "Spectre v3a / RSRE / CVE-2018-3640" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639" [ltail=cluster_ssb_mitigations];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
