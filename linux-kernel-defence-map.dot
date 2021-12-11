@@ -96,7 +96,6 @@ digraph {
     "LOCKDOWN_LSM";
     "unprivileged_userfaultfd=0";
     "LDISC_AUTOLOAD is not set";
-    "ARM: SHADOW_CALL_STACK";
     "STACKPROTECTOR";
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
     "ZERO_CALL_USED_REGS";
@@ -128,10 +127,18 @@ digraph {
     // HW Defences
     node [shape=oval, color=aquamarine];
     "SMEP/PXN";
+  }
 
+  subgraph cluster_cfi {
+    label="Control Flow Integrity";
+    fontsize=16;
+    rank=same;
+    style="dashed";
+    margin=20;
     // Generic Defence Techniques
     node [shape=oval, color=black, style=solid];
-    "Control Flow Integrity";
+    "Forward-edge CFI";
+    "Backward-edge CFI";
   }
 
   subgraph cluster_cwe514_mitigations {
@@ -286,7 +293,8 @@ digraph {
     "init_on_free";
     "STACKLEAK";
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
-    "CFI_CLANG";
+    "ARM: CFI_CLANG";
+    "ARM: SHADOW_CALL_STACK";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -298,16 +306,19 @@ digraph {
 
     // HW Defences
     node [shape=oval, color=aquamarine];
-    "ARM: ARM64_PTR_AUTH + ARM64_BTI_KERNEL" [fontsize=10];
+    "ARM: ARM64_PTR_AUTH";
+    "ARM: ARM64_BTI_KERNEL";
     "X86: Intel CET";
   }
 
   // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
-  "CFI_CLANG":e -> "Control Flow Integrity":w;
-  "PAX_RAP":e -> "Control Flow Integrity":w;
-  "ARM: ARM64_PTR_AUTH + ARM64_BTI_KERNEL":e -> "Control Flow Integrity":w;
-  "X86: Intel CET":e -> "Control Flow Integrity":w;
+  "ARM: CFI_CLANG":e -> "Forward-edge CFI":w [style=dashed];
+  "ARM: ARM64_BTI_KERNEL":e -> "Forward-edge CFI":w [style=dashed];
+  "X86: Intel CET":e -> "Backward-edge CFI":n [lhead=cluster_cfi, style=dashed];
+  "PAX_RAP":e -> "Backward-edge CFI":n [lhead=cluster_cfi, style=dashed];
+  "ARM: ARM64_PTR_AUTH":e -> "Backward-edge CFI":w [style=dashed];
+  "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w [style=dashed];
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY":w;
   "PAGE_POISONING" -> "PAX_MEMORY_SANITIZE";
@@ -566,10 +577,9 @@ digraph {
   "AUTOSLAB":e -> "Heap Layout Control";
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
-  "ARM: SHADOW_CALL_STACK":e -> "Return Address Overwrite":w;
-  "Control Flow Integrity":e -> "Return Address Overwrite":w;
+  "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
-  "Control Flow Integrity":e -> "ROP" [lhead=cluster_with_rop];
+  "Backward-edge CFI":n -> "ROP" [lhead=cluster_with_rop, ltail=cluster_cfi];
   "ZERO_CALL_USED_REGS":e -> "ROP" [lhead=cluster_with_rop];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
