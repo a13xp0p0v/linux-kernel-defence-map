@@ -45,6 +45,7 @@ digraph {
 
   rankdir=LR;
   node [style=filled, fontname=monospace, margin="0.22,0.055"];
+  edge [penwidth=1.2];
 
   subgraph cluster_legend {
     fontsize=25;
