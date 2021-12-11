@@ -323,9 +323,9 @@ digraph {
   "ARM: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
-  "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w [style=filled];
-  "slub_debug=P":e -> "Heap free() Poisoning":w [style=filled];
-  "init_on_free" -> "Heap free() Poisoning":w [style=filled];
+  "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w [style=dashed];
+  "slub_debug=P":e -> "Heap free() Poisoning":w [style=dashed];
+  "init_on_free" -> "Heap free() Poisoning":w [style=dashed];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
 
 
