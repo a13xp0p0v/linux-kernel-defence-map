@@ -134,7 +134,7 @@ digraph {
     fontsize=16;
     rank=same;
     style="dashed";
-    margin=20;
+    margin=10;
     // Generic Defence Techniques
     node [shape=oval, color=black, style=solid];
     "Coarse-grained Forward-edge CFI" [fontsize=11];
@@ -588,9 +588,9 @@ digraph {
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
   "SMEP/PXN":e -> "ret2usr":w;
-  "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":e -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "SMAP/PAN":s -> "Userspace Data Access":s [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+  "PAX_UDEREF":n -> "Userspace Data Access":s [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
