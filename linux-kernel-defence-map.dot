@@ -137,7 +137,8 @@ digraph {
     margin=20;
     // Generic Defence Techniques
     node [shape=oval, color=black, style=solid];
-    "Forward-edge CFI";
+    "Coarse-grained Forward-edge CFI" [fontsize=11];
+    "Fine-grained Forward-edge CFI" [fontsize=11];
     "Backward-edge CFI";
   }
 
@@ -313,10 +314,12 @@ digraph {
 
   // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
-  "ARM: CFI_CLANG":e -> "Forward-edge CFI":w [style=dashed];
-  "ARM: ARM64_BTI_KERNEL":e -> "Forward-edge CFI":w [style=dashed];
-  "X86: Intel CET":e -> "Backward-edge CFI":n [lhead=cluster_cfi, style=dashed];
-  "PAX_RAP":e -> "Backward-edge CFI":n [lhead=cluster_cfi, style=dashed];
+  "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
+  "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
+  "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
+  "X86: Intel CET":e -> "Backward-edge CFI":w [style=dashed];
+  "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
+  "PAX_RAP":e -> "Backward-edge CFI":w [style=dashed];
   "ARM: ARM64_PTR_AUTH":e -> "Backward-edge CFI":w [style=dashed];
   "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w [style=dashed];
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
