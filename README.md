@@ -3,22 +3,26 @@
 ## Intro
 
 Linux kernel security is a very complex topic.
-Some defence technologies are provided by the Linux kernel mainline.
-Others are going out‑of‑tree for various reasons (some of them are commercial, for example).
-Plus there are kernel defences that depend on special hardware features.
 
-It would be nice to have a graphical representation of the current state of Linux kernel security.
-
-So I've created a __Linux Kernel Defence Map__ showing the relationships between:
+There are many concepts that have interesting relationships with each other:
  - Vulnerability classes
  - Exploitation techniques
  - Bug detection mechanisms
  - Defence technologies
 
-__N.B.__ The node connections don't mean "full mitigation."
-Rather, each connection represents some kind of relationship.
-So this map should help to navigate the documentation and Linux kernel sources.
+Some defence technologies are provided by the Linux kernel mainline.
+Others are going out‑of‑tree for various reasons (some of them are commercial, for example).
+Moreover, there are kernel defences that depend on special hardware features.
+
+It would be convenient to have a graphical representation of Linux kernel security.
+That's why I have created a __Linux Kernel Defence Map__ showing the relationships between all these concepts.
+
+The node connections don't mean "full mitigation." Rather, each connection represents some kind of relationship.
+So the Linux Kernel Defence Map should help to navigate the documentation and Linux kernel sources.
 It also provides the Common Weakness Enumeration (CWE) numbers for vulnerability classes.
+
+This map describes kernel security hardening. It doesn't cover cutting attack surface, userspace security features
+and policies enforced by various Linux Security Modules (LSM).
 
 ## How this Map is made
 
@@ -28,10 +32,10 @@ The diagram is generated using GraphViz with the following command:
 dot -Tsvg linux-kernel-defence-map.dot -o linux-kernel-defence-map.svg
 ```
 
-## Do you want to check your kernel config?
+## Do you want to check your kernel configuration?
 
 So there are plenty of security hardening options in the Linux kernel. A lot of them are
-not enabled by the major distros. We have to enable these options ourselves to
+not enabled by the major distros. We have to configure these options ourselves to
 make our systems more secure.
 
 But nobody likes verifying configs manually. So I've created the [__kconfig-hardened-check__][1]

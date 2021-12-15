@@ -10,27 +10,18 @@
 // License terms: GNU General Public License (GPL), version 3.0.
 // For details see LICENSE file.
 //
-// N.B. The node connections don't mean "full mitigation". These connections
-// represent some kind of relation. So ideally, this map should help to navigate
-// in documentation and Linux kernel sources.
+// The node connections don't mean "full mitigation."
+// Rather, each connection represents some kind of relationship.
+// So this map should help to navigate the documentation and Linux kernel sources.
+// See the references in README.md.
+//
+// This map describes kernel security hardening.
+// It doesn't cover cutting attack surface, userspace security features
+// and policies enforced by various Linux Security Modules (LSM).
 //
 // It is written in DOT language.
 // How to generate svg:
 //    dot -Tsvg linux-kernel-defence-map.dot -o linux-kernel-defence-map.svg
-//
-// References:
-//
-//  - The State of Kernel Self Protection by Kees Cook
-//     https://outflux.net/slides/2018/lca/kspp.pdf
-//
-//  - grsecurity features
-//     https://grsecurity.net/features.php
-//
-//  - Linux kernel security documentation:
-//     https://www.kernel.org/doc/html/latest/security/self-protection.html
-//
-//  - Linux kernel mitigation checklist by Shawn C
-//     https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
 //
 
 digraph {
