@@ -38,52 +38,29 @@ So there are plenty of security hardening options in the Linux kernel. A lot of 
 not enabled by the major distros. We have to configure these options ourselves to
 make our systems more secure.
 
-But nobody likes verifying configs manually. So I've created the [__kconfig-hardened-check__][1]
+But nobody likes verifying configs manually. So I've created the [__kconfig-hardened-check__](https://github.com/a13xp0p0v/kconfig-hardened-check)
 that checks security hardening options of the Linux kernel.
 You are welcome to try it.
 
-## Documentation
+## References
 
-- Grsecurity features:
+- [Grsecurity features](https://grsecurity.net/features.php)
 
-  https://grsecurity.net/features.php
+- [The State of Kernel Self Protection](https://outflux.net/slides/2021/lss/kspp.pdf) by Kees Cook
 
-- The State of Kernel Self Protection by Kees Cook:
+- Linux kernel [security documentation](https://www.kernel.org/doc/html/latest/security/self-protection.html)
 
-  https://outflux.net/slides/2018/lca/kspp.pdf
+- Linux kernel [mitigation checklist](https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md) by Shawn C
 
-- Linux kernel security documentation:
+- [Trends, challenge, and shifts in software vulnerability mitigation](https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL) by MSRC
 
-  https://www.kernel.org/doc/html/latest/security/self-protection.html
+- [Pursuing Durable Safety for Systems Software](https://www.sstic.org/2020/presentation/ouverture_2020/) by Matt Miller
 
-- Linux kernel mitigation checklist by Shawn C:
+- [A Decade of Linux Kernel Vulnerabilities, their Mitigation and Open Problems](https://github.com/maxking/linux-vulnerabilities-10-years) by Abhilash Raj
 
-  https://github.com/hardenedlinux/grsecurity-101-tutorials/blob/master/kernel_mitigation.md
-
-- Trends, challenge, and shifts in software vulnerability mitigation by MSRC:
-
-  https://github.com/Microsoft/MSRC-Security-Research/tree/master/presentations/2019_02_BlueHatIL
-
-- Pursuing Durable Safety for Systems Software by Matt Miller [@mamillmsft][2]:
-
-  https://www.sstic.org/2020/presentation/ouverture_2020/
-
-- A Decade of Linux Kernel Vulnerabilities, their Mitigation and Open Problems by Abhilash Raj:
-
-  https://github.com/maxking/linux-vulnerabilities-10-years
-
-- Linux Kernel Runtime Guard (LKRG) threat model:
-
-  https://openwall.info/wiki/p_lkrg/Threat_model
-
-- Spectre & Meltdown Checker by Stéphane Lesimple [@speed47][3]
-
-  https://github.com/speed47/spectre-meltdown-checker
+- [Spectre & Meltdown Checker](https://github.com/speed47/spectre-meltdown-checker) by Stéphane Lesimple
 
 ## Map for Linux kernel v5.13
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
-[1]: https://github.com/a13xp0p0v/kconfig-hardened-check
-[2]: https://github.com/mamillmsft
-[3]: https://github.com/speed47
