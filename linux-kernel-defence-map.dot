@@ -286,7 +286,7 @@ digraph {
     "STACKLEAK";
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
     "ARM: CFI_CLANG";
-    "ARM: SHADOW_CALL_STACK";
+    "ARM: SHADOW_CALL_STACK" [fontsize=11];
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
