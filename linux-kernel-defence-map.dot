@@ -400,9 +400,9 @@ digraph {
     subgraph cluster_with_rop {
       label="";
       margin=25;
-      "ROP";
-      "ret2usr + ROP";
-      "ret2dir + ROP";
+      "ROP/JOP/COP";
+      "ret2usr + ROP/JOP/COP";
+      "ret2dir + ROP/JOP/COP";
     }
     "ret2usr";
     "ret2dir";
@@ -573,8 +573,8 @@ digraph {
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
-  "Backward-edge CFI":n -> "ROP" [lhead=cluster_with_rop, ltail=cluster_cfi];
-  "ZERO_CALL_USED_REGS":e -> "ROP" [lhead=cluster_with_rop];
+  "Backward-edge CFI":n -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
+  "ZERO_CALL_USED_REGS":e -> "ROP/JOP/COP" [lhead=cluster_with_rop];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
@@ -585,12 +585,12 @@ digraph {
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
-  "SMAP/PAN":s -> "ret2usr + ROP":sw [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":s -> "ret2usr + ROP/JOP/COP":sw [ltail=cluster_smap_pan_uderef];
 
   "PAX_KERNEXEC":e -> "ret2dir";
   "XPFO":e -> "ret2dir";
 
-  "XPFO":e -> "ret2dir + ROP";
+  "XPFO":e -> "ret2dir + ROP/JOP/COP";
 
   "PAX_RANDKSTACK":e -> "Finding Kernel Objects" [ltail=cluster_layout_randomization];
 
