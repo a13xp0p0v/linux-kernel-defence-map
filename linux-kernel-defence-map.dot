@@ -300,15 +300,28 @@ digraph {
     node [shape=oval, color=aquamarine];
     "ARM: ARM64_PTR_AUTH";
     "ARM: ARM64_BTI_KERNEL";
-    "X86: Intel CET";
+  }
+
+  subgraph cluster_cet {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=10;
+    "X86: Intel CET" [shape=oval, color=aquamarine]; // HW Defence
+    "X86: X86_IBT" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
+    "X86: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
 
   // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
   "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
   "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
-  "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
-  "X86: Intel CET":e -> "Backward-edge CFI":w [style=dashed];
+  "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
+  "X86: Intel CET":e -> "Backward-edge CFI":w [style=invis];
+  "X86: X86_IBT":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
+  "X86: X86_IBT" -> "X86: Intel CET" [constraint=false];
+  "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w [style=dashed];
+  "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false];
   "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
   "PAX_RAP":e -> "Backward-edge CFI":w [style=dashed];
   "ARM: ARM64_PTR_AUTH":e -> "Backward-edge CFI":w [style=dashed];
