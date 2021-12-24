@@ -82,7 +82,6 @@ digraph {
     "bpf_jit_harden";
     "DEFAULT_MMAP_MIN_ADDR=65536";
     "SCHED_STACK_END_CHECK";
-    "TIF_FSCHECK flag";
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "LOCKDOWN_LSM";
     "unprivileged_userfaultfd=0";
@@ -373,7 +372,6 @@ digraph {
     "WX Area Abuse";
     "Changing Kernel Image";
     "Bad Module Loading";
-    "Unbalanced set_fs()";
     "'ops' Structures Overwrite";
   }
 
@@ -623,8 +621,6 @@ digraph {
   "SECURITY_LOADPIN":e -> "Bad Module Loading";
   "request_module_cap()":e -> "Bad Module Loading";
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
-
-  "TIF_FSCHECK flag":e -> "Unbalanced set_fs()";
 
   "mitigations=auto,nosmt":e -> "Spectre v3a / RSRE / CVE-2018-3640" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
