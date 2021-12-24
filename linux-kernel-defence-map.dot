@@ -633,7 +633,7 @@ digraph {
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
-  "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639" [ltail=cluster_ssb_mitigations];
+  "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639":w [ltail=cluster_ssb_mitigations];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
   "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
