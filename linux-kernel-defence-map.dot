@@ -298,7 +298,7 @@ digraph {
 
     // HW Defences
     node [shape=oval, color=aquamarine];
-    "ARM: ARM64_PTR_AUTH";
+    "ARM: ARM64_PTR_AUTH_KERNEL" [fontsize=12];
     "ARM: ARM64_BTI_KERNEL";
   }
 
@@ -324,7 +324,7 @@ digraph {
   "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false];
   "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
   "PAX_RAP":e -> "Backward-edge CFI":w [style=dashed];
-  "ARM: ARM64_PTR_AUTH":e -> "Backward-edge CFI":w [style=dashed];
+  "ARM: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w [style=dashed];
   "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w [style=dashed];
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY":w;
