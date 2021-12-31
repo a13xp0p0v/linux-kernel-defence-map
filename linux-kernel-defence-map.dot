@@ -90,6 +90,7 @@ digraph {
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
     "ZERO_CALL_USED_REGS";
     "X86: mds=full,nosmt";
+    "Read-only swapper_pg_dir";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -380,6 +381,7 @@ digraph {
     "Changing Kernel Image";
     "Bad Module Loading";
     "'ops' Structures Overwrite";
+    "Kernel Space Mirroring Attack";
   }
 
   subgraph cluster_oob {
@@ -639,4 +641,6 @@ digraph {
   "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
   "X86: l1d_flush=on":e -> "Snoop / CVE-2020-0550":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
+
+  "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
