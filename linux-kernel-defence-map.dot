@@ -97,7 +97,7 @@ digraph {
     "XPFO";
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
-    "LKRG"; // Disable MODULE_UNLOAD to make bypass harder
+    "Linux Kernel Runtime Guard"; // Disable MODULE_UNLOAD to make bypass harder
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -577,7 +577,7 @@ digraph {
   "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption";
   "PROTECTABLE_MEMORY":e -> "Metadata Corruption";
   grsecurity_hardened_usermodehelper:e -> "Metadata Corruption";
-  "LKRG":e -> "Metadata Corruption";
+  "Linux Kernel Runtime Guard":e -> "Metadata Corruption";
 
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption";
   "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption";
@@ -623,7 +623,7 @@ digraph {
   "ARM: RODATA_FULL_DEFAULT_ENABLED":e -> "WX Area Abuse";
 
   "LOCKDOWN_LSM":e -> "Changing Kernel Image";
-  "LKRG":e -> "Changing Kernel Image";
+  "Linux Kernel Runtime Guard":e -> "Changing Kernel Image";
 
   "GRKERNSEC_MODHARDEN":e -> "Bad Module Loading";
   "MODULE_SIG*":e -> "Bad Module Loading";
