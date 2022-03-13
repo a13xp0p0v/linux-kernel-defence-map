@@ -91,6 +91,7 @@ digraph {
     "ZERO_CALL_USED_REGS";
     "X86: mds=full,nosmt";
     "Read-only swapper_pg_dir";
+    "X86: SLS";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -466,6 +467,7 @@ digraph {
       "Spectre v1.1 / BCBS / CVE-2018-3693";
       "Spectre v1 swapgs / CVE-2019-1125";
     }
+    "Straight-Line Speculation / CVE-2021-26341";
     subgraph cluster_v2 {
       label="";
       style="solid";
@@ -641,6 +643,7 @@ digraph {
   "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
   "X86: l1d_flush=on":e -> "Snoop / CVE-2020-0550":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
+  "X86: SLS":e -> "Straight-Line Speculation / CVE-2021-26341":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
