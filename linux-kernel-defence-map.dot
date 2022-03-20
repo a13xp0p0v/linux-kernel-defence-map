@@ -591,7 +591,7 @@ digraph {
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
   "Backward-edge CFI" -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
-  "ZERO_CALL_USED_REGS":e -> "ROP/JOP/COP" [lhead=cluster_with_rop];
+  "ZERO_CALL_USED_REGS":e -> "ROP/JOP/COP" [lhead=cluster_with_rop, constraint=false];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
