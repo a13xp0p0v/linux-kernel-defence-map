@@ -92,6 +92,8 @@ digraph {
     "X86: mds=full,nosmt";
     "Read-only swapper_pg_dir";
     "X86: SLS";
+    "ARM: HARDEN_BRANCH_PREDICTOR";
+    "X86: spectre_v2=on (RETPOLINE)";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -178,16 +180,6 @@ digraph {
     margin=15;
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
     "Manual usage of nospec barriers" [shape=oval, color=palegreen3]; // Mainline Defence
-  }
-
-  subgraph cluster_v2_mitigations {
-    label="";
-    rank=same;
-    style="solid"; // Similar functionality, for different architectures
-    margin=15;
-    node [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86: spectre_v2=on (RETPOLINE)";
-    "ARM: HARDEN_BRANCH_PREDICTOR";
   }
 
   subgraph cluster_ssb_mitigations {
@@ -635,7 +627,8 @@ digraph {
 
   "mitigations=auto,nosmt":e -> "Spectre v3a / RSRE / CVE-2018-3640" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
-  "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre v2 / BTI / CVE-2017-5715" [ltail=cluster_v2_mitigations, lhead=cluster_v2];
+  "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre RSB / CVE-2018-15572" [lhead=cluster_v2];
+  "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Spectre v2 / BTI / CVE-2017-5715":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639":w [ltail=cluster_ssb_mitigations];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
