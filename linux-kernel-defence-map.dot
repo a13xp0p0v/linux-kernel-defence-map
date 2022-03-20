@@ -94,6 +94,7 @@ digraph {
     "X86: SLS";
     "ARM: HARDEN_BRANCH_PREDICTOR";
     "X86: spectre_v2=on (RETPOLINE)";
+    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -467,6 +468,7 @@ digraph {
       "Spectre v2 / BTI / CVE-2017-5715";
       "Spectre RSB / CVE-2018-15572";
     }
+    "Spectre-BHB / CVE-2022-23960";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
     "Spectre v3a / RSRE / CVE-2018-3640";
     "Spectre v4 / SSB / CVE-2018-3639";
@@ -629,6 +631,7 @@ digraph {
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre RSB / CVE-2018-15572" [lhead=cluster_v2];
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Spectre v2 / BTI / CVE-2017-5715":w;
+  "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Spectre-BHB / CVE-2022-23960":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639":w [ltail=cluster_ssb_mitigations];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
