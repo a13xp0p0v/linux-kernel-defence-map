@@ -467,6 +467,7 @@ digraph {
       margin=25;
       "Spectre v2 / BTI / CVE-2017-5715";
       "Spectre RSB / CVE-2018-15572";
+      "BHI, IMBTI / CVE-2022-0001,0002";
     }
     "Spectre-BHB / CVE-2022-23960";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
