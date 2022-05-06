@@ -140,8 +140,9 @@ digraph {
     style="dashed";
     margin=10;
     node [shape=oval, color=palegreen3]; // Mainline Defences
-    "mitigations=auto,nosmt";
     "X86: MICROCODE";
+    "mitigations=auto,nosmt";
+    "X86: SCHED_CORE";
   }
 
   subgraph cluster_pti {
