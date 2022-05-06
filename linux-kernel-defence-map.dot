@@ -95,6 +95,7 @@ digraph {
     "ARM: HARDEN_BRANCH_PREDICTOR";
     "X86: spectre_v2=on (RETPOLINE)";
     "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
+    "BPF_UNPRIV_DEFAULT_OFF";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -612,6 +613,7 @@ digraph {
 
   "GRKERNSEC_JIT_HARDEN":e -> "JIT Abuse";
   "bpf_jit_harden":e -> "JIT Abuse";
+  "BPF_UNPRIV_DEFAULT_OFF" -> "JIT Abuse";
 
   "PAX_KERNEXEC":e -> "WX Area Abuse";
   "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse";
