@@ -310,7 +310,7 @@ digraph {
     style="invis";
     margin=10;
     "X86: Intel CET" [shape=oval, color=aquamarine]; // HW Defence
-    "X86: X86_IBT" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
+    "X86: X86_KERNEL_IBT" [shape=oval, color=palegreen3]; // Mainline Defence
     "X86: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
 
@@ -320,8 +320,8 @@ digraph {
   "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
   "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
   "X86: Intel CET":e -> "Backward-edge CFI":w [style=invis];
-  "X86: X86_IBT":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
-  "X86: X86_IBT" -> "X86: Intel CET" [constraint=false];
+  "X86: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
+  "X86: X86_KERNEL_IBT" -> "X86: Intel CET" [constraint=false];
   "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w [style=dashed];
   "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false];
   "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
