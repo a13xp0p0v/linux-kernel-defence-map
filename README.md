@@ -24,6 +24,11 @@ It also provides the Common Weakness Enumeration (CWE) numbers for vulnerability
 This map describes kernel security hardening. It doesn't cover cutting attack surface, userspace security features
 and policies enforced by various Linux Security Modules (LSM).
 
+## Repository mirrors
+
+ - At Codeberg: [https://codeberg.org/a13xp0p0v/linux-kernel-defence-map](https://codeberg.org/a13xp0p0v/linux-kernel-defence-map)
+ - At GitFlic: [https://gitflic.ru/project/a13xp0p0v/linux-kernel-defence-map](https://gitflic.ru/project/a13xp0p0v/linux-kernel-defence-map)
+
 ## How this Map is made
 
 This map is written in the DOT language, which makes maintenance and updating in Git very convenient.
