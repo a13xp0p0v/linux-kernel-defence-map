@@ -93,7 +93,7 @@ digraph {
     "Read-only swapper_pg_dir";
     "X86: SLS";
     "ARM: HARDEN_BRANCH_PREDICTOR";
-    "X86: spectre_v2=on (RETPOLINE)";
+    "X86: RETPOLINE";
     "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
     "BPF_UNPRIV_DEFAULT_OFF";
 
@@ -630,7 +630,7 @@ digraph {
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
-  "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre RSB / CVE-2018-15572" [lhead=cluster_v2];
+  "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Spectre v2 / BTI / CVE-2017-5715":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Spectre-BHB / CVE-2022-23960":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
