@@ -115,6 +115,7 @@ digraph {
     "GRKERNSEC_MODHARDEN";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
     "AUTOSLAB";
+    "RESPECTRE";
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -174,8 +175,6 @@ digraph {
     "__read_only";
     "PAX_CONSTIFY_PLUGIN";
   }
-
-  "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
 
   subgraph cluster_layout_randomization {
     label="Layout Randomization";
