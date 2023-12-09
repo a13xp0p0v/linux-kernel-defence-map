@@ -90,7 +90,6 @@ digraph {
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
     "ZERO_CALL_USED_REGS";
     "Read-only swapper_pg_dir";
-    "X86: SLS";
     "ARM: HARDEN_BRANCH_PREDICTOR";
     "X86: RETPOLINE";
     "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
@@ -143,6 +142,7 @@ digraph {
     "X86: MICROCODE";
     "mitigations=auto,nosmt";
     "X86: SCHED_CORE";
+    "X86: SLS";
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -555,7 +555,6 @@ digraph {
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_pti];
-  "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
