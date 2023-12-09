@@ -453,14 +453,6 @@ digraph {
     node [shape=box, color=pink]; // Vulnerabilities
 
     "Transient Execution Vulnerabilities (CWE-514)";
-    subgraph cluster_v1 {
-      label="";
-      style="dashed";
-      margin=25;
-      "Spectre v1 / BCB / CVE-2017-5753";
-      "Spectre v1.1 / BCBS / CVE-2018-3693";
-      "Spectre v1 swapgs / CVE-2019-1125";
-    }
     "Straight-Line Speculation / CVE-2021-26341";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
     "Spectre v4 / SSB / CVE-2018-3639";
@@ -620,7 +612,7 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
-  "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
+  "RESPECTRE":e -> "Transient Execution Vulnerabilities (CWE-514)" [ltail=cluster_v1_mitigations];
   "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
