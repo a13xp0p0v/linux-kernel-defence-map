@@ -185,7 +185,6 @@ digraph {
     margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "X86: l1tf=full,force";
-    "X86: l1d_flush=on";
   }
 
   subgraph cluster_layout_randomization {
@@ -601,7 +600,6 @@ digraph {
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
   "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
-  "X86: l1d_flush=on":e -> "Snoop / CVE-2020-0550":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
   "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
