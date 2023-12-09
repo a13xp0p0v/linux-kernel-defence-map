@@ -334,6 +334,7 @@ digraph {
     "Type Confusion (CWE-843)" [URL="https://cwe.mitre.org/data/definitions/843.html"];
     "Double Fetch (CWE-367)" [URL="https://cwe.mitre.org/data/definitions/367.html"];
     "Memory Leak (CWE-401)" [URL="https://cwe.mitre.org/data/definitions/401.html"];
+    "Transient Execution Vulnerabilities (CWE-514)" [URL="https://cwe.mitre.org/data/definitions/514.html"];
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -413,19 +414,6 @@ digraph {
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
   }
-
-  subgraph cluster_transient_execution_vulnerabilities {
-    label="Transient Execution Vulnerabilities \n (Covert Channels, CWE-514)";
-    URL="https://cwe.mitre.org/data/definitions/514.html";
-    rank=same;
-    fontsize=18;
-    style="dashed";
-    margin=30;
-    node [shape=box, color=pink]; // Vulnerabilities
-
-    "Transient Execution Vulnerabilities (CWE-514)";
-  }
-
 
   // Bug Detection Mechanisms
   {
