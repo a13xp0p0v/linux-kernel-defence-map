@@ -427,22 +427,6 @@ digraph {
 
     "Transient Execution Vulnerabilities (CWE-514)";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
-    subgraph cluster_mds_all {
-      label="MDS (aka RIDL)";
-      style="dashed";
-      margin=25;
-      subgraph cluster_mds {
-        label="";
-        "MFBDS / CVE-2018-12130 / ZombieLoad";
-        "MLPDS / CVE-2018-12127";
-        "MDSUM / CVE-2019-11091";
-        "TAA / CVE-2019-11135 / ZombieLoad v2 ";
-        "MSBDS / CVE-2018-12126 / Fallout";
-        "VRS / CVE-2020-0548";
-      }
-      "SRBDS / CVE-2020-0543 / CROSSTalk";
-      "L1DES / CVE-2020-0549 / CacheOut";
-    }
   }
 
 
@@ -586,7 +570,7 @@ digraph {
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
-  "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
+  "X86: mds=full,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
