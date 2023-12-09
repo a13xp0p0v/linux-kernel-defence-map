@@ -475,7 +475,6 @@ digraph {
     "Spectre v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
     "Snoop / CVE-2020-0550";
-    "Lazy FP State Restore / CVE-2018-3665";
     subgraph cluster_mds_all {
       label="MDS (aka RIDL)";
       style="dashed";
