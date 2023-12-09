@@ -115,7 +115,6 @@ digraph {
     "GRKERNSEC_MODHARDEN";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
     "AUTOSLAB";
-    "RESPECTRE";
 
     // HW Defences
     node [shape=oval, color=aquamarine];
@@ -144,6 +143,8 @@ digraph {
     "X86: MICROCODE";
     "mitigations=auto,nosmt";
     "X86: SCHED_CORE";
+
+    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   subgraph cluster_pti {
@@ -550,7 +551,6 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
-  "RESPECTRE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
