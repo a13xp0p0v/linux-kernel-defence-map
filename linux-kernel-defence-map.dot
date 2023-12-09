@@ -176,14 +176,7 @@ digraph {
     "PAX_CONSTIFY_PLUGIN";
   }
 
-  subgraph cluster_v1_mitigations {
-    label="";
-    rank=same;
-    style="dashed";
-    margin=15;
-    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
-    "Manual usage of nospec barriers" [shape=oval, color=palegreen3]; // Mainline Defence
-  }
+  "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
 
   subgraph cluster_ssb_mitigations {
     label="";
@@ -612,7 +605,7 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
-  "RESPECTRE":e -> "Transient Execution Vulnerabilities (CWE-514)" [ltail=cluster_v1_mitigations];
+  "RESPECTRE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
