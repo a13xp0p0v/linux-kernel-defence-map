@@ -437,7 +437,6 @@ digraph {
     "Transient Execution Vulnerabilities (CWE-514)";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
-    "Snoop / CVE-2020-0550";
     subgraph cluster_mds_all {
       label="MDS (aka RIDL)";
       style="dashed";
@@ -599,7 +598,6 @@ digraph {
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
   "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
   "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
-  "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
   "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
