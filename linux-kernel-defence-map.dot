@@ -436,7 +436,6 @@ digraph {
     node [shape=box, color=pink]; // Vulnerabilities
 
     "Transient Execution Vulnerabilities (CWE-514)";
-    "Straight-Line Speculation / CVE-2021-26341";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
     "Snoop / CVE-2020-0550";
@@ -604,7 +603,7 @@ digraph {
   "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
   "X86: l1d_flush=on":e -> "Snoop / CVE-2020-0550":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
-  "X86: SLS":e -> "Straight-Line Speculation / CVE-2021-26341":w;
+  "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
