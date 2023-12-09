@@ -92,7 +92,6 @@ digraph {
     "Read-only swapper_pg_dir";
     "ARM: HARDEN_BRANCH_PREDICTOR";
     "X86: RETPOLINE";
-    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
     "BPF_UNPRIV_DEFAULT_OFF";
 
     // Out-of-tree Defences
@@ -143,6 +142,7 @@ digraph {
     "mitigations=auto,nosmt";
     "X86: SCHED_CORE";
     "X86: SLS";
+    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -553,7 +553,6 @@ digraph {
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
   "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
-  "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_pti];
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
