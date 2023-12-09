@@ -462,14 +462,6 @@ digraph {
       "Spectre v1 swapgs / CVE-2019-1125";
     }
     "Straight-Line Speculation / CVE-2021-26341";
-    subgraph cluster_v2 {
-      label="";
-      style="dashed";
-      margin=25;
-      "Spectre v2 / BTI / CVE-2017-5715";
-      "Spectre RSB / CVE-2018-15572";
-      "BHI, IMBTI / CVE-2022-0001,0002";
-    }
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
     "Spectre v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
@@ -630,7 +622,7 @@ digraph {
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
-  "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Spectre v2 / BTI / CVE-2017-5715":w;
+  "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
   "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639":w [ltail=cluster_ssb_mitigations];
