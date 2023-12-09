@@ -472,7 +472,6 @@ digraph {
     }
     "Spectre-BHB / CVE-2022-23960";
     "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
-    "Spectre v3a / RSRE / CVE-2018-3640";
     "Spectre v4 / SSB / CVE-2018-3639";
     "L1TF / CVE-2018-3620,3646 / Foreshadow";
     "Snoop / CVE-2020-0550";
@@ -629,7 +628,7 @@ digraph {
   "request_module_cap()":e -> "Bad Module Loading";
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
-  "mitigations=auto,nosmt":e -> "Spectre v3a / RSRE / CVE-2018-3640" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
+  "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
   "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
   "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre RSB / CVE-2018-15572" [lhead=cluster_v2];
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Spectre v2 / BTI / CVE-2017-5715":w;
