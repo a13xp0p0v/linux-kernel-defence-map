@@ -90,7 +90,6 @@ digraph {
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
     "ZERO_CALL_USED_REGS";
     "Read-only swapper_pg_dir";
-    "ARM: HARDEN_BRANCH_PREDICTOR";
     "BPF_UNPRIV_DEFAULT_OFF";
 
     // Out-of-tree Defences
@@ -143,6 +142,7 @@ digraph {
     "X86: SLS";
     "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
     "X86: RETPOLINE";
+    "ARM: HARDEN_BRANCH_PREDICTOR";
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -551,7 +551,6 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
-  "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_pti];
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
