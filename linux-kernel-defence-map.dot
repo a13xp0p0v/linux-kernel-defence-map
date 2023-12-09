@@ -178,15 +178,6 @@ digraph {
 
   "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
 
-  subgraph cluster_l1_mitigations {
-    label="";
-    rank=same;
-    style="invis";
-    margin=15;
-    node [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86: l1tf=full,force";
-  }
-
   subgraph cluster_layout_randomization {
     label="Layout Randomization";
     rank=same;
@@ -595,8 +586,6 @@ digraph {
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
-  "X86: l1tf=full,force":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
-  "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
   "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
   "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
