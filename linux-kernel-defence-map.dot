@@ -425,7 +425,6 @@ digraph {
     node [shape=box, color=pink]; // Vulnerabilities
 
     "Transient Execution Vulnerabilities (CWE-514)";
-    "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
   }
 
 
@@ -568,7 +567,7 @@ digraph {
   "X86: RETPOLINE":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
   "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_pti];
   "X86: SLS":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
