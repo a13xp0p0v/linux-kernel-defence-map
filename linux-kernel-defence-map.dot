@@ -452,6 +452,7 @@ digraph {
     margin=30;
     node [shape=box, color=pink]; // Vulnerabilities
 
+    "Transient Execution Vulnerabilities (CWE-514)";
     subgraph cluster_v1 {
       label="";
       style="dashed";
