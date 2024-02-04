@@ -118,7 +118,7 @@ digraph {
     fontsize=16;
     rank=same;
     style="dashed";
-    margin=10;
+    margin=15;
     // Generic Defence Techniques
     node [shape=oval, color=black, style=solid];
     "Coarse-grained Forward-edge CFI" [fontsize=11];
@@ -130,7 +130,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=10;
+    margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defences
     "X86: MICROCODE";
     "mitigations=auto,nosmt";
@@ -148,7 +148,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=10;
+    margin=15;
     "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
     "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -363,7 +363,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=25;
+    margin=15;
 
     // Vulnerability
     "NULL Pointer Dereference (CWE-476)" [shape=box, color=pink, URL="https://cwe.mitre.org/data/definitions/476.html"];
@@ -377,11 +377,11 @@ digraph {
     fontsize=18;
     rank=same;
     style="dashed";
-    margin=25;
+    margin=35;
     node [shape=box, color=gold]; // Exploitation Techniques
     subgraph cluster_with_rop {
       label="";
-      margin=25;
+      margin=35;
       "ROP/JOP/COP";
       "ret2usr + ROP/JOP/COP";
       "ret2dir + ROP/JOP/COP";
@@ -395,7 +395,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=25;
+    margin=15;
     node [shape=box, color=pink]; // Vulnerabilities
     "Info Exposure (CWE-200)" [URL="https://cwe.mitre.org/data/definitions/200.html"];
     "Uninitialized Memory Usage (CWE-908)" [URL="https://cwe.mitre.org/data/definitions/908.html"];
@@ -405,7 +405,7 @@ digraph {
     label="";
     rank=same;
     style="invis";
-    margin=25;
+    margin=15;
     node [shape=box, color=pink]; // Vulnerabilities
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
@@ -432,7 +432,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=25;
+    margin=15;
     node [shape=octagon, color=mediumpurple]; // Bug Detection Mechanisms
     "KASAN_GENERIC";
     "KFENCE";
