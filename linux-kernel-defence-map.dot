@@ -111,10 +111,6 @@ digraph {
     "GRKERNSEC_MODHARDEN";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
     "AUTOSLAB";
-
-    // HW Defences
-    node [shape=oval, color=aquamarine];
-    "SMEP/PXN";
   }
 
   subgraph cluster_cfi {
@@ -155,6 +151,14 @@ digraph {
     margin=10;
     "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
     "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
+  }
+
+  subgraph cluster_smep_pxn {
+    label="";
+    rank=same;
+    style="invis";
+    margin=15;
+    "SMEP/PXN" [shape=oval, color=aquamarine]; // HW Defences
   }
 
   subgraph cluster_ro {
