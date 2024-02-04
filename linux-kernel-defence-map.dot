@@ -36,7 +36,7 @@ digraph {
 
   rankdir=LR;
   node [style=filled, fontname=monospace, margin="0.22,0.055"];
-  edge [penwidth=1.2];
+  edge [penwidth=1.5];
 
   subgraph cluster_legend {
     fontsize=25;
@@ -130,13 +130,14 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=15;
+    margin=35;
+
     node [shape=oval, color=palegreen3]; // Mainline Defences
-    "X86: MICROCODE";
     "mitigations=auto,nosmt";
+    "X86: MICROCODE";
     "X86: SCHED_CORE";
     "X86: SLS";
-    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
+    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY" [fontsize=11];
     "X86: RETPOLINE";
     "ARM: HARDEN_BRANCH_PREDICTOR";
     "ARM: UNMAP_KERNEL_AT_EL0";
@@ -434,6 +435,7 @@ digraph {
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
   }
+
 
   // Bug Detection Mechanisms
   {
