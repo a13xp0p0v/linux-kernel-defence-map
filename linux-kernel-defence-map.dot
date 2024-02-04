@@ -90,6 +90,7 @@ digraph {
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
     "Read-only swapper_pg_dir";
     "BPF_UNPRIV_DEFAULT_OFF";
+    "X86: pti=on (PAGE_TABLE_ISOLATION)";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -143,7 +144,6 @@ digraph {
     "X86: RETPOLINE";
     "ARM: HARDEN_BRANCH_PREDICTOR";
     "ARM: UNMAP_KERNEL_AT_EL0";
-    "X86: pti=on (PAGE_TABLE_ISOLATION)";
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -505,7 +505,7 @@ digraph {
   "Backward-edge CFI" -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":e -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -541,6 +541,7 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
