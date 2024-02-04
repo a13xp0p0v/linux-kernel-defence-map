@@ -281,6 +281,28 @@ digraph {
     "X86: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
 
+  subgraph cluster_cwe514_mitigations_2 {
+    // Parts of "mitigations=auto,nosmt"
+    label="";
+    rank=same;
+    style="dashed";
+    margin=35;
+    node [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86: spectre_v2";
+    "X86: spectre_v2_user";
+    "X86: spec_store_bypass_disable" [fontsize=11];
+    "X86: l1tf";
+    "X86: mds";
+    "X86: tsx_async_abort";
+    "X86: srbds";
+    "X86: mmio_stale_data";
+    "X86: retbleed";
+    "X86: spec_rstack_overflow";
+    "X86: gather_data_sampling";
+    "ARM: kpti";
+    "ARM: ssbd";
+  }
+
   // Defences relations
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
   "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
@@ -313,6 +335,8 @@ digraph {
   "slub_debug=P":e -> "Heap free() Poisoning":w [style=dashed];
   "init_on_free" -> "Heap free() Poisoning":w [style=dashed];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
+  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
+  "X86: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
 
 
   // Vulnerabilities and Exploitation Techniques
