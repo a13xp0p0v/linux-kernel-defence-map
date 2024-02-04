@@ -305,19 +305,24 @@ digraph {
   }
 
   // Defences relations
-  edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
-  "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
-  "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
+  edge [style=dashed, arrowhead=none, dir=none, headport=_, tailport=_];
+  "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w;
+  "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w;
   "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
   "X86: Intel CET":e -> "Backward-edge CFI":w [style=invis];
-  "X86: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
-  "X86: X86_KERNEL_IBT" -> "X86: Intel CET" [constraint=false];
-  "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w [style=dashed];
-  "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false];
-  "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
-  "PAX_RAP":e -> "Backward-edge CFI":w [style=dashed];
-  "ARM: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w [style=dashed];
-  "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w [style=dashed];
+  "X86: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w;
+  "X86: X86_KERNEL_IBT" -> "X86: Intel CET" [constraint=false, style=dotted, penwidth=3];
+  "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w;
+  "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false, style=dotted, penwidth=3];
+  "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w;
+  "PAX_RAP":e -> "Backward-edge CFI":w;
+  "ARM: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w;
+  "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w;
+  "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w;
+  "slub_debug=P":e -> "Heap free() Poisoning":w;
+  "init_on_free" -> "Heap free() Poisoning":w;
+
+  edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_, penwidth=3];
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY":w;
   "VMAP_STACK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
@@ -332,9 +337,6 @@ digraph {
   "ARM: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
-  "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w [style=dashed];
-  "slub_debug=P":e -> "Heap free() Poisoning":w [style=dashed];
-  "init_on_free" -> "Heap free() Poisoning":w [style=dashed];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
   "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
   "X86: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
@@ -465,7 +467,7 @@ digraph {
   }
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
-  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
+  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_, penwidth=1.5];
   "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC":w [ltail=cluster_oob];
   "Use-After-Free (CWE-416)":e -> "KFENCE" [lhead=cluster_uaf_detection];
   "Double Free (CWE-415)":e -> "KASAN_GENERIC" [lhead=cluster_uaf_detection];
