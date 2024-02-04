@@ -88,7 +88,6 @@ digraph {
     "LDISC_AUTOLOAD is not set";
     "STACKPROTECTOR";
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
-    "ZERO_CALL_USED_REGS";
     "Read-only swapper_pg_dir";
     "BPF_UNPRIV_DEFAULT_OFF";
 
@@ -504,7 +503,6 @@ digraph {
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
   "Backward-edge CFI" -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
-  "ZERO_CALL_USED_REGS":e -> "ROP/JOP/COP" [lhead=cluster_with_rop, constraint=false];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
