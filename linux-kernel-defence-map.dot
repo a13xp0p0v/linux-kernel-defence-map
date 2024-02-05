@@ -36,7 +36,7 @@ digraph {
 
   rankdir=LR;
   node [style=filled, fontname=monospace, margin="0.22,0.055"];
-  edge [penwidth=1.2];
+  edge [penwidth=1.5];
 
   subgraph cluster_legend {
     fontsize=25;
@@ -88,14 +88,9 @@ digraph {
     "LDISC_AUTOLOAD is not set";
     "STACKPROTECTOR";
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
-    "ZERO_CALL_USED_REGS";
-    "X86: mds=full,nosmt";
     "Read-only swapper_pg_dir";
-    "X86: SLS";
-    "ARM: HARDEN_BRANCH_PREDICTOR";
-    "X86: spectre_v2=on (RETPOLINE)";
-    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY";
     "BPF_UNPRIV_DEFAULT_OFF";
+    "X86: pti=on (PAGE_TABLE_ISOLATION)";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -116,10 +111,6 @@ digraph {
     "GRKERNSEC_MODHARDEN";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
     "AUTOSLAB";
-
-    // HW Defences
-    node [shape=oval, color=aquamarine];
-    "SMEP/PXN";
   }
 
   subgraph cluster_cfi {
@@ -127,7 +118,7 @@ digraph {
     fontsize=16;
     rank=same;
     style="dashed";
-    margin=10;
+    margin=15;
     // Generic Defence Techniques
     node [shape=oval, color=black, style=solid];
     "Coarse-grained Forward-edge CFI" [fontsize=11];
@@ -139,30 +130,36 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=10;
-    node [shape=oval, color=palegreen3]; // Mainline Defences
-    "X86: MICROCODE";
-    "mitigations=auto,nosmt";
-    "X86: SCHED_CORE";
-  }
+    margin=35;
 
-  subgraph cluster_pti {
-    label="";
-    rank=same;
-    style="dashed";
-    margin=10;
     node [shape=oval, color=palegreen3]; // Mainline Defences
-    "X86: pti=on (PAGE_TABLE_ISOLATION)";
-    "ARM: kpti=on (UNMAP_KERNEL_AT_EL0)";
+    "mitigations=auto,nosmt";
+    "X86: MICROCODE";
+    "X86: SCHED_CORE";
+    "X86: SLS";
+    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY" [fontsize=11];
+    "X86: RETPOLINE";
+    "ARM: HARDEN_BRANCH_PREDICTOR";
+    "ARM: UNMAP_KERNEL_AT_EL0";
+
+    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   subgraph cluster_smap_pan_uderef {
     label="";
     rank=same;
     style="dashed";
-    margin=10;
+    margin=15;
     "SMAP/PAN" [shape=oval, color=aquamarine]; // HW Defence
     "PAX_UDEREF" [shape=oval, color=lightgrey]; // Commercial Defence
+  }
+
+  subgraph cluster_smep_pxn {
+    label="";
+    rank=same;
+    style="invis";
+    margin=15;
+    "SMEP/PXN" [shape=oval, color=aquamarine]; // HW Defences
   }
 
   subgraph cluster_ro {
@@ -174,35 +171,6 @@ digraph {
     node [shape=oval, color=lightgrey];
     "__read_only";
     "PAX_CONSTIFY_PLUGIN";
-  }
-
-  subgraph cluster_v1_mitigations {
-    label="";
-    rank=same;
-    style="dashed";
-    margin=15;
-    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
-    "Manual usage of nospec barriers" [shape=oval, color=palegreen3]; // Mainline Defence
-  }
-
-  subgraph cluster_ssb_mitigations {
-    label="";
-    rank=same;
-    style="dashed";
-    margin=15;
-    node [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86: spec_store_bypass_disable=on";
-    "ARM: ssbd=force-on";
-  }
-
-  subgraph cluster_l1_mitigations {
-    label="";
-    rank=same;
-    style="invis";
-    margin=15;
-    node [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86: l1tf=full,force";
-    "X86: l1d_flush=on";
   }
 
   subgraph cluster_layout_randomization {
@@ -314,20 +282,47 @@ digraph {
     "X86: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
 
+  subgraph cluster_cwe514_mitigations_2 {
+    // Parts of "mitigations=auto,nosmt"
+    label="";
+    rank=same;
+    style="dashed";
+    margin=35;
+    node [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86: spectre_v2";
+    "X86: spectre_v2_user";
+    "X86: spec_store_bypass_disable" [fontsize=11];
+    "X86: l1tf";
+    "X86: mds";
+    "X86: tsx_async_abort";
+    "X86: srbds";
+    "X86: mmio_stale_data";
+    "X86: retbleed";
+    "X86: spec_rstack_overflow";
+    "X86: gather_data_sampling";
+    "ARM: kpti";
+    "ARM: ssbd";
+  }
+
   // Defences relations
-  edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_];
-  "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
-  "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
+  edge [style=dashed, arrowhead=none, dir=none, headport=_, tailport=_];
+  "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w;
+  "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w;
   "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
   "X86: Intel CET":e -> "Backward-edge CFI":w [style=invis];
-  "X86: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w [style=dashed];
-  "X86: X86_KERNEL_IBT" -> "X86: Intel CET" [constraint=false];
-  "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w [style=dashed];
-  "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false];
-  "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w [style=dashed];
-  "PAX_RAP":e -> "Backward-edge CFI":w [style=dashed];
-  "ARM: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w [style=dashed];
-  "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w [style=dashed];
+  "X86: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w;
+  "X86: X86_KERNEL_IBT" -> "X86: Intel CET" [constraint=false, style=dotted, penwidth=3];
+  "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w;
+  "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false, style=dotted, penwidth=3];
+  "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w;
+  "PAX_RAP":e -> "Backward-edge CFI":w;
+  "ARM: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w;
+  "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w;
+  "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w;
+  "slub_debug=P":e -> "Heap free() Poisoning":w;
+  "init_on_free" -> "Heap free() Poisoning":w;
+
+  edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_, penwidth=3];
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY":w;
   "VMAP_STACK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
@@ -342,10 +337,9 @@ digraph {
   "ARM: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
-  "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w [style=dashed];
-  "slub_debug=P":e -> "Heap free() Poisoning":w [style=dashed];
-  "init_on_free" -> "Heap free() Poisoning":w [style=dashed];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
+  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
+  "X86: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -363,6 +357,7 @@ digraph {
     "Type Confusion (CWE-843)" [URL="https://cwe.mitre.org/data/definitions/843.html"];
     "Double Fetch (CWE-367)" [URL="https://cwe.mitre.org/data/definitions/367.html"];
     "Memory Leak (CWE-401)" [URL="https://cwe.mitre.org/data/definitions/401.html"];
+    "Transient Execution Vulnerabilities (CWE-514)" [URL="https://cwe.mitre.org/data/definitions/514.html"];
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -395,7 +390,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=25;
+    margin=15;
 
     // Vulnerability
     "NULL Pointer Dereference (CWE-476)" [shape=box, color=pink, URL="https://cwe.mitre.org/data/definitions/476.html"];
@@ -409,11 +404,11 @@ digraph {
     fontsize=18;
     rank=same;
     style="dashed";
-    margin=25;
+    margin=35;
     node [shape=box, color=gold]; // Exploitation Techniques
     subgraph cluster_with_rop {
       label="";
-      margin=25;
+      margin=35;
       "ROP/JOP/COP";
       "ret2usr + ROP/JOP/COP";
       "ret2dir + ROP/JOP/COP";
@@ -427,7 +422,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=25;
+    margin=15;
     node [shape=box, color=pink]; // Vulnerabilities
     "Info Exposure (CWE-200)" [URL="https://cwe.mitre.org/data/definitions/200.html"];
     "Uninitialized Memory Usage (CWE-908)" [URL="https://cwe.mitre.org/data/definitions/908.html"];
@@ -437,61 +432,10 @@ digraph {
     label="";
     rank=same;
     style="invis";
-    margin=25;
+    margin=15;
     node [shape=box, color=pink]; // Vulnerabilities
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
-  }
-
-  subgraph cluster_transient_execution_vulnerabilities {
-    label="Transient Execution Vulnerabilities \n (Covert Channels, CWE-514)";
-    URL="https://cwe.mitre.org/data/definitions/514.html";
-    rank=same;
-    fontsize=18;
-    style="dashed";
-    margin=30;
-    node [shape=box, color=pink]; // Vulnerabilities
-
-    subgraph cluster_v1 {
-      label="";
-      style="dashed";
-      margin=25;
-      "Spectre v1 / BCB / CVE-2017-5753";
-      "Spectre v1.1 / BCBS / CVE-2018-3693";
-      "Spectre v1 swapgs / CVE-2019-1125";
-    }
-    "Straight-Line Speculation / CVE-2021-26341";
-    subgraph cluster_v2 {
-      label="";
-      style="dashed";
-      margin=25;
-      "Spectre v2 / BTI / CVE-2017-5715";
-      "Spectre RSB / CVE-2018-15572";
-      "BHI, IMBTI / CVE-2022-0001,0002";
-    }
-    "Spectre-BHB / CVE-2022-23960";
-    "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown";
-    "Spectre v3a / RSRE / CVE-2018-3640";
-    "Spectre v4 / SSB / CVE-2018-3639";
-    "L1TF / CVE-2018-3620,3646 / Foreshadow";
-    "Snoop / CVE-2020-0550";
-    "Lazy FP State Restore / CVE-2018-3665";
-    subgraph cluster_mds_all {
-      label="MDS (aka RIDL)";
-      style="dashed";
-      margin=25;
-      subgraph cluster_mds {
-        label="";
-        "MFBDS / CVE-2018-12130 / ZombieLoad";
-        "MLPDS / CVE-2018-12127";
-        "MDSUM / CVE-2019-11091";
-        "TAA / CVE-2019-11135 / ZombieLoad v2 ";
-        "MSBDS / CVE-2018-12126 / Fallout";
-        "VRS / CVE-2020-0548";
-      }
-      "SRBDS / CVE-2020-0543 / CROSSTalk";
-      "L1DES / CVE-2020-0549 / CacheOut";
-    }
   }
 
 
@@ -516,14 +460,14 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=25;
+    margin=15;
     node [shape=octagon, color=mediumpurple]; // Bug Detection Mechanisms
     "KASAN_GENERIC";
     "KFENCE";
   }
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
-  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_];
+  edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_, penwidth=1.5];
   "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC":w [ltail=cluster_oob];
   "Use-After-Free (CWE-416)":e -> "KFENCE" [lhead=cluster_uaf_detection];
   "Double Free (CWE-415)":e -> "KASAN_GENERIC" [lhead=cluster_uaf_detection];
@@ -591,10 +535,9 @@ digraph {
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
   "Backward-edge CFI" -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
-  "ZERO_CALL_USED_REGS":e -> "ROP/JOP/COP" [lhead=cluster_with_rop, constraint=false];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w [ltail=cluster_pti];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":e -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -629,19 +572,8 @@ digraph {
   "request_module_cap()":e -> "Bad Module Loading";
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
-  "mitigations=auto,nosmt":e -> "Spectre v3a / RSRE / CVE-2018-3640" [ltail=cluster_cwe514_mitigations, lhead=cluster_transient_execution_vulnerabilities]
-  "RESPECTRE":e -> "Spectre v1 / BCB / CVE-2017-5753" [ltail=cluster_v1_mitigations, lhead=cluster_v1];
-  "X86: spectre_v2=on (RETPOLINE)":e -> "Spectre RSB / CVE-2018-15572" [lhead=cluster_v2];
-  "ARM: HARDEN_BRANCH_PREDICTOR":e -> "Spectre v2 / BTI / CVE-2017-5715":w;
-  "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY":e -> "Spectre-BHB / CVE-2022-23960":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "Spectre v3 / RDCL / CVE-2017-5754 / Meltdown":w [ltail=cluster_pti];
-  "X86: spec_store_bypass_disable=on":e -> "Spectre v4 / SSB / CVE-2018-3639":w [ltail=cluster_ssb_mitigations];
-  "X86: l1tf=full,force":e -> "L1TF / CVE-2018-3620,3646 / Foreshadow":w;
-  "X86: l1tf=full,force":e -> "L1DES / CVE-2020-0549 / CacheOut":w;
-  "X86: l1tf=full,force":e -> "Snoop / CVE-2020-0550":w;
-  "X86: l1d_flush=on":e -> "Snoop / CVE-2020-0550":w;
-  "X86: mds=full,nosmt":e -> "MSBDS / CVE-2018-12126 / Fallout" [lhead=cluster_mds];
-  "X86: SLS":e -> "Straight-Line Speculation / CVE-2021-26341":w;
+  "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
+  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
