@@ -84,12 +84,10 @@ digraph {
     "SCHED_STACK_END_CHECK";
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "LOCKDOWN_LSM";
-    "unprivileged_userfaultfd=0";
     "LDISC_AUTOLOAD is not set";
     "STACKPROTECTOR";
     "ARM: KASAN_HW_TAGS with ARM64_MTE";
     "Read-only swapper_pg_dir";
-    "BPF_UNPRIV_DEFAULT_OFF";
     "X86: pti=on (PAGE_TABLE_ISOLATION)";
 
     // Out-of-tree Defences
@@ -528,7 +526,6 @@ digraph {
   "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control";
   "slab_nomerge":e -> "Heap Layout Control";
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
-  "unprivileged_userfaultfd=0":e -> "Heap Layout Control";
   "AUTOSLAB":e -> "Heap Layout Control";
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
@@ -556,7 +553,6 @@ digraph {
 
   "GRKERNSEC_JIT_HARDEN":e -> "JIT Abuse";
   "bpf_jit_harden":e -> "JIT Abuse";
-  "BPF_UNPRIV_DEFAULT_OFF" -> "JIT Abuse";
 
   "PAX_KERNEXEC":e -> "WX Area Abuse";
   "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse";
