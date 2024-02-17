@@ -75,7 +75,7 @@ digraph {
     "SHUFFLE_PAGE_ALLOCATOR";
     "STRICT_{KERNEL,MODULE}_RWX";
     "DEBUG_WX";
-    "ARM: RODATA_FULL_DEFAULT_ENABLED";
+    "ARM64: RODATA_FULL_DEFAULT_ENABLED";
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
     "SECURITY_LOADPIN";
@@ -86,9 +86,9 @@ digraph {
     "LOCKDOWN_LSM";
     "LDISC_AUTOLOAD is not set";
     "STACKPROTECTOR";
-    "ARM: KASAN_HW_TAGS with ARM64_MTE";
+    "ARM64: KASAN_HW_TAGS with ARM64_MTE";
     "Read-only swapper_pg_dir";
-    "X86: pti=on (PAGE_TABLE_ISOLATION)";
+    "X86_64: pti=on (PAGE_TABLE_ISOLATION)";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -132,13 +132,13 @@ digraph {
 
     node [shape=oval, color=palegreen3]; // Mainline Defences
     "mitigations=auto,nosmt";
-    "X86: MICROCODE";
-    "X86: SCHED_CORE";
-    "X86: SLS";
-    "ARM: MITIGATE_SPECTRE_BRANCH_HISTORY" [fontsize=11];
-    "X86: RETPOLINE";
-    "ARM: HARDEN_BRANCH_PREDICTOR";
-    "ARM: UNMAP_KERNEL_AT_EL0";
+    "X86_64: MICROCODE";
+    "X86_64: SCHED_CORE";
+    "X86_64: SLS";
+    "ARM64: MITIGATE_SPECTRE_BRANCH_HISTORY" [fontsize=11];
+    "X86_64: RETPOLINE";
+    "ARM64: HARDEN_BRANCH_PREDICTOR";
+    "ARM64: UNMAP_KERNEL_AT_EL0";
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
@@ -188,7 +188,7 @@ digraph {
     rank=same;
     style="dashed";
     margin=15;
-    "X86: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86_64: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
     "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
     "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
@@ -246,15 +246,15 @@ digraph {
     "LATENT_ENTROPY";
     "__ro_after_init";
     "SECURITY_DMESG_RESTRICT";
-    "ARM: CPU_SW_DOMAIN_PAN";
-    "ARM: ARM64_SW_TTBR0_PAN";
+    "ARM64: CPU_SW_DOMAIN_PAN";
+    "ARM64: ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
     "init_on_free";
     "STACKLEAK";
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
-    "ARM: CFI_CLANG";
-    "ARM: SHADOW_CALL_STACK" [fontsize=11];
+    "ARM64: CFI_CLANG";
+    "ARM64: SHADOW_CALL_STACK" [fontsize=11];
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -266,8 +266,8 @@ digraph {
 
     // HW Defences
     node [shape=oval, color=aquamarine];
-    "ARM: ARM64_PTR_AUTH_KERNEL" [fontsize=12];
-    "ARM: ARM64_BTI_KERNEL";
+    "ARM64: ARM64_PTR_AUTH_KERNEL" [fontsize=12];
+    "ARM64: ARM64_BTI_KERNEL";
   }
 
   subgraph cluster_cet {
@@ -275,9 +275,9 @@ digraph {
     rank=same;
     style="invis";
     margin=10;
-    "X86: Intel CET" [shape=oval, color=aquamarine]; // HW Defence
-    "X86: X86_KERNEL_IBT" [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
+    "X86_64: Intel CET" [shape=oval, color=aquamarine]; // HW Defence
+    "X86_64: X86_KERNEL_IBT" [shape=oval, color=palegreen3]; // Mainline Defence
+    "X86_64: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
   }
 
   subgraph cluster_cwe514_mitigations_2 {
@@ -287,35 +287,35 @@ digraph {
     style="dashed";
     margin=35;
     node [shape=oval, color=palegreen3]; // Mainline Defence
-    "X86: spectre_v2";
-    "X86: spectre_v2_user";
-    "X86: spec_store_bypass_disable" [fontsize=11];
-    "X86: l1tf";
-    "X86: mds";
-    "X86: tsx_async_abort";
-    "X86: srbds";
-    "X86: mmio_stale_data";
-    "X86: retbleed";
-    "X86: spec_rstack_overflow";
-    "X86: gather_data_sampling";
-    "ARM: kpti";
-    "ARM: ssbd";
+    "X86_64: spectre_v2";
+    "X86_64: spectre_v2_user";
+    "X86_64: spec_store_bypass_disable" [fontsize=11];
+    "X86_64: l1tf";
+    "X86_64: mds";
+    "X86_64: tsx_async_abort";
+    "X86_64: srbds";
+    "X86_64: mmio_stale_data";
+    "X86_64: retbleed";
+    "X86_64: spec_rstack_overflow";
+    "X86_64: gather_data_sampling";
+    "ARM64: kpti";
+    "ARM64: ssbd";
   }
 
   // Defences relations
   edge [style=dashed, arrowhead=none, dir=none, headport=_, tailport=_];
-  "ARM: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w;
-  "ARM: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w;
-  "X86: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
-  "X86: Intel CET":e -> "Backward-edge CFI":w [style=invis];
-  "X86: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w;
-  "X86: X86_KERNEL_IBT" -> "X86: Intel CET" [constraint=false, style=dotted, penwidth=3];
-  "X86: X86_SHADOW_STACK":e -> "Backward-edge CFI":w;
-  "X86: X86_SHADOW_STACK" -> "X86: Intel CET" [constraint=false, style=dotted, penwidth=3];
+  "ARM64: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w;
+  "ARM64: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w;
+  "X86_64: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
+  "X86_64: Intel CET":e -> "Backward-edge CFI":w [style=invis];
+  "X86_64: X86_KERNEL_IBT":e -> "Coarse-grained Forward-edge CFI":w;
+  "X86_64: X86_KERNEL_IBT" -> "X86_64: Intel CET" [constraint=false, style=dotted, penwidth=3];
+  "X86_64: X86_SHADOW_STACK":e -> "Backward-edge CFI":w;
+  "X86_64: X86_SHADOW_STACK" -> "X86_64: Intel CET" [constraint=false, style=dotted, penwidth=3];
   "PAX_RAP":e -> "Fine-grained Forward-edge CFI":w;
   "PAX_RAP":e -> "Backward-edge CFI":w;
-  "ARM: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w;
-  "ARM: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w;
+  "ARM64: ARM64_PTR_AUTH_KERNEL":e -> "Backward-edge CFI":w;
+  "ARM64: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w;
   "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w;
   "slub_debug=P":e -> "Heap free() Poisoning":w;
   "init_on_free" -> "Heap free() Poisoning":w;
@@ -331,13 +331,13 @@ digraph {
   "__ro_after_init":e -> "__read_only";
   "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG";
   "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK":w;
-  "ARM: CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
-  "ARM: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
+  "ARM64: CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
+  "ARM64: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
-  "X86: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
-  "X86: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
+  "X86_64: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
+  "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -492,7 +492,7 @@ digraph {
   "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
-  "ARM: KASAN_HW_TAGS with ARM64_MTE":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
+  "ARM64: KASAN_HW_TAGS with ARM64_MTE":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
   "FORTIFY_SOURCE":e -> "Heap Out-of-Bounds Access (CWE-122,119)" [ltail=cluster_oob_detection, lhead=cluster_oob];
 
   "PAX_USERCOPY":e -> "Stack Out-of-Bounds Access (CWE-121,119)":w;
@@ -505,10 +505,10 @@ digraph {
   "Heap free() Poisoning":e -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
 
   "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)" [ltail=cluster_heap_erasing];
-  "ARM: KASAN_HW_TAGS with ARM64_MTE":e -> "Use-After-Free (CWE-416)":w;
+  "ARM64: KASAN_HW_TAGS with ARM64_MTE":e -> "Use-After-Free (CWE-416)":w;
 
   "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
-  "ARM: KASAN_HW_TAGS with ARM64_MTE":e -> "Double Free (CWE-415)":w;
+  "ARM64: KASAN_HW_TAGS with ARM64_MTE":e -> "Double Free (CWE-415)":w;
 
   "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
 
@@ -534,7 +534,7 @@ digraph {
   "Backward-edge CFI" -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
+  "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":e -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -557,7 +557,7 @@ digraph {
   "PAX_KERNEXEC":e -> "WX Area Abuse";
   "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse";
   "DEBUG_WX":e -> "WX Area Abuse";
-  "ARM: RODATA_FULL_DEFAULT_ENABLED":e -> "WX Area Abuse";
+  "ARM64: RODATA_FULL_DEFAULT_ENABLED":e -> "WX Area Abuse";
 
   "LOCKDOWN_LSM":e -> "Changing Kernel Image";
   "Linux Kernel Runtime Guard":e -> "Changing Kernel Image";
@@ -569,7 +569,7 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
-  "X86: pti=on (PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
+  "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
