@@ -66,7 +66,7 @@ You are welcome to try it.
 
 - [Spectre & Meltdown Checker](https://github.com/speed47/spectre-meltdown-checker) by Stéphane Lesimple
 
-## Map for Linux kernel v5.13
+## Map for Linux kernel v6.6
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
