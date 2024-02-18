@@ -90,6 +90,7 @@ digraph {
     "Read-only swapper_pg_dir";
     "X86_64: pti=on (PAGE_TABLE_ISOLATION)";
     "HW_RANDOM_TPM";
+    "RANDOM_KMALLOC_CACHES";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -532,6 +533,7 @@ digraph {
   "slab_nomerge":e -> "Heap Layout Control";
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
   "AUTOSLAB":e -> "Heap Layout Control";
+  "RANDOM_KMALLOC_CACHES":e -> "Heap Layout Control";
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
