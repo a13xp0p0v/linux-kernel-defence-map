@@ -140,6 +140,7 @@ digraph {
     "ARM64: MITIGATE_SPECTRE_BRANCH_HISTORY" [fontsize=11];
     "ARM64: HARDEN_BRANCH_PREDICTOR";
     "ARM64: UNMAP_KERNEL_AT_EL0";
+    "ARM64: ARM64_E0PD";
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
   }
