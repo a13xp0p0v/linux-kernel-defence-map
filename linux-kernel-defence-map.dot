@@ -182,6 +182,7 @@ digraph {
     style="dashed";
     margin=15;
     "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
+    "ARM64: RANDOMIZE_MODULE_REGION_FULL" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
   }
