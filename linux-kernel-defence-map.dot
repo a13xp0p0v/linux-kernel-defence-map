@@ -89,6 +89,7 @@ digraph {
     "ARM64: KASAN_HW_TAGS with ARM64_MTE";
     "Read-only swapper_pg_dir";
     "X86_64: pti=on (PAGE_TABLE_ISOLATION)";
+    "HW_RANDOM_TPM";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -109,6 +110,7 @@ digraph {
     "GRKERNSEC_MODHARDEN";
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
     "AUTOSLAB";
+    "PAX_LATENT_ENTROPY";
   }
 
   subgraph cluster_cfi {
@@ -182,7 +184,6 @@ digraph {
     "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
     "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
-    "PAX_LATENT_ENTROPY" [shape=oval, color=lightgrey]; // Commercial Defence
   }
 
   subgraph cluster_info_exposure_mitigations {
@@ -358,6 +359,7 @@ digraph {
     "Double Fetch (CWE-367)" [URL="https://cwe.mitre.org/data/definitions/367.html"];
     "Memory Leak (CWE-401)" [URL="https://cwe.mitre.org/data/definitions/401.html"];
     "Transient Execution Vulnerabilities (CWE-514)" [URL="https://cwe.mitre.org/data/definitions/514.html"];
+    "Insufficient Entropy (CWE-331)" [URL="https://cwe.mitre.org/data/definitions/331.html"];
 
     // Exploitation Techniques
     node [shape=box, color=gold];
@@ -552,6 +554,9 @@ digraph {
   "XPFO":e -> "ret2dir + ROP/JOP/COP":w;
 
   "PAX_RANDKSTACK":e -> "Finding Kernel Objects" [ltail=cluster_layout_randomization];
+
+  "PAX_LATENT_ENTROPY":e -> "Insufficient Entropy (CWE-331)":w;
+  "HW_RANDOM_TPM":e -> "Insufficient Entropy (CWE-331)":w;
 
   "GRKERNSEC_JIT_HARDEN":e -> "JIT Abuse";
   "bpf_jit_harden":e -> "JIT Abuse";
