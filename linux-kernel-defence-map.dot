@@ -56,12 +56,12 @@ digraph {
 
   // For pretty legend layout:
   edge [arrowhead=none, style=invis];
-  "Mainline Defences":e -> "Out-of-tree Defences";
-  "Out-of-tree Defences":e -> "Commercial Defences";
-  "Commercial Defences":e -> "HW Defences";
-  "Generic Defence Techniques":e -> "Bug Detection";
-  "Bug Detection":e -> "Vulnerabilities";
-  "Vulnerabilities":e -> "Exploitation Techniques";
+  "Mainline Defences":e -> "Out-of-tree Defences":w;
+  "Out-of-tree Defences":e -> "Commercial Defences":w;
+  "Commercial Defences":e -> "HW Defences":w;
+  "Generic Defence Techniques":e -> "Bug Detection":w;
+  "Bug Detection":e -> "Vulnerabilities":w;
+  "Vulnerabilities":e -> "Exploitation Techniques":w;
 
 
   // Defences
@@ -323,24 +323,24 @@ digraph {
   "ARM64: SHADOW_CALL_STACK":e -> "Backward-edge CFI":w;
   "PAX_MEMORY_SANITIZE":e -> "Heap free() Poisoning":w;
   "slub_debug=P":e -> "Heap free() Poisoning":w;
-  "init_on_free" -> "Heap free() Poisoning":w;
+  "init_on_free":e -> "Heap free() Poisoning":w;
 
   edge [style=dotted, arrowhead=none, dir=none, headport=_, tailport=_, penwidth=3];
   "REFCOUNT_FULL":e -> "PAX_REFCOUNT":w;
   "HARDENED_USERCOPY":e -> "PAX_USERCOPY":w;
   "VMAP_STACK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
   "THREAD_INFO_IN_TASK":e -> "GRKERNSEC_KSTACKOVERFLOW":w;
-  "RANDSTRUCT":e -> "GRKERNSEC_RANDSTRUCT";
+  "RANDSTRUCT":e -> "GRKERNSEC_RANDSTRUCT":w;
   "STRUCTLEAK_BYREF_ALL":e -> "PAX_MEMORY_STRUCTLEAK":w;
-  "LATENT_ENTROPY":e -> "PAX_LATENT_ENTROPY";
-  "__ro_after_init":e -> "__read_only";
-  "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG";
+  "LATENT_ENTROPY":e -> "PAX_LATENT_ENTROPY":w;
+  "__ro_after_init":e -> "__read_only":w;
+  "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG":w;
   "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK":w;
   "ARM64: CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
   "ARM64: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
-  "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper;
+  "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper:w;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
-  "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK";
+  "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK":w;
   "X86_64: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
   "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
 
@@ -473,29 +473,29 @@ digraph {
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_, penwidth=1.5];
   "Global Variable Out-of-Bounds Access (CWE-?,119)":e -> "KASAN_GENERIC":w [ltail=cluster_oob];
-  "Use-After-Free (CWE-416)":e -> "KFENCE" [lhead=cluster_uaf_detection];
+  "Use-After-Free (CWE-416)":e -> "KFENCE":w [lhead=cluster_uaf_detection];
   "Double Free (CWE-415)":e -> "KASAN_GENERIC" [lhead=cluster_uaf_detection];
-  "Undefined Behaviour (CWE-758)":e -> "UBSAN";
-  "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN";
-  "Uninitialized Memory Usage (CWE-908)":e -> "KMSAN" [ltail=cluster_info_exposures];
-  "Race Condition (CWE-362)":e -> "KTSAN";
-  "Race Condition (CWE-362)":e -> "KCSAN";
-  "Memory Leak (CWE-401)":e -> "KMEMLEAK";
-  "Deadlock (CWE-833)" -> "PROVE_LOCKING":w;
-  "Deadlock (CWE-833)" -> "DEBUG_ATOMIC_SLEEP":w;
-  "Infinite Loop (CWE-835)" -> "LOCKUP_DETECTOR":w;
-  "Infinite Loop (CWE-835)" -> "WQ_WATCHDOG":w;
+  "Undefined Behaviour (CWE-758)":e -> "UBSAN":w;
+  "Int Overflow/Underflow (CWE-190/191)":e -> "UBSAN":w;
+  "Uninitialized Memory Usage (CWE-908)":e -> "KMSAN":w [ltail=cluster_info_exposures];
+  "Race Condition (CWE-362)":e -> "KTSAN":w;
+  "Race Condition (CWE-362)":e -> "KCSAN":w;
+  "Memory Leak (CWE-401)":e -> "KMEMLEAK":w;
+  "Deadlock (CWE-833)":e -> "PROVE_LOCKING":w;
+  "Deadlock (CWE-833)":e -> "DEBUG_ATOMIC_SLEEP":w;
+  "Infinite Loop (CWE-835)":e -> "LOCKUP_DETECTOR":w;
+  "Infinite Loop (CWE-835)":e -> "WQ_WATCHDOG":w;
   "Heap Out-of-Bounds Access (CWE-122,119)":e -> "slub_debug=Z":w;
-  "Double Free (CWE-415)" -> "slub_debug=F";
-  "Allocator Data Corruption" -> "slub_debug=F";
+  "Double Free (CWE-415)":e -> "slub_debug=F":w;
+  "Allocator Data Corruption":e -> "slub_debug=F":w;
   "Heap Out-of-Bounds Access (CWE-122,119)":e -> "KFENCE":w;
 
 
   // Relations: Defences vs Vulnerabilities and Exploitation Techniques
   edge [style=solid, arrowhead=normal, dir=forward, headport=_, tailport=_];
-  "GRKERNSEC_KSTACKOVERFLOW":e -> "Stack Depth Overflow (CWE-674,?)";
-  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)";
-  "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)";
+  "GRKERNSEC_KSTACKOVERFLOW":e -> "Stack Depth Overflow (CWE-674,?)":w;
+  "PAX_MEMORY_STACKLEAK":e -> "Stack Depth Overflow (CWE-674,?)":w;
+  "SCHED_STACK_END_CHECK":e -> "Stack Depth Overflow (CWE-674,?)":w;
 
   "PAX_USERCOPY":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
   "ARM64: KASAN_HW_TAGS with ARM64_MTE":e -> "Heap Out-of-Bounds Access (CWE-122,119)":w;
@@ -503,80 +503,80 @@ digraph {
 
   "PAX_USERCOPY":e -> "Stack Out-of-Bounds Access (CWE-121,119)":w;
 
-  "PAX_REFCOUNT":e -> "Int Overflow/Underflow (CWE-190/191)";
-  "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-190/191)";
+  "PAX_REFCOUNT":e -> "Int Overflow/Underflow (CWE-190/191)":w;
+  "PAX_SIZE_OVERFLOW":e -> "Int Overflow/Underflow (CWE-190/191)":w;
 
   "PAX_MEMORY_STACKLEAK":e -> "Uninitialized Memory Usage (CWE-908)" [lhead=cluster_info_exposures];
   "PAX_MEMORY_STRUCTLEAK":e -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_stack_init, lhead=cluster_info_exposures];
   "Heap free() Poisoning":e -> "Uninitialized Memory Usage (CWE-908)" [ltail=cluster_heap_erasing, lhead=cluster_info_exposures];
 
-  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)" [ltail=cluster_heap_erasing];
+  "Heap free() Poisoning":s -> "Use-After-Free (CWE-416)":w [ltail=cluster_heap_erasing];
   "ARM64: KASAN_HW_TAGS with ARM64_MTE":e -> "Use-After-Free (CWE-416)":w;
 
-  "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)";
+  "SLAB_FREELIST_HARDENED":e -> "Double Free (CWE-415)":w;
   "ARM64: KASAN_HW_TAGS with ARM64_MTE":e -> "Double Free (CWE-415)":w;
 
   "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
 
-  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption";
-  "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption";
-  "PROTECTABLE_MEMORY":e -> "Metadata Corruption";
-  grsecurity_hardened_usermodehelper:e -> "Metadata Corruption";
-  "Linux Kernel Runtime Guard":e -> "Metadata Corruption";
+  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption":w;
+  "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption":w;
+  "PROTECTABLE_MEMORY":e -> "Metadata Corruption":w;
+  grsecurity_hardened_usermodehelper:e -> "Metadata Corruption":w;
+  "Linux Kernel Runtime Guard":e -> "Metadata Corruption":w;
 
-  grsecurity_hardened_freelist:e -> "Allocator Data Corruption";
-  "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption";
+  grsecurity_hardened_freelist:e -> "Allocator Data Corruption":w;
+  "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption":w;
 
-  "__read_only":e -> "'ops' Structures Overwrite" [ltail=cluster_ro];
+  "__read_only":e -> "'ops' Structures Overwrite":w [ltail=cluster_ro];
 
-  "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control";
-  "slab_nomerge":e -> "Heap Layout Control";
-  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control";
-  "AUTOSLAB":e -> "Heap Layout Control";
-  "RANDOM_KMALLOC_CACHES":e -> "Heap Layout Control";
+  "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control":w;
+  "slab_nomerge":e -> "Heap Layout Control":w;
+  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control":w;
+  "AUTOSLAB":e -> "Heap Layout Control":w;
+  "RANDOM_KMALLOC_CACHES":e -> "Heap Layout Control":w;
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
-  "Backward-edge CFI" -> "ROP/JOP/COP" [lhead=cluster_with_rop, ltail=cluster_cfi];
+  "Backward-edge CFI":n -> "ROP/JOP/COP":w [lhead=cluster_with_rop, ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
   "SMEP/PXN":e -> "ret2usr":w;
-  "SMAP/PAN":e -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF":n -> "Userspace Data Access":s [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+  "PAX_UDEREF":n -> "Userspace Data Access":w [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
-  "SMAP/PAN":s -> "ret2usr + ROP/JOP/COP":w [ltail=cluster_smap_pan_uderef];
+  "SMAP/PAN":e -> "ret2usr + ROP/JOP/COP":w [ltail=cluster_smap_pan_uderef];
 
   "PAX_KERNEXEC":e -> "ret2dir":w;
   "XPFO":e -> "ret2dir":w;
 
   "XPFO":e -> "ret2dir + ROP/JOP/COP":w;
 
-  "PAX_RANDKSTACK":e -> "Finding Kernel Objects" [ltail=cluster_layout_randomization];
+  "PAX_RANDKSTACK":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
 
   "PAX_LATENT_ENTROPY":e -> "Insufficient Entropy (CWE-331)":w;
   "HW_RANDOM_TPM":e -> "Insufficient Entropy (CWE-331)":w;
 
-  "GRKERNSEC_JIT_HARDEN":e -> "JIT Abuse";
-  "bpf_jit_harden":e -> "JIT Abuse";
+  "GRKERNSEC_JIT_HARDEN":e -> "JIT Abuse":w;
+  "bpf_jit_harden":e -> "JIT Abuse":w;
 
-  "PAX_KERNEXEC":e -> "WX Area Abuse";
-  "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse";
-  "DEBUG_WX":e -> "WX Area Abuse";
-  "ARM64: RODATA_FULL_DEFAULT_ENABLED":e -> "WX Area Abuse";
+  "PAX_KERNEXEC":e -> "WX Area Abuse":w;
+  "STRICT_{KERNEL,MODULE}_RWX":e -> "WX Area Abuse":w;
+  "DEBUG_WX":e -> "WX Area Abuse":w;
+  "ARM64: RODATA_FULL_DEFAULT_ENABLED":e -> "WX Area Abuse":w;
 
-  "LOCKDOWN_LSM":e -> "Changing Kernel Image";
-  "Linux Kernel Runtime Guard":e -> "Changing Kernel Image";
+  "LOCKDOWN_LSM":e -> "Changing Kernel Image":w;
+  "Linux Kernel Runtime Guard":e -> "Changing Kernel Image":w;
 
-  "GRKERNSEC_MODHARDEN":e -> "Bad Module Loading";
-  "MODULE_SIG*":e -> "Bad Module Loading";
-  "SECURITY_LOADPIN":e -> "Bad Module Loading";
-  "request_module_cap()":e -> "Bad Module Loading";
-  "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading";
+  "GRKERNSEC_MODHARDEN":e -> "Bad Module Loading":w;
+  "MODULE_SIG*":e -> "Bad Module Loading":w;
+  "SECURITY_LOADPIN":e -> "Bad Module Loading":w;
+  "request_module_cap()":e -> "Bad Module Loading":w;
+  "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading":w;
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
   "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
