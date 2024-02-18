@@ -394,7 +394,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=15;
+    margin=35;
 
     // Vulnerability
     "NULL Pointer Dereference (CWE-476)" [shape=box, color=pink, URL="https://cwe.mitre.org/data/definitions/476.html"];
@@ -426,7 +426,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=15;
+    margin=25;
     node [shape=box, color=pink]; // Vulnerabilities
     "Info Exposure (CWE-200)" [URL="https://cwe.mitre.org/data/definitions/200.html"];
     "Uninitialized Memory Usage (CWE-908)" [URL="https://cwe.mitre.org/data/definitions/908.html"];
