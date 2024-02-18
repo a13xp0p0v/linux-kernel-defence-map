@@ -86,7 +86,7 @@ digraph {
     "LOCKDOWN_LSM";
     "LDISC_AUTOLOAD is not set";
     "STACKPROTECTOR";
-    "ARM64: KASAN_HW_TAGS with ARM64_MTE";
+    "ARM64: KASAN_HW_TAGS with ARM64_MTE" [fontsize=11];
     "Read-only swapper_pg_dir";
     "X86_64: pti=on (PAGE_TABLE_ISOLATION)";
     "HW_RANDOM_TPM";
