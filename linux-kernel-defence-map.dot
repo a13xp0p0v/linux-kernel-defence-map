@@ -258,7 +258,7 @@ digraph {
     "init_on_free";
     "STACKLEAK";
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
-    "ARM64: CFI_CLANG";
+    "CFI_CLANG (KCFI)";
     "ARM64: SHADOW_CALL_STACK" [fontsize=11];
 
     // Out-of-tree Defences
@@ -309,7 +309,7 @@ digraph {
 
   // Defences relations
   edge [style=dashed, arrowhead=none, dir=none, headport=_, tailport=_];
-  "ARM64: CFI_CLANG":e -> "Fine-grained Forward-edge CFI":w;
+  "CFI_CLANG (KCFI)":e -> "Fine-grained Forward-edge CFI":w;
   "ARM64: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w;
   "X86_64: Intel CET":e -> "Coarse-grained Forward-edge CFI":w [style=invis];
   "X86_64: Intel CET":e -> "Backward-edge CFI":w [style=invis];
