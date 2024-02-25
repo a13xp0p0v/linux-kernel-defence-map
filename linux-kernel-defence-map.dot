@@ -538,7 +538,7 @@ digraph {
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
-  "Backward-edge CFI":n -> "ROP/JOP/COP":w [lhead=cluster_with_rop, ltail=cluster_cfi];
+  "Backward-edge CFI":n -> "ROP/JOP/COP":s [lhead=cluster_control_flow_hijack, ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
