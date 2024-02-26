@@ -78,7 +78,6 @@ digraph {
     "ARM64: RODATA_FULL_DEFAULT_ENABLED";
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
-    "SECURITY_LOADPIN";
     "bpf_jit_harden";
     "DEFAULT_MMAP_MIN_ADDR=65536";
     "SCHED_STACK_END_CHECK";
@@ -577,7 +576,6 @@ digraph {
 
   "GRKERNSEC_MODHARDEN":e -> "Bad Module Loading":w;
   "MODULE_SIG*":e -> "Bad Module Loading":w;
-  "SECURITY_LOADPIN":e -> "Bad Module Loading":w;
   "request_module_cap()":e -> "Bad Module Loading":w;
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading":w;
 
