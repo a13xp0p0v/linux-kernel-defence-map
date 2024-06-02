@@ -293,6 +293,7 @@ digraph {
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "X86_64: spectre_v2";
     "X86_64: spectre_v2_user";
+    "X86_64: spectre_bhi";
     "X86_64: spec_store_bypass_disable" [fontsize=11];
     "X86_64: l1tf";
     "X86_64: mds";
@@ -302,6 +303,7 @@ digraph {
     "X86_64: retbleed";
     "X86_64: spec_rstack_overflow";
     "X86_64: gather_data_sampling";
+    "X86_64: reg_file_data_sampling";
     "ARM64: kpti";
     "ARM64: ssbd";
   }
