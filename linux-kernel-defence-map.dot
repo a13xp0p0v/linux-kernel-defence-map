@@ -87,7 +87,7 @@ digraph {
     "STACKPROTECTOR";
     "ARM64: KASAN_HW_TAGS with ARM64_MTE" [fontsize=11];
     "Read-only swapper_pg_dir";
-    "X86_64: pti=on (PAGE_TABLE_ISOLATION)";
+    "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" [fontsize=11];
     "HW_RANDOM_TPM";
     "RANDOM_KMALLOC_CACHES";
 
@@ -134,12 +134,10 @@ digraph {
 
     node [shape=oval, color=palegreen3]; // Mainline Defences
     "mitigations=auto,nosmt";
-    "X86_64: SPECULATION_MITIGATIONS";
+    "CPU_MITIGATIONS";
     "X86_64: MICROCODE";
-    "X86_64: RETPOLINE";
+    "X86_64: MITIGATION_*";
     "X86_64: SCHED_CORE";
-    "X86_64: SLS";
-    "X86_64: CPU_SRSO";
     "ARM64: MITIGATE_SPECTRE_BRANCH_HISTORY" [fontsize=11];
     "ARM64: HARDEN_BRANCH_PREDICTOR";
     "ARM64: UNMAP_KERNEL_AT_EL0";
@@ -343,7 +341,7 @@ digraph {
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper:w;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK":w;
-  "X86_64: pti=on (PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
+  "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
   "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
 
 
@@ -543,7 +541,7 @@ digraph {
   "Backward-edge CFI":n -> "ROP/JOP/COP":s [lhead=cluster_control_flow_hijack, ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
-  "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
+  "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
@@ -580,7 +578,7 @@ digraph {
   "LDISC_AUTOLOAD is not set":e -> "Bad Module Loading":w;
 
   "mitigations=auto,nosmt":e -> "Transient Execution Vulnerabilities (CWE-514)":w [ltail=cluster_cwe514_mitigations];
-  "X86_64: pti=on (PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
+  "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 }
