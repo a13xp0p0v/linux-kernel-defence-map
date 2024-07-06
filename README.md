@@ -1,7 +1,5 @@
 # Linux Kernel Defence Map
 
-## Intro
-
 Linux kernel security is a very complex topic.
 
 There are many concepts that have interesting relationships with each other:
@@ -26,13 +24,16 @@ and policies enforced by various Linux Security Modules (LSM).
 
 ## Repositories
 
- - Main at GitHub <https://github.com/a13xp0p0v/linux-kernel-defence-map>
- - At Codeberg: <https://codeberg.org/a13xp0p0v/linux-kernel-defence-map>
+ - At GitHub <https://github.com/a13xp0p0v/linux-kernel-defence-map>
+ - At Codeberg: <https://codeberg.org/a13xp0p0v/linux-kernel-defence-map> (go there if something goes wrong with GitHub)
  - At GitFlic: <https://gitflic.ru/project/a13xp0p0v/linux-kernel-defence-map>
 
 ## How this Map is made
 
 This map is written in the DOT language, which makes maintenance and updating in Git very convenient.
+
+License: GPL-3.0.
+
 The diagram is generated using GraphViz with the following command:
 ```
 dot -Tsvg linux-kernel-defence-map.dot -o linux-kernel-defence-map.svg

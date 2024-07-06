@@ -5,10 +5,8 @@
 //  - Bug detection mechanisms
 //  - Defence technologies
 //
-// Author: Alexander Popov <alex.popov@linux.com>
-//
-// License terms: GNU General Public License (GPL), version 3.0.
-// For details see LICENSE file.
+// SPDX-FileCopyrightText: Alexander Popov <alex.popov@linux.com>
+// SPDX-License-Identifier: GPL-3.0-only
 //
 // The node connections don't mean "full mitigation."
 // Rather, each connection represents some kind of relationship.
