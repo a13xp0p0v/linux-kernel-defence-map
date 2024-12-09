@@ -232,6 +232,23 @@ digraph {
     "UBSAN_BOUNDS";
   }
 
+  subgraph cluster_iommu {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=15;
+    node [shape=oval, color=palegreen3]; // Mainline Defence
+    "IOMMU_SUPPORT";
+    "IOMMU_DEFAULT_DMA_STRICT";
+    "X86_64: iommu=force";
+    "X86_64: INTEL_IOMMU";
+    "X86_64: INTEL_IOMMU_DEFAULT_ON";
+    "X86_64: INTEL_IOMMU_SVM";
+    "X86_64: AMD_IOMMU";
+    "ARM64: ARM_SMMU";
+    "ARM64: ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT";
+  }
+
   // Defences: child nodes
   {
     rank=same;
@@ -375,6 +392,7 @@ digraph {
     "Bad Module Loading";
     "'ops' Structures Overwrite";
     "Kernel Space Mirroring Attack";
+    "DMA Attack";
   }
 
   subgraph cluster_oob {
@@ -581,4 +599,6 @@ digraph {
   "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
+
+  "X86_64: AMD_IOMMU":e -> "DMA Attack":w [ltail=cluster_iommu];
 }
