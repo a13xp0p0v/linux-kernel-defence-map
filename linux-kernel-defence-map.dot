@@ -172,16 +172,21 @@ digraph {
     "PAX_CONSTIFY_PLUGIN";
   }
 
-  subgraph cluster_layout_randomization {
-    label="Layout Randomization";
-    rank=same;
-    fontsize=18;
-    style="dashed";
-    margin=15;
-    "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
-    "ARM64: RANDOMIZE_MODULE_REGION_FULL" [shape=oval, color=palegreen3]; // Mainline Defence
-    "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
-    "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
+  subgraph cluster_layout_randomization_margin {
+    label="";
+    style="invis";
+    margin=25;
+    subgraph cluster_layout_randomization {
+      label="Layout Randomization";
+      rank=same;
+      fontsize=18;
+      style="dashed";
+      margin=15;
+      "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
+      "ARM64: RANDOMIZE_MODULE_REGION_FULL" [shape=oval, color=palegreen3]; // Mainline Defence
+      "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
+      "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
+    }
   }
 
   subgraph cluster_info_exposure_mitigations {
@@ -574,7 +579,7 @@ digraph {
 
   "XPFO":e -> "ret2dir + ROP/JOP/COP":w;
 
-  "PAX_RANDKSTACK":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
+  "RANDOMIZE_{BASE,MEMORY}":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
 
   "PAX_LATENT_ENTROPY":e -> "Insufficient Entropy (CWE-331)":w;
   "HW_RANDOM_TPM":e -> "Insufficient Entropy (CWE-331)":w;
