@@ -88,6 +88,7 @@ digraph {
     "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" [fontsize=11];
     "HW_RANDOM_TPM";
     "RANDOM_KMALLOC_CACHES";
+    "RESET_ATTACK_MITIGATION";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -473,6 +474,7 @@ digraph {
     margin=25;
     node [shape=box, color=gold]; // Exploitation Techniques
     "DMA Attack";
+    "Platform Reset Attack";
   }
 
 
@@ -616,4 +618,6 @@ digraph {
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 
   "IOMMU_SUPPORT":e -> "DMA Attack":w [ltail=cluster_iommu];
+
+  "RESET_ATTACK_MITIGATION":e -> "Platform Reset Attack":w;
 }
