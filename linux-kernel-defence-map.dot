@@ -88,6 +88,7 @@ digraph {
     "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" [fontsize=11];
     "HW_RANDOM_TPM";
     "RANDOM_KMALLOC_CACHES";
+    "RESET_ATTACK_MITIGATION";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -172,16 +173,21 @@ digraph {
     "PAX_CONSTIFY_PLUGIN";
   }
 
-  subgraph cluster_layout_randomization {
-    label="Layout Randomization";
-    rank=same;
-    fontsize=18;
-    style="dashed";
-    margin=15;
-    "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
-    "ARM64: RANDOMIZE_MODULE_REGION_FULL" [shape=oval, color=palegreen3]; // Mainline Defence
-    "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
-    "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
+  subgraph cluster_layout_randomization_margin {
+    label="";
+    style="invis";
+    margin=25;
+    subgraph cluster_layout_randomization {
+      label="Layout Randomization";
+      rank=same;
+      fontsize=18;
+      style="dashed";
+      margin=15;
+      "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
+      "ARM64: RANDOMIZE_MODULE_REGION_FULL" [shape=oval, color=palegreen3]; // Mainline Defence
+      "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
+      "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
+    }
   }
 
   subgraph cluster_info_exposure_mitigations {
@@ -230,6 +236,25 @@ digraph {
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "FORTIFY_SOURCE";
     "UBSAN_BOUNDS";
+  }
+
+  subgraph cluster_iommu {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=15;
+    node [shape=oval, color=palegreen3]; // Mainline Defence
+    "IOMMU_SUPPORT";
+    "IOMMU_DEFAULT_DMA_STRICT";
+    "EFI_DISABLE_PCI_DMA";
+    "X86_64: iommu=force";
+    "X86_64: INTEL_IOMMU";
+    "X86_64: INTEL_IOMMU_DEFAULT_ON";
+    "X86_64: INTEL_IOMMU_SVM";
+    "X86_64: AMD_IOMMU";
+    "ARM64: ARM_SMMU";
+    "ARM64: ARM_SMMU_V3";
+    "ARM64: ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT";
   }
 
   // Defences: child nodes
@@ -442,6 +467,16 @@ digraph {
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
   }
 
+  subgraph cluster_hw_attacks {
+    label="";
+    rank=same;
+    style="invis";
+    margin=25;
+    node [shape=box, color=gold]; // Exploitation Techniques
+    "DMA Attack";
+    "Platform Reset Attack";
+  }
+
 
   // Bug Detection Mechanisms
   {
@@ -556,7 +591,7 @@ digraph {
 
   "XPFO":e -> "ret2dir + ROP/JOP/COP":w;
 
-  "PAX_RANDKSTACK":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
+  "RANDOMIZE_{BASE,MEMORY}":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
 
   "PAX_LATENT_ENTROPY":e -> "Insufficient Entropy (CWE-331)":w;
   "HW_RANDOM_TPM":e -> "Insufficient Entropy (CWE-331)":w;
@@ -581,4 +616,8 @@ digraph {
   "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":e -> "Transient Execution Vulnerabilities (CWE-514)":w;
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
+
+  "IOMMU_SUPPORT":e -> "DMA Attack":w [ltail=cluster_iommu];
+
+  "RESET_ATTACK_MITIGATION":e -> "Platform Reset Attack":w;
 }
