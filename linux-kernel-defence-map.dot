@@ -90,6 +90,7 @@ digraph {
     "RANDOM_KMALLOC_CACHES";
     "PAGE_TABLE_CHECK*";
     "RESET_ATTACK_MITIGATION";
+    "SLAB_BUCKETS";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -97,6 +98,8 @@ digraph {
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
     "Linux Kernel Runtime Guard"; // Disable MODULE_UNLOAD to make bypass harder
+    "SLAB_VIRTUAL";
+    "SLAB_PER_SITE";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -393,7 +396,6 @@ digraph {
     node [shape=box, color=gold];
     "Kernel Objects Corruption";
     "Allocator Data Corruption";
-    "Heap Layout Control";
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
@@ -447,6 +449,18 @@ digraph {
     "ret2usr";
     "ret2dir";
     "Return Address Overwrite" [fontsize=10.5];
+  }
+
+  subgraph cluster_heap_layout_control {
+    label="Heap Layout Control";
+    fontsize=18;
+    rank=same;
+    style="dashed";
+    margin=35;
+    node [shape=box, color=gold]; // Exploitation Techniques
+    "Heap Grooming";
+    "Slab Cache Reuse";
+    "Cross-Cache Attack";
   }
 
   subgraph cluster_info_exposures {
@@ -566,11 +580,18 @@ digraph {
 
   "__read_only":e -> "'ops' Structures Overwrite":w [ltail=cluster_ro];
 
-  "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control":w;
-  "slab_nomerge":e -> "Heap Layout Control":w;
-  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control":w;
-  "AUTOSLAB":e -> "Heap Layout Control":w;
-  "RANDOM_KMALLOC_CACHES":e -> "Heap Layout Control":w;
+  "SLAB_FREELIST_RANDOM":e -> "Heap Grooming":w;
+  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Grooming":w;
+  "AUTOSLAB":e -> "Heap Grooming":w;
+  "slab_nomerge":e -> "Heap Grooming":w;
+
+  "AUTOSLAB":e -> "Slab Cache Reuse":w;
+  "SLAB_BUCKETS":e -> "Slab Cache Reuse":w;
+  "RANDOM_KMALLOC_CACHES":e -> "Slab Cache Reuse":w;
+  "SLAB_PER_SITE":e -> "Slab Cache Reuse":w;
+
+  "slab_nomerge":e -> "Cross-Cache Attack":w;
+  "SLAB_VIRTUAL":e -> "Cross-Cache Attack":w;
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
