@@ -245,6 +245,7 @@ digraph {
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "IOMMU_SUPPORT";
     "IOMMU_DEFAULT_DMA_STRICT";
+    "EFI_DISABLE_PCI_DMA";
     "X86_64: iommu=force";
     "X86_64: INTEL_IOMMU";
     "X86_64: INTEL_IOMMU_DEFAULT_ON";
