@@ -391,7 +391,7 @@ digraph {
 
     // Exploitation Techniques
     node [shape=box, color=gold];
-    "Metadata Corruption";
+    "Kernel Objects Corruption";
     "Allocator Data Corruption";
     "Heap Layout Control";
     "Finding Kernel Objects";
@@ -555,11 +555,11 @@ digraph {
 
   "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
 
-  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption":w;
-  "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption":w;
-  "PROTECTABLE_MEMORY":e -> "Metadata Corruption":w;
-  grsecurity_hardened_usermodehelper:e -> "Metadata Corruption":w;
-  "Linux Kernel Runtime Guard":e -> "Metadata Corruption":w;
+  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Kernel Objects Corruption":w;
+  "BUG_ON_DATA_CORRUPTION":e -> "Kernel Objects Corruption":w;
+  "PROTECTABLE_MEMORY":e -> "Kernel Objects Corruption":w;
+  grsecurity_hardened_usermodehelper:e -> "Kernel Objects Corruption":w;
+  "Linux Kernel Runtime Guard":e -> "Kernel Objects Corruption":w;
 
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption":w;
   "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption":w;
