@@ -397,7 +397,6 @@ digraph {
     "Bad Module Loading";
     "'ops' Structures Overwrite";
     "Kernel Space Mirroring Attack";
-    "DMA Attack";
   }
 
   subgraph cluster_oob {
@@ -463,6 +462,15 @@ digraph {
     node [shape=box, color=pink]; // Vulnerabilities
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
+  }
+
+  subgraph cluster_hw_attacks {
+    label="";
+    rank=same;
+    style="invis";
+    margin=25;
+    node [shape=box, color=gold]; // Exploitation Techniques
+    "DMA Attack";
   }
 
 
@@ -605,5 +613,5 @@ digraph {
 
   "Read-only swapper_pg_dir":e -> "Kernel Space Mirroring Attack":w;
 
-  "X86_64: AMD_IOMMU":e -> "DMA Attack":w [ltail=cluster_iommu];
+  "IOMMU_SUPPORT":e -> "DMA Attack":w [ltail=cluster_iommu];
 }
