@@ -88,7 +88,9 @@ digraph {
     "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" [fontsize=11];
     "HW_RANDOM_TPM";
     "RANDOM_KMALLOC_CACHES";
+    "PAGE_TABLE_CHECK*";
     "RESET_ATTACK_MITIGATION";
+    "SLAB_BUCKETS";
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
@@ -96,6 +98,8 @@ digraph {
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
     "Linux Kernel Runtime Guard"; // Disable MODULE_UNLOAD to make bypass harder
+    "SLAB_VIRTUAL";
+    "SLAB_PER_SITE";
 
     // Commercial Defences
     node [shape=oval, color=lightgrey];
@@ -390,9 +394,8 @@ digraph {
 
     // Exploitation Techniques
     node [shape=box, color=gold];
-    "Metadata Corruption";
+    "Kernel Objects Corruption";
     "Allocator Data Corruption";
-    "Heap Layout Control";
     "Finding Kernel Objects";
     "JIT Abuse";
     "WX Area Abuse";
@@ -400,6 +403,7 @@ digraph {
     "Bad Module Loading";
     "'ops' Structures Overwrite";
     "Kernel Space Mirroring Attack";
+    "Paging Corruption";
   }
 
   subgraph cluster_oob {
@@ -445,6 +449,18 @@ digraph {
     "ret2usr";
     "ret2dir";
     "Return Address Overwrite" [fontsize=10.5];
+  }
+
+  subgraph cluster_heap_layout_control {
+    label="Heap Layout Control";
+    fontsize=18;
+    rank=same;
+    style="dashed";
+    margin=35;
+    node [shape=box, color=gold]; // Exploitation Techniques
+    "Heap Grooming";
+    "Slab Cache Reuse";
+    "Cross-Cache Attack";
   }
 
   subgraph cluster_info_exposures {
@@ -553,22 +569,29 @@ digraph {
 
   "kptr_restrict":e -> "Info Exposure (CWE-200)":w [ltail=cluster_info_exposure_mitigations];
 
-  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Metadata Corruption":w;
-  "BUG_ON_DATA_CORRUPTION":e -> "Metadata Corruption":w;
-  "PROTECTABLE_MEMORY":e -> "Metadata Corruption":w;
-  grsecurity_hardened_usermodehelper:e -> "Metadata Corruption":w;
-  "Linux Kernel Runtime Guard":e -> "Metadata Corruption":w;
+  "DEBUG_{LIST,SG,CREDENTIALS,NOTIFIERS,VIRTUAL}":e -> "Kernel Objects Corruption":w;
+  "BUG_ON_DATA_CORRUPTION":e -> "Kernel Objects Corruption":w;
+  "PROTECTABLE_MEMORY":e -> "Kernel Objects Corruption":w;
+  grsecurity_hardened_usermodehelper:e -> "Kernel Objects Corruption":w;
+  "Linux Kernel Runtime Guard":e -> "Kernel Objects Corruption":w;
 
   grsecurity_hardened_freelist:e -> "Allocator Data Corruption":w;
   "SLAB_FREELIST_HARDENED":e -> "Allocator Data Corruption":w;
 
   "__read_only":e -> "'ops' Structures Overwrite":w [ltail=cluster_ro];
 
-  "SLAB_FREELIST_RANDOM":e -> "Heap Layout Control":w;
-  "slab_nomerge":e -> "Heap Layout Control":w;
-  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Layout Control":w;
-  "AUTOSLAB":e -> "Heap Layout Control":w;
-  "RANDOM_KMALLOC_CACHES":e -> "Heap Layout Control":w;
+  "SLAB_FREELIST_RANDOM":e -> "Heap Grooming":w;
+  "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Grooming":w;
+  "AUTOSLAB":e -> "Heap Grooming":w;
+  "slab_nomerge":e -> "Heap Grooming":w;
+
+  "AUTOSLAB":e -> "Slab Cache Reuse":w;
+  "SLAB_BUCKETS":e -> "Slab Cache Reuse":w;
+  "RANDOM_KMALLOC_CACHES":e -> "Slab Cache Reuse":w;
+  "SLAB_PER_SITE":e -> "Slab Cache Reuse":w;
+
+  "slab_nomerge":e -> "Cross-Cache Attack":w;
+  "SLAB_VIRTUAL":e -> "Cross-Cache Attack":w;
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
@@ -620,4 +643,6 @@ digraph {
   "IOMMU_SUPPORT":e -> "DMA Attack":w [ltail=cluster_iommu];
 
   "RESET_ATTACK_MITIGATION":e -> "Platform Reset Attack":w;
+
+  "PAGE_TABLE_CHECK*":e -> "Paging Corruption":w;
 }
