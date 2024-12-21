@@ -88,6 +88,7 @@ digraph {
     "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" [fontsize=11];
     "HW_RANDOM_TPM";
     "RANDOM_KMALLOC_CACHES";
+    "PAGE_TABLE_CHECK*";
     "RESET_ATTACK_MITIGATION";
 
     // Out-of-tree Defences
@@ -400,6 +401,7 @@ digraph {
     "Bad Module Loading";
     "'ops' Structures Overwrite";
     "Kernel Space Mirroring Attack";
+    "Paging Corruption";
   }
 
   subgraph cluster_oob {
@@ -620,4 +622,6 @@ digraph {
   "IOMMU_SUPPORT":e -> "DMA Attack":w [ltail=cluster_iommu];
 
   "RESET_ATTACK_MITIGATION":e -> "Platform Reset Attack":w;
+
+  "PAGE_TABLE_CHECK*":e -> "Paging Corruption":w;
 }
