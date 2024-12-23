@@ -1,5 +1,8 @@
 # Linux Kernel Defence Map
 
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/a13xp0p0v/linux-kernel-defence-map?label=release)](https://github.com/a13xp0p0v/linux-kernel-defence-map/tags)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 Linux kernel security is a very complex topic.
 
 There are many concepts that have interesting relationships with each other:
@@ -67,7 +70,7 @@ You are welcome to try it.
 
 - [Spectre & Meltdown Checker](https://github.com/speed47/spectre-meltdown-checker) by Stéphane Lesimple
 
-## Map for Linux kernel v6.6
+## Map for Linux kernel v6.10
 
 ![Linux Kernel Defence Map](./linux-kernel-defence-map.svg)
 
