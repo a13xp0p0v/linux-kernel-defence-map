@@ -371,7 +371,7 @@ digraph {
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK":w;
   "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
-  "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [ltail=cluster_cwe514_mitigations_2];
+  "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [penwidth=1.5, style=dashed, ltail=cluster_cwe514_mitigations_2];
 
 
   // Vulnerabilities and Exploitation Techniques
