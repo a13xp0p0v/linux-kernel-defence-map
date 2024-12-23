@@ -370,7 +370,8 @@ digraph {
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper:w;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK":w;
-  "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)" -> "mitigations=auto,nosmt" [constraint=false];
+  "mitigations=auto,nosmt":w -> "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":w [style=invis, constraint=false]; // hackish, but good-looking
+  "mitigations=auto,nosmt":w -> "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":w [penwidth=1.5, style=dashed, constraint=false];
   "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [penwidth=1.5, style=dashed, ltail=cluster_cwe514_mitigations_2];
 
 
