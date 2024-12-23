@@ -459,7 +459,7 @@ digraph {
     margin=35;
     node [shape=box, color=gold]; // Exploitation Techniques
     "Heap Grooming";
-    "Slab Cache Reuse";
+    "Slab Cache Slot Reuse";
     "Cross-Cache Attack";
   }
 
@@ -584,11 +584,11 @@ digraph {
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Grooming":w;
   "AUTOSLAB":e -> "Heap Grooming":w;
 
-  "AUTOSLAB":e -> "Slab Cache Reuse":w;
-  "SLAB_BUCKETS":e -> "Slab Cache Reuse":w;
-  "RANDOM_KMALLOC_CACHES":e -> "Slab Cache Reuse":w;
-  "SLAB_PER_SITE":e -> "Slab Cache Reuse":w;
-  "slab_nomerge":e -> "Slab Cache Reuse":sw [lhead=cluster_heap_layout_control];
+  "AUTOSLAB":e -> "Slab Cache Slot Reuse":w;
+  "SLAB_BUCKETS":e -> "Slab Cache Slot Reuse":w;
+  "RANDOM_KMALLOC_CACHES":e -> "Slab Cache Slot Reuse":w;
+  "SLAB_PER_SITE":e -> "Slab Cache Slot Reuse":w;
+  "slab_nomerge":e -> "Slab Cache Slot Reuse":sw [lhead=cluster_heap_layout_control];
 
   "SLAB_VIRTUAL":e -> "Cross-Cache Attack":w;
 
