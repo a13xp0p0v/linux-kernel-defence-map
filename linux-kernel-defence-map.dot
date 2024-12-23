@@ -583,14 +583,13 @@ digraph {
   "SLAB_FREELIST_RANDOM":e -> "Heap Grooming":w;
   "SHUFFLE_PAGE_ALLOCATOR":e -> "Heap Grooming":w;
   "AUTOSLAB":e -> "Heap Grooming":w;
-  "slab_nomerge":e -> "Heap Grooming":w;
 
   "AUTOSLAB":e -> "Slab Cache Reuse":w;
   "SLAB_BUCKETS":e -> "Slab Cache Reuse":w;
   "RANDOM_KMALLOC_CACHES":e -> "Slab Cache Reuse":w;
   "SLAB_PER_SITE":e -> "Slab Cache Reuse":w;
+  "slab_nomerge":e -> "Slab Cache Reuse":sw [lhead=cluster_heap_layout_control];
 
-  "slab_nomerge":e -> "Cross-Cache Attack":w;
   "SLAB_VIRTUAL":e -> "Cross-Cache Attack":w;
 
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
