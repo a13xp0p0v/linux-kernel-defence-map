@@ -603,7 +603,7 @@ digraph {
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF":n -> "Userspace Data Access":w [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+  "PAX_UDEREF":n -> "Userspace Data Access":e [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
 
