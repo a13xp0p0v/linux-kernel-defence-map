@@ -187,7 +187,8 @@ digraph {
       fontsize=18;
       style="dashed";
       margin=15;
-      "RANDOMIZE_{BASE,MEMORY}" [shape=oval, color=palegreen3]; // Mainline Defence
+      "RANDOMIZE_BASE" [shape=oval, color=palegreen3]; // Mainline Defence
+      "X86_64: RANDOMIZE_MEMORY" [shape=oval, color=palegreen3]; // Mainline Defence
       "ARM64: RANDOMIZE_MODULE_REGION_FULL" [shape=oval, color=palegreen3]; // Mainline Defence
       "GRKERNSEC_RANDSTRUCT" [shape=oval, color=lightgrey]; // Commercial Defence
       "PAX_RANDKSTACK" [shape=oval, color=lightgrey]; // Commercial Defence
@@ -614,7 +615,7 @@ digraph {
 
   "XPFO":e -> "ret2dir + ROP/JOP/COP":w;
 
-  "RANDOMIZE_{BASE,MEMORY}":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
+  "RANDOMIZE_BASE":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
 
   "PAX_LATENT_ENTROPY":e -> "Insufficient Entropy (CWE-331)":w;
   "HW_RANDOM_TPM":e -> "Insufficient Entropy (CWE-331)":w;
