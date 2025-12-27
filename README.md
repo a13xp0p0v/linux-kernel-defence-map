@@ -29,7 +29,7 @@ and policies enforced by various Linux Security Modules (LSM).
 
  - At GitHub <https://github.com/a13xp0p0v/linux-kernel-defence-map>
  - At Codeberg: <https://codeberg.org/a13xp0p0v/linux-kernel-defence-map> (go there if something goes wrong with GitHub)
- - At GitFlic: <https://gitflic.ru/project/a13xp0p0v/linux-kernel-defence-map>
+ - At SourceCraft: <https://sourcecraft.dev/a13xp0p0v/linux-kernel-defence-map>
 
 ## How this Map is made
 
