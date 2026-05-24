@@ -345,6 +345,9 @@ digraph {
     "X86_64: spec_rstack_overflow";
     "X86_64: gather_data_sampling";
     "X86_64: reg_file_data_sampling";
+    "X86_64: tsa";
+    "X86_64: indirect_target_selection";
+    "X86_64: vmscape";
     "ARM64: kpti";
     "ARM64: ssbd";
   }
