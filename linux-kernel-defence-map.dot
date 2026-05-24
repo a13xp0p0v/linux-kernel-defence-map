@@ -277,7 +277,7 @@ digraph {
     "LATENT_ENTROPY";
     "__ro_after_init";
     "SECURITY_DMESG_RESTRICT";
-    "ARM64: CPU_SW_DOMAIN_PAN";
+    "ARM64: ARM64_PAN";
     "ARM64: ARM64_SW_TTBR0_PAN";
     "STATIC_USERMODEHELPER";
     "slub_debug=P"; // object and padding poisoning
@@ -366,7 +366,7 @@ digraph {
   "__ro_after_init":e -> "__read_only":w;
   "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG":w;
   "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK":w;
-  "ARM64: CPU_SW_DOMAIN_PAN":e -> "SMAP/PAN":w;
+  "ARM64: ARM64_PAN":e -> "SMAP/PAN":w;
   "ARM64: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper:w;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
