@@ -285,7 +285,7 @@ digraph {
     "slub_debug=P"; // object and padding poisoning
     "init_on_free";
     "PAGE_POISONING*";
-    "STACKLEAK";
+    "KSTACK_ERASE (STACKLEAK)";
     "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
     "CFI_CLANG (KCFI)";
     "ARM64: SHADOW_CALL_STACK" [fontsize=11];
@@ -367,7 +367,7 @@ digraph {
   "LATENT_ENTROPY":e -> "PAX_LATENT_ENTROPY":w;
   "__ro_after_init":e -> "__read_only":w;
   "SECURITY_DMESG_RESTRICT":e -> "GRKERNSEC_DMESG":w;
-  "STACKLEAK":e -> "PAX_MEMORY_STACKLEAK":w;
+  "KSTACK_ERASE (STACKLEAK)":e -> "PAX_MEMORY_STACKLEAK":w;
   "ARM64: ARM64_PAN":e -> "SMAP/PAN":w;
   "ARM64: ARM64_EPAN":e -> "SMAP/PAN":w;
   "ARM64: ARM64_SW_TTBR0_PAN":e -> "SMAP/PAN":w;
