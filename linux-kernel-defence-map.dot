@@ -348,7 +348,7 @@ digraph {
     "PAX_MEMORY_SANITIZE";
   }
 
-  // Defences relations
+  // Relations of Defences
   edge [style=dashed, arrowhead=none, dir=none, headport=_, tailport=_];
   "CFI_CLANG (KCFI)":e -> "Fine-grained Forward-edge CFI":w;
   "ARM64: ARM64_BTI_KERNEL":e -> "Coarse-grained Forward-edge CFI":w;
@@ -526,6 +526,7 @@ digraph {
     "KASAN_GENERIC";
     "KFENCE";
   }
+
 
   // Relations: Bug Detection Mechanisms vs Vulnerabilities
   edge [style=solid, arrowhead=normal, dir=back, headport=_, tailport=_, penwidth=1.5];
