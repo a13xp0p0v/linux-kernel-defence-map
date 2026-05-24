@@ -93,7 +93,6 @@ digraph {
 
     // Out-of-tree Defences
     node [shape=oval, color=cornflowerblue];
-    "XPFO";
     "PROTECTABLE_MEMORY";
     "request_module_cap()";
     "Linux Kernel Runtime Guard"; // Disable MODULE_UNLOAD to make bypass harder
@@ -620,9 +619,6 @@ digraph {
   "SMAP/PAN":e -> "ret2usr + ROP/JOP/COP":w [ltail=cluster_smap_pan_uderef];
 
   "PAX_KERNEXEC":e -> "ret2dir":w;
-  "XPFO":e -> "ret2dir":w;
-
-  "XPFO":e -> "ret2dir + ROP/JOP/COP":w;
 
   "RANDOMIZE_BASE":e -> "Finding Kernel Objects":w [ltail=cluster_layout_randomization];
 
