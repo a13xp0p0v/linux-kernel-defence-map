@@ -1,5 +1,165 @@
 Export of Github issues for [a13xp0p0v/linux-kernel-defence-map](https://github.com/a13xp0p0v/linux-kernel-defence-map).
 
+# [\#11 Issue](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/11) `open`: RET2DIR Mitigated by CFI -- Kernel Discussions on CONFIG_XPFO
+**Labels**: `bug`
+
+
+#### <img src="https://avatars.githubusercontent.com/u/158655396?v=4" width="50">[wryMitts](https://github.com/wryMitts) opened issue at [2024-02-22 00:31](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/11):
+
+After reading these conversations, per Torvalds and other devs it seems that XPFO's defense on ret2dir is less of a code execution threat, and more a data exposure threat. The term was coined "read2dir" instead. 
+
+Thoughts on the map, perhaps move ret2dir under CFI protections, but also split to have read2dir? 
+
+> On Thu, Apr 18, 2019 at 7:35 AM Khalid Aziz <khalid.aziz@oracle.com> wrote:
+> >
+> > On 4/17/19 11:41 PM, Kees Cook wrote:
+> > > On Wed, Apr 17, 2019 at 11:41 PM Andy Lutomirski <luto@kernel.org> wrote:
+> > >> I don't think this type of NX goof was ever the argument for XPFO.
+> > >> The main argument I've heard is that a malicious user program writes a
+> > >> ROP payload into user memory (regular anonymous user memory) and then
+> > >> gets the kernel to erroneously set RSP (*not* RIP) to point there.
+> > >
+> > > Well, more than just ROP. Any of the various attack primitives. The NX
+> > > stuff is about moving RIP: SMEP-bypassing. But there is still basic
+> > > SMAP-bypassing for putting a malicious structure in userspace and
+> > > having the kernel access it via the linear mapping, etc.
+> > >
+> > >> I find this argument fairly weak for a couple reasons.  First, if
+> > >> we're worried about this, let's do in-kernel CFI, not XPFO, to
+> > >
+> > > CFI is getting much closer. Getting the kernel happy under Clang, LTO,
+> > > and CFI is under active development. (It's functional for arm64
+> > > already, and pieces have been getting upstreamed.)
+> > >
+> >
+> > CFI theoretically offers protection with fairly low overhead. I have not
+> > played much with CFI in clang. I agree with Linus that probability of
+> > bugs in XPFO implementation itself is a cause of concern. If CFI in
+> > Clang can provide us the same level of protection as XPFO does, I
+> > wouldn't want to push for an expensive change like XPFO.
+> >
+> > If Clang/CFI can't get us there for extended period of time, does it
+> > make sense to continue to poke at XPFO?
+> 
+> Well, I think CFI will certainly vastly narrow the execution paths
+> available to an attacker, but what I continue to see XPFO useful for
+> is stopping attacks that need to locate something in memory. (i.e. not
+> ret2dir but, like, read2dir.) It's arguable that such attacks would
+> just use heap, stack, etc to hold such things, but the linear map
+> remains relatively easy to find/target. But I agree: the protection is
+> getting more and more narrow (especially with CFI coming down the
+> pipe), and if it's still a 28% hit, that's not going to be tenable for
+> anyone but the truly paranoid. :)
+> 
+> All that said, there isn't a very good backward-edge CFI protection
+> (i.e. ROP defense) on x86 in Clang. The forward-edge looks decent, but
+> requires LTO, etc. My point is there is still a long path to gaining
+> CFI in upstream.
+> 
+
+
+Related emails with Torvalds and other kernel dev comments:
+https://lore.kernel.org/all/CAHk-=whUwOjFW6RjHVM8kNOv1QVLJuHj2Dda0=mpLPdJ1UyatQ@mail.gmail.com/
+https://lore.kernel.org/all/CALCETrXm9PuUTEEmzA8bQJmg=PHC_2XSywECittVhXbMJS1rSA@mail.gmail.com/
+https://lore.kernel.org/all/CAGXu5jL-qJtW7eH8S2yhqciE+J+FWz8HHzTrGJTgVUbd55n6dQ@mail.gmail.com/
+https://lore.kernel.org/all/8f9d059d-e720-cd24-faa6-45493fc012e0@oracle.com/
+https://lore.kernel.org/all/302e3d5b-d2fd-3c25-335b-466ba83035c5@oracle.com/
+https://lore.kernel.org/all/CAGXu5jLPkD_6BL1m2=13KVTfZ7znr-xAyz+CB23eoeboFgCSOg@mail.gmail.com/#t
+
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) commented at [2024-02-25 21:56](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/11#issuecomment-1963074254):
+
+Hi @wryMitts,
+Thanks for creating this issue!
+
+As I understand the terminology in this LKML discussion,  they use:
+ -  `ret2dir` for executing exploit payload using the direct mapping,
+ -  `read2dir` for getting data needed for exploit using the direct mapping. On the Linux Kernel Defence Map, we already have `ret2dir + ROP/JOP/COP`, but `read2dir` would be a more generic term.
+
+Let's see whether `read2dir` become a popular term (for adding it in future).
+
+Please see the commit https://github.com/a13xp0p0v/linux-kernel-defence-map/commit/02cd95c11eb33a76e607c05f8a218c856b12865a, where I fixed the link from `cluster_cfi`. Now CFI is connected to all control flow hijack techniques, which is more correct. Thank you!
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) commented at [2024-03-11 14:16](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/11#issuecomment-1988548475):
+
+Hmmm...
+
+Maybe we need to add something like `Userspace Data Access via direct mapping`  (or linear mapping?) instead of `read2dir` to show that the `XPFO` approach provides additional security effects comparing to CFI.
+
+But this concept looks very long.
+
+
+-------------------------------------------------------------------------------
+
+# [\#10 Issue](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/10) `closed`: Please update CFI_CLANG with kCFI Updates for Forward & Backward Edge
+**Labels**: `enhancement`
+
+
+#### <img src="https://avatars.githubusercontent.com/u/158655396?v=4" width="50">[wryMitts](https://github.com/wryMitts) opened issue at [2024-02-17 09:07](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/10):
+
+kCFI was merged (6.1 ?) and is now used by default when selecting CFI CLANG
+
+https://lwn.net/Articles/893164/
+
+It is fine grained forward and backward edge:
+
+Page 2:
+
+> As a step towards practical and effective kernel-level control-flow integrity for commodity operating systems,
+> in this paper we present kCFI, a fine-grained CFI scheme for the Linux kernel. The proposed approach combines
+> the benefits of a tag-based, fine-grained CFI policy enforcement for both forward and backward edges which offers
+> increased protection compared to coarse-grained CFI,
+
+https://www.blackhat.com/docs/asia-17/materials/asia-17-Moreira-Drop-The-Rop-Fine-Grained-Control-Flow-Integrity-For-The-Linux-Kernel-wp.pdf
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) commented at [2024-02-25 19:51](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/10#issuecomment-1963042861):
+
+@wryMitts, thanks for creating this issue.
+
+Please see the commit  https://github.com/a13xp0p0v/linux-kernel-defence-map/commit/05916b0d9994f0df60ab0b2556047ee1070d1978. 
+
+`ARM64: CFI_CLANG` is renamed to `CFI_CLANG (KCFI)`.
+
+`ARM64` is removed from the name because this feature is supported both for `X86_64` and `ARM64`.
+
+As the documentation says, "KCFI is a proposed forward-edge control-flow integrity scheme for Clang", so I didn't add the link to the "Backward-edge CFI" node.
+
+#### <img src="https://avatars.githubusercontent.com/u/158655396?v=4" width="50">[wryMitts](https://github.com/wryMitts) commented at [2024-02-26 05:04](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/10#issuecomment-1963325141):
+
+After extended review, looks like there is two implementations with the name kCFI, one merged, other never made it into the kernel. Made by two different people. That seems to be why documentation was confusing. My mistake
+
+
+-------------------------------------------------------------------------------
+
+# [\#9 PR](https://github.com/a13xp0p0v/linux-kernel-defence-map/pull/9) `merged`: Zoom out: Drop the redundant details of the mitigations of the CPU bugs
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) opened issue at [2023-12-09 22:06](https://github.com/a13xp0p0v/linux-kernel-defence-map/pull/9):
+
+Refers to #8 
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) commented at [2023-12-09 22:10](https://github.com/a13xp0p0v/linux-kernel-defence-map/pull/9#issuecomment-1848734391):
+
+Now need to add the cluster with options connected to the "mitigations" cmdline parameter.
+
+
+-------------------------------------------------------------------------------
+
+# [\#8 Issue](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/8) `closed`: Drop the redundant details of the mitigations of the CPU bugs
+**Labels**: `enhancement`
+
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) opened issue at [2023-12-09 20:17](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/8):
+
+Zoom out a bit. Some details about the mitigations of CPU bugs are not needed.
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) commented at [2024-02-05 00:27](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/8#issuecomment-1926012775):
+
+This work is done:
+https://github.com/a13xp0p0v/linux-kernel-defence-map/commit/d010f4b5258048076f2e1cb10ff8b34ef7e7ea1b
+
+
+-------------------------------------------------------------------------------
+
 # [\#7 Issue](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/7) `closed`: How do I use this?
 
 #### <img src="https://avatars.githubusercontent.com/u/5826484?u=2cc3ddef5824379423495733759ef362d0600078&v=4" width="50">[frakman1](https://github.com/frakman1) opened issue at [2022-10-05 14:41](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/7):
@@ -48,6 +208,10 @@ Some related projects I've found:
 - https://cneben.github.io/QuickQanava/index.html (didn't tried it, but it's in Qt/QML, since I'm a fan :nerd_face: )
 
 Maybe some game engines/sdks also could be helpful, but I have no experience with it.
+
+#### <img src="https://avatars.githubusercontent.com/u/1419667?u=de82e29061c3ef5f1c19f95528f8a82b08051fd2&v=4" width="50">[a13xp0p0v](https://github.com/a13xp0p0v) commented at [2024-03-15 23:00](https://github.com/a13xp0p0v/linux-kernel-defence-map/issues/6#issuecomment-2000606823):
+
+One more interesting example of graph visualization: https://www.highcharts.com/demo/highcharts/network-graph
 
 
 -------------------------------------------------------------------------------
