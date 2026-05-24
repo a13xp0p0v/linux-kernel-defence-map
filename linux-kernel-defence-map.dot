@@ -273,47 +273,6 @@ digraph {
     "ARM64: ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT";
   }
 
-  // Defences: child nodes
-  {
-    rank=same;
-
-    // Mainline Defences
-    node [shape=oval, color=palegreen3];
-    "REFCOUNT_FULL";
-    "HARDENED_USERCOPY";
-    "VMAP_STACK";
-    "THREAD_INFO_IN_TASK";
-    "RANDSTRUCT";
-    "STRUCTLEAK_BYREF_ALL";
-    "LATENT_ENTROPY";
-    "__ro_after_init";
-    "SECURITY_DMESG_RESTRICT";
-    "ARM64: ARM64_PAN";
-    "ARM64: ARM64_EPAN";
-    "ARM64: ARM64_SW_TTBR0_PAN";
-    "STATIC_USERMODEHELPER";
-    "slub_debug=P"; // object and padding poisoning
-    "init_on_free";
-    "PAGE_POISONING*";
-    "KSTACK_ERASE (STACKLEAK)";
-    "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
-    "CFI_CLANG (KCFI)";
-    "ARM64: SHADOW_CALL_STACK" [fontsize=11];
-
-    // Out-of-tree Defences
-    node [shape=oval, color=cornflowerblue];
-
-    // Commercial Defences
-    node [shape=oval, color=lightgrey];
-    "PAX_RAP";
-    "PAX_MEMORY_SANITIZE";
-
-    // HW Defences
-    node [shape=oval, color=aquamarine];
-    "ARM64: ARM64_PTR_AUTH_KERNEL" [fontsize=12];
-    "ARM64: ARM64_BTI_KERNEL";
-  }
-
   subgraph cluster_cet {
     label="";
     rank=same;
@@ -349,6 +308,44 @@ digraph {
     "X86_64: vmscape";
     "ARM64: kpti";
     "ARM64: ssbd";
+  }
+
+  // Defences: child nodes
+  {
+    rank=same;
+
+    // Mainline Defences
+    node [shape=oval, color=palegreen3];
+    "REFCOUNT_FULL";
+    "HARDENED_USERCOPY";
+    "VMAP_STACK";
+    "THREAD_INFO_IN_TASK";
+    "RANDSTRUCT";
+    "STRUCTLEAK_BYREF_ALL";
+    "LATENT_ENTROPY";
+    "__ro_after_init";
+    "SECURITY_DMESG_RESTRICT";
+    "ARM64: ARM64_PAN";
+    "ARM64: ARM64_EPAN";
+    "ARM64: ARM64_SW_TTBR0_PAN";
+    "STATIC_USERMODEHELPER";
+    "slub_debug=P"; // object and padding poisoning
+    "init_on_free";
+    "PAGE_POISONING*";
+    "KSTACK_ERASE (STACKLEAK)";
+    "RANDOMIZE_KSTACK_OFFSET_DEFAULT";
+    "CFI_CLANG (KCFI)";
+    "ARM64: SHADOW_CALL_STACK" [fontsize=11];
+
+    // HW Defences
+    node [shape=oval, color=aquamarine];
+    "ARM64: ARM64_PTR_AUTH_KERNEL" [fontsize=12];
+    "ARM64: ARM64_BTI_KERNEL";
+
+    // Commercial Defences
+    node [shape=oval, color=lightgrey];
+    "PAX_RAP";
+    "PAX_MEMORY_SANITIZE";
   }
 
   // Defences relations
