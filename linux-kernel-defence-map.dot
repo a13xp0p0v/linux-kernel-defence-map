@@ -77,7 +77,6 @@ digraph {
     "BUG_ON_DATA_CORRUPTION";
     "MODULE_SIG*";
     "bpf_jit_harden";
-    "DEFAULT_MMAP_MIN_ADDR=65536";
     "SCHED_STACK_END_CHECK";
     "slab_nomerge"; // similar to disabled SLAB_MERGE_DEFAULT
     "LOCKDOWN_LSM";
@@ -114,6 +113,18 @@ digraph {
     grsecurity_hardened_usermodehelper [label="by default in grsecurity"];
     "AUTOSLAB";
     "PAX_LATENT_ENTROPY";
+  }
+
+  subgraph cluster_mmap_min_addr {
+    label="";
+    rank=same;
+    style="dashed";
+    margin=15;
+
+    // Mainline Defences
+    node [shape=oval, color=palegreen3, style=filled];
+    "DEFAULT_MMAP_MIN_ADDR=65536";
+    "LSM_MMAP_MIN_ADDR=65536";
   }
 
   subgraph cluster_cfi {
@@ -609,7 +620,7 @@ digraph {
 
   "PAX_UDEREF":n -> "Userspace Data Access":e [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
-  "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w;
+  "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w [ltail=cluster_mmap_min_addr] ;
 
   "SMAP/PAN":e -> "ret2usr + ROP/JOP/COP":w [ltail=cluster_smap_pan_uderef];
 
