@@ -250,8 +250,8 @@ digraph {
     style="dashed";
     margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defence
-    "FORTIFY_SOURCE";
     "UBSAN_BOUNDS";
+    "FORTIFY_SOURCE";
   }
 
   subgraph cluster_iommu {
@@ -384,9 +384,8 @@ digraph {
   "STATIC_USERMODEHELPER":e -> grsecurity_hardened_usermodehelper:w;
   "SLAB_FREELIST_HARDENED" -> grsecurity_hardened_freelist [constraint=false];
   "RANDOMIZE_KSTACK_OFFSET_DEFAULT":e -> "PAX_RANDKSTACK":w;
-  "mitigations=auto,nosmt":w -> "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":w [style=invis, constraint=false]; // hackish, but good-looking
-  "mitigations=auto,nosmt":w -> "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":w [penwidth=1.5, style=dashed, constraint=false];
-  "X86_64: spectre_v2":s -> "mitigations=auto,nosmt":w [penwidth=1.5, style=dashed, ltail=cluster_cwe514_mitigations_2];
+  "mitigations=auto,nosmt":n -> "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":s [constraint=false, penwidth=1.5, style=dashed];
+  "ARM64: ssbd":s -> "mitigations=auto,nosmt":w [penwidth=1.5, style=dashed, ltail=cluster_cwe514_mitigations_2];
 
 
   // Vulnerabilities and Exploitation Techniques
@@ -602,14 +601,14 @@ digraph {
   "STACKPROTECTOR":e -> "Return Address Overwrite":w;
   "Backward-edge CFI":e -> "Return Address Overwrite":w;
 
-  "Backward-edge CFI":n -> "ROP/JOP/COP":s [lhead=cluster_control_flow_hijack, ltail=cluster_cfi];
+  "Fine-grained Forward-edge CFI":e -> "ROP/JOP/COP":n [lhead=cluster_control_flow_hijack, ltail=cluster_cfi];
 
   "PAX_KERNEXEC":e -> "ret2usr":w;
   "X86_64: pti=on (MITIGATION_PAGE_TABLE_ISOLATION)":e -> "ret2usr":w;
   "SMEP/PXN":e -> "ret2usr":w;
   "SMAP/PAN":s -> "ret2usr":w [ltail=cluster_smap_pan_uderef];
 
-  "PAX_UDEREF":n -> "Userspace Data Access":e [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
+  "SMAP/PAN":e -> "Userspace Data Access":w [ltail=cluster_smap_pan_uderef, lhead=cluster_userspace_access];
 
   "DEFAULT_MMAP_MIN_ADDR=65536":e -> "NULL Pointer Dereference (CWE-476)":w [ltail=cluster_mmap_min_addr] ;
 
