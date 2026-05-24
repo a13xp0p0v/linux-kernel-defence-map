@@ -143,7 +143,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=35;
+    margin=15;
 
     "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
 
@@ -190,7 +190,7 @@ digraph {
   subgraph cluster_layout_randomization_margin {
     label="";
     style="invis";
-    margin=25;
+    margin=25; // special
     subgraph cluster_layout_randomization {
       label="Layout Randomization";
       rank=same;
@@ -277,7 +277,7 @@ digraph {
     label="";
     rank=same;
     style="invis";
-    margin=10;
+    margin=15;
     "X86_64: Intel CET" [shape=oval, color=aquamarine]; // HW Defence
     "X86_64: X86_KERNEL_IBT" [shape=oval, color=palegreen3]; // Mainline Defence
     "X86_64: X86_SHADOW_STACK" [shape=oval, color=cornflowerblue]; // Out-of-tree Defence
@@ -288,7 +288,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=35;
+    margin=15;
     node [shape=oval, color=palegreen3]; // Mainline Defence
     "X86_64: spectre_v2";
     "X86_64: spectre_v2_user";
@@ -440,7 +440,7 @@ digraph {
     label="";
     rank=same;
     style="dashed";
-    margin=35;
+    margin=25;
 
     // Vulnerability
     "NULL Pointer Dereference (CWE-476)" [shape=box, color=pink, URL="https://cwe.mitre.org/data/definitions/476.html"];
@@ -454,11 +454,11 @@ digraph {
     fontsize=18;
     rank=same;
     style="dashed";
-    margin=35;
+    margin=35; // special
     node [shape=box, color=gold]; // Exploitation Techniques
     subgraph cluster_with_rop {
       label="";
-      margin=35;
+      margin=35; // special
       "ROP/JOP/COP";
       "ret2usr + ROP/JOP/COP";
       "ret2dir + ROP/JOP/COP";
@@ -473,7 +473,7 @@ digraph {
     fontsize=18;
     rank=same;
     style="dashed";
-    margin=35;
+    margin=25;
     node [shape=box, color=gold]; // Exploitation Techniques
     "Heap Grooming";
     "Slab Cache Slot Reuse";
@@ -494,7 +494,7 @@ digraph {
     label="";
     rank=same;
     style="invis";
-    margin=15;
+    margin=25;
     node [shape=box, color=pink]; // Vulnerabilities
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
