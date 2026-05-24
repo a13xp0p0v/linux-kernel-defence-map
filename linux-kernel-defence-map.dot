@@ -145,8 +145,9 @@ digraph {
     style="dashed";
     margin=35;
 
+    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
+
     node [shape=oval, color=palegreen3]; // Mainline Defences
-    "mitigations=auto,nosmt";
     "CPU_MITIGATIONS";
     "X86_64: MICROCODE";
     "X86_64: MITIGATION_*";
@@ -155,8 +156,7 @@ digraph {
     "ARM64: HARDEN_BRANCH_PREDICTOR";
     "ARM64: UNMAP_KERNEL_AT_EL0";
     "ARM64: ARM64_E0PD";
-
-    "RESPECTRE" [shape=oval, color=lightgrey]; // Commercial Defence
+    "mitigations=auto,nosmt";
   }
 
   subgraph cluster_smap_pan_uderef {
