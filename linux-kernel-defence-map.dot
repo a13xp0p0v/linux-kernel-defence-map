@@ -423,6 +423,8 @@ digraph {
     "'ops' Structures Overwrite";
     "Kernel Space Mirroring Attack";
     "Paging Corruption";
+    "DMA Attack";
+    "Platform Reset Attack";
   }
 
   subgraph cluster_oob {
@@ -500,16 +502,6 @@ digraph {
     node [shape=box, color=pink]; // Vulnerabilities
     "Deadlock (CWE-833)" [URL="https://cwe.mitre.org/data/definitions/833.html"];
     "Infinite Loop (CWE-835)" [URL="https://cwe.mitre.org/data/definitions/835.html"];
-  }
-
-  subgraph cluster_hw_attacks {
-    label="";
-    rank=same;
-    style="invis";
-    margin=25;
-    node [shape=box, color=gold]; // Exploitation Techniques
-    "DMA Attack";
-    "Platform Reset Attack";
   }
 
 
