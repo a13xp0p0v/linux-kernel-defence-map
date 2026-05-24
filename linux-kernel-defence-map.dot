@@ -202,6 +202,7 @@ digraph {
     margin=15;
     "X86_64: X86_INTEL_UMIP" [shape=oval, color=palegreen3]; // Mainline Defence
     "kptr_restrict" [shape=oval, color=palegreen3]; // Mainline Defence
+    "hash_pointers" [shape=oval, color=palegreen3]; // Mainline Defence
     "GRKERNSEC_HIDESYM" [shape=oval, color=lightgrey]; // Commercial Defence
     "GRKERNSEC_DMESG" [shape=oval, color=lightgrey]; // Commercial Defence
   }
