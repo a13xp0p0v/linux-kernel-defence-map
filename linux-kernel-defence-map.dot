@@ -511,6 +511,7 @@ digraph {
     "KMEMLEAK";
     "PROVE_LOCKING";
     "DEBUG_ATOMIC_SLEEP";
+    "DETECT_HUNG_TASK";
     "LOCKUP_DETECTOR";
     "WQ_WATCHDOG";
     "slub_debug=F"; // sanity checks
@@ -541,6 +542,7 @@ digraph {
   "Memory Leak (CWE-401)":e -> "KMEMLEAK":w;
   "Deadlock (CWE-833)":e -> "PROVE_LOCKING":w;
   "Deadlock (CWE-833)":e -> "DEBUG_ATOMIC_SLEEP":w;
+  "Deadlock (CWE-833)":e -> "DETECT_HUNG_TASK":w;
   "Infinite Loop (CWE-835)":e -> "LOCKUP_DETECTOR":w;
   "Infinite Loop (CWE-835)":e -> "WQ_WATCHDOG":w;
   "Heap Out-of-Bounds Access (CWE-122,119)":e -> "slub_debug=Z":w;
